@@ -1,0 +1,34 @@
+{
+  "date": "2026-04-03",
+  "title": { "en": "Eighteen, by choice", "de": "Achtzehn, aus Entscheidung", "it": "Diciotto, per scelta", "fr": "Dix-huit, par choix" },
+  "excerpt": {
+    "en": "Why the house has eighteen suites, and why that number has never grown.",
+    "de": "Warum das Haus achtzehn Suiten hat — und warum diese Zahl nie gewachsen ist.",
+    "it": "Perché la casa ha diciotto suite, e perché quel numero non è mai cresciuto.",
+    "fr": "Pourquoi la maison compte dix-huit suites, et pourquoi ce chiffre n'a jamais grandi."
+  },
+  "body": {
+    "en": [
+      "Lugano had money, mountains and a lake, and no reason for the world to stop. The people who passed through — between Zurich and Milan, between one meeting and the next — looked at the water from the motorway and kept driving.",
+      "So a building went up on the hillside at Paradiso, built around a single obstinate decision: every room in it would face the water. Not the best rooms. Every room. The architects drew it like a ship — clean lines, flowing curves, the lake always in the window. That decision fixed the second one: on this slope, facing this way, the building holds eighteen suites, and not one more.",
+      "Eighteen means the kitchen knows the dining room by name. It means the Ambassador who confirmed your booking is the one who says good morning. It means no guest, ever, receives the lesser version of the place — because a lesser version was never built."
+    ],
+    "de": [
+      "Lugano hatte Geld, Berge und einen See — und keinen Grund für die Welt, anzuhalten. Wer durchreiste, zwischen Zürich und Mailand, zwischen zwei Terminen, sah das Wasser von der Autobahn und fuhr weiter.",
+      "Also entstand ein Gebäude am Hang von Paradiso, gebaut um eine einzige, eigensinnige Entscheidung: Jeder Raum darin würde aufs Wasser blicken. Nicht die besten Räume. Jeder Raum. Die Architekten zeichneten es wie ein Schiff — klare Linien, fliessende Kurven, der See immer im Fenster. Diese Entscheidung legte die zweite fest: An diesem Hang, so ausgerichtet, fasst das Gebäude achtzehn Suiten, und keine mehr.",
+      "Achtzehn heisst: Die Küche kennt den Speisesaal beim Namen. Der Ambassador, der Ihre Buchung bestätigte, ist derselbe, der guten Morgen sagt. Und kein Gast, niemals, bekommt die geringere Version des Ortes — weil eine geringere Version nie gebaut wurde."
+    ],
+    "it": [
+      "Lugano aveva soldi, montagne e un lago — e nessuna ragione perché il mondo si fermasse. Chi passava, tra Zurigo e Milano, tra una riunione e l'altra, guardava l'acqua dall'autostrada e proseguiva.",
+      "Così sulla collina di Paradiso è salito un edificio, costruito attorno a un'unica decisione ostinata: ogni sua stanza avrebbe guardato l'acqua. Non le stanze migliori. Ogni stanza. Gli architetti l'hanno disegnato come una nave — linee pulite, curve fluide, il lago sempre nella finestra. Quella decisione ha fissato la seconda: su questo pendio, orientato così, l'edificio tiene diciotto suite, e nemmeno una di più.",
+      "Diciotto significa che la cucina conosce la sala per nome. Che l'Ambassador che ha confermato la prenotazione è lo stesso che vi dà il buongiorno. E che nessun ospite, mai, riceve la versione minore del posto — perché una versione minore non è mai stata costruita."
+    ],
+    "fr": [
+      "Lugano avait l'argent, les montagnes et un lac — et aucune raison pour que le monde s'arrête. Ceux qui passaient, entre Zurich et Milan, entre deux rendez-vous, regardaient l'eau depuis l'autoroute et continuaient.",
+      "Alors un bâtiment s'est élevé sur la colline de Paradiso, construit autour d'une seule décision obstinée : chacune de ses pièces regarderait l'eau. Pas les meilleures pièces. Chacune. Les architectes l'ont dessiné comme un navire — lignes nettes, courbes fluides, le lac toujours à la fenêtre. Cette décision a fixé la seconde : sur cette pente, ainsi orienté, le bâtiment tient dix-huit suites, et pas une de plus.",
+      "Dix-huit, cela veut dire que la cuisine connaît la salle par son nom. Que l'Ambassador qui a confirmé votre réservation est celui qui vous dit bonjour. Et qu'aucun hôte, jamais, ne reçoit la version moindre du lieu — parce qu'une version moindre n'a jamais été construite."
+    ]
+  },
+  "photo": { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135418/hotel_09.jpg",
+    "alt": { "en": "Clean ship-line architecture of the facade", "de": "Die klare, schiffsähnliche Linienführung der Fassade", "it": "Le linee pulite, da nave, della facciata", "fr": "Les lignes nettes, façon navire, de la façade" } }
+}

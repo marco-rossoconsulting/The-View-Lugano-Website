@@ -1,0 +1,83 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Pic from '../../../components/Pic.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { localePaths, dict, p, type Locale } from '../../../lib/i18n';
+import { breadcrumbJsonLd } from '../../../lib/seo';
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+const posts = (await getCollection('journal')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+const fmt = new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : `${lang}-CH`, { dateStyle: 'long' });
+---
+
+<Base {lang} title={t.journal.metaTitle} description={t.journal.metaDesc} route="journal">
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.journal.h1}</h1>
+      <p class="page-intro">{t.journal.intro}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container journal-list">
+      {posts.map((post) => (
+        <a class="journal-card fade-up" href={p(lang, 'journal', post.id)}>
+          <div class="journal-card__photo">
+            <Pic
+              src={post.data.photo.src}
+              alt={post.data.photo.alt[lang]}
+              width={1600}
+              height={1067}
+              sizes="(max-width: 900px) 100vw, 33vw"
+            />
+          </div>
+          <p class="eyebrow">{fmt.format(new Date(post.data.date))}</p>
+          <h2>{post.data.title[lang]}</h2>
+          <p class="journal-card__excerpt">{post.data.excerpt[lang]}</p>
+          <span class="journal-card__more">{t.common.continue}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.journal, url: p(lang, 'journal') },
+    ])}
+  />
+</Base>
+
+<style>
+  .journal-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 3.5vw, 3rem);
+    align-items: start;
+  }
+  .journal-card { display: block; color: var(--ink); }
+  .journal-card__photo { margin-bottom: 1rem; }
+  .journal-card__photo :global(img) { width: 100%; height: auto; display: block; }
+  .journal-card h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 1.35rem;
+    margin: 0.35rem 0 0.6rem;
+  }
+  .journal-card__excerpt { font-size: 0.95rem; margin-bottom: 0.75rem; }
+  .journal-card__more {
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.15rem;
+  }
+  @media (max-width: 900px) { .journal-list { grid-template-columns: 1fr; } }
+</style>

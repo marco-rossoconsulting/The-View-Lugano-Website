@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import EditorialSplit from '../../components/EditorialSplit.astro';
+import TheForkWidget from '../../components/TheForkWidget.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import Waterline from '../../components/Waterline.astro';
+import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { breadcrumbJsonLd } from '../../lib/seo';
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+const venues = (await getCollection('dining')).sort((a, b) => a.data.order - b.data.order);
+const restaurant = venues.find((v) => v.data.kind === 'restaurant')!;
+const terrace = venues.find((v) => v.data.kind === 'terrace')!;
+const bar = venues.find((v) => v.data.kind === 'bar')!;
+---
+
+<Base {lang} title={t.dining.metaTitle} description={t.dining.metaDesc} route="dining" ogImage={restaurant.data.photos[0].src}>
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.dining.h1}</h1>
+      <p class="page-intro">{t.dining.intro}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <EditorialSplit
+        src={restaurant.data.photos[0].src}
+        alt={restaurant.data.photos[0].alt[lang]}
+        eyebrow={t.home.diningEyebrow}
+        title={t.dining.restaurantTitle}
+      >
+        <p>{t.dining.restaurantBody1}</p>
+        <p>{t.dining.restaurantBody2}</p>
+        <ul class="facts facts--inline">
+          {restaurant.data.facts.map((f) => <li>{f[lang]}</li>)}
+        </ul>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <section class="section section--tortora">
+    <div class="container">
+      <EditorialSplit
+        src={terrace.data.photos[0].src}
+        alt={terrace.data.photos[0].alt[lang]}
+        title={t.dining.terraceTitle}
+        flip
+      >
+        <p>{t.dining.terraceBody}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <EditorialSplit
+        src={bar.data.photos[0].src}
+        alt={bar.data.photos[0].alt[lang]}
+        title={t.dining.barTitle}
+      >
+        <p>{t.dining.barBody}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <section class="section section--tortora">
+    <div class="container container--narrow">
+      <h2 class="section-title">{t.dining.breakfastTitle}</h2>
+      <p style="max-width: 62ch;">{t.dining.breakfastBody}</p>
+    </div>
+  </section>
+
+  <div class="container"><Waterline /></div>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="section-title">{t.dining.reserveTable}</h2>
+      <TheForkWidget {lang} />
+    </div>
+  </section>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.dining, url: p(lang, 'dining') },
+    ])}
+  />
+</Base>
+
+<style>
+  .facts--inline { margin-top: var(--space-2); }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    margin-bottom: var(--space-2);
+  }
+</style>

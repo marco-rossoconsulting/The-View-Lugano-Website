@@ -1,0 +1,126 @@
+---
+import Base from '../../layouts/Base.astro';
+import EditorialSplit from '../../components/EditorialSplit.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import Waterline from '../../components/Waterline.astro';
+import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { breadcrumbJsonLd } from '../../lib/seo';
+import { SITE } from '../../lib/site';
+import { byCategory } from '../../lib/photos';
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+const treatments = (await getCollection('spa')).sort((a, b) => a.data.order - b.data.order);
+const spaPhotos = byCategory('spa');
+---
+
+<Base {lang} title={t.spa.metaTitle} description={t.spa.metaDesc} route="spa" ogImage={spaPhotos[0].src}>
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.spa.h1}</h1>
+      <p class="page-intro">{t.spa.intro}</p>
+      <p class="page-note">{t.spa.philosophy}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <EditorialSplit
+        src={spaPhotos[0].src}
+        alt={spaPhotos[0].alt[lang]}
+        eyebrow={t.spa.hoursTitle}
+        title={`${t.common.openDaily} ${SITE.spa.hours}`}
+      >
+        <p>{t.spa.hoursBody}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <section class="section section--tortora">
+    <div class="container container--narrow">
+      <h2 class="section-title">{t.spa.treatmentsTitle}</h2>
+      <p style="margin-bottom: var(--space-3); max-width: 62ch;">{t.spa.treatmentsIntro}</p>
+      <ul class="treatments">
+        {treatments.map((tr) => (
+          <li class="treatment fade-up">
+            <div class="treatment__head">
+              <h3>{tr.data.name[lang]}</h3>
+              <span class="treatment__duration">{tr.data.duration}</span>
+            </div>
+            <p>{tr.data.summary[lang]}</p>
+          </li>
+        ))}
+      </ul>
+      <a class="btn" href={p(lang, 'contact')}>{t.spa.bookTreatment}</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <EditorialSplit
+        src={spaPhotos.length > 1 ? spaPhotos[1].src : spaPhotos[0].src}
+        alt={spaPhotos.length > 1 ? spaPhotos[1].alt[lang] : spaPhotos[0].alt[lang]}
+        title={t.spa.fitnessTitle}
+        flip
+      >
+        <p>{t.spa.fitnessBody}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <div class="container"><Waterline /></div>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.spa, url: p(lang, 'spa') },
+    ])}
+  />
+</Base>
+
+<style>
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    margin-bottom: var(--space-2);
+  }
+  .treatments {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .treatment {
+    border-top: 1px solid var(--tortora-densa);
+    padding-top: var(--space-2);
+  }
+  .treatment__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .treatment__head h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+  }
+  .treatment__duration {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    white-space: nowrap;
+  }
+  .treatment p { max-width: 60ch; }
+</style>

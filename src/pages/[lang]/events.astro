@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+import EditorialSplit from '../../components/EditorialSplit.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import Waterline from '../../components/Waterline.astro';
+import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { breadcrumbJsonLd } from '../../lib/seo';
+import { egumaUrl } from '../../lib/site';
+import { byCategory, find } from '../../lib/photos';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+const eventsPhoto = byCategory('events')[0];
+const meetingPhoto = byCategory('meeting')[0];
+const terracePhoto = byCategory('terrace')[0];
+---
+
+<Base {lang} title={t.events.metaTitle} description={t.events.metaDesc} route="events">
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.events.h1}</h1>
+      <p class="page-intro">{t.events.intro}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <EditorialSplit
+        src={eventsPhoto.src}
+        alt={eventsPhoto.alt[lang]}
+        title={t.events.privateTitle}
+      >
+        <p>{t.events.privateBody}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <section class="section section--tortora">
+    <div class="container">
+      <EditorialSplit
+        src={meetingPhoto.src}
+        alt={meetingPhoto.alt[lang]}
+        title={t.events.meetingTitle}
+        flip
+      >
+        <p>{t.events.meetingBody}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <EditorialSplit
+        src={terracePhoto.src}
+        alt={terracePhoto.alt[lang]}
+        title={t.events.buyoutTitle}
+      >
+        <p>{t.events.buyoutBody}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <!-- Honest anti-positioning: what the house does not do, stated plainly -->
+  <section class="section section--tortora">
+    <div class="container container--narrow">
+      <p style="max-width: 62ch;">{t.events.honest}</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top: var(--space-3);">
+        <a class="btn btn--solid" href={p(lang, 'contact')}>{t.events.cta}</a>
+        <a class="btn" href={egumaUrl('events', lang)} rel="noopener">{t.common.eventsShop}</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><Waterline /></div>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.events, url: p(lang, 'events') },
+    ])}
+  />
+</Base>

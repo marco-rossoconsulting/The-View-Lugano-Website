@@ -1,0 +1,196 @@
+# Sveltia CMS configuration — THE VIEW Lugano
+# Backend: adjust repo/branch to the production Git remote before first use.
+# Sveltia supports GitHub and GitLab backends with the same config schema.
+backend:
+  name: github
+  repo: planhotel/theview-website # ← set to the real repository
+  branch: main
+  base_url: https://api.netlify.com # or your OAuth proxy
+
+media_folder: src/assets/photos
+public_folder: /src/assets/photos
+
+site_url: https://www.theviewlugano.com
+display_url: https://www.theviewlugano.com
+locale: en
+
+# Shared field template: every localized string carries all four languages.
+# (Sveltia renders these as grouped inputs; validation is enforced again by
+# the Astro content schema at build time, so a missing translation fails CI.)
+
+collections:
+  - name: suites
+    label: Suites & Residence
+    folder: src/content/suites
+    extension: json
+    format: json
+    create: true
+    identifier_field: order
+    summary: '{{fields.name.en}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - name: name
+        label: Name
+        widget: object
+        fields: &loc
+          - { name: en, label: English, widget: string }
+          - { name: de, label: Deutsch, widget: string }
+          - { name: it, label: Italiano, widget: string }
+          - { name: fr, label: Français, widget: string }
+      - { name: sqm, label: Size (m²), widget: number }
+      - { name: sleeps, label: Sleeps, widget: number }
+      - { name: count, label: Number of units, widget: number }
+      - { name: lakeView, label: Lake view, widget: hidden, default: true }
+      - { name: terrace, label: Private terrace, widget: hidden, default: true }
+      - name: photos
+        label: Photos
+        widget: list
+        fields:
+          - { name: src, label: Image URL, widget: string, hint: 'Full URL or /src/assets/photos/... path' }
+          - name: alt
+            label: 'Alt text (required, all languages)'
+            widget: object
+            fields: *loc
+      - name: summary
+        label: Summary
+        widget: object
+        fields: &loctext
+          - { name: en, label: English, widget: text }
+          - { name: de, label: Deutsch, widget: text }
+          - { name: it, label: Italiano, widget: text }
+          - { name: fr, label: Français, widget: text }
+      - name: body
+        label: Body paragraphs
+        widget: object
+        fields:
+          - { name: en, label: English, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: de, label: Deutsch, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: it, label: Italiano, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: fr, label: Français, widget: list, field: { name: p, label: Paragraph, widget: text } }
+      - name: amenities
+        label: Amenities
+        widget: list
+        fields: *loc
+
+  - name: dining
+    label: Dining venues
+    folder: src/content/dining
+    extension: json
+    format: json
+    create: true
+    identifier_field: name
+    summary: '{{fields.name}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - { name: name, label: Venue name, widget: string }
+      - { name: kind, label: Kind, widget: select, options: [restaurant, terrace, bar] }
+      - name: photos
+        label: Photos
+        widget: list
+        fields:
+          - { name: src, label: Image URL, widget: string }
+          - name: alt
+            label: 'Alt text (all languages)'
+            widget: object
+            fields: *loc
+      - name: summary
+        label: Summary
+        widget: object
+        fields: *loctext
+      - name: facts
+        label: Facts
+        widget: list
+        fields: *loc
+
+  - name: spa
+    label: Spa treatments
+    folder: src/content/spa
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.name.en}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - name: name
+        label: Treatment name
+        widget: object
+        fields: *loc
+      - { name: duration, label: Duration, widget: string, hint: 'e.g. 50 min' }
+      - name: summary
+        label: Description
+        widget: object
+        fields: *loctext
+
+  - name: offers
+    label: Experiences & Offers
+    folder: src/content/offers
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.name.en}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - name: name
+        label: Name
+        widget: object
+        fields: *loc
+      - name: summary
+        label: Summary
+        widget: object
+        fields: *loctext
+      - name: body
+        label: Body paragraphs
+        widget: object
+        fields:
+          - { name: en, label: English, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: de, label: Deutsch, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: it, label: Italiano, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: fr, label: Français, widget: list, field: { name: p, label: Paragraph, widget: text } }
+      - name: includes
+        label: What it includes
+        widget: list
+        fields: *loc
+      - name: photo
+        label: Photo
+        widget: object
+        fields:
+          - { name: src, label: Image URL, widget: string }
+          - name: alt
+            label: 'Alt text (all languages)'
+            widget: object
+            fields: *loc
+
+  - name: journal
+    label: Journal
+    folder: src/content/journal
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.title.en}}'
+    fields:
+      - { name: date, label: Date, widget: string, hint: 'YYYY-MM-DD' }
+      - name: title
+        label: Title
+        widget: object
+        fields: *loc
+      - name: excerpt
+        label: Excerpt
+        widget: object
+        fields: *loctext
+      - name: body
+        label: Body paragraphs
+        widget: object
+        fields:
+          - { name: en, label: English, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: de, label: Deutsch, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: it, label: Italiano, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - { name: fr, label: Français, widget: list, field: { name: p, label: Paragraph, widget: text } }
+      - name: photo
+        label: Photo
+        widget: object
+        fields:
+          - { name: src, label: Image URL, widget: string }
+          - name: alt
+            label: 'Alt text (all languages)'
+            widget: object
+            fields: *loc

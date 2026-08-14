@@ -1,0 +1,239 @@
+---
+import Base from '../../layouts/Base.astro';
+import Pic from '../../components/Pic.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { breadcrumbJsonLd, imageJsonLd } from '../../lib/seo';
+import { PHOTOS } from '../../lib/photos';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+
+const catLabels: Record<string, string> = {
+  hotel: t.gallery.catHotel,
+  suite: t.gallery.catSuite,
+  dining: t.gallery.catDining,
+  terrace: t.gallery.catTerrace,
+  bar: t.gallery.catBar,
+  spa: t.gallery.catSpa,
+  meeting: t.gallery.catMeeting,
+  events: t.gallery.catEvents,
+  fleet: t.gallery.catFleet,
+};
+const cats = Object.keys(catLabels).filter((c) => PHOTOS.some((ph) => ph.category === c));
+---
+
+<Base {lang} title={t.gallery.metaTitle} description={t.gallery.metaDesc} route="gallery">
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.gallery.h1}</h1>
+      <p class="page-intro">{t.gallery.intro}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="gallery-filters" role="group" aria-label={t.gallery.h1}>
+        <button type="button" class="gallery-filter is-active" data-filter="all">{t.gallery.filterAll}</button>
+        {cats.map((c) => (
+          <button type="button" class="gallery-filter" data-filter={c}>{catLabels[c]}</button>
+        ))}
+      </div>
+
+      <div class="gallery-grid" data-gallery>
+        {PHOTOS.map((ph, i) => (
+          <button
+            type="button"
+            class="gallery-item"
+            data-category={ph.category}
+            data-index={i}
+            aria-label={ph.alt[lang]}
+          >
+            <Pic
+              src={ph.src}
+              alt={ph.alt[lang]}
+              width={ph.width}
+              height={ph.height}
+              widths={[480, 800]}
+              sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label={t.gallery.h1}>
+    <button type="button" class="lightbox__close" data-lb-close aria-label={t.gallery.lightboxClose}>×</button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb-prev aria-label={t.gallery.lightboxPrev}>‹</button>
+    <figure class="lightbox__figure">
+      <img data-lb-img src="" alt="" />
+      <figcaption data-lb-caption></figcaption>
+    </figure>
+    <button type="button" class="lightbox__nav lightbox__nav--next" data-lb-next aria-label={t.gallery.lightboxNext}>›</button>
+  </div>
+
+  <script define:vars={{ photos: PHOTOS.map((ph) => ({ src: ph.src, alt: ph.alt[lang], category: ph.category })) }}>
+    // Filters
+    const buttons = document.querySelectorAll('.gallery-filter');
+    const items = document.querySelectorAll('.gallery-item');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        const f = btn.dataset.filter;
+        items.forEach((it) => {
+          it.style.display = f === 'all' || it.dataset.category === f ? '' : 'none';
+        });
+      });
+    });
+
+    // Lightbox — keyboard accessible, focus returned on close
+    const lb = document.querySelector('[data-lightbox]');
+    const lbImg = lb.querySelector('[data-lb-img]');
+    const lbCaption = lb.querySelector('[data-lb-caption]');
+    let current = 0;
+    let lastFocus = null;
+
+    function visibleIndices() {
+      return Array.from(items)
+        .filter((it) => it.style.display !== 'none')
+        .map((it) => Number(it.dataset.index));
+    }
+    function show(index) {
+      current = index;
+      const ph = photos[index];
+      lbImg.src = ph.src;
+      lbImg.alt = ph.alt;
+      lbCaption.textContent = ph.alt;
+    }
+    function open(index) {
+      lastFocus = document.activeElement;
+      show(index);
+      lb.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      lb.querySelector('[data-lb-close]').focus();
+    }
+    function close() {
+      lb.hidden = true;
+      document.documentElement.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+    function step(dir) {
+      const vis = visibleIndices();
+      const pos = vis.indexOf(current);
+      const next = vis[(pos + dir + vis.length) % vis.length];
+      show(next);
+    }
+
+    items.forEach((it) => it.addEventListener('click', () => open(Number(it.dataset.index))));
+    lb.querySelector('[data-lb-close]').addEventListener('click', close);
+    lb.querySelector('[data-lb-prev]').addEventListener('click', () => step(-1));
+    lb.querySelector('[data-lb-next]').addEventListener('click', () => step(1));
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
+    });
+  </script>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.gallery, url: p(lang, 'gallery') },
+    ])}
+  />
+  <JsonLd data={imageJsonLd(PHOTOS.map((ph) => ({ url: ph.src, caption: ph.alt[lang] })))} />
+</Base>
+
+<style>
+  .gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-bottom: var(--space-3);
+  }
+  .gallery-filter {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    padding: 0.6rem 0.1rem;
+    cursor: pointer;
+    min-height: 44px;
+  }
+  .gallery-filter.is-active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.5rem, 1.5vw, 1.25rem);
+  }
+  .gallery-item {
+    display: block;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+  .gallery-item :global(img) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 1100px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: rgb(51 41 26 / 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox__figure {
+    max-width: min(92vw, 78rem);
+    max-height: 88vh;
+    margin: 0;
+    text-align: center;
+  }
+  .lightbox__figure img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+  .lightbox__figure figcaption {
+    color: rgb(255 255 255 / 0.75);
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+  }
+  .lightbox__close,
+  .lightbox__nav {
+    position: absolute;
+    background: none;
+    border: 0;
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.75rem;
+    min-width: 48px;
+    min-height: 48px;
+  }
+  .lightbox__close { top: 1rem; right: 1.25rem; }
+  .lightbox__nav--prev { left: 0.75rem; top: 50%; transform: translateY(-50%); }
+  .lightbox__nav--next { right: 0.75rem; top: 50%; transform: translateY(-50%); }
+</style>

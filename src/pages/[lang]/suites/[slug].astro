@@ -1,0 +1,128 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Pic from '../../../components/Pic.astro';
+import BookingBar from '../../../components/BookingBar.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import Waterline from '../../../components/Waterline.astro';
+import { LOCALES, dict, p, type Locale } from '../../../lib/i18n';
+import { breadcrumbJsonLd } from '../../../lib/seo';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const suites = await getCollection('suites');
+  return LOCALES.flatMap((lang) =>
+    suites.map((s) => ({ params: { lang, slug: s.id }, props: { suite: s } }))
+  );
+}
+
+const lang = Astro.params.lang as Locale;
+const { suite } = Astro.props;
+const t = dict(lang);
+const d = suite.data;
+---
+
+<Base
+  {lang}
+  title={`${d.name[lang]} — THE VIEW Lugano`}
+  description={d.summary[lang]}
+  route={`suites/${suite.id}`}
+  ogImage={d.photos[0].src}
+  preloadImage={d.photos[0].src}
+>
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="eyebrow">{t.nav.suites}</p>
+      <h1 class="page-title">{d.name[lang]}</h1>
+      <p class="page-intro">{d.summary[lang]}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container suite-photos">
+      {d.photos.map((ph, i) => (
+        <div class={i === 0 ? 'suite-photos__lead' : 'suite-photos__sub'}>
+          <Pic
+            src={ph.src}
+            alt={ph.alt[lang]}
+            width={1600}
+            height={1067}
+            sizes={i === 0 ? '(max-width: 900px) 100vw, 90vw' : '(max-width: 900px) 100vw, 44vw'}
+            loading={i === 0 ? 'eager' : 'lazy'}
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container suite-detail">
+      <div class="suite-detail__body">
+        {d.body[lang].map((par: string) => <p>{par}</p>)}
+      </div>
+      <aside class="suite-detail__facts">
+        <h2 class="eyebrow">{t.suites.amenities}</h2>
+        <ul class="facts">
+          {d.amenities.map((a) => <li>{a[lang]}</li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div class="container"><Waterline /></div>
+
+  <section class="section">
+    <div class="container">
+      <BookingBar {lang} />
+    </div>
+  </section>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.suites, url: p(lang, 'suites') },
+      { name: d.name[lang], url: p(lang, 'suites', suite.id) },
+    ])}
+  />
+  <JsonLd
+    data={{
+      '@context': 'https://schema.org',
+      '@type': 'HotelRoom',
+      name: d.name[lang],
+      description: d.summary[lang],
+      occupancy: { '@type': 'QuantitativeValue', maxValue: d.sleeps },
+      floorSize: { '@type': 'QuantitativeValue', value: d.sqm, unitCode: 'MTK' },
+      amenityFeature: [
+        { '@type': 'LocationFeatureSpecification', name: 'Lake view', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Private terrace', value: true },
+      ],
+      image: d.photos.map((ph) => ph.src),
+      containedInPlace: { '@id': 'https://www.theviewlugano.com/#hotel' },
+    }}
+  />
+</Base>
+
+<style>
+  .suite-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+  }
+  .suite-photos__lead { grid-column: 1 / -1; }
+  .suite-photos :global(img) { width: 100%; height: auto; display: block; }
+  .suite-detail {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+  .suite-detail__body p { margin-bottom: 1rem; max-width: 62ch; }
+  .suite-detail__facts {
+    background: var(--tortora);
+    border: 1px solid var(--tortora-densa);
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+  @media (max-width: 900px) {
+    .suite-photos { grid-template-columns: 1fr; }
+    .suite-detail { grid-template-columns: 1fr; }
+  }
+</style>

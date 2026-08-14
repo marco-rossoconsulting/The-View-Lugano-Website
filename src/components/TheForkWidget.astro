@@ -1,0 +1,65 @@
+---
+// TheFork reservation widget — consent-gated per FADP: the third-party iframe
+// only loads after marketing consent, or on an explicit click. Until then the
+// direct phone line is offered, so no path to a table is ever blocked.
+import { dict, type Locale } from '../lib/i18n';
+import { SITE } from '../lib/site';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+
+<div class="fork" data-fork data-src={SITE.integrations.theForkWidget}>
+  <div class="fork__gate" data-fork-gate>
+    <p>{t.dining.menuNote}</p>
+    <button type="button" class="btn" data-fork-load>{t.dining.reserveTable} — TheFork</button>
+    <p class="fork__alt">
+      {t.common.callUs}: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>
+    </p>
+  </div>
+  <div class="fork__frame" data-fork-frame hidden></div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-fork]').forEach((root) => {
+    const gate = root.querySelector<HTMLElement>('[data-fork-gate]');
+    const frame = root.querySelector<HTMLElement>('[data-fork-frame]');
+    const src = root.dataset.src!;
+    function load() {
+      if (!frame || frame.dataset.loaded) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.title = 'TheFork';
+      iframe.loading = 'lazy';
+      iframe.style.width = '100%';
+      iframe.style.height = '640px';
+      iframe.style.border = '0';
+      frame.appendChild(iframe);
+      frame.dataset.loaded = '1';
+      frame.hidden = false;
+      gate?.setAttribute('hidden', '');
+    }
+    const consent = (window as any).tvConsent?.();
+    if (consent?.marketing) load();
+    document.addEventListener('tv:consent', (e: any) => {
+      if (e.detail?.marketing) load();
+    });
+    root.querySelector('[data-fork-load]')?.addEventListener('click', load);
+  });
+</script>
+
+<style>
+  .fork__gate {
+    background: var(--tortora);
+    border: 1px solid var(--tortora-densa);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .fork__gate p { margin: 0; max-width: 56ch; }
+  .fork__alt { font-size: 0.9rem; color: var(--clay); }
+  .fork__alt a { border-bottom: 1px solid var(--clay); }
+</style>

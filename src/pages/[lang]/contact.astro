@@ -1,0 +1,98 @@
+---
+import Base from '../../layouts/Base.astro';
+import BookingBar from '../../components/BookingBar.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import Waterline from '../../components/Waterline.astro';
+import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { breadcrumbJsonLd } from '../../lib/seo';
+import { SITE } from '../../lib/site';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+---
+
+<Base {lang} title={t.contact.metaTitle} description={t.contact.metaDesc} route="contact">
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.contact.h1}</h1>
+      <p class="page-intro">{t.contact.intro}</p>
+      <!-- All contact facts in plain, crawlable prose with functional links -->
+      <address class="contact-card">
+        <p><strong>{SITE.name}</strong><br />{SITE.address.street}, {SITE.address.postalCode} {SITE.address.locality}, {SITE.address.countryName}</p>
+        <p>
+          {t.common.phone}: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a><br />
+          {t.contact.whatsapp}: <a href={`https://wa.me/${SITE.whatsapp}`} rel="noopener">{SITE.whatsapp}</a><br />
+          {t.common.email}: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        </p>
+      </address>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container container--narrow">
+      <h2 class="section-title">{t.contact.reserveTitle}</h2>
+      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{t.contact.reserveBody}</p>
+      <BookingBar {lang} />
+    </div>
+  </section>
+
+  <div class="container"><Waterline /></div>
+
+  <!-- Trade & advisor contact point: the one place GDS codes live (Brand Bible §10.3) -->
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="section-title">{t.common.trade}</h2>
+      <p style="max-width: 62ch; margin-bottom: var(--space-2);">{t.contact.tradeBody}</p>
+      <p class="gds-note">{t.common.gdsNote}</p>
+      <ul class="facts gds-list">
+        <li>Amadeus: {SITE.gds.amadeus}</li>
+        <li>Sabre: {SITE.gds.sabre}</li>
+        <li>Galileo / Apollo: {SITE.gds.galileo}</li>
+        <li>WorldSpan: {SITE.gds.worldspan}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tortora">
+    <div class="container container--narrow">
+      <h2 class="section-title">{t.contact.careersTitle}</h2>
+      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{t.contact.careersBody}</p>
+      <a class="btn" href={`mailto:${SITE.email}`}>{t.common.writeUs}</a>
+    </div>
+  </section>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.contact, url: p(lang, 'contact') },
+    ])}
+  />
+</Base>
+
+<style>
+  .contact-card {
+    font-style: normal;
+    display: grid;
+    gap: 1rem;
+    background: var(--tortora);
+    border: 1px solid var(--tortora-densa);
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+  .contact-card a { border-bottom: 1px solid var(--clay); }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    margin-bottom: var(--space-2);
+  }
+  .gds-note {
+    font-size: 0.9rem;
+    color: var(--clay);
+    margin-bottom: 0.75rem;
+  }
+  .gds-list li { font-variant-numeric: tabular-nums; }
+</style>

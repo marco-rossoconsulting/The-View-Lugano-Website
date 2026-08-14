@@ -1,0 +1,70 @@
+{
+  "order": 3,
+  "name": { "en": "THE VIEW Residence", "de": "THE VIEW Residence", "it": "THE VIEW Residence", "fr": "THE VIEW Residence" },
+  "sqm": 80,
+  "sleeps": 4,
+  "count": 4,
+  "lakeView": true,
+  "terrace": true,
+  "photos": [
+    {
+      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/19140247/web-Outside.jpg",
+      "alt": {
+        "en": "THE VIEW Residence terrace above the lake",
+        "de": "Terrasse der THE VIEW Residence über dem See",
+        "it": "Terrazza della THE VIEW Residence sopra il lago",
+        "fr": "Terrasse de THE VIEW Residence au-dessus du lac"
+      }
+    },
+    {
+      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/19140251/web-202-1.jpg",
+      "alt": {
+        "en": "Living space of a Residence apartment",
+        "de": "Wohnraum eines Residence-Apartments",
+        "it": "Zona giorno di un appartamento Residence",
+        "fr": "Séjour d'un appartement Residence"
+      }
+    },
+    {
+      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/19140240/web-202-16.jpg",
+      "alt": {
+        "en": "Residence apartment interior with kitchen",
+        "de": "Interieur eines Residence-Apartments mit Küche",
+        "it": "Interno di un appartamento Residence con cucina",
+        "fr": "Intérieur d'un appartement Residence avec cuisine"
+      }
+    }
+  ],
+  "summary": {
+    "en": "Apartments in the same building, with a kitchen, more room to live in, and the hotel one floor away when you want it — the same lake in the window when you don't.",
+    "de": "Apartments im selben Gebäude, mit Küche, mehr Raum zum Leben und dem Hotel eine Etage entfernt, wenn Sie es wollen — und demselben See im Fenster, wenn nicht.",
+    "it": "Appartamenti nello stesso edificio, con cucina, più spazio da vivere e l'hotel a un piano di distanza quando lo volete — lo stesso lago nella finestra quando no.",
+    "fr": "Des appartements dans le même bâtiment, avec cuisine, plus d'espace à vivre et l'hôtel à un étage quand vous le voulez — le même lac à la fenêtre sinon."
+  },
+  "body": {
+    "en": [
+      "The Residence is for stays that behave like living: a kitchen of your own, space to work and to spread out, and the house's services — the restaurant, the spa, the Ambassador, the fleet — available the moment you want them.",
+      "Layouts and availability vary by apartment; write to us with your dates and how you live, and we will propose the one that fits."
+    ],
+    "de": [
+      "Die Residence ist für Aufenthalte, die sich wie Wohnen verhalten: eine eigene Küche, Platz zum Arbeiten und Ausbreiten — und die Dienste des Hauses, Restaurant, Spa, Ambassador, Flotte, in dem Moment verfügbar, in dem Sie sie wollen.",
+      "Grundrisse und Verfügbarkeit variieren je Apartment; schreiben Sie uns Ihre Daten und wie Sie wohnen, und wir schlagen das passende vor."
+    ],
+    "it": [
+      "La Residence è per soggiorni che somigliano all'abitare: una cucina propria, spazio per lavorare e distendersi — e i servizi della casa, ristorante, spa, Ambassador, flotta, disponibili nel momento in cui li volete.",
+      "Le planimetrie e la disponibilità variano da appartamento ad appartamento; scriveteci le vostre date e come vivete, e vi proporremo quello adatto."
+    ],
+    "fr": [
+      "La Residence est faite pour des séjours qui ressemblent à la vie : une cuisine à soi, de l'espace pour travailler et s'étendre — et les services de la maison, restaurant, spa, Ambassador, flotte, disponibles à l'instant où vous les voulez.",
+      "Les plans et disponibilités varient selon les appartements ; écrivez-nous vos dates et votre manière de vivre, et nous proposerons celui qui convient."
+    ]
+  },
+  "amenities": [
+    { "en": "Apartments with full kitchen", "de": "Apartments mit voller Küche", "it": "Appartamenti con cucina completa", "fr": "Appartements avec cuisine complète" },
+    { "en": "Lake-facing, private terrace", "de": "Seeseitig, private Terrasse", "it": "Fronte lago, terrazza privata", "fr": "Face au lac, terrasse privée" },
+    { "en": "Access to spa, pools and restaurant of the house", "de": "Zugang zu Spa, Pools und Restaurant des Hauses", "it": "Accesso a spa, piscine e ristorante della casa", "fr": "Accès au spa, aux piscines et au restaurant de la maison" },
+    { "en": "Housekeeping and Ambassador service on request", "de": "Housekeeping und Ambassador-Service auf Wunsch", "it": "Housekeeping e servizio Ambassador su richiesta", "fr": "Ménage et service Ambassador sur demande" },
+    { "en": "Air conditioning, complimentary Wi-Fi", "de": "Klimaanlage, kostenfreies WLAN", "it": "Aria condizionata, Wi-Fi incluso", "fr": "Climatisation, Wi-Fi compris" },
+    { "en": "Longer-stay rates on request", "de": "Langzeitraten auf Anfrage", "it": "Tariffe per soggiorni lunghi su richiesta", "fr": "Tarifs longue durée sur demande" }
+  ]
+}

@@ -1,0 +1,173 @@
+---
+// Swiss FADP (nLPD) consent: granular categories, equal-weight choices,
+// no pre-ticked optional boxes, revocable any time via the footer button.
+// Consent state is stored in localStorage + a first-party cookie (tv_consent)
+// and gates third-party embeds (see TheForkWidget.astro).
+import { dict, type Locale } from '../lib/i18n';
+import { p } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+
+<div class="consent" data-consent hidden role="dialog" aria-modal="false" aria-labelledby="consent-title">
+  <div class="consent__inner">
+    <p id="consent-title" class="consent__title">{t.consent.title}</p>
+    <p class="consent__body">
+      {t.consent.body}
+      <a href={p(lang, 'legal', 'cookies')}>{t.nav.cookies}</a>
+    </p>
+
+    <div class="consent__cats" data-consent-cats hidden>
+      <label class="consent__cat">
+        <input type="checkbox" checked disabled />
+        <span><strong>{t.consent.catNecessary}</strong> — {t.consent.catNecessaryDesc}</span>
+      </label>
+      <label class="consent__cat">
+        <input type="checkbox" name="preferences" />
+        <span><strong>{t.consent.catPreferences}</strong> — {t.consent.catPreferencesDesc}</span>
+      </label>
+      <label class="consent__cat">
+        <input type="checkbox" name="statistics" />
+        <span><strong>{t.consent.catStatistics}</strong> — {t.consent.catStatisticsDesc}</span>
+      </label>
+      <label class="consent__cat">
+        <input type="checkbox" name="marketing" />
+        <span><strong>{t.consent.catMarketing}</strong> — {t.consent.catMarketingDesc}</span>
+      </label>
+    </div>
+
+    <div class="consent__actions">
+      <button type="button" class="btn btn--solid" data-consent-accept>{t.consent.acceptAll}</button>
+      <button type="button" class="btn" data-consent-necessary>{t.consent.necessaryOnly}</button>
+      <button type="button" class="btn" data-consent-settings>{t.consent.settings}</button>
+      <button type="button" class="btn btn--solid" data-consent-save hidden>{t.consent.save}</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  type Consent = { necessary: true; preferences: boolean; statistics: boolean; marketing: boolean; ts: number };
+  const KEY = 'tv_consent';
+
+  function read(): Consent | null {
+    try {
+      const raw = localStorage.getItem(KEY);
+      return raw ? (JSON.parse(raw) as Consent) : null;
+    } catch {
+      return null;
+    }
+  }
+  function write(c: Consent) {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(c));
+    } catch {}
+    document.cookie = `${KEY}=${encodeURIComponent(JSON.stringify(c))}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+    document.dispatchEvent(new CustomEvent('tv:consent', { detail: c }));
+  }
+
+  const el = document.querySelector<HTMLElement>('[data-consent]');
+  const cats = el?.querySelector<HTMLElement>('[data-consent-cats]');
+  const saveBtn = el?.querySelector<HTMLElement>('[data-consent-save]');
+
+  function show() {
+    if (!el) return;
+    const c = read();
+    if (c && cats) {
+      (cats.querySelector('[name="preferences"]') as HTMLInputElement).checked = c.preferences;
+      (cats.querySelector('[name="statistics"]') as HTMLInputElement).checked = c.statistics;
+      (cats.querySelector('[name="marketing"]') as HTMLInputElement).checked = c.marketing;
+    }
+    el.hidden = false;
+  }
+  function hide() {
+    if (el) el.hidden = true;
+    cats?.setAttribute('hidden', '');
+    saveBtn?.setAttribute('hidden', '');
+  }
+
+  if (!read()) show();
+
+  el?.querySelector('[data-consent-accept]')?.addEventListener('click', () => {
+    write({ necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() });
+    hide();
+  });
+  el?.querySelector('[data-consent-necessary]')?.addEventListener('click', () => {
+    write({ necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() });
+    hide();
+  });
+  el?.querySelector('[data-consent-settings]')?.addEventListener('click', () => {
+    cats?.removeAttribute('hidden');
+    saveBtn?.removeAttribute('hidden');
+  });
+  el?.querySelector('[data-consent-save]')?.addEventListener('click', () => {
+    write({
+      necessary: true,
+      preferences: (cats?.querySelector('[name="preferences"]') as HTMLInputElement)?.checked ?? false,
+      statistics: (cats?.querySelector('[name="statistics"]') as HTMLInputElement)?.checked ?? false,
+      marketing: (cats?.querySelector('[name="marketing"]') as HTMLInputElement)?.checked ?? false,
+      ts: Date.now(),
+    });
+    hide();
+  });
+
+  // Footer "Cookie settings" re-opens the banner at any time (FADP revocability)
+  document.querySelectorAll('[data-open-consent]').forEach((b) => b.addEventListener('click', show));
+
+  // Expose current consent for embed gating
+  (window as any).tvConsent = read;
+</script>
+
+<style>
+  .consent {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 60;
+    background: var(--ground);
+    border-top: 1px solid var(--tortora-densa);
+    box-shadow: 0 -8px 30px rgb(51 41 26 / 0.08);
+  }
+  .consent__inner {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+  }
+  .consent__title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .consent__body {
+    font-size: 0.9rem;
+    max-width: 70ch;
+    margin-bottom: 1rem;
+  }
+  .consent__body a { border-bottom: 1px solid var(--clay); }
+  .consent__cats {
+    display: grid;
+    gap: 0.6rem;
+    margin-bottom: 1.1rem;
+  }
+  .consent__cat {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    font-size: 0.86rem;
+    cursor: pointer;
+  }
+  .consent__cat input {
+    margin-top: 0.2rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--ink);
+  }
+  .consent__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+</style>

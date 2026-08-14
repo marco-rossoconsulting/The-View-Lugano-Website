@@ -1,0 +1,22 @@
+{
+  "order": 2,
+  "name": "Terrazza TreCinqueZero",
+  "kind": "terrace",
+  "photos": [
+    { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/20080758/terrazza-1.jpg",
+      "alt": { "en": "Terrazza TreCinqueZero at golden hour", "de": "Terrazza TreCinqueZero zur goldenen Stunde", "it": "Terrazza TreCinqueZero all'ora dorata", "fr": "Terrazza TreCinqueZero à l'heure dorée" } },
+    { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/20080806/terrazza-3.jpg",
+      "alt": { "en": "Aperitivo on the terrace above the lake", "de": "Aperitivo auf der Terrasse über dem See", "it": "Aperitivo in terrazza sopra il lago", "fr": "Aperitivo sur la terrasse au-dessus du lac" } }
+  ],
+  "summary": {
+    "en": "The terrace at 350 metres above sea level — aperitivo, lunch and summer evenings in the open air, the lake below.",
+    "de": "Die Terrasse auf 350 Metern über Meer — Aperitivo, Lunch und Sommerabende im Freien, der See darunter.",
+    "it": "La terrazza a 350 metri sul mare — aperitivo, pranzo e sere d'estate all'aperto, il lago sotto.",
+    "fr": "La terrasse à 350 mètres d'altitude — aperitivo, déjeuner et soirées d'été à l'air libre, le lac en contrebas."
+  },
+  "facts": [
+    { "en": "Named for its altitude: 350 metres above sea level", "de": "Benannt nach der Höhe: 350 Meter über Meer", "it": "Il nome viene dall'altitudine: 350 metri sul mare", "fr": "Nommée d'après son altitude : 350 mètres" },
+    { "en": "Seasonal, weather permitting", "de": "Saisonal, wetterabhängig", "it": "Stagionale, meteo permettendo", "fr": "Saisonnière, selon la météo" },
+    { "en": "Same kitchen, open-air register", "de": "Dieselbe Küche, im Freiluftregister", "it": "La stessa cucina, in registro all'aperto", "fr": "La même cuisine, en registre de plein air" }
+  ]
+}

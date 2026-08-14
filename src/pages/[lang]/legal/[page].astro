@@ -1,0 +1,74 @@
+---
+import Base from '../../../layouts/Base.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { LOCALES, dict, p, type Locale } from '../../../lib/i18n';
+import { breadcrumbJsonLd } from '../../../lib/seo';
+
+const PAGES = ['impressum', 'privacy', 'terms', 'cookies'] as const;
+type LegalPage = (typeof PAGES)[number];
+
+export function getStaticPaths() {
+  const P = ['impressum', 'privacy', 'terms', 'cookies'];
+  return LOCALES.flatMap((lang) => P.map((page) => ({ params: { lang, page } })));
+}
+
+const lang = Astro.params.lang as Locale;
+const page = Astro.params.page as LegalPage;
+const t = dict(lang);
+
+const titles: Record<LegalPage, string> = {
+  impressum: t.legal.impressumTitle,
+  privacy: t.legal.privacyTitle,
+  terms: t.legal.termsTitle,
+  cookies: t.legal.cookiesTitle,
+};
+const bodies: Record<LegalPage, string[]> = {
+  impressum: t.legal.impressumBody,
+  privacy: t.legal.privacyBody,
+  terms: t.legal.termsBody,
+  cookies: t.legal.cookiesBody,
+};
+const navLabels: Record<LegalPage, string> = {
+  impressum: t.nav.impressum,
+  privacy: t.nav.privacy,
+  terms: t.nav.terms,
+  cookies: t.nav.cookies,
+};
+---
+
+<Base
+  {lang}
+  title={`${titles[page]} — THE VIEW Lugano`}
+  description={bodies[page][0]}
+  route={`legal/${page}`}
+>
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="eyebrow">{t.nav.legal}</p>
+      <h1 class="page-title">{titles[page]}</h1>
+      <div class="legal-body">
+        {bodies[page].map((par) => <p>{par}</p>)}
+      </div>
+      {page === 'cookies' && (
+        <button type="button" class="btn" data-open-consent style="margin-top: var(--space-3);">
+          {t.legal.cookieSettings}
+        </button>
+      )}
+    </div>
+  </section>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: navLabels[page], url: p(lang, 'legal', page) },
+    ])}
+  />
+</Base>
+
+<style>
+  .legal-body p {
+    margin-bottom: 1.1rem;
+    max-width: 68ch;
+    font-size: 0.96rem;
+  }
+</style>

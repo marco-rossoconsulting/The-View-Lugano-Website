@@ -1,0 +1,11 @@
+{
+  "order": 3,
+  "name": { "en": "Kneipp Circuit & Wet Zones", "de": "Kneipp-Parcours & Nasszonen", "it": "Percorso Kneipp & zone umide", "fr": "Parcours Kneipp & zones humides" },
+  "duration": "At your pace",
+  "summary": {
+    "en": "Warm and cold in alternation, then the salt-lined relaxation room. Ask for the sauna and steam room to be prepared ahead of your visit — they are heated for guests, not left running for nobody.",
+    "de": "Warm und kalt im Wechsel, danach der salzverkleidete Ruheraum. Bitten Sie darum, Sauna und Dampfbad vor Ihrem Besuch vorzubereiten — sie werden für Gäste geheizt, nicht für niemanden betrieben.",
+    "it": "Caldo e freddo in alternanza, poi la sala relax rivestita di sale. Chiedete di preparare sauna e bagno turco prima della vostra visita — si scaldano per gli ospiti, non girano a vuoto.",
+    "fr": "Chaud et froid en alternance, puis la salle de repos tapissée de sel. Demandez que le sauna et le hammam soient préparés avant votre venue — on les chauffe pour les hôtes, pas pour personne."
+  }
+}

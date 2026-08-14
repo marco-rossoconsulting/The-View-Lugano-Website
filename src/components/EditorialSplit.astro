@@ -1,0 +1,70 @@
+---
+// The core layout rhythm: asymmetric photo/text pairs that alternate sides.
+// 7 columns of photograph, 4 of text, 1 of air — never a symmetric card grid.
+import Pic from './Pic.astro';
+
+interface Props {
+  src: string;
+  alt: string;
+  eyebrow?: string;
+  title: string;
+  flip?: boolean;
+  headingLevel?: 'h2' | 'h3';
+  cta?: { href: string; label: string };
+}
+const { src, alt, eyebrow, title, flip = false, headingLevel = 'h2', cta } = Astro.props;
+const Heading = headingLevel;
+---
+
+<div class={`editorial fade-up${flip ? ' editorial--flip' : ''}`}>
+  <div class="editorial__photo">
+    <Pic src={src} alt={alt} width={1600} height={1067} sizes="(max-width: 900px) 100vw, 58vw" />
+  </div>
+  <div class="editorial__text">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <Heading class="editorial__title">{title}</Heading>
+    <div class="editorial__body"><slot /></div>
+    {cta && <a class="btn" href={cta.href}>{cta.label}</a>}
+  </div>
+</div>
+
+<style>
+  .editorial {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .editorial--flip {
+    grid-template-columns: 4fr 7fr;
+  }
+  .editorial--flip .editorial__photo { order: 2; }
+  .editorial--flip .editorial__text { order: 1; }
+  .editorial__photo :global(img) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .editorial__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    line-height: 1.25;
+    margin-bottom: var(--space-2);
+    text-wrap: balance;
+  }
+  .editorial__body :global(p) {
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .editorial__body :global(p:last-child) { margin-bottom: 0; }
+  .editorial__text .btn { margin-top: var(--space-2); }
+  @media (max-width: 900px) {
+    .editorial,
+    .editorial--flip {
+      grid-template-columns: 1fr;
+    }
+    .editorial--flip .editorial__photo { order: 1; }
+    .editorial--flip .editorial__text { order: 2; }
+  }
+</style>

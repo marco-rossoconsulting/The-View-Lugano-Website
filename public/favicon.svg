@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#F7F5F0"/>
+  <text x="32" y="30" text-anchor="middle" font-family="Futura, Jost, sans-serif" font-size="17" letter-spacing="1.5" fill="#33291A">TV</text>
+  <line x1="10" y1="42" x2="54" y2="42" stroke="#C9CDCF" stroke-width="1.5"/>
+  <line x1="16" y1="47" x2="48" y2="47" stroke="#C9CDCF" stroke-width="0.8" opacity="0.5"/>
+</svg>

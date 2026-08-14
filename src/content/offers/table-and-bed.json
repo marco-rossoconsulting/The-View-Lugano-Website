@@ -1,0 +1,35 @@
+{
+  "order": 2,
+  "name": { "en": "A Table and a Bed", "de": "Ein Tisch und ein Bett", "it": "Un tavolo e un letto", "fr": "Une table et un lit" },
+  "summary": {
+    "en": "Dinner at a Michelin table, and instead of the drive home, a suite two floors above it.",
+    "de": "Dinner an einem Michelin-Tisch — und statt der Heimfahrt eine Suite zwei Etagen darüber.",
+    "it": "Cena a un tavolo Michelin — e al posto del viaggio di ritorno, una suite due piani sopra.",
+    "fr": "Dîner à une table étoilée — et au lieu du retour en voiture, une suite deux étages au-dessus."
+  },
+  "body": {
+    "en": [
+      "Many guests meet the house through its restaurant. This arrangement completes the evening: the tasting menu downstairs, a suite upstairs, breakfast in the same room the next morning with the same lake, differently lit.",
+      "The wine list can be read properly when nobody is driving."
+    ],
+    "de": [
+      "Viele Gäste lernen das Haus über sein Restaurant kennen. Dieses Arrangement vollendet den Abend: das Degustationsmenü unten, eine Suite oben, Frühstück am nächsten Morgen im selben Raum, mit demselben See in anderem Licht.",
+      "Die Weinkarte liest sich richtig, wenn niemand fahren muss."
+    ],
+    "it": [
+      "Molti ospiti conoscono la casa attraverso il suo ristorante. Questa proposta completa la serata: il menu degustazione di sotto, una suite di sopra, la colazione la mattina dopo nella stessa sala, con lo stesso lago in un'altra luce.",
+      "La carta dei vini si legge come si deve quando nessuno guida."
+    ],
+    "fr": [
+      "Beaucoup d'hôtes rencontrent la maison par son restaurant. Cette proposition achève la soirée : le menu dégustation en bas, une suite en haut, le petit-déjeuner le lendemain dans la même salle, avec le même lac sous une autre lumière.",
+      "La carte des vins se lit correctement quand personne ne conduit."
+    ]
+  },
+  "includes": [
+    { "en": "One night in a Junior Suite", "de": "Eine Nacht in einer Junior Suite", "it": "Una notte in Junior Suite", "fr": "Une nuit en Junior Suite" },
+    { "en": "Tasting menu for two at THE VIEW Fine Dining", "de": "Degustationsmenü für zwei im THE VIEW Fine Dining", "it": "Menu degustazione per due al THE VIEW Fine Dining", "fr": "Menu dégustation pour deux au THE VIEW Fine Dining" },
+    { "en": "Breakfast with the lake, the morning after", "de": "Frühstück mit dem See am Morgen danach", "it": "Colazione con il lago, la mattina dopo", "fr": "Petit-déjeuner face au lac, le lendemain" }
+  ],
+  "photo": { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12141928/dining_01.jpg",
+    "alt": { "en": "Table set by the window, lake below", "de": "Gedeckter Tisch am Fenster, darunter der See", "it": "Tavolo apparecchiato alla finestra, il lago sotto", "fr": "Table dressée près de la fenêtre, le lac en contrebas" } }
+}

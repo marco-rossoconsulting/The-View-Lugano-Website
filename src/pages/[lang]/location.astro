@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+import EditorialSplit from '../../components/EditorialSplit.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import Waterline from '../../components/Waterline.astro';
+import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { breadcrumbJsonLd } from '../../lib/seo';
+import { SITE } from '../../lib/site';
+import { find, byCategory } from '../../lib/photos';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+const hero = find('hotel_041');
+const fleet = byCategory('fleet');
+---
+
+<Base {lang} title={t.location.metaTitle} description={t.location.metaDesc} route="location">
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.location.h1}</h1>
+      <p class="page-intro">{t.location.intro}</p>
+      <!-- Full address in crawlable prose -->
+      <p class="page-note">
+        {SITE.name} · {SITE.address.street}, {SITE.address.postalCode} {SITE.address.locality}, {SITE.address.countryName}
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <EditorialSplit src={hero.src} alt={hero.alt[lang]} title={t.location.arrivingTitle}>
+        <p>{t.location.byCar}</p>
+        <p>{t.location.byTrain}</p>
+        <p>{t.location.byAir}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <section class="section section--tortora">
+    <div class="container">
+      <EditorialSplit
+        src={fleet[1] ? fleet[1].src : fleet[0].src}
+        alt={fleet[1] ? fleet[1].alt[lang] : fleet[0].alt[lang]}
+        title={t.location.aroundTitle}
+        flip
+      >
+        <p>{t.location.aroundBody}</p>
+      </EditorialSplit>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="section-title">{t.location.luganoTitle}</h2>
+      <p style="max-width: 62ch;">{t.location.luganoBody}</p>
+    </div>
+  </section>
+
+  <div class="container"><Waterline /></div>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.location, url: p(lang, 'location') },
+    ])}
+  />
+</Base>
+
+<style>
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    margin-bottom: var(--space-2);
+  }
+</style>

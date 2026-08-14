@@ -1,0 +1,382 @@
+/* ============================================================
+   THE VIEW Lugano — global styles
+   Palette: Corporate Identity 2015 (Roberto Patti Comunicazione),
+   CMYK primaries adapted for screen. CMYK provenance in comments.
+   Type: Jost (Futura TT substitute) / Montserrat (Gotham substitute)
+   — open-license stand-ins; revert to licensed Futura TT / Gotham
+   for print collateral (see DECISIONS.md §3).
+   Signature element: the waterline (see .waterline) — the only
+   decorative device on the site.
+   ============================================================ */
+
+:root {
+  /* CI 2015 primary palette */
+  --ink: #33291a;            /* Marrone — C60 M65 Y90 K65 */
+  --clay: #8a7657;           /* Grigio creta — C30 M40 Y60 K40 */
+  --grigio: #b4b7b5;         /* Grigio medio — C30 M25 Y25 K0 */
+  --tortora-densa: #d9d5c8;  /* Tortora denso — C17 M15 Y22 K0 */
+  --tortora: #eae7dc;        /* Tortora — C10 M8 Y15 K0 */
+  --ground: #f7f5f0;         /* Tortora chiaro — C4 M4 Y6 K0 */
+  --argento: #c9cdcf;        /* Argento (hot-foil silver) — waterline only */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Type */
+  --font-display: 'Jost', 'Futura', 'Century Gothic', sans-serif;
+  --font-body: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Scale — generous by default; whitespace is doubled deliberately */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 2rem;
+  --space-4: 3.5rem;
+  --space-5: 6rem;
+  --space-6: 9rem;
+
+  --measure: 62ch;
+  --max-width: 84rem;
+
+  --transition-slow: 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* --- Fonts: self-hosted subsets (latin), preloaded in BaseHead --- */
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost-300-latin.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost-400-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat-400-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat-500-latin.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Reset (minimal) --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img,
+picture,
+video {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+p a,
+li a {
+  border-bottom: 1px solid var(--clay);
+  transition: border-color 200ms ease;
+}
+p a:hover,
+li a:hover {
+  border-color: var(--ink);
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.15;
+  margin: 0 0 var(--space-3);
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+h1 {
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+}
+h2 {
+  font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+}
+h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 400;
+}
+p {
+  margin: 0 0 var(--space-2);
+  max-width: var(--measure);
+}
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin: 0 0 var(--space-2);
+}
+.caption {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--clay);
+}
+.lede {
+  font-size: 1.12rem;
+  line-height: 1.85;
+}
+
+/* --- The waterline — the single signature element --------------------
+   A hairline argento horizon with a faint mirrored gradient beneath it:
+   sky above, lake below. Used as section divider, hero baseline and
+   footer edge. Nothing else on the site decorates. */
+.waterline {
+  position: relative;
+  height: 56px;
+  margin: 0;
+  border: 0;
+  background: none;
+  pointer-events: none;
+}
+.waterline::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: var(--argento);
+}
+.waterline::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 1px;
+  height: 55px;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--argento) 32%, transparent),
+    transparent 78%
+  );
+}
+.waterline--ondark::before {
+  background: color-mix(in srgb, var(--argento) 70%, transparent);
+}
+
+/* --- Layout primitives --- */
+.container {
+  width: min(100% - clamp(2.5rem, 8vw, 7rem), var(--max-width));
+  margin-inline: auto;
+}
+.section {
+  padding-block: var(--space-6);
+}
+@media (max-width: 720px) {
+  .section {
+    padding-block: var(--space-5);
+  }
+}
+.section--tortora {
+  background: var(--tortora);
+}
+.section--densa {
+  background: var(--tortora-densa);
+}
+.section--ink {
+  background: var(--ink);
+  color: var(--tortora);
+}
+.section--ink .eyebrow {
+  color: var(--grigio);
+}
+
+/* Asymmetric editorial pair: photo 7 cols / text 4 cols on a 12-col grid */
+.editorial {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+}
+.editorial__media {
+  grid-column: 1 / span 7;
+}
+.editorial__body {
+  grid-column: 9 / span 4;
+}
+.editorial--flip .editorial__media {
+  grid-column: 6 / span 7;
+  order: 2;
+}
+.editorial--flip .editorial__body {
+  grid-column: 1 / span 4;
+  order: 1;
+}
+@media (max-width: 900px) {
+  .editorial__media,
+  .editorial--flip .editorial__media {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+  .editorial__body,
+  .editorial--flip .editorial__body {
+    grid-column: 1 / -1;
+    order: 2;
+  }
+}
+
+/* Consistent photographic treatment: one grade for the whole library so the
+   gallery reads curated, not assembled from mismatched shoots. */
+.grade,
+.editorial__media img,
+.gallery img,
+.hero__media img {
+  filter: saturate(0.88) contrast(1.03) brightness(1.01);
+}
+
+/* --- Buttons: quiet. One action per section. --- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 1.05rem 2.4rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease;
+  min-height: 48px; /* touch target */
+}
+.btn:hover,
+.btn:focus-visible {
+  background: var(--ink);
+  color: var(--ground);
+}
+.btn--light {
+  border-color: var(--ground);
+  color: var(--ground);
+}
+.btn--light:hover,
+.btn--light:focus-visible {
+  background: var(--ground);
+  color: var(--ink);
+}
+.btn--solid {
+  background: var(--ink);
+  color: var(--ground);
+}
+.btn--solid:hover,
+.btn--solid:focus-visible {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: var(--ground);
+}
+
+/* --- Motion: slow and sparing. --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation: none !important;
+  }
+}
+
+/* --- Accessibility --- */
+:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+}
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--ground);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+}
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* --- Fact list (amenities, structured facts in visible copy) --- */
+.facts {
+  list-style: none;
+  margin: 0 0 var(--space-3);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-1) var(--space-3);
+}
+.facts li {
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--tortora-densa);
+  font-size: 0.95rem;
+}
+.section--ink .facts li {
+  border-color: color-mix(in srgb, var(--grigio) 35%, transparent);
+}
+
+/* --- Tables (rare) --- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td,
+th {
+  text-align: left;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--tortora-densa);
+  font-size: 0.95rem;
+}

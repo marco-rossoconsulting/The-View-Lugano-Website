@@ -1,0 +1,319 @@
+{
+  "langName": "Italiano",
+  "nav": {
+    "home": "Home",
+    "suites": "Suite & Residence",
+    "dining": "Fine Dining",
+    "spa": "Spa",
+    "experiences": "Esperienze & Proposte",
+    "events": "Eventi & Meeting",
+    "gallery": "Galleria",
+    "location": "Dove siamo",
+    "sustainability": "Sostenibilità",
+    "press": "Press & Awards",
+    "journal": "Journal",
+    "contact": "Contatti",
+    "legal": "Note legali",
+    "impressum": "Impressum",
+    "privacy": "Privacy",
+    "terms": "Termini e Condizioni",
+    "cookies": "Cookie Policy",
+    "menuOpen": "Menu",
+    "menuClose": "Chiudi"
+  },
+  "common": {
+    "reserve": "Prenota",
+    "checkAvailability": "Verifica disponibilità",
+    "arrival": "Arrivo",
+    "departure": "Partenza",
+    "adults": "Adulti",
+    "children": "Bambini",
+    "bookTable": "Prenota un tavolo",
+    "vouchers": "Voucher",
+    "eventsShop": "Biglietti & eventi",
+    "continue": "Continua a leggere",
+    "discover": "Scopri",
+    "skip": "Vai al contenuto",
+    "langSwitch": "Lingua",
+    "phone": "Telefono",
+    "email": "E-mail",
+    "address": "Indirizzo",
+    "callUs": "Chiamateci",
+    "writeUs": "Scriveteci",
+    "openDaily": "Aperto tutti i giorni",
+    "included": "Incluso nel soggiorno",
+    "faqTitle": "Prima di arrivare",
+    "trade": "Trade & advisor",
+    "gdsNote": "Per advisor e partner commerciali. Codici GDS:",
+    "backTo": "Torna a",
+    "photoCredit": "Tutte le fotografie: THE VIEW Lugano"
+  },
+  "footer": {
+    "factLine": "Diciotto suite sulla collina di Paradiso. Ogni suite, entrambe le piscine, la sala fitness, il ristorante, la lounge e la terrazza guardano il Lago di Lugano.",
+    "partOf": "THE VIEW Lugano fa parte di Planhotel Hospitality Group, fondato a Lugano nel 1997.",
+    "credentials": "Riconoscimenti"
+  },
+  "consent": {
+    "title": "I vostri dati, la vostra scelta",
+    "body": "Usiamo pochi cookie. Alcuni sono necessari al funzionamento del sito; altri ci aiutano a capire come viene usato o semplificano le prenotazioni. Decidete voi. I dettagli nella Cookie Policy.",
+    "acceptAll": "Accetta tutti",
+    "necessaryOnly": "Solo necessari",
+    "settings": "Scegli singolarmente",
+    "save": "Salva le scelte",
+    "catNecessary": "Necessari",
+    "catNecessaryDesc": "Indispensabili al funzionamento del sito. Sempre attivi.",
+    "catPreferences": "Preferenze",
+    "catPreferencesDesc": "Ricordano lingua e impostazioni.",
+    "catStatistics": "Statistica",
+    "catStatisticsDesc": "Misurazione anonima dell'uso.",
+    "catMarketing": "Marketing",
+    "catMarketingDesc": "Media e widget di prenotazione di terze parti."
+  },
+  "home": {
+    "metaTitle": "THE VIEW Lugano — Un mondo a sé",
+    "metaDesc": "Diciotto suite sopra il Lago di Lugano, a Paradiso. Ogni suite, entrambe le piscine, il ristorante e la terrazza guardano l'acqua. Cucina stellata Michelin, spa di 1.000 m², Smart elettriche ed e-bike incluse.",
+    "heroLine": "Diciotto suite sopra il lago. Ognuna guarda l'acqua.",
+    "heroTagline": "Un mondo a sé",
+    "introEyebrow": "La casa",
+    "introTitle": "Il panorama non è una categoria di camera. È l'edificio.",
+    "introBody1": "The View sorge sulla collina di Paradiso, sul fianco del Monte San Salvatore, ed è nato da un'unica decisione ostinata: ogni stanza avrebbe guardato l'acqua. Non le stanze migliori — ogni stanza. Ogni suite, entrambe le piscine, la sala fitness, il ristorante, la lounge e la terrazza.",
+    "introBody2": "Diciotto suite. Quel numero è stato una scelta, e lo è ancora. È il motivo per cui qui nessun ospite riceve la versione minore della casa.",
+    "ambassadorEyebrow": "L'Ambassador",
+    "ambassadorTitle": "Una persona, da prima dell'arrivo a dopo la partenza",
+    "ambassadorBody": "Ogni soggiorno è seguito da un Ambassador — una persona che organizza l'arrivo, tiene il tavolo al ristorante, lascia una Smart carica per la mattina e al secondo giorno conosce il vostro caffè. Chi scrive del proprio soggiorno tende a usare un nome proprio.",
+    "diningEyebrow": "La tavola",
+    "diningTitle": "Una stella Michelin, due piani sotto le camere",
+    "diningBody": "Lo Chef Diego Della Schiava tiene una stella Michelin dal 2022 e 16 punti Gault & Millau. La sala guarda il lago, come ogni stanza qui. La Terrazza TreCinqueZero e la Lounge Bar portano lo stesso standard all'aria aperta.",
+    "spaEyebrow": "La spa",
+    "spaTitle": "Mille metri quadrati, e raramente più di quattro persone",
+    "spaBody": "Una piscina interna, due zone umide, un percorso Kneipp e una sala relax con parete di sale himalayano. Prima gli ospiti della casa; l'accesso dall'esterno resta volutamente limitato.",
+    "fleetEyebrow": "Le chiavi sulla consolle",
+    "fleetTitle": "Una Smart e una e-bike vi aspettano",
+    "fleetBody": "Smart elettriche ed e-bike sono incluse nel soggiorno. La città è a dieci minuti giù per la collina; il lungolago poco oltre. La flotta è volutamente piccola perché resti davvero disponibile — il vostro Ambassador la riserva prima dell'arrivo.",
+    "trustEyebrow": "Perché gli ospiti tornano",
+    "trustTitle": "Otto anni di commenti degli ospiti, in 23 lingue, tornano a tre cose",
+    "trustView": "La vista. Gli ospiti descrivono il lago dal cuscino, dalla piscina, dal tavolo — e arrivano da soli alla parola paradiso.",
+    "trustPeople": "Le persone. Ciò che gli ospiti ricordano più spesso non è un servizio ma un nome — Giacomo, Galin, Martin, Edoardo, Adriano.",
+    "trustFleet": "Le Smart e le e-bike. Descritte ogni volta come la cosa che nessuno si aspettava e nessuno dimentica.",
+    "creativeCta": "Le suite"
+  },
+  "suites": {
+    "metaTitle": "Suite & Residence — THE VIEW Lugano",
+    "metaDesc": "Sedici Junior Suite da 50 m², due Suite Superior da 105 m² e gli appartamenti di THE VIEW Residence. Ogni suite guarda il Lago di Lugano, ognuna con la propria terrazza.",
+    "h1": "Suite & Residence",
+    "intro": "Sedici Junior Suite da cinquanta metri quadrati. Due Suite Superior da centocinque. Ognuna guarda il lago, perché ogni stanza dell'edificio lo fa, e ognuna si apre sulla propria terrazza. Gli interni seguono la linea di una nave — puliti, caldi, senza fretta.",
+    "honesty": "Ciò che vedete è la categoria che prenotate. Le fotografie di queste pagine mostrano esattamente il tipo di suite a cui appartengono.",
+    "residenceNote": "Per soggiorni con cucina e più spazio da vivere, gli appartamenti di THE VIEW Residence si trovano nello stesso edificio, con lo stesso lago nella finestra.",
+    "detailFacts": "La suite, in fatti",
+    "amenities": "Dotazioni",
+    "from": "Da",
+    "sqm": "m²",
+    "sleeps": "Per",
+    "cta": "Verifica disponibilità"
+  },
+  "dining": {
+    "metaTitle": "Fine Dining, Terrazza & Bar — THE VIEW Lugano",
+    "metaDesc": "THE VIEW Fine Dining — una stella Michelin, Chef Diego Della Schiava, 16 punti Gault & Millau. Terrazza TreCinqueZero e Lounge Bar sopra il Lago di Lugano.",
+    "h1": "La tavola sopra il lago",
+    "intro": "Una sola cucina detta lo standard per tutta la casa — il menu degustazione la sera, la terrazza a mezzogiorno, il bar prima di cena, la colazione la mattina dopo.",
+    "restaurantTitle": "THE VIEW Fine Dining",
+    "restaurantBody1": "Lo Chef Diego Della Schiava cucina un menu mediterraneo con una stella Michelin dal 2022 e 16 punti Gault & Millau. La sala ha pochi coperti, guarda l'acqua e si prende il suo tempo.",
+    "restaurantBody2": "Il ristorante accoglie gli ospiti della casa e della città — molti scoprono l'hotel per la prima volta da questo tavolo.",
+    "terraceTitle": "Terrazza TreCinqueZero",
+    "terraceBody": "La terrazza a 350 metri sul mare: aperitivo, pranzo e sere d'estate all'aperto, il lago sotto e il Monte San Salvatore alle spalle.",
+    "barTitle": "La Lounge Bar",
+    "barBody": "Champagne, una carta ragionata di vini ticinesi e poltrone girate verso la finestra. Il lago è grigio alle sette e platino a mezzogiorno; entrambi meritano un posto.",
+    "breakfastTitle": "La colazione",
+    "breakfastBody": "Servita ogni mattina al ristorante, con la stessa vista della sera. Fresca, senza fretta, espressa dove deve esserlo.",
+    "reserveTable": "Prenota un tavolo",
+    "menuNote": "I menu seguono la stagione. Per il menu del giorno e le esigenze alimentari risponde direttamente il ristorante."
+  },
+  "spa": {
+    "metaTitle": "THE VIEW SPA — THE VIEW Lugano",
+    "metaDesc": "1.000 m² di benessere riservato sopra il Lago di Lugano: piscina interna, due zone umide, percorso Kneipp, sala relax al sale himalayano. Aperta tutti i giorni 9.00–20.30, prima gli ospiti della casa.",
+    "h1": "THE VIEW SPA",
+    "intro": "Mille metri quadrati, una piscina interna con il lago oltre il vetro, due zone umide, un percorso Kneipp e una sala relax rivestita di sale himalayano. Raramente più di quattro persone.",
+    "philosophy": "Questa non è una spa che argomenta con le dimensioni. È piccola di proposito e silenziosa per disegno: prima gli ospiti della casa, e l'accesso dall'esterno resta volutamente limitato perché rimanga così.",
+    "treatmentsTitle": "Trattamenti",
+    "treatmentsIntro": "I trattamenti si prenotano a ore e si preparano per una persona alla volta.",
+    "hoursTitle": "Orari & accesso",
+    "hoursBody": "Aperta tutti i giorni dalle 9.00 alle 20.30. Gli ospiti della casa hanno sempre la precedenza; un numero limitato di ingressi giornalieri e membership è disponibile su richiesta.",
+    "fitnessTitle": "Fitness & personal training",
+    "fitnessBody": "La sala fitness guarda il lago — l'unica parete verso cui valga la pena correre. Le sessioni di personal training si organizzano tramite il vostro Ambassador.",
+    "bookTreatment": "Richiedi un trattamento"
+  },
+  "experiences": {
+    "metaTitle": "Esperienze & Proposte — THE VIEW Lugano",
+    "metaDesc": "Le proposte di THE VIEW Lugano: soggiorni più lunghi sul lago, cena con suite sopra il ristorante, la casa intera tutta per voi.",
+    "h1": "Esperienze & Proposte",
+    "intro": "Poche proposte, composte e non impacchettate. Ognuna esiste perché gli ospiti hanno continuato a chiederla.",
+    "cta": "Richiedi",
+    "voucherTitle": "Un soggiorno, in regalo",
+    "voucherBody": "I voucher per soggiorni, ristorante e spa si acquistano direttamente online."
+  },
+  "events": {
+    "metaTitle": "Eventi & Meeting — THE VIEW Lugano",
+    "metaDesc": "Eventi privati da 10 a 20 ospiti, riunioni con il lago oltre il vetro, celebrazioni fino a 30 con la casa tutta per voi. Nessuna sala banchetti, di proposito.",
+    "h1": "Eventi & Meeting",
+    "intro": "La casa accoglie gli eventi come accoglie gli ospiti: pochi alla volta, seguiti per nome.",
+    "privateTitle": "Occasioni private",
+    "privateBody": "Cene e celebrazioni da dieci a venti ospiti, cucinate da una cucina Michelin e non da un menu banchetti. I piccoli matrimoni — fino a trenta — sono benvenuti quando la casa è soltanto vostra.",
+    "meetingTitle": "Meeting",
+    "meetingBody": "Una sala riunioni, luce naturale e il lago oltre il vetro. Pensata per un board, non per un congresso: un tavolo di lavoro, tecnologia esatta e il ristorante due piani sotto per la sera.",
+    "buyoutTitle": "La casa intera",
+    "buyoutBody": "Diciotto suite significa che l'intera proprietà può essere vostra — ogni suite, entrambe le piscine, la spa, il ristorante e la terrazza, per i giorni che vi servono.",
+    "honest": "Ciò che non facciamo: gruppi oltre i venti, congressi, matrimoni in grande formato. Le case che li fanno bene sono costruite diversamente — e preferiamo indicarvene una piuttosto che servirvi male.",
+    "cta": "Parliamo di una data"
+  },
+  "gallery": {
+    "metaTitle": "Galleria — THE VIEW Lugano",
+    "metaDesc": "Fotografie di THE VIEW Lugano: la casa a Paradiso, le suite, THE VIEW Fine Dining, la Terrazza TreCinqueZero, la THE VIEW SPA e la flotta elettrica.",
+    "h1": "Galleria",
+    "intro": "La casa, fotografata com'è. Ogni immagine di questo sito è di questa casa.",
+    "filterAll": "Tutte",
+    "catHotel": "La casa",
+    "catSuite": "Suite",
+    "catDining": "Fine Dining",
+    "catTerrace": "Terrazza TreCinqueZero",
+    "catBar": "Lounge Bar",
+    "catSpa": "Spa",
+    "catMeeting": "Meeting",
+    "catEvents": "Eventi",
+    "catFleet": "Smart & e-bike",
+    "lightboxClose": "Chiudi",
+    "lightboxPrev": "Immagine precedente",
+    "lightboxNext": "Immagine successiva"
+  },
+  "location": {
+    "metaTitle": "Dove siamo & Come arrivare — THE VIEW Lugano",
+    "metaDesc": "Via Guidino 29, 6900 Lugano–Paradiso. Dieci minuti sopra il centro, 25 minuti dall'aeroporto di Lugano, un'ora da Milano Malpensa. Parcheggio in casa; Smart elettriche incluse.",
+    "h1": "Sopra la città, sulla collina di Paradiso",
+    "intro": "The View sta sopra Lugano, sul fianco del Monte San Salvatore. La città è a dieci minuti giù per la collina, il lungolago poco oltre — e il lago è nella finestra per tutto il tempo.",
+    "arrivingTitle": "Arrivare",
+    "byCar": "In auto: uscite dalla A2 a Lugano Sud, seguite Paradiso, poi Via Guidino fino al numero 29. Il parcheggio è disponibile in casa — dite al vostro Ambassador a che ora contate di arrivare e un posto sarà pronto.",
+    "byTrain": "In treno: la stazione di Lugano è a dieci minuti; quella di Paradiso ancora più vicina. Veniamo a prendervi — accordatevi con il vostro Ambassador prima di partire.",
+    "byAir": "In aereo: l'aeroporto di Lugano è a circa 25 minuti, Milano Malpensa a circa un'ora, Zurigo a circa due ore e mezza su strada o rotaia. Per ciascuno organizziamo transfer privati.",
+    "aroundTitle": "Muoversi",
+    "aroundBody": "Smart elettriche ed e-bike sono incluse nel soggiorno, e cambiano il senso della collina: la posizione vi dà il panorama, le chiavi vi danno la città. Riservatene una con il vostro Ambassador prima dell'arrivo — la flotta è piccola di proposito.",
+    "luganoTitle": "Lugano & Ticino",
+    "luganoBody": "La Svizzera italiana è una disposizione particolare delle cose: orari svizzeri, sere italiane. Il lago, il Monte Brè e il San Salvatore, Gandria lungo la riva, Morcote in punta alla penisola, Como e Milano a una gita di distanza."
+  },
+  "sustainability": {
+    "metaTitle": "Sostenibilità — THE VIEW Lugano",
+    "metaDesc": "Swisstainable livello III e Travelife Gold. Energia idroelettrica, una flotta ospiti interamente elettrica e una casa piccola che tratta le risorse come tratta gli ospiti: con cura.",
+    "h1": "In silenzio, e per bene",
+    "intro": "La sostenibilità qui non è una campagna. È il modo in cui la casa è condotta — e si manifesta come qualità, non come slogan.",
+    "body1": "La proprietà funziona con energia idroelettrica. La flotta per gli ospiti è interamente elettrica — le Smart e le e-bike di cui gli ospiti scrivono sono state una decisione ambientale prima che una firma. Diciotto suite tengono consumi, rifiuti e biancheria alla scala di una grande casa privata, non di un blocco alberghiero.",
+    "body2": "Il lavoro è certificato, non dichiarato: THE VIEW Lugano ha il livello Swisstainable III — il più alto del programma svizzero di sostenibilità turistica — e la certificazione Travelife Gold, e pubblica le informazioni di accessibilità tramite OK:GO.",
+    "body3": "Niente di tutto questo compare su un piatto o su un cuscino. Compare nell'elettricità, nell'acqua e nel fatto che il lago sotto la terrazza merita lo sforzo."
+  },
+  "press": {
+    "metaTitle": "Press & Awards — THE VIEW Lugano",
+    "metaDesc": "I riconoscimenti di THE VIEW Lugano: una stella Michelin, Michelin Key, Forbes Travel Guide Four-Star, Small Luxury Hotels of the World, Switzerland's Leading Design Hotel, 16 punti Gault & Millau.",
+    "h1": "Press & Awards",
+    "intro": "I riconoscimenti, detti una volta e con chiarezza. La casa preferisce farsi giudicare da una terrazza che da una bacheca.",
+    "mediaTitle": "Richieste stampa",
+    "mediaBody": "Per materiale stampa, fotografie in risoluzione di stampa e richieste di intervista, scriveteci direttamente. Rispondiamo in fretta e accettiamo con selettività.",
+    "factsTitle": "Fact sheet",
+    "factsBody": "THE VIEW Lugano è una struttura boutique cinque stelle di Planhotel Hospitality Group: 18 suite (16 Junior Suite da 50 m², 2 Suite Superior da 105 m²), tutte fronte lago con terrazza privata; THE VIEW Fine Dining (1 stella Michelin, 16 punti Gault & Millau, Chef Diego Della Schiava); Terrazza TreCinqueZero; spa di 1.000 m² con piscina interna; piscina esterna; sala riunioni; Smart elettriche ed e-bike incluse."
+  },
+  "journal": {
+    "metaTitle": "Journal — THE VIEW Lugano",
+    "metaDesc": "Appunti dalla casa: il lago ora per ora, la scelta di diciotto, una cucina e il suo standard.",
+    "h1": "Journal",
+    "intro": "Appunti dalla casa. Scritti lentamente, pubblicati di rado.",
+    "readingTime": "min di lettura",
+    "published": "Pubblicato"
+  },
+  "contact": {
+    "metaTitle": "Contatti — THE VIEW Lugano",
+    "metaDesc": "THE VIEW Lugano, Via Guidino 29, 6900 Lugano–Paradiso, Svizzera. Telefono +41 91 210 0000, info@theviewlugano.com. WhatsApp disponibile.",
+    "h1": "Contatti",
+    "intro": "Un indirizzo, un numero — e persone che rispondono.",
+    "whatsapp": "WhatsApp",
+    "reserveTitle": "Prenotazioni",
+    "reserveBody": "Prenotate direttamente online, o scriveteci — chi prenota diretto è seguito direttamente, dal primo messaggio.",
+    "tradeBody": "Lavoriamo con advisor Serandipians, Virtuoso e SLH e con booker corporate che apprezzano la discrezione. Per tariffe, contratti e fact sheet, contattateci indicando l'ufficio vendite.",
+    "careersTitle": "Lavorare qui",
+    "careersBody": "La casa assume lentamente e tiene a lungo le persone. Le candidature spontanee vengono lette — tutte."
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "impressumBody": [
+      "THE VIEW Lugano",
+      "Via Guidino 29, 6900 Lugano – Paradiso, Svizzera",
+      "IVA: CHE-352.530.324",
+      "Telefono: +41 91 210 0000",
+      "E-mail: info@theviewlugano.com",
+      "THE VIEW Lugano fa parte di Planhotel Hospitality Group, fondato a Lugano nel 1997."
+    ],
+    "privacyTitle": "Informativa sulla privacy",
+    "privacyBody": [
+      "Questa informativa spiega come THE VIEW Lugano (Via Guidino 29, 6900 Lugano – Paradiso, Svizzera) tratta i dati personali secondo la Legge federale svizzera sulla protezione dei dati (LPD/nLPD) e, dove applicabile, il Regolamento generale sulla protezione dei dati dell'UE (GDPR).",
+      "Dati trattati: dati identificativi e di contatto forniti per prenotazioni, corrispondenza o iscrizioni; dati relativi al soggiorno necessari a prepararne lo svolgimento; dati tecnici generati dall'uso di questo sito (v. Cookie Policy).",
+      "Finalità e basi giuridiche: esecuzione del contratto di alloggio e delle fasi precontrattuali (prenotazioni, corrispondenza); obblighi di legge (notifica degli ospiti, contabilità); interesse legittimo al funzionamento e alla sicurezza del sito; il vostro consenso per i cookie facoltativi e le comunicazioni di marketing, revocabile in ogni momento.",
+      "Destinatari: il motore di prenotazione (SimpleBooking), il sistema di prenotazione tavoli (TheFork) e lo shop voucher (e-guma) ricevono i dati necessari a completare la prenotazione che avviate presso di loro. Non vendiamo dati personali.",
+      "Conservazione: i dati contrattuali e contabili per i periodi previsti dal diritto svizzero; la corrispondenza per il tempo necessario a evadere la richiesta; i dati basati sul consenso fino alla revoca.",
+      "I vostri diritti: accesso, rettifica, cancellazione, limitazione, opposizione e, dove applicabile, portabilità. Contatto: info@theviewlugano.com. Potete inoltre rivolgervi all'Incaricato federale della protezione dei dati e della trasparenza (IFPDT).",
+      "L'informativa può essere aggiornata; la versione vigente è sempre pubblicata su questa pagina."
+    ],
+    "termsTitle": "Termini e Condizioni",
+    "termsBody": [
+      "Questi termini regolano le prenotazioni effettuate direttamente con THE VIEW Lugano, Via Guidino 29, 6900 Lugano – Paradiso, Svizzera (IVA CHE-352.530.324).",
+      "Prenotazione e conferma: la prenotazione è vincolante dal momento della conferma scritta dell'hotel o tramite il motore di prenotazione online. Valgono tariffa, inclusioni e condizioni di cancellazione indicate al momento della prenotazione e nella conferma.",
+      "Pagamento: accettiamo i metodi di pagamento indicati in fase di prenotazione. Dove è richiesto un deposito o un pagamento anticipato, ciò è indicato prima della conferma. Le fatture si saldano al check-out, salvo diverso accordo.",
+      "Cancellazione e no-show: valgono le condizioni indicate per la vostra tariffa al momento della prenotazione. Le cancellazioni vanno comunicate per iscritto; l'e-mail di conferma indica termini ed eventuali penali.",
+      "Arrivo e partenza: le suite sono disponibili dalle 15.00 del giorno di arrivo e fino alle 11.00 del giorno di partenza. Arrivi anticipati o partenze posticipate sono possibili secondo disponibilità — chiedete al vostro Ambassador.",
+      "Responsabilità: l'hotel risponde secondo il diritto svizzero. I valori vanno riposti nella cassaforte in suite o depositati alla reception.",
+      "Diritto applicabile e foro: si applica il diritto svizzero. Foro competente è Lugano, Svizzera."
+    ],
+    "cookiesTitle": "Cookie Policy",
+    "cookiesBody": [
+      "Questo sito utilizza cookie e tecnologie simili. In base alla LPD/nLPD svizzera chiediamo il consenso per tutti i cookie non essenziali prima di impostarli; potete cambiare le vostre scelte in ogni momento da «Impostazioni cookie» nel footer.",
+      "I cookie necessari mantengono il sito funzionante: ricordano le scelte di consenso e la lingua. Non possono essere disattivati.",
+      "I cookie di preferenza ricordano impostazioni come la lingua tra una visita e l'altra.",
+      "I cookie statistici, se consentiti, ci aiutano a capire l'uso del sito in forma anonimizzata.",
+      "I cookie di marketing, se consentiti, abilitano servizi di terzi incorporati — il motore SimpleBooking, il widget TheFork e lo shop e-guma — che possono impostare propri cookie secondo le proprie policy.",
+      "Revoca: riaprite le impostazioni cookie in qualsiasi momento e salvate una nuova scelta. I cookie necessari restano attivi perché indispensabili al funzionamento."
+    ],
+    "cookieSettings": "Impostazioni cookie"
+  },
+  "faq": {
+    "title": "Prima di arrivare",
+    "items": [
+      {
+        "q": "C'è il parcheggio, e come si arriva in auto?",
+        "a": "Sì — il parcheggio è disponibile in casa. Uscite dalla A2 a Lugano Sud, seguite Paradiso, poi Via Guidino fino al numero 29. Dite al vostro Ambassador a che ora contate di arrivare e un posto sarà pronto."
+      },
+      {
+        "q": "Le Smart elettriche e le e-bike sono davvero incluse?",
+        "a": "Sì, sono incluse nel soggiorno. La flotta è piccola, quindi la disponibilità è limitata — riservatene una tramite il vostro Ambassador prima dell'arrivo per essere certi di auto o bici nelle ore che desiderate."
+      },
+      {
+        "q": "Quali sono gli orari della spa, e si può accedere senza soggiornare?",
+        "a": "La THE VIEW SPA è aperta tutti i giorni dalle 9.00 alle 20.30. Gli ospiti della casa hanno sempre la precedenza; un numero limitato di ingressi giornalieri esterni e membership è disponibile su richiesta."
+      },
+      {
+        "q": "A che ora sono il check-in e il check-out?",
+        "a": "Le suite sono pronte dalle 15.00 e restano vostre fino alle 11.00 del giorno di partenza. Prima o dopo è spesso possibile — chiedete al vostro Ambassador, meglio se prima di partire."
+      },
+      {
+        "q": "Tutte le suite guardano davvero il lago?",
+        "a": "Sì. Ogni suite dell'edificio guarda l'acqua e ha la propria terrazza — la casa è stata disegnata perché nessuna stanza guardi altrove. Le fotografie di ogni pagina mostrano esattamente la categoria che prenotate."
+      },
+      {
+        "q": "Bambini e animali sono benvenuti?",
+        "a": "I bambini sono benvenuti. Per gli animali, scriveteci prima di prenotare — vi diremo con onestà se la casa e le date sono adatte al vostro animale."
+      },
+      {
+        "q": "Quanto dista la città, e serve un'auto?",
+        "a": "Il centro di Lugano è a circa dieci minuti giù per la collina. Non serve portare un'auto: le Smart e le e-bike incluse coprono la città, e il vostro Ambassador organizza i transfer per arrivi e partenze."
+      }
+    ]
+  },
+  "notFound": {
+    "title": "Questa pagina non è qui",
+    "body": "La pagina che cercavate non esiste o si è spostata. La vista, invece, è esattamente dov'era.",
+    "cta": "Alla home"
+  }
+}

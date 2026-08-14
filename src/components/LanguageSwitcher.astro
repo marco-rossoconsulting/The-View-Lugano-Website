@@ -1,0 +1,35 @@
+---
+import { LOCALES, dict, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale; route: string }
+const { lang, route } = Astro.props;
+const clean = route.replace(/^\/+|\/+$/g, '');
+---
+
+<nav class="langs" aria-label={dict(lang).common.langSwitch}>
+  {LOCALES.map((l) => (
+    <a
+      href={clean ? `/${l}/${clean}/` : `/${l}/`}
+      aria-current={l === lang ? 'page' : undefined}
+      lang={l}
+      >{l.toUpperCase()}</a>
+  ))}
+</nav>
+
+<style>
+  .langs {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .langs a {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    color: var(--clay);
+    padding: 0.5rem 0.25rem;
+  }
+  .langs a[aria-current='page'] {
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+</style>

@@ -1,0 +1,36 @@
+{
+  "order": 1,
+  "name": { "en": "Three Nights on the Lake", "de": "Drei Nächte am See", "it": "Tre notti sul lago", "fr": "Trois nuits sur le lac" },
+  "summary": {
+    "en": "The house reveals itself on the third day. This arrangement makes staying that long the natural choice.",
+    "de": "Das Haus zeigt sich am dritten Tag. Dieses Arrangement macht das längere Bleiben zur natürlichen Wahl.",
+    "it": "La casa si rivela al terzo giorno. Questa proposta rende naturale fermarsi così a lungo.",
+    "fr": "La maison se révèle au troisième jour. Cette proposition fait du séjour prolongé le choix naturel."
+  },
+  "body": {
+    "en": [
+      "Most guests stay two nights and leave wishing they had a third. The third night is when the Ambassador already knows your coffee, the Smart is booked before you ask, and the lake has shown you more than one kind of light.",
+      "Stay three nights or longer and the arrangement includes a dinner for two at THE VIEW Fine Dining and a spa treatment each — with a preferential rate on the stay itself."
+    ],
+    "de": [
+      "Die meisten Gäste bleiben zwei Nächte und reisen mit dem Wunsch nach einer dritten ab. In der dritten Nacht kennt der Ambassador bereits Ihren Kaffee, der Smart ist reserviert, bevor Sie fragen, und der See hat Ihnen mehr als eine Art von Licht gezeigt.",
+      "Bleiben Sie drei Nächte oder länger, umfasst das Arrangement ein Dinner für zwei im THE VIEW Fine Dining und je eine Spa-Behandlung — mit Vorzugsrate auf den Aufenthalt."
+    ],
+    "it": [
+      "La maggior parte degli ospiti resta due notti e parte desiderando la terza. Alla terza notte l'Ambassador conosce già il vostro caffè, la Smart è prenotata prima che la chiediate e il lago vi ha mostrato più di una luce.",
+      "Fermandovi tre notti o più, la proposta include una cena per due al THE VIEW Fine Dining e un trattamento spa a testa — con tariffa preferenziale sul soggiorno."
+    ],
+    "fr": [
+      "La plupart des hôtes restent deux nuits et repartent en regrettant la troisième. À la troisième nuit, l'Ambassador connaît déjà votre café, la Smart est réservée avant que vous ne demandiez, et le lac vous a montré plus d'une lumière.",
+      "Restez trois nuits ou davantage et la proposition comprend un dîner pour deux au THE VIEW Fine Dining et un soin au spa chacun — avec un tarif préférentiel sur le séjour."
+    ]
+  },
+  "includes": [
+    { "en": "Three nights or more in the suite of your choice", "de": "Drei Nächte oder mehr in der Suite Ihrer Wahl", "it": "Tre notti o più nella suite che preferite", "fr": "Trois nuits ou plus dans la suite de votre choix" },
+    { "en": "Dinner for two at THE VIEW Fine Dining", "de": "Dinner für zwei im THE VIEW Fine Dining", "it": "Cena per due al THE VIEW Fine Dining", "fr": "Dîner pour deux au THE VIEW Fine Dining" },
+    { "en": "One spa treatment per guest", "de": "Eine Spa-Behandlung pro Gast", "it": "Un trattamento spa per ospite", "fr": "Un soin au spa par hôte" },
+    { "en": "Smart and e-bikes, as always, included", "de": "Smart und E-Bikes, wie immer, inbegriffen", "it": "Smart ed e-bike, come sempre, incluse", "fr": "Smart et vélos électriques, comme toujours, compris" }
+  ],
+  "photo": { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135358/hotel_041.jpg",
+    "alt": { "en": "Evening light over Lake Lugano from the upper terrace", "de": "Abendlicht über dem Luganersee von der oberen Terrasse", "it": "Luce della sera sul Ceresio dalla terrazza superiore", "fr": "Lumière du soir sur le lac de Lugano depuis la terrasse supérieure" } }
+}

@@ -1,0 +1,34 @@
+{
+  "date": "2026-02-20",
+  "title": { "en": "One kitchen, one standard", "de": "Eine Küche, ein Standard", "it": "Una cucina, uno standard", "fr": "Une cuisine, une exigence" },
+  "excerpt": {
+    "en": "Chef Diego Della Schiava's kitchen cooks the tasting menu, the terrace lunch and your breakfast. That is the whole idea.",
+    "de": "Die Küche von Chef Diego Della Schiava kocht das Degustationsmenü, den Lunch auf der Terrasse und Ihr Frühstück. Genau das ist die Idee.",
+    "it": "La cucina dello Chef Diego Della Schiava prepara il menu degustazione, il pranzo in terrazza e la vostra colazione. L'idea è tutta qui.",
+    "fr": "La cuisine du Chef Diego Della Schiava prépare le menu dégustation, le déjeuner en terrasse et votre petit-déjeuner. C'est toute l'idée."
+  },
+  "body": {
+    "en": [
+      "A Michelin star, in most hotels, lives behind one door and stops at it. Here that would be difficult, because there is only one kitchen — the one that earned the star in 2022 and holds 16 points from Gault & Millau.",
+      "It cooks the evening tasting menu, and it also cooks the eggs at eight in the morning, the lunch that goes up to Terrazza TreCinqueZero, and the plate that follows a late arrival to a suite. Same hands, same suppliers, same standard.",
+      "Chef Della Schiava cooks Mediterranean, seasonally, and does not explain the dishes unless asked. Ask, though. He enjoys it more than he lets on."
+    ],
+    "de": [
+      "Ein Michelin-Stern lebt in den meisten Hotels hinter einer Tür und endet an ihr. Hier wäre das schwierig, denn es gibt nur eine Küche — jene, die 2022 den Stern erkocht hat und 16 Punkte Gault & Millau hält.",
+      "Sie kocht das Degustationsmenü am Abend, und sie kocht auch die Eier um acht Uhr morgens, den Lunch, der hinauf zur Terrazza TreCinqueZero geht, und den Teller, der einer späten Anreise in die Suite folgt. Dieselben Hände, dieselben Lieferanten, derselbe Standard.",
+      "Chef Della Schiava kocht mediterran, saisonal, und erklärt die Gerichte nur auf Nachfrage. Fragen Sie trotzdem. Es freut ihn mehr, als er zeigt."
+    ],
+    "it": [
+      "Una stella Michelin, in quasi tutti gli hotel, vive dietro una porta e lì si ferma. Qui sarebbe difficile, perché la cucina è una sola — quella che ha conquistato la stella nel 2022 e tiene 16 punti Gault & Millau.",
+      "Prepara il menu degustazione la sera, e prepara anche le uova alle otto del mattino, il pranzo che sale alla Terrazza TreCinqueZero e il piatto che segue un arrivo tardivo in suite. Stesse mani, stessi fornitori, stesso standard.",
+      "Lo Chef Della Schiava cucina mediterraneo, di stagione, e non spiega i piatti se non gli viene chiesto. Chiedete, però. Gli fa più piacere di quanto lasci vedere."
+    ],
+    "fr": [
+      "Une étoile Michelin, dans la plupart des hôtels, vit derrière une porte et s'y arrête. Ici, ce serait difficile, car il n'y a qu'une cuisine — celle qui a décroché l'étoile en 2022 et détient 16 points au Gault & Millau.",
+      "Elle prépare le menu dégustation du soir, et aussi les œufs de huit heures, le déjeuner qui monte à la Terrazza TreCinqueZero, et l'assiette qui suit une arrivée tardive en suite. Mêmes mains, mêmes fournisseurs, même exigence.",
+      "Le Chef Della Schiava cuisine méditerranéen, de saison, et n'explique les plats que si on le lui demande. Demandez, pourtant. Cela lui fait plus plaisir qu'il ne le montre."
+    ]
+  },
+  "photo": { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2020/07/20151423/the-view-lugano-fine-dining-restaurant-food.jpg",
+    "alt": { "en": "A course from Chef Diego Della Schiava's menu", "de": "Ein Gang aus dem Menü von Chef Diego Della Schiava", "it": "Una portata dal menu dello Chef Diego Della Schiava", "fr": "Un plat du menu du Chef Diego Della Schiava" } }
+}

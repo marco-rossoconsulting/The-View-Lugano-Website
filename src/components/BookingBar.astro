@@ -1,0 +1,109 @@
+---
+// Direct-booking bar: quiet, inline, no popup. Deep-links into the
+// SimpleBooking hosted IBE (hotel 10185).
+// INTEGRATION STUB NOTE: the base URL, ?lang= and &cur= parameters are taken
+// from the live integration and verified. The check-in/check-out/guests
+// parameter names (`checkin`, `checkout`, `guests`) follow SimpleBooking's
+// common deep-link pattern but MUST be confirmed with the SimpleBooking
+// account manager before launch — see DECISIONS.md. Without them the link
+// still lands correctly on the property's booking engine.
+import { dict, type Locale } from '../lib/i18n';
+import { simpleBookingUrl } from '../lib/site';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dict(lang);
+const base = simpleBookingUrl(lang);
+---
+
+<form class="booking" method="get" data-booking data-base={base}>
+  <div class="booking__field">
+    <label for="bk-in">{t.common.arrival}</label>
+    <input id="bk-in" name="checkin" type="date" required />
+  </div>
+  <div class="booking__field">
+    <label for="bk-out">{t.common.departure}</label>
+    <input id="bk-out" name="checkout" type="date" required />
+  </div>
+  <div class="booking__field">
+    <label for="bk-guests">{t.common.adults}</label>
+    <select id="bk-guests" name="guests">
+      <option value="1">1</option>
+      <option value="2" selected>2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+  <button class="btn btn--solid" type="submit">{t.common.checkAvailability}</button>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-booking]').forEach((form) => {
+    const inEl = form.querySelector<HTMLInputElement>('input[name="checkin"]');
+    const outEl = form.querySelector<HTMLInputElement>('input[name="checkout"]');
+    const today = new Date();
+    const iso = (d: Date) => d.toISOString().slice(0, 10);
+    if (inEl) inEl.min = iso(today);
+    if (outEl) outEl.min = iso(new Date(today.getTime() + 86400000));
+    inEl?.addEventListener('change', () => {
+      if (outEl && inEl.value) {
+        const next = new Date(inEl.value);
+        next.setDate(next.getDate() + 1);
+        outEl.min = iso(next);
+        if (outEl.value && outEl.value <= inEl.value) outEl.value = iso(next);
+      }
+    });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const url = new URL(form.dataset.base!);
+      const data = new FormData(form);
+      const ci = data.get('checkin');
+      const co = data.get('checkout');
+      const g = data.get('guests');
+      if (ci) url.searchParams.set('checkin', String(ci));
+      if (co) url.searchParams.set('checkout', String(co));
+      if (g) url.searchParams.set('guests', String(g));
+      window.open(url.toString(), '_blank', 'noopener');
+    });
+  });
+</script>
+
+<style>
+  .booking {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1.25rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: var(--tortora);
+    border: 1px solid var(--tortora-densa);
+  }
+  .booking__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .booking__field label {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
+  .booking__field input,
+  .booking__field select {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--ground);
+    border: 1px solid var(--tortora-densa);
+    padding: 0.7rem 0.9rem;
+    min-height: 48px;
+    min-width: 10.5rem;
+  }
+  @media (max-width: 700px) {
+    .booking { flex-direction: column; align-items: stretch; }
+    .booking__field input, .booking__field select { min-width: 0; width: 100%; }
+    .booking .btn { width: 100%; justify-content: center; }
+  }
+</style>

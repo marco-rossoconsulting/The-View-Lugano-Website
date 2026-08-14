@@ -1,0 +1,55 @@
+---
+import { SITE } from '../lib/site';
+import { alternates, OG_LOCALE, type Locale } from '../lib/i18n';
+
+interface Props {
+  lang: Locale;
+  title: string;
+  description: string;
+  /** path after the locale segment, e.g. 'suites' or '' for home */
+  route: string;
+  ogImage?: string;
+  preloadImage?: string;
+}
+
+const {
+  lang,
+  title,
+  description,
+  route,
+  ogImage = 'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135345/hotel_012.jpg',
+  preloadImage,
+} = Astro.props;
+
+const alts = alternates(route);
+const canonical = `${SITE.url}${alts.find((a) => a.hreflang === lang)!.href}`;
+const xDefault = `${SITE.url}${alts.find((a) => a.hreflang === 'en')!.href}`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{alts.map((a) => <link rel="alternate" hreflang={a.hreflang} href={`${SITE.url}${a.href}`} />)}
+<link rel="alternate" hreflang="x-default" href={xDefault} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="sitemap" href="/sitemap.xml" />
+<meta name="theme-color" content="#f7f5f0" />
+
+<link rel="preload" href="/fonts/jost-300-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/montserrat-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+{preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+<link rel="preconnect" href="https://d1vp8nomjxwyf1.cloudfront.net" crossorigin />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={OG_LOCALE[lang]} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />

@@ -1,0 +1,22 @@
+{
+  "order": 3,
+  "name": "The Lounge Bar",
+  "kind": "bar",
+  "photos": [
+    { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12143653/pommery_021.jpg",
+      "alt": { "en": "The Lounge Bar, glasses ready before evening", "de": "Die Lounge Bar, die Gläser bereit vor dem Abend", "it": "La Lounge Bar, i bicchieri pronti prima di sera", "fr": "Le Lounge Bar, les verres prêts avant le soir" } },
+    { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12143445/pommery_01.jpg",
+      "alt": { "en": "Champagne service in the lounge", "de": "Champagnerservice in der Lounge", "it": "Servizio di champagne nella lounge", "fr": "Service du champagne au salon" } }
+  ],
+  "summary": {
+    "en": "Champagne, Ticino wines and armchairs turned toward the window. The lake is grey at seven and platinum by noon; both are worth a seat.",
+    "de": "Champagner, Tessiner Weine und Sessel, die zum Fenster gedreht sind. Der See ist grau um sieben und platin am Mittag; beides ist einen Platz wert.",
+    "it": "Champagne, vini ticinesi e poltrone girate verso la finestra. Il lago è grigio alle sette e platino a mezzogiorno; entrambi meritano un posto.",
+    "fr": "Champagne, vins tessinois et fauteuils tournés vers la fenêtre. Le lac est gris à sept heures et platine à midi ; les deux valent une place."
+  },
+  "facts": [
+    { "en": "Open daily for house guests and visitors", "de": "Täglich offen für Hausgäste und Besucher", "it": "Aperta ogni giorno a ospiti e visitatori", "fr": "Ouvert tous les jours aux hôtes et visiteurs" },
+    { "en": "A considered list of Ticino wines", "de": "Eine durchdachte Karte Tessiner Weine", "it": "Una carta ragionata di vini ticinesi", "fr": "Une carte réfléchie de vins tessinois" },
+    { "en": "The lounge faces the lake, as every room here does", "de": "Die Lounge blickt auf den See, wie jeder Raum hier", "it": "La lounge guarda il lago, come ogni stanza qui", "fr": "Le salon regarde le lac, comme chaque pièce ici" }
+  ]
+}

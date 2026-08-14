@@ -1,0 +1,36 @@
+{
+  "order": 3,
+  "name": { "en": "The House to Yourselves", "de": "Das Haus für Sie allein", "it": "La casa tutta per voi", "fr": "La maison pour vous seuls" },
+  "summary": {
+    "en": "Eighteen suites, both pools, the spa, the restaurant and the terrace — privately, for the days you need them.",
+    "de": "Achtzehn Suiten, beide Pools, das Spa, das Restaurant und die Terrasse — privat, für die Tage, die Sie brauchen.",
+    "it": "Diciotto suite, entrambe le piscine, la spa, il ristorante e la terrazza — in privato, per i giorni che vi servono.",
+    "fr": "Dix-huit suites, les deux piscines, le spa, le restaurant et la terrasse — en privé, pour les jours qu'il vous faut."
+  },
+  "body": {
+    "en": [
+      "At eighteen suites, taking the whole house is not a fantasy — it is a reservation. A family gathering, a company's inner circle, a celebration of up to thirty: the property closes its doors and becomes yours, with a Michelin kitchen cooking for your table rather than a banqueting menu.",
+      "Everyone gets the same view, because there is no other kind."
+    ],
+    "de": [
+      "Bei achtzehn Suiten ist das ganze Haus keine Fantasie — es ist eine Reservierung. Ein Familientreffen, der innere Kreis eines Unternehmens, ein Fest bis dreissig: Das Haus schliesst die Türen und gehört Ihnen, mit einer Michelin-Küche, die für Ihren Tisch kocht statt nach Bankettkarte.",
+      "Alle bekommen dieselbe Aussicht, weil es keine andere gibt."
+    ],
+    "it": [
+      "Con diciotto suite, prendere la casa intera non è una fantasia — è una prenotazione. Una riunione di famiglia, la cerchia ristretta di un'azienda, una celebrazione fino a trenta: la proprietà chiude le porte e diventa vostra, con una cucina Michelin che cucina per la vostra tavola e non da menu banchetti.",
+      "Tutti hanno la stessa vista, perché non ce n'è un'altra."
+    ],
+    "fr": [
+      "Avec dix-huit suites, prendre la maison entière n'est pas un fantasme — c'est une réservation. Une réunion de famille, le cercle proche d'une entreprise, une célébration jusqu'à trente : la propriété ferme ses portes et devient la vôtre, avec une cuisine étoilée qui cuisine pour votre table et non d'après une carte de banquet.",
+      "Tout le monde a la même vue, parce qu'il n'y en a pas d'autre."
+    ]
+  },
+  "includes": [
+    { "en": "All eighteen suites, exclusively yours", "de": "Alle achtzehn Suiten, allein für Sie", "it": "Tutte le diciotto suite, soltanto vostre", "fr": "Les dix-huit suites, à vous seuls" },
+    { "en": "Both pools, the spa and the terrace, privately", "de": "Beide Pools, das Spa und die Terrasse, privat", "it": "Entrambe le piscine, la spa e la terrazza, in privato", "fr": "Les deux piscines, le spa et la terrasse, en privé" },
+    { "en": "The Michelin kitchen, cooking for your table", "de": "Die Michelin-Küche, die für Ihren Tisch kocht", "it": "La cucina Michelin, per la vostra tavola", "fr": "La cuisine étoilée, pour votre table" },
+    { "en": "A dedicated Ambassador team for the days of your stay", "de": "Ein dediziertes Ambassador-Team für die Tage Ihres Aufenthalts", "it": "Un team Ambassador dedicato per i giorni del soggiorno", "fr": "Une équipe Ambassador dédiée pour la durée du séjour" }
+  ],
+  "photo": { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/20081611/eventi.jpg",
+    "alt": { "en": "A private dinner set on the terrace", "de": "Ein privates Dinner auf der Terrasse", "it": "Una cena privata allestita in terrazza", "fr": "Un dîner privé dressé sur la terrasse" } }
+}

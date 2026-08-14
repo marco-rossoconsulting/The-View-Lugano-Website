@@ -1,0 +1,72 @@
+{
+  "order": 1,
+  "name": { "en": "Junior Suite", "de": "Junior Suite", "it": "Junior Suite", "fr": "Junior Suite" },
+  "sqm": 50,
+  "sleeps": 2,
+  "count": 16,
+  "lakeView": true,
+  "terrace": true,
+  "photos": [
+    {
+      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12140935/room_012.jpg",
+      "alt": {
+        "en": "Junior Suite with the bed set toward the lake",
+        "de": "Junior Suite, das Bett zum See ausgerichtet",
+        "it": "Junior Suite con il letto rivolto verso il lago",
+        "fr": "Junior Suite, le lit orienté vers le lac"
+      }
+    },
+    {
+      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12140649/room_031.jpg",
+      "alt": {
+        "en": "Junior Suite interior in daylight, lake in the window",
+        "de": "Junior Suite bei Tageslicht, der See im Fenster",
+        "it": "Interno della Junior Suite alla luce del giorno, il lago nella finestra",
+        "fr": "Intérieur de la Junior Suite en lumière du jour, le lac dans la fenêtre"
+      }
+    },
+    {
+      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12141621/room_15.jpg",
+      "alt": {
+        "en": "Private terrace of a Junior Suite with loungers above the lake",
+        "de": "Private Terrasse einer Junior Suite mit Liegen über dem See",
+        "it": "Terrazza privata di una Junior Suite con lettini sopra il lago",
+        "fr": "Terrasse privée d'une Junior Suite avec transats au-dessus du lac"
+      }
+    }
+  ],
+  "summary": {
+    "en": "Fifty square metres arranged like a cabin on a very good ship: the bed toward the water, the bath in light, the terrace entirely yours.",
+    "de": "Fünfzig Quadratmeter, angeordnet wie eine Kabine auf einem sehr guten Schiff: das Bett zum Wasser, das Bad im Licht, die Terrasse ganz für Sie.",
+    "it": "Cinquanta metri quadrati disposti come una cabina di una nave molto buona: il letto verso l'acqua, il bagno nella luce, la terrazza tutta vostra.",
+    "fr": "Cinquante mètres carrés composés comme la cabine d'un très bon navire : le lit vers l'eau, le bain dans la lumière, la terrasse entièrement à vous."
+  },
+  "body": {
+    "en": [
+      "Sixteen of the eighteen suites are Junior Suites, and none of them is the lesser one: fifty square metres each, the lake in the window of every single one, a private terrace off every living area.",
+      "The room divides softly into sleeping and living, with a bathroom in stone and glass. What you see in the photographs is what you book — this page shows this category, exactly."
+    ],
+    "de": [
+      "Sechzehn der achtzehn Suiten sind Junior Suiten, und keine davon ist die geringere: je fünfzig Quadratmeter, der See im Fenster jeder einzelnen, eine private Terrasse an jedem Wohnbereich.",
+      "Der Raum gliedert sich sanft in Schlafen und Wohnen, mit einem Bad in Stein und Glas. Was Sie auf den Fotografien sehen, ist, was Sie buchen — diese Seite zeigt exakt diese Kategorie."
+    ],
+    "it": [
+      "Sedici delle diciotto suite sono Junior Suite, e nessuna è quella minore: cinquanta metri quadrati ciascuna, il lago nella finestra di ognuna, una terrazza privata su ogni zona giorno.",
+      "La stanza si divide dolcemente tra notte e giorno, con un bagno in pietra e vetro. Ciò che vedete nelle fotografie è ciò che prenotate — questa pagina mostra esattamente questa categoria."
+    ],
+    "fr": [
+      "Seize des dix-huit suites sont des Junior Suites, et aucune n'est la moindre : cinquante mètres carrés chacune, le lac à la fenêtre de chacune, une terrasse privée sur chaque séjour.",
+      "La pièce se partage doucement entre nuit et jour, avec une salle de bains de pierre et de verre. Ce que montrent les photographies est ce que vous réservez — cette page montre exactement cette catégorie."
+    ]
+  },
+  "amenities": [
+    { "en": "50 m², sleeps 2", "de": "50 m², für 2 Personen", "it": "50 m², per 2 persone", "fr": "50 m², pour 2 personnes" },
+    { "en": "Lake-facing, private furnished terrace", "de": "Seeseitig, private möblierte Terrasse", "it": "Fronte lago, terrazza privata arredata", "fr": "Face au lac, terrasse privée meublée" },
+    { "en": "King bed set toward the water", "de": "Kingsize-Bett zum Wasser ausgerichtet", "it": "Letto king rivolto verso l'acqua", "fr": "Lit king orienté vers l'eau" },
+    { "en": "Bathroom in stone and glass, rain shower", "de": "Bad in Stein und Glas, Regendusche", "it": "Bagno in pietra e vetro, doccia a pioggia", "fr": "Salle de bains de pierre et de verre, douche pluie" },
+    { "en": "Air conditioning, complimentary Wi-Fi", "de": "Klimaanlage, kostenfreies WLAN", "it": "Aria condizionata, Wi-Fi incluso", "fr": "Climatisation, Wi-Fi compris" },
+    { "en": "In-suite safe, minibar", "de": "Suitensafe, Minibar", "it": "Cassaforte in suite, minibar", "fr": "Coffre-fort en suite, minibar" },
+    { "en": "Electric Smart cars and e-bikes included with the stay", "de": "Elektrische Smarts und E-Bikes im Aufenthalt inbegriffen", "it": "Smart elettriche ed e-bike incluse nel soggiorno", "fr": "Smart électriques et vélos électriques compris dans le séjour" },
+    { "en": "Ambassador service from before arrival to after departure", "de": "Ambassador-Service von vor der Anreise bis nach der Abreise", "it": "Servizio Ambassador da prima dell'arrivo a dopo la partenza", "fr": "Service Ambassador d'avant l'arrivée à après le départ" }
+  ]
+}

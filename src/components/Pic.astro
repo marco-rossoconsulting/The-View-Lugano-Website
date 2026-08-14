@@ -1,0 +1,45 @@
+---
+// Unified image component: astro:assets everywhere, one photographic grade.
+// <Picture> emits AVIF + WebP sources with a JPEG fallback, responsive
+// srcset from `widths`, and explicit dimensions (no CLS).
+import { Picture } from 'astro:assets';
+
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  widths?: number[];
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'auto';
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  widths = [480, 800, 1200, 1600],
+  sizes = '(max-width: 900px) 100vw, 60vw',
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  class: className = '',
+} = Astro.props;
+---
+
+<Picture
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  widths={widths}
+  sizes={sizes}
+  formats={['avif', 'webp']}
+  fallbackFormat="jpg"
+  loading={loading}
+  fetchpriority={fetchpriority}
+  decoding="async"
+  class={`grade ${className}`}
+/>

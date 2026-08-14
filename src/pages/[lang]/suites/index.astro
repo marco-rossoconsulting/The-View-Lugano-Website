@@ -1,0 +1,89 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Pic from '../../../components/Pic.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { localePaths, dict, p, type Locale } from '../../../lib/i18n';
+import { breadcrumbJsonLd } from '../../../lib/seo';
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+const suites = (await getCollection('suites')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base {lang} title={t.suites.metaTitle} description={t.suites.metaDesc} route="suites">
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.suites.h1}</h1>
+      <p class="page-intro">{t.suites.intro}</p>
+      <p class="page-note">{t.suites.honesty}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container suites-list">
+      {suites.map((s, i) => (
+        <article class={`editorial fade-up${i % 2 ? ' editorial--flip' : ''}`}>
+          <a class="editorial__photo" href={p(lang, 'suites', s.id)}>
+            <Pic
+              src={s.data.photos[0].src}
+              alt={s.data.photos[0].alt[lang]}
+              width={1600}
+              height={1067}
+              sizes="(max-width: 900px) 100vw, 58vw"
+            />
+          </a>
+          <div class="editorial__text">
+            <p class="eyebrow">
+              {s.data.count} × {s.data.sqm} {t.suites.sqm} · {t.suites.sleeps} {s.data.sleeps}
+            </p>
+            <h2 class="suite-name">{s.data.name[lang]}</h2>
+            <p>{s.data.summary[lang]}</p>
+            <a class="btn" href={p(lang, 'suites', s.id)}>{t.common.discover}</a>
+          </div>
+        </article>
+      ))}
+      <p class="page-note">{t.suites.residenceNote}</p>
+    </div>
+  </section>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.suites, url: p(lang, 'suites') },
+    ])}
+  />
+</Base>
+
+<style>
+  .suites-list {
+    display: grid;
+    gap: var(--space-5);
+  }
+  .editorial {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .editorial--flip { grid-template-columns: 4fr 7fr; }
+  .editorial--flip .editorial__photo { order: 2; }
+  .editorial--flip .editorial__text { order: 1; }
+  .editorial__photo :global(img) { width: 100%; height: auto; display: block; }
+  .suite-name {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    margin-bottom: var(--space-2);
+  }
+  .editorial__text p { margin-bottom: var(--space-2); }
+  @media (max-width: 900px) {
+    .editorial, .editorial--flip { grid-template-columns: 1fr; }
+    .editorial--flip .editorial__photo { order: 1; }
+    .editorial--flip .editorial__text { order: 2; }
+  }
+</style>

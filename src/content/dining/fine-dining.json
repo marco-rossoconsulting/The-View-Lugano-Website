@@ -1,0 +1,23 @@
+{
+  "order": 1,
+  "name": "THE VIEW Fine Dining",
+  "kind": "restaurant",
+  "photos": [
+    { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2020/07/20131235/the-view-lugano-fine-dining-restaurant.jpg",
+      "alt": { "en": "THE VIEW Fine Dining dining room at evening service", "de": "Der Speisesaal von THE VIEW Fine Dining am Abendservice", "it": "La sala di THE VIEW Fine Dining al servizio serale", "fr": "La salle de THE VIEW Fine Dining au service du soir" } },
+    { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2020/07/20151423/the-view-lugano-fine-dining-restaurant-food.jpg",
+      "alt": { "en": "A course from Chef Diego Della Schiava's menu", "de": "Ein Gang aus dem Menü von Chef Diego Della Schiava", "it": "Una portata dal menu dello Chef Diego Della Schiava", "fr": "Un plat du menu du Chef Diego Della Schiava" } }
+  ],
+  "summary": {
+    "en": "One Michelin star since 2022, 16 points Gault & Millau, and a room that faces the water and takes its time.",
+    "de": "Ein Michelin-Stern seit 2022, 16 Punkte Gault & Millau und ein Saal, der aufs Wasser blickt und sich Zeit nimmt.",
+    "it": "Una stella Michelin dal 2022, 16 punti Gault & Millau e una sala che guarda l'acqua e si prende il suo tempo.",
+    "fr": "Une étoile Michelin depuis 2022, 16 points Gault & Millau, et une salle qui regarde l'eau et prend son temps."
+  },
+  "facts": [
+    { "en": "Chef Diego Della Schiava", "de": "Chef Diego Della Schiava", "it": "Chef Diego Della Schiava", "fr": "Chef Diego Della Schiava" },
+    { "en": "1 Michelin Star, held since 2022", "de": "1 Michelin-Stern, seit 2022", "it": "1 stella Michelin, dal 2022", "fr": "1 étoile Michelin, depuis 2022" },
+    { "en": "16 points Gault & Millau", "de": "16 Punkte Gault & Millau", "it": "16 punti Gault & Millau", "fr": "16 points Gault & Millau" },
+    { "en": "Open to house guests and outside guests alike", "de": "Offen für Hausgäste wie externe Gäste", "it": "Aperto agli ospiti della casa e agli esterni", "fr": "Ouvert aux hôtes de la maison comme de l'extérieur" }
+  ]
+}

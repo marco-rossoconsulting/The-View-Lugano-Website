@@ -1,0 +1,319 @@
+{
+  "langName": "Deutsch",
+  "nav": {
+    "home": "Startseite",
+    "suites": "Suiten & Residence",
+    "dining": "Fine Dining",
+    "spa": "Spa",
+    "experiences": "Erlebnisse & Arrangements",
+    "events": "Events & Meetings",
+    "gallery": "Galerie",
+    "location": "Lage",
+    "sustainability": "Nachhaltigkeit",
+    "press": "Presse & Auszeichnungen",
+    "journal": "Journal",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "impressum": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "cookies": "Cookie-Richtlinie",
+    "menuOpen": "Menü",
+    "menuClose": "Schliessen"
+  },
+  "common": {
+    "reserve": "Reservieren",
+    "checkAvailability": "Verfügbarkeit prüfen",
+    "arrival": "Anreise",
+    "departure": "Abreise",
+    "adults": "Erwachsene",
+    "children": "Kinder",
+    "bookTable": "Tisch reservieren",
+    "vouchers": "Gutscheine",
+    "eventsShop": "Tickets & Events",
+    "continue": "Weiterlesen",
+    "discover": "Entdecken",
+    "skip": "Zum Inhalt springen",
+    "langSwitch": "Sprache",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "callUs": "Rufen Sie uns an",
+    "writeUs": "Schreiben Sie uns",
+    "openDaily": "Täglich geöffnet",
+    "included": "Im Aufenthalt inbegriffen",
+    "faqTitle": "Vor Ihrer Anreise",
+    "trade": "Reisebüros & Advisor",
+    "gdsNote": "Für Advisor und Handelspartner. GDS-Codes:",
+    "backTo": "Zurück zu",
+    "photoCredit": "Alle Fotografien: THE VIEW Lugano"
+  },
+  "footer": {
+    "factLine": "Achtzehn Suiten am Hang von Paradiso. Jede Suite, beide Pools, der Fitnessraum, das Restaurant, die Lounge und die Terrasse blicken auf den Luganersee.",
+    "partOf": "THE VIEW Lugano ist Teil der Planhotel Hospitality Group, 1997 in Lugano gegründet.",
+    "credentials": "Auszeichnungen"
+  },
+  "consent": {
+    "title": "Ihre Daten, Ihre Wahl",
+    "body": "Wir verwenden wenige Cookies. Einige sind für den Betrieb der Website notwendig; andere helfen uns zu verstehen, wie sie genutzt wird, oder erleichtern Reservierungen. Sie entscheiden. Details in unserer Cookie-Richtlinie.",
+    "acceptAll": "Alle akzeptieren",
+    "necessaryOnly": "Nur notwendige",
+    "settings": "Einzeln wählen",
+    "save": "Auswahl speichern",
+    "catNecessary": "Notwendig",
+    "catNecessaryDesc": "Für den Betrieb der Website erforderlich. Immer aktiv.",
+    "catPreferences": "Präferenzen",
+    "catPreferencesDesc": "Merkt sich Ihre Sprache und Einstellungen.",
+    "catStatistics": "Statistik",
+    "catStatisticsDesc": "Anonyme Nutzungsmessung.",
+    "catMarketing": "Marketing",
+    "catMarketingDesc": "Medien und Reservierungs-Widgets von Drittanbietern."
+  },
+  "home": {
+    "metaTitle": "THE VIEW Lugano — Eine Welt für sich",
+    "metaDesc": "Achtzehn Suiten über dem Luganersee in Paradiso. Jede Suite, beide Pools, das Restaurant und die Terrasse blicken aufs Wasser. Michelin-Küche, 1'000 m² Spa, elektrische Smarts und E-Bikes inbegriffen.",
+    "heroLine": "Achtzehn Suiten über dem See. Jede einzelne blickt aufs Wasser.",
+    "heroTagline": "Eine Welt für sich",
+    "introEyebrow": "Das Haus",
+    "introTitle": "Das Panorama ist keine Zimmerkategorie. Es ist das Gebäude.",
+    "introBody1": "The View steht am Hang von Paradiso, an der Flanke des Monte San Salvatore, gebaut um eine einzige, eigensinnige Entscheidung: Jeder Raum sollte aufs Wasser blicken. Nicht die besten Räume — jeder Raum. Jede Suite, beide Pools, der Fitnessraum, das Restaurant, die Lounge und die Terrasse.",
+    "introBody2": "Achtzehn Suiten. Diese Zahl war eine Entscheidung, und sie ist es bis heute. Darum bekommt hier kein Gast die geringere Version des Hauses.",
+    "ambassadorEyebrow": "Der Ambassador",
+    "ambassadorTitle": "Eine Person, von vor der Anreise bis nach der Abreise",
+    "ambassadorBody": "Jeden Aufenthalt betreut ein Ambassador — eine Person, die die Anreise organisiert, den Tisch im Restaurant hält, morgens einen geladenen Smart bereitstellt und am zweiten Tag Ihren Kaffee kennt. Wer über seinen Aufenthalt schreibt, nennt meist einen Vornamen.",
+    "diningEyebrow": "Der Tisch",
+    "diningTitle": "Ein Michelin-Stern, zwei Etagen unter den Schlafzimmern",
+    "diningBody": "Chef Diego Della Schiava hält seit 2022 einen Michelin-Stern und 16 Punkte Gault & Millau. Der Speisesaal blickt auf den See, wie jeder Raum hier. Die Terrazza TreCinqueZero und die Lounge Bar tragen den Standard derselben Küche ins Freie.",
+    "spaEyebrow": "Das Spa",
+    "spaTitle": "Tausend Quadratmeter, und selten mehr als vier Menschen darin",
+    "spaBody": "Ein Innenpool, zwei Nasszonen, ein Kneipp-Parcours und ein Ruheraum mit Himalaya-Salzwand. Hausgäste zuerst; der Zugang von aussen bleibt bewusst begrenzt.",
+    "fleetEyebrow": "Die Schlüssel auf der Konsole",
+    "fleetTitle": "Ein Smart und ein E-Bike stehen bereit",
+    "fleetBody": "Elektrische Smarts und E-Bikes sind im Aufenthalt inbegriffen. Die Stadt liegt zehn Minuten den Hügel hinunter, das Seeufer wenig weiter. Die Flotte ist bewusst klein, damit sie wirklich verfügbar bleibt — Ihr Ambassador reserviert vor Ihrer Anreise.",
+    "trustEyebrow": "Warum Gäste wiederkommen",
+    "trustTitle": "Acht Jahre Gästestimmen in 23 Sprachen kehren zu drei Dingen zurück",
+    "trustView": "Die Aussicht. Gäste beschreiben den See vom Kissen, vom Pool, vom Tisch — und greifen von selbst zum Wort paradiso.",
+    "trustPeople": "Die Menschen. Was Gäste am häufigsten erinnern, ist keine Einrichtung, sondern ein Vorname — Giacomo, Galin, Martin, Edoardo, Adriano.",
+    "trustFleet": "Die Smarts und die E-Bikes. Immer wieder beschrieben als das, was niemand erwartet und niemand vergisst.",
+    "creativeCta": "Zu den Suiten"
+  },
+  "suites": {
+    "metaTitle": "Suiten & Residence — THE VIEW Lugano",
+    "metaDesc": "Sechzehn Junior Suiten mit 50 m², zwei Suiten Superior mit 105 m² und die Apartments der THE VIEW Residence. Jede Suite blickt auf den Luganersee, jede mit eigener Terrasse.",
+    "h1": "Suiten & Residence",
+    "intro": "Sechzehn Junior Suiten mit fünfzig Quadratmetern. Zwei Suiten Superior mit hundertfünf. Jede blickt auf den See, weil jeder Raum im Gebäude es tut, und jede öffnet sich auf die eigene Terrasse. Die Interieurs folgen der Linie eines Schiffs — klar, warm, ohne Eile.",
+    "honesty": "Was Sie sehen, ist die Kategorie, die Sie buchen. Die Fotografie auf diesen Seiten zeigt exakt den jeweiligen Suitentyp.",
+    "residenceNote": "Für Aufenthalte mit Küche und mehr Raum zum Leben liegen die Apartments der THE VIEW Residence im selben Gebäude, mit demselben See im Fenster.",
+    "detailFacts": "Die Suite, in Fakten",
+    "amenities": "Ausstattung",
+    "from": "Ab",
+    "sqm": "m²",
+    "sleeps": "Für",
+    "cta": "Verfügbarkeit prüfen"
+  },
+  "dining": {
+    "metaTitle": "Fine Dining, Terrasse & Bar — THE VIEW Lugano",
+    "metaDesc": "THE VIEW Fine Dining — ein Michelin-Stern, Chef Diego Della Schiava, 16 Punkte Gault & Millau. Terrazza TreCinqueZero und Lounge Bar über dem Luganersee.",
+    "h1": "Der Tisch über dem See",
+    "intro": "Eine Küche setzt den Standard für das ganze Haus — das Degustationsmenü am Abend, die Terrasse am Mittag, die Bar vor dem Dinner, das Frühstück am Morgen danach.",
+    "restaurantTitle": "THE VIEW Fine Dining",
+    "restaurantBody1": "Chef Diego Della Schiava kocht ein mediterranes Menü, ausgezeichnet mit einem Michelin-Stern seit 2022 und 16 Punkten Gault & Millau. Der Saal hat wenige Plätze, blickt aufs Wasser und nimmt sich Zeit.",
+    "restaurantBody2": "Das Restaurant empfängt Gäste des Hauses wie der Stadt — viele entdecken das Hotel zuerst von diesem Tisch aus.",
+    "terraceTitle": "Terrazza TreCinqueZero",
+    "terraceBody": "Die Terrasse auf 350 Metern über Meer: Aperitivo, Lunch und Sommerabende im Freien, der See darunter, der Monte San Salvatore im Rücken.",
+    "barTitle": "Die Lounge Bar",
+    "barBody": "Champagner, eine durchdachte Karte mit Tessiner Weinen und Sessel, die zum Fenster gedreht sind. Der See ist grau um sieben und platin am Mittag; beides ist einen Platz wert.",
+    "breakfastTitle": "Frühstück",
+    "breakfastBody": "Jeden Morgen im Restaurant serviert, mit derselben Aussicht wie am Abend. Frisch, ohne Eile, und dort à la minute, wo es sein soll.",
+    "reserveTable": "Tisch reservieren",
+    "menuNote": "Die Menüs folgen der Saison. Für das Tagesmenü und Unverträglichkeiten antwortet das Restaurant direkt."
+  },
+  "spa": {
+    "metaTitle": "THE VIEW SPA — THE VIEW Lugano",
+    "metaDesc": "1'000 m² intimer Wellnessbereich über dem Luganersee: Innenpool, zwei Nasszonen, Kneipp-Parcours, Ruheraum mit Himalaya-Salzwand. Täglich 09:00–20:30, Hausgäste zuerst.",
+    "h1": "THE VIEW SPA",
+    "intro": "Tausend Quadratmeter, ein Innenpool mit dem See hinter dem Glas, zwei Nasszonen, ein Kneipp-Parcours und ein Ruheraum mit Himalaya-Salzwand. Selten mehr als vier Menschen darin.",
+    "philosophy": "Dieses Spa argumentiert nicht mit Grösse. Es ist mit Absicht klein und mit System ruhig: Gäste des Hauses kommen zuerst, und der Zugang von aussen bleibt bewusst begrenzt, damit das so bleibt.",
+    "treatmentsTitle": "Behandlungen",
+    "treatmentsIntro": "Behandlungen werden stundenweise gebucht und für jeweils eine Person vorbereitet.",
+    "hoursTitle": "Öffnungszeiten & Zugang",
+    "hoursBody": "Täglich von 09:00 bis 20:30 geöffnet. Hausgäste haben jederzeit Vorrang; eine begrenzte Zahl von Tageseintritten und Mitgliedschaften ist auf Anfrage möglich.",
+    "fitnessTitle": "Fitness & Personal Training",
+    "fitnessBody": "Der Fitnessraum blickt auf den See — die einzige Wand, auf die zuzulaufen sich lohnt. Personal-Training-Einheiten organisiert Ihr Ambassador.",
+    "bookTreatment": "Behandlungen anfragen"
+  },
+  "experiences": {
+    "metaTitle": "Erlebnisse & Arrangements — THE VIEW Lugano",
+    "metaDesc": "Arrangements im THE VIEW Lugano: längere Aufenthalte am See, Dinner mit Suite über dem Restaurant und das ganze Haus für Sie allein.",
+    "h1": "Erlebnisse & Arrangements",
+    "intro": "Wenige Arrangements, komponiert statt geschnürt. Jedes existiert, weil Gäste immer wieder danach gefragt haben.",
+    "cta": "Anfragen",
+    "voucherTitle": "Ein Aufenthalt, als Geschenk",
+    "voucherBody": "Gutscheine für Aufenthalte, Restaurant und Spa sind direkt online erhältlich."
+  },
+  "events": {
+    "metaTitle": "Events & Meetings — THE VIEW Lugano",
+    "metaDesc": "Private Anlässe für 10 bis 20 Gäste, Board-Meetings mit dem See hinter dem Glas, Feste bis 30 mit dem Haus für Sie allein. Keine Bankettsäle — mit Absicht.",
+    "h1": "Events & Meetings",
+    "intro": "Das Haus nimmt Anlässe wie Gäste an: wenige aufs Mal, betreut beim Namen.",
+    "privateTitle": "Private Anlässe",
+    "privateBody": "Dinner und Feste für zehn bis zwanzig Gäste, gekocht von einer Michelin-Küche statt von einer Bankettkarte. Kleine Hochzeiten — bis dreissig — sind willkommen, wenn das Haus Ihnen allein gehört.",
+    "meetingTitle": "Meetings",
+    "meetingBody": "Ein Sitzungsraum, Tageslicht und der See hinter dem Glas. Gebaut für ein Board, nicht für einen Kongress: ein Arbeitstisch, präzise Technik und das Restaurant zwei Etagen tiefer für den Abend.",
+    "buyoutTitle": "Das ganze Haus",
+    "buyoutBody": "Achtzehn Suiten heisst: Das gesamte Haus kann Ihnen gehören — jede Suite, beide Pools, das Spa, das Restaurant und die Terrasse, für die Tage, die Sie brauchen.",
+    "honest": "Was wir nicht tun: Gruppen über zwanzig, Kongresse, grosse Hochzeiten. Häuser, die das gut können, sind anders gebaut — und wir schicken Sie lieber dorthin, als Sie schlecht zu bedienen.",
+    "cta": "Sprechen Sie mit uns über einen Termin"
+  },
+  "gallery": {
+    "metaTitle": "Galerie — THE VIEW Lugano",
+    "metaDesc": "Fotografien des THE VIEW Lugano: das Haus in Paradiso, die Suiten, THE VIEW Fine Dining, Terrazza TreCinqueZero, THE VIEW SPA und die elektrische Flotte.",
+    "h1": "Galerie",
+    "intro": "Das Haus, fotografiert wie es ist. Jedes Bild auf dieser Website zeigt dieses Haus.",
+    "filterAll": "Alle",
+    "catHotel": "Das Haus",
+    "catSuite": "Suiten",
+    "catDining": "Fine Dining",
+    "catTerrace": "Terrazza TreCinqueZero",
+    "catBar": "Lounge Bar",
+    "catSpa": "Spa",
+    "catMeeting": "Meetings",
+    "catEvents": "Events",
+    "catFleet": "Smart & E-Bikes",
+    "lightboxClose": "Schliessen",
+    "lightboxPrev": "Vorheriges Bild",
+    "lightboxNext": "Nächstes Bild"
+  },
+  "location": {
+    "metaTitle": "Lage & Anreise — THE VIEW Lugano",
+    "metaDesc": "Via Guidino 29, 6900 Lugano–Paradiso. Zehn Minuten über dem Stadtzentrum, 25 Minuten vom Flughafen Lugano, eine Stunde von Mailand Malpensa. Parkplätze am Haus; elektrische Smarts inbegriffen.",
+    "h1": "Über der Stadt, am Hang von Paradiso",
+    "intro": "The View steht über Lugano an der Flanke des Monte San Salvatore. Die Stadt liegt zehn Minuten den Hügel hinunter, das Seeufer wenig weiter — und der See selbst ist die ganze Zeit im Fenster.",
+    "arrivingTitle": "Anreise",
+    "byCar": "Mit dem Auto: Autobahn A2, Ausfahrt Lugano Sud, Richtung Paradiso, dann die Via Guidino bis Nummer 29. Parkplätze stehen am Haus bereit — nennen Sie Ihrem Ambassador Ihre Ankunftszeit, und ein Platz wartet.",
+    "byTrain": "Mit dem Zug: Der Bahnhof Lugano liegt zehn Minuten entfernt, der Bahnhof Paradiso noch näher. Wir holen Sie ab — vereinbaren Sie es vor der Reise mit Ihrem Ambassador.",
+    "byAir": "Mit dem Flugzeug: Flughafen Lugano rund 25 Minuten, Mailand Malpensa rund eine Stunde, Zürich rund zweieinhalb per Strasse oder Bahn. Private Transfers organisieren wir für jede Verbindung.",
+    "aroundTitle": "Unterwegs",
+    "aroundBody": "Elektrische Smarts und E-Bikes sind im Aufenthalt inbegriffen — und sie verändern, was der Hang bedeutet: Die Lage gibt Ihnen das Panorama, die Schlüssel geben Ihnen die Stadt. Reservieren Sie vor der Anreise über Ihren Ambassador — die Flotte ist mit Absicht klein.",
+    "luganoTitle": "Lugano & Tessin",
+    "luganoBody": "Die italienische Schweiz ist eine besondere Anordnung der Dinge: Schweizer Fahrpläne, italienische Abende. Der See, Monte Brè und San Salvatore, Gandria am Ufer, Morcote an der Spitze der Halbinsel, Como und Mailand einen leichten Tagesausflug entfernt."
+  },
+  "sustainability": {
+    "metaTitle": "Nachhaltigkeit — THE VIEW Lugano",
+    "metaDesc": "Swisstainable Level III und Travelife Gold. Betrieb mit Wasserkraft, eine vollelektrische Gästeflotte und ein kleines Haus, das Ressourcen behandelt wie Gäste: mit Sorgfalt.",
+    "h1": "Leise, und richtig",
+    "intro": "Nachhaltigkeit ist hier keine Kampagne. Sie ist die Art, wie das Haus geführt wird — und sie zeigt sich als Qualität, nicht als Parole.",
+    "body1": "Das Haus wird mit Wasserkraft betrieben. Die Gästeflotte ist vollständig elektrisch — die Smarts und E-Bikes, über die Gäste schreiben, waren eine Umweltentscheidung, bevor sie eine Signatur wurden. Achtzehn Suiten halten Verbrauch, Abfall und Wäsche im Massstab eines grossen Privathauses statt eines Hotelblocks.",
+    "body2": "Die Arbeit wird geprüft statt behauptet: THE VIEW Lugano trägt Swisstainable Level III — die höchste Stufe des Schweizer Nachhaltigkeitsprogramms für den Tourismus — sowie die Travelife-Gold-Zertifizierung und publiziert Barrierefreiheits-Informationen über OK:GO.",
+    "body3": "Nichts davon liegt auf einem Teller oder einem Kissen. Es liegt im Strom, im Wasser und darin, dass der See unter der Terrasse die Mühe verdient."
+  },
+  "press": {
+    "metaTitle": "Presse & Auszeichnungen — THE VIEW Lugano",
+    "metaDesc": "Auszeichnungen des THE VIEW Lugano: ein Michelin-Stern, Michelin Key, Forbes Travel Guide Four-Star, Small Luxury Hotels of the World, Switzerland's Leading Design Hotel, 16 Punkte Gault & Millau.",
+    "h1": "Presse & Auszeichnungen",
+    "intro": "Die Auszeichnungen, einmal und klar genannt. Das Haus lässt sich lieber von einer Terrasse beurteilen als von einem Trophäenregal.",
+    "mediaTitle": "Medienanfragen",
+    "mediaBody": "Für Pressematerial, Fotografie in Druckauflösung und Interviewanfragen schreiben Sie uns direkt. Wir antworten schnell und sagen selektiv zu.",
+    "factsTitle": "Fact Sheet",
+    "factsBody": "THE VIEW Lugano ist ein Fünf-Sterne-Boutique-Haus der Planhotel Hospitality Group: 18 Suiten (16 Junior Suiten à 50 m², 2 Suiten Superior à 105 m²), alle seeseitig mit privater Terrasse; THE VIEW Fine Dining (1 Michelin-Stern, 16 Punkte Gault & Millau, Chef Diego Della Schiava); Terrazza TreCinqueZero; 1'000 m² Spa mit Innenpool; Aussenpool; Sitzungsraum; elektrische Smarts und E-Bikes inbegriffen."
+  },
+  "journal": {
+    "metaTitle": "Journal — THE VIEW Lugano",
+    "metaDesc": "Notizen aus dem Haus: der See nach Stunden, die Entscheidung für achtzehn, eine Küche und ihr Standard.",
+    "h1": "Journal",
+    "intro": "Notizen aus dem Haus. Langsam geschrieben, selten publiziert.",
+    "readingTime": "Min. Lesezeit",
+    "published": "Publiziert"
+  },
+  "contact": {
+    "metaTitle": "Kontakt — THE VIEW Lugano",
+    "metaDesc": "THE VIEW Lugano, Via Guidino 29, 6900 Lugano–Paradiso, Schweiz. Telefon +41 91 210 0000, info@theviewlugano.com. WhatsApp verfügbar.",
+    "h1": "Kontakt",
+    "intro": "Eine Adresse, eine Nummer — und Menschen, die abnehmen.",
+    "whatsapp": "WhatsApp",
+    "reserveTitle": "Reservierungen",
+    "reserveBody": "Buchen Sie direkt online oder schreiben Sie uns — Direktgäste werden direkt betreut, von der ersten Nachricht an.",
+    "tradeBody": "Wir arbeiten mit Serandipians-, Virtuoso- und SLH-Advisorn sowie mit Corporate-Buchern, die Diskretion schätzen. Für Raten, Verträge und das Fact Sheet kontaktieren Sie uns mit dem Vermerk Sales Office.",
+    "careersTitle": "Bei uns arbeiten",
+    "careersBody": "Das Haus stellt langsam ein und hält Menschen lange. Initiativbewerbungen werden gelesen — alle."
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "impressumBody": [
+      "THE VIEW Lugano",
+      "Via Guidino 29, 6900 Lugano – Paradiso, Schweiz",
+      "MwSt: CHE-352.530.324",
+      "Telefon: +41 91 210 0000",
+      "E-Mail: info@theviewlugano.com",
+      "THE VIEW Lugano ist Teil der Planhotel Hospitality Group, 1997 in Lugano gegründet."
+    ],
+    "privacyTitle": "Datenschutzerklärung",
+    "privacyBody": [
+      "Diese Erklärung beschreibt, wie THE VIEW Lugano (Via Guidino 29, 6900 Lugano – Paradiso, Schweiz) Personendaten gemäss dem Schweizer Datenschutzgesetz (DSG/nDSG) und, soweit anwendbar, der EU-Datenschutz-Grundverordnung (DSGVO) bearbeitet.",
+      "Bearbeitete Daten: Identifikations- und Kontaktdaten, die Sie bei Reservierungen, Korrespondenz oder Anmeldungen angeben; aufenthaltsbezogene Angaben zur Vorbereitung Ihres Besuchs; technische Daten bei der Nutzung dieser Website (siehe Cookie-Richtlinie).",
+      "Zwecke und Rechtsgrundlagen: Erfüllung des Beherbergungsvertrags und vorvertraglicher Schritte (Reservierungen, Korrespondenz); gesetzliche Pflichten (Gästemeldung, Buchhaltung); berechtigtes Interesse am Betrieb und an der Sicherheit dieser Website; Ihre Einwilligung für optionale Cookies und Marketingkommunikation, jederzeit widerrufbar.",
+      "Empfänger: Unser Buchungssystem (SimpleBooking), das Tischreservierungssystem (TheFork) und der Gutschein-Shop (e-guma) erhalten die Daten, die zur Abwicklung der von Ihnen dort ausgelösten Reservierung nötig sind. Wir verkaufen keine Personendaten.",
+      "Aufbewahrung: Vertrags- und Buchhaltungsdaten während der gesetzlich vorgeschriebenen Fristen; Korrespondenz, solange sie zur Bearbeitung Ihres Anliegens nötig ist; einwilligungsbasierte Daten bis zum Widerruf.",
+      "Ihre Rechte: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und, soweit anwendbar, Datenübertragbarkeit. Kontakt: info@theviewlugano.com. Sie können sich zudem an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) wenden.",
+      "Diese Erklärung kann aktualisiert werden; die jeweils gültige Fassung ist auf dieser Seite publiziert."
+    ],
+    "termsTitle": "Allgemeine Geschäftsbedingungen",
+    "termsBody": [
+      "Diese Bedingungen gelten für Reservierungen direkt bei THE VIEW Lugano, Via Guidino 29, 6900 Lugano – Paradiso, Schweiz (MwSt CHE-352.530.324).",
+      "Reservierung und Bestätigung: Eine Reservierung ist verbindlich, sobald sie vom Hotel schriftlich oder über das Online-Buchungssystem bestätigt wurde. Es gelten Rate, Inklusivleistungen und Stornobedingungen, wie sie bei der Buchung und in Ihrer Bestätigung ausgewiesen sind.",
+      "Zahlung: Wir akzeptieren die bei der Buchung angegebenen Zahlungsmittel. Wo eine Anzahlung oder Vorauszahlung nötig ist, wird dies vor der Bestätigung ausgewiesen. Rechnungen sind beim Check-out zahlbar, sofern nichts anderes vereinbart wurde.",
+      "Stornierung und No-Show: Es gelten die für Ihre Rate bei der Buchung ausgewiesenen Bedingungen. Stornierungen bedürfen der Schriftform; die Bestätigungs-E-Mail nennt Fristen und allfällige Gebühren.",
+      "An- und Abreise: Suiten stehen am Anreisetag ab 15:00 Uhr bereit und am Abreisetag bis 11:00 Uhr zur Verfügung. Frühere Anreise oder spätere Abreise sind nach Verfügbarkeit möglich — fragen Sie Ihren Ambassador.",
+      "Haftung: Das Hotel haftet nach Schweizer Recht. Wertsachen gehören in den Suitensafe oder in Verwahrung an der Rezeption.",
+      "Anwendbares Recht und Gerichtsstand: Es gilt Schweizer Recht. Gerichtsstand ist Lugano, Schweiz."
+    ],
+    "cookiesTitle": "Cookie-Richtlinie",
+    "cookiesBody": [
+      "Diese Website verwendet Cookies und ähnliche Technologien. Nach dem Schweizer DSG/nDSG holen wir Ihre Einwilligung für alle nicht notwendigen Cookies ein, bevor sie gesetzt werden; Ihre Wahl können Sie jederzeit über «Cookie-Einstellungen» im Footer ändern.",
+      "Notwendige Cookies halten die Website funktionsfähig: Sie speichern Ihre Einwilligungswahl und Ihre Sprache. Sie lassen sich nicht deaktivieren.",
+      "Präferenz-Cookies merken sich Einstellungen wie Ihre Sprache über Besuche hinweg.",
+      "Statistik-Cookies helfen uns, sofern erlaubt, die Nutzung der Website in anonymisierter Form zu verstehen.",
+      "Marketing-Cookies ermöglichen, sofern erlaubt, eingebettete Dienste Dritter — das SimpleBooking-Buchungssystem, das TheFork-Widget und den e-guma-Shop —, die eigene Cookies nach eigenen Richtlinien setzen können.",
+      "Widerruf: Öffnen Sie die Cookie-Einstellungen jederzeit erneut und speichern Sie eine neue Wahl. Notwendige Cookies bleiben aktiv, da sie für den Betrieb erforderlich sind."
+    ],
+    "cookieSettings": "Cookie-Einstellungen"
+  },
+  "faq": {
+    "title": "Vor Ihrer Anreise",
+    "items": [
+      {
+        "q": "Gibt es Parkplätze, und wie reise ich mit dem Auto an?",
+        "a": "Ja — Parkplätze stehen am Haus bereit. Verlassen Sie die A2 bei Lugano Sud, folgen Sie Paradiso und dann der Via Guidino bis Nummer 29. Nennen Sie Ihrem Ambassador Ihre Ankunftszeit, und ein Platz ist reserviert."
+      },
+      {
+        "q": "Sind die elektrischen Smarts und E-Bikes wirklich inbegriffen?",
+        "a": "Ja, sie sind im Aufenthalt inbegriffen. Die Flotte ist klein, die Verfügbarkeit daher begrenzt — reservieren Sie vor der Anreise über Ihren Ambassador, um sicher ein Auto oder Rad für Ihre Stunden zu haben."
+      },
+      {
+        "q": "Welche Öffnungszeiten hat das Spa, und ist es auch ohne Übernachtung zugänglich?",
+        "a": "Das THE VIEW SPA ist täglich von 09:00 bis 20:30 geöffnet. Hausgäste haben jederzeit Vorrang; eine begrenzte Zahl externer Tageseintritte und Mitgliedschaften ist auf Anfrage möglich."
+      },
+      {
+        "q": "Wann sind Check-in und Check-out?",
+        "a": "Suiten sind ab 15:00 Uhr bereit und gehören Ihnen bis 11:00 Uhr am Abreisetag. Früher oder später lässt sich oft einrichten — fragen Sie Ihren Ambassador, am besten vor der Reise."
+      },
+      {
+        "q": "Blicken wirklich alle Suiten auf den See?",
+        "a": "Ja. Jede Suite im Gebäude blickt aufs Wasser und hat eine eigene Terrasse — das Haus wurde so entworfen, dass kein Zimmer woandershin schaut. Die Fotografie auf jeder Suitenseite zeigt exakt die gebuchte Kategorie."
+      },
+      {
+        "q": "Sind Kinder und Haustiere willkommen?",
+        "a": "Kinder sind willkommen. Für Haustiere schreiben Sie uns bitte vor der Buchung — wir sagen Ihnen ehrlich, ob Haus und Termin zu Ihrem Tier passen."
+      },
+      {
+        "q": "Wie weit ist die Stadt, und brauche ich ein Auto?",
+        "a": "Das Zentrum von Lugano liegt rund zehn Minuten den Hügel hinunter. Ein eigenes Auto brauchen Sie nicht: Die inbegriffenen Smarts und E-Bikes decken die Stadt ab, und Ihr Ambassador organisiert Transfers für An- und Abreise."
+      }
+    ]
+  },
+  "notFound": {
+    "title": "Diese Seite ist nicht hier",
+    "body": "Die gesuchte Seite existiert nicht oder ist umgezogen. Die Aussicht dagegen ist genau dort, wo sie war.",
+    "cta": "Zur Startseite"
+  }
+}

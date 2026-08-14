@@ -1,0 +1,7 @@
+---
+// The signature element: a hairline argento horizon with a faint mirrored
+// gradient beneath — sky above, lake below. The only decoration on the site.
+interface Props { onDark?: boolean }
+const { onDark = false } = Astro.props;
+---
+<div class={`waterline${onDark ? ' waterline--ondark' : ''}`} aria-hidden="true"></div>

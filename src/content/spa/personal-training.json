@@ -1,0 +1,11 @@
+{
+  "order": 4,
+  "name": { "en": "Personal Training", "de": "Personal Training", "it": "Personal training", "fr": "Personal training" },
+  "duration": "60 min",
+  "summary": {
+    "en": "One-to-one sessions in the fitness room that faces the lake, or outdoors on the hill. Arranged through your Ambassador, at the hour that suits your day.",
+    "de": "Einzeltraining im Fitnessraum mit Seeblick oder draussen am Hang. Organisiert über Ihren Ambassador, zur Stunde, die zu Ihrem Tag passt.",
+    "it": "Sessioni individuali nella sala fitness che guarda il lago, o all'aperto sulla collina. Si organizzano tramite il vostro Ambassador, all'ora che si adatta alla vostra giornata.",
+    "fr": "Séances individuelles dans la salle de fitness face au lac, ou dehors sur la colline. Organisées par votre Ambassador, à l'heure qui convient à votre journée."
+  }
+}

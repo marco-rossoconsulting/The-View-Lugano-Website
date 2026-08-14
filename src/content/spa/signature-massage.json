@@ -1,0 +1,11 @@
+{
+  "order": 1,
+  "name": { "en": "The View Signature Massage", "de": "The View Signature-Massage", "it": "Massaggio Signature The View", "fr": "Massage Signature The View" },
+  "duration": "80 min",
+  "summary": {
+    "en": "A full-body treatment built around slow, continuous strokes — the house's own protocol, tuned to whether you arrive from a flight, a drive or a week that ran too fast.",
+    "de": "Eine Ganzkörperbehandlung um langsame, durchgehende Züge — das hauseigene Protokoll, abgestimmt darauf, ob Sie von einem Flug, einer Fahrt oder einer zu schnellen Woche kommen.",
+    "it": "Un trattamento completo costruito su movimenti lenti e continui — il protocollo della casa, calibrato sul fatto che arriviate da un volo, da un viaggio in auto o da una settimana troppo veloce.",
+    "fr": "Un soin du corps entier construit sur des gestes lents et continus — le protocole de la maison, ajusté selon que vous arriviez d'un vol, d'une route ou d'une semaine trop rapide."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "order": 2,
+  "name": { "en": "Aromatherapy Ritual", "de": "Aromatherapie-Ritual", "it": "Rituale di aromaterapia", "fr": "Rituel d'aromathérapie" },
+  "duration": "50 min",
+  "summary": {
+    "en": "Essential-oil massage with a blend chosen with your therapist before the treatment begins — for sleep, for clarity, or simply for the hour itself.",
+    "de": "Massage mit ätherischen Ölen, deren Mischung Sie vor Beginn mit Ihrer Therapeutin wählen — für den Schlaf, für die Klarheit oder schlicht für die Stunde selbst.",
+    "it": "Massaggio con oli essenziali, con una miscela scelta insieme alla terapista prima di iniziare — per il sonno, per la lucidità, o semplicemente per l'ora in sé.",
+    "fr": "Massage aux huiles essentielles, dont le mélange se choisit avec votre thérapeute avant le soin — pour le sommeil, pour la clarté, ou simplement pour l'heure elle-même."
+  }
+}

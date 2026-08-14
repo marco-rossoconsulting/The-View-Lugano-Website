@@ -1,0 +1,94 @@
+---
+import Base from '../../layouts/Base.astro';
+import Pic from '../../components/Pic.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { breadcrumbJsonLd } from '../../lib/seo';
+import { egumaUrl } from '../../lib/site';
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+const t = dict(lang);
+const offers = (await getCollection('offers')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base {lang} title={t.experiences.metaTitle} description={t.experiences.metaDesc} route="experiences">
+  <section class="section">
+    <div class="container container--narrow">
+      <h1 class="page-title">{t.experiences.h1}</h1>
+      <p class="page-intro">{t.experiences.intro}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container offers">
+      {offers.map((o, i) => (
+        <article class={`editorial fade-up${i % 2 ? ' editorial--flip' : ''}`}>
+          <div class="editorial__photo">
+            <Pic
+              src={o.data.photo.src}
+              alt={o.data.photo.alt[lang]}
+              width={1600}
+              height={1067}
+              sizes="(max-width: 900px) 100vw, 58vw"
+            />
+          </div>
+          <div class="editorial__text">
+            <h2 class="offer-name">{o.data.name[lang]}</h2>
+            {o.data.body[lang].map((par: string) => <p>{par}</p>)}
+            <ul class="facts">
+              {o.data.includes.map((inc) => <li>{inc[lang]}</li>)}
+            </ul>
+            <a class="btn" href={p(lang, 'contact')}>{t.experiences.cta}</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--tortora">
+    <div class="container container--narrow">
+      <h2 class="offer-name">{t.experiences.voucherTitle}</h2>
+      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{t.experiences.voucherBody}</p>
+      <a class="btn" href={egumaUrl('vouchers', lang)} rel="noopener">{t.common.vouchers}</a>
+    </div>
+  </section>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: t.nav.home, url: p(lang) },
+      { name: t.nav.experiences, url: p(lang, 'experiences') },
+    ])}
+  />
+</Base>
+
+<style>
+  .offers { display: grid; gap: var(--space-5); }
+  .editorial {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .editorial--flip { grid-template-columns: 4fr 7fr; }
+  .editorial--flip .editorial__photo { order: 2; }
+  .editorial--flip .editorial__text { order: 1; }
+  .editorial__photo :global(img) { width: 100%; height: auto; display: block; }
+  .offer-name {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    margin-bottom: var(--space-2);
+  }
+  .editorial__text p { margin-bottom: 1rem; }
+  .editorial__text .facts { margin-block: var(--space-2); }
+  @media (max-width: 900px) {
+    .editorial, .editorial--flip { grid-template-columns: 1fr; }
+    .editorial--flip .editorial__photo { order: 1; }
+    .editorial--flip .editorial__text { order: 2; }
+  }
+</style>

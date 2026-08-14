@@ -1,0 +1,93 @@
+---
+import Pic from './Pic.astro';
+import Waterline from './Waterline.astro';
+
+interface Props {
+  src: string;
+  alt: string;
+  line: string;
+  tagline?: string;
+  h1?: boolean;
+}
+const { src, alt, line, tagline, h1 = false } = Astro.props;
+---
+
+<section class="hero">
+  <Pic
+    src={src}
+    alt={alt}
+    width={1600}
+    height={1067}
+    widths={[640, 960, 1280, 1600, 1920]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="hero__img"
+  />
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="hero__text">
+    {h1 ? <h1 class="hero__line">{line}</h1> : <p class="hero__line">{line}</p>}
+    {tagline && <p class="hero__tagline">{tagline}</p>}
+  </div>
+  <div class="hero__waterline"><Waterline onDark /></div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: min(88svh, 60rem);
+    min-height: 30rem;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hero :global(.hero__img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: hero-settle 1.8s ease-out both;
+  }
+  @keyframes hero-settle {
+    from { transform: scale(1.035); opacity: 0.6; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero :global(.hero__img) { animation: none; }
+  }
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(51 41 26 / 0.55) 0%, rgb(51 41 26 / 0.08) 40%, transparent 65%);
+  }
+  .hero__text {
+    position: absolute;
+    inset-inline: 0;
+    bottom: clamp(3rem, 9vh, 6rem);
+    padding-inline: clamp(1.25rem, 6vw, 5rem);
+    color: #fff;
+  }
+  .hero__line {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.6rem, 4.2vw, 3.1rem);
+    line-height: 1.18;
+    letter-spacing: 0.04em;
+    max-width: 22ch;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .hero__tagline {
+    font-family: var(--font-display);
+    font-size: clamp(0.72rem, 1.2vw, 0.85rem);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    margin-top: 1.1rem;
+    color: rgb(255 255 255 / 0.85);
+  }
+  .hero__waterline {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+  }
+</style>

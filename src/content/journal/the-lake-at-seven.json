@@ -1,0 +1,34 @@
+{
+  "date": "2026-06-12",
+  "title": { "en": "The lake at seven", "de": "Der See um sieben", "it": "Il lago alle sette", "fr": "Le lac à sept heures" },
+  "excerpt": {
+    "en": "The lake is grey at seven and platinum by noon. A short guide to its hours, from the terrace.",
+    "de": "Der See ist grau um sieben und platin am Mittag. Ein kurzer Führer durch seine Stunden, von der Terrasse aus.",
+    "it": "Il lago è grigio alle sette e platino a mezzogiorno. Una piccola guida alle sue ore, dalla terrazza.",
+    "fr": "Le lac est gris à sept heures et platine à midi. Un petit guide de ses heures, depuis la terrasse."
+  },
+  "body": {
+    "en": [
+      "The lake does not have one colour. Before breakfast it is grey and flat, like something not yet decided. By ten the ferries have drawn their first lines across it. At noon it goes platinum — hard to look at directly, which is the point of the awnings.",
+      "Late afternoon belongs to the sailboats out of Paradiso, and to the first shadow of San Salvatore reaching across the water. Then the lights of Caprino come on across the lake, one by one, as if someone were checking them.",
+      "Guests sometimes ask which hour is best. The honest answer is that the building was drawn so you would not have to choose: the lake is in the window at seven and at noon and at midnight, from the pillow, from the pool, from the table. You keep all the hours."
+    ],
+    "de": [
+      "Der See hat nicht eine Farbe. Vor dem Frühstück ist er grau und flach, wie etwas noch Unentschiedenes. Um zehn haben die Fähren ihre ersten Linien über ihn gezogen. Am Mittag wird er platin — schwer, direkt hinzusehen, wofür es die Markisen gibt.",
+      "Der späte Nachmittag gehört den Segelbooten aus Paradiso und dem ersten Schatten des San Salvatore, der übers Wasser greift. Dann gehen drüben die Lichter von Caprino an, eines nach dem anderen, als prüfte sie jemand.",
+      "Gäste fragen manchmal, welche Stunde die beste sei. Die ehrliche Antwort: Das Gebäude wurde so gezeichnet, dass Sie nicht wählen müssen. Der See ist im Fenster um sieben, am Mittag und um Mitternacht — vom Kissen, vom Pool, vom Tisch. Sie behalten alle Stunden."
+    ],
+    "it": [
+      "Il lago non ha un solo colore. Prima di colazione è grigio e piatto, come una cosa non ancora decisa. Alle dieci i battelli hanno tracciato le prime linee. A mezzogiorno diventa platino — difficile da guardare dritto, ed è per questo che ci sono le tende.",
+      "Il tardo pomeriggio appartiene alle vele uscite da Paradiso e alla prima ombra del San Salvatore che attraversa l'acqua. Poi si accendono le luci di Caprino sull'altra riva, una a una, come se qualcuno le stesse controllando.",
+      "Gli ospiti a volte chiedono quale sia l'ora migliore. La risposta onesta è che l'edificio è stato disegnato perché non dobbiate scegliere: il lago è nella finestra alle sette, a mezzogiorno e a mezzanotte — dal cuscino, dalla piscina, dal tavolo. Le ore le tenete tutte."
+    ],
+    "fr": [
+      "Le lac n'a pas une seule couleur. Avant le petit-déjeuner, il est gris et plat, comme une chose pas encore décidée. À dix heures, les bateaux y ont tracé leurs premières lignes. À midi, il passe au platine — difficile à regarder en face, d'où les stores.",
+      "La fin d'après-midi appartient aux voiliers sortis de Paradiso et à la première ombre du San Salvatore qui traverse l'eau. Puis les lumières de Caprino s'allument sur l'autre rive, une à une, comme si quelqu'un les vérifiait.",
+      "Les hôtes demandent parfois quelle est la meilleure heure. La réponse honnête : le bâtiment a été dessiné pour que vous n'ayez pas à choisir. Le lac est à la fenêtre à sept heures, à midi et à minuit — depuis l'oreiller, la piscine, la table. Vous gardez toutes les heures."
+    ]
+  },
+  "photo": { "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135358/hotel_041.jpg",
+    "alt": { "en": "Evening light over Lake Lugano from the upper terrace", "de": "Abendlicht über dem Luganersee von der oberen Terrasse", "it": "Luce della sera sul Ceresio dalla terrazza superiore", "fr": "Lumière du soir sur le lac de Lugano depuis la terrasse supérieure" } }
+}
