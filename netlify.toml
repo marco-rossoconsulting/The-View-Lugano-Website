@@ -34,15 +34,22 @@
   to = "/fr/"
   status = 301
 
-# www → non-www
+# Apex → www (www is canonical per astro.config.mjs)
 [[redirects]]
-  from = "http://www.theviewlugano.com/*"
+  from = "http://theviewlugano.com/*"
   to = "https://www.theviewlugano.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.theviewlugano.com/*"
+  from = "https://theviewlugano.com/*"
+  to = "https://www.theviewlugano.com/:splat"
+  status = 301
+  force = true
+
+# http → https
+[[redirects]]
+  from = "http://www.theviewlugano.com/*"
   to = "https://www.theviewlugano.com/:splat"
   status = 301
   force = true
