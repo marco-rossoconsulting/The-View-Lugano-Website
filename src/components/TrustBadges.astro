@@ -1,0 +1,128 @@
+---
+import { dict, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+
+<section class="trust-badges" aria-label={t.footer.credentials}>
+  <div class="container trust-badges__inner">
+    <p class="eyebrow trust-badges__eyebrow">{t.footer.credentials}</p>
+    <ul class="trust-badges__list">
+      <!-- Michelin Star -->
+      <li class="badge">
+        <span class="badge__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="24" cy="24" r="20"/>
+            <path d="M24 8v32M12 24h24"/>
+            <circle cx="24" cy="24" r="6" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <span class="badge__text">
+          <strong>1 Michelin Star</strong>
+          <span>THE VIEW Fine Dining</span>
+        </span>
+      </li>
+      <!-- Forbes -->
+      <li class="badge">
+        <span class="badge__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="24,4 29,18 44,18 32,27 36,42 24,33 12,42 16,27 4,18 19,18"/>
+          </svg>
+        </span>
+        <span class="badge__text">
+          <strong>Forbes Travel Guide</strong>
+          <span>Four-Star</span>
+        </span>
+      </li>
+      <!-- SLH -->
+      <li class="badge">
+        <span class="badge__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M24 4l4 10h10l-8 6 3 10-9-7-9 7 3-10-8-6h10z"/>
+            <circle cx="24" cy="24" r="3" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <span class="badge__text">
+          <strong>Small Luxury Hotels</strong>
+          <span>of the World</span>
+        </span>
+      </li>
+      <!-- Gault & Millau -->
+      <li class="badge">
+        <span class="badge__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 36c0-8 6-16 12-20 6 4 12 12 12 20H12z"/>
+            <circle cx="24" cy="14" r="4"/>
+          </svg>
+        </span>
+        <span class="badge__text">
+          <strong>16 Points</strong>
+          <span>Gault &amp; Millau</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .trust-badges {
+    background: var(--tortora);
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--tortora-densa);
+    border-bottom: 1px solid var(--tortora-densa);
+  }
+  .trust-badges__eyebrow {
+    margin-bottom: var(--space-3);
+    text-align: center;
+  }
+  .trust-badges__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3) var(--space-4);
+  }
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--ground);
+    border: 1px solid var(--tortora-densa);
+  }
+  .badge__icon {
+    color: var(--clay);
+    flex-shrink: 0;
+  }
+  .badge__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    line-height: 1.2;
+  }
+  .badge__text strong {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .badge__text span {
+    font-size: 0.78rem;
+    color: var(--clay);
+  }
+  @media (max-width: 640px) {
+    .trust-badges__list {
+      gap: var(--space-2);
+    }
+    .badge {
+      flex: 1 1 calc(50% - var(--space-2));
+      min-width: 10rem;
+    }
+  }
+</style>

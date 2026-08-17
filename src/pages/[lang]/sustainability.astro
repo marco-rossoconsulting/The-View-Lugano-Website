@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { localePaths, dict, p, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
@@ -16,6 +17,8 @@ const fleet = byCategory('fleet')[0];
 ---
 
 <Base {lang} title={t.sustainability.metaTitle} description={t.sustainability.metaDesc} route="sustainability">
+  <Breadcrumbs {lang} crumbs={[{ label: t.nav.sustainability }]} />
+
   <section class="section">
     <div class="container container--narrow">
       <h1 class="page-title">{t.sustainability.h1}</h1>

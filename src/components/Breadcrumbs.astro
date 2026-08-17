@@ -1,0 +1,65 @@
+---
+import { dict, p, type Locale } from '../lib/i18n';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  lang: Locale;
+  crumbs: Crumb[];
+}
+const { lang, crumbs } = Astro.props;
+const t = dict(lang);
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a href={p(lang)}>{t.nav.home}</a>
+    </li>
+    {crumbs.map((crumb, i) => (
+      <li>
+        {i === crumbs.length - 1 || !crumb.href ? (
+          <span aria-current="page">{crumb.label}</span>
+        ) : (
+          <a href={crumb.href}>{crumb.label}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs {
+    padding-block: 0.75rem 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--clay);
+  }
+  .breadcrumbs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .breadcrumbs li:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.35rem;
+    color: var(--grigio);
+  }
+  .breadcrumbs a {
+    border-bottom: 1px solid var(--tortora-densa);
+    transition: border-color 200ms ease;
+  }
+  .breadcrumbs a:hover {
+    border-color: var(--clay);
+  }
+  .breadcrumbs span[aria-current='page'] {
+    color: var(--ink);
+  }
+</style>

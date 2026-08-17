@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
 import BookingBar from '../../components/BookingBar.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import Waterline from '../../components/Waterline.astro';
 import Faq from '../../components/Faq.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -113,6 +114,8 @@ const intro = find('hotel_09');
       </EditorialSplit>
     </div>
   </section>
+
+  <TrustBadges {lang} />
 
   <div class="container"><Waterline /></div>
 
