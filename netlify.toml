@@ -6,7 +6,7 @@
   NODE_VERSION = "20"
 
 # ── Redirects: canonical paths ──
-# Redirect root to /en/ instantly (replaces Astro’s ugly HTML meta-refresh page)
+# (force = true ensures Netlify edge rules override Astro’s generated static files)
 [[redirects]]
   from = "/"
   to = "/en/"
