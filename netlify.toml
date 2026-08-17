@@ -5,7 +5,49 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Cache-control: static assets forever, HTML for 1 hour, images for 1 year
+# ── Redirects: canonical paths ──
+# Redirect root to /en/ instantly (replaces Astro’s ugly HTML meta-refresh page)
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 301
+  force = true
+
+# Language roots without trailing slash → with trailing slash
+[[redirects]]
+  from = "/en"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/de"
+  to = "/de/"
+  status = 301
+
+[[redirects]]
+  from = "/it"
+  to = "/it/"
+  status = 301
+
+[[redirects]]
+  from = "/fr"
+  to = "/fr/"
+  status = 301
+
+# www → non-www
+[[redirects]]
+  from = "http://www.theviewlugano.com/*"
+  to = "https://www.theviewlugano.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.theviewlugano.com/*"
+  to = "https://www.theviewlugano.com/:splat"
+  status = 301
+  force = true
+
+# ── Headers: cache-control ──
 [[headers]]
   for = "/*.html"
   [headers.values]
@@ -39,16 +81,3 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera()"
-
-# Canonical redirects: www and HTTP to HTTPS non-www
-[[redirects]]
-  from = "http://www.theviewlugano.com/*"
-  to = "https://www.theviewlugano.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.theviewlugano.com/*"
-  to = "https://www.theviewlugano.com/:splat"
-  status = 301
-  force = true
