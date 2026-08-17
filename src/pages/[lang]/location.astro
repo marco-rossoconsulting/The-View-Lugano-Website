@@ -1,10 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
 import { localePaths, dict, p, type Locale } from '../../lib/i18n';
-import { breadcrumbJsonLd } from '../../lib/seo';
+import { breadcrumbJsonLd, localBusinessJsonLd, howToArriveJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
 import { find, byCategory } from '../../lib/photos';
 
@@ -19,6 +20,8 @@ const fleet = byCategory('fleet');
 ---
 
 <Base {lang} title={t.location.metaTitle} description={t.location.metaDesc} route="location">
+  <Breadcrumbs {lang} crumbs={[{ label: t.nav.location }]} />
+
   <section class="section">
     <div class="container container--narrow">
       <h1 class="page-title">{t.location.h1}</h1>
@@ -30,7 +33,25 @@ const fleet = byCategory('fleet');
     </div>
   </section>
 
+  <!-- Google Maps embed -->
   <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="map-embed">
+        <iframe
+          src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2771.0!2d${SITE.geo.lng}!3d${SITE.geo.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDU5JzA5LjEiTiA4wrA1NiczOS43IkU!5e0!3m2!1sen!2s${lang}!4v1`}
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={`${SITE.name} — ${SITE.address.locality}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <EditorialSplit src={hero.src} alt={hero.alt[lang]} title={t.location.arrivingTitle}>
         <p>{t.location.byCar}</p>
@@ -68,6 +89,8 @@ const fleet = byCategory('fleet');
       { name: t.nav.location, url: p(lang, 'location') },
     ])}
   />
+  <JsonLd data={localBusinessJsonLd(lang)} />
+  <JsonLd data={howToArriveJsonLd(lang)} />
 </Base>
 
 <style>
@@ -76,5 +99,16 @@ const fleet = byCategory('fleet');
     font-weight: 300;
     font-size: clamp(1.45rem, 2.6vw, 2.1rem);
     margin-bottom: var(--space-2);
+  }
+  .map-embed {
+    border: 1px solid var(--tortora-densa);
+    overflow: hidden;
+    background: var(--tortora);
+  }
+  .map-embed iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+    filter: saturate(0.85) contrast(1.02);
   }
 </style>

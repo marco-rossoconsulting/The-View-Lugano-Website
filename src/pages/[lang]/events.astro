@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
 import { localePaths, dict, p, type Locale } from '../../lib/i18n';
@@ -20,6 +21,8 @@ const terracePhoto = byCategory('terrace')[0];
 ---
 
 <Base {lang} title={t.events.metaTitle} description={t.events.metaDesc} route="events">
+  <Breadcrumbs {lang} crumbs={[{ label: t.nav.events }]} />
+
   <section class="section">
     <div class="container container--narrow">
       <h1 class="page-title">{t.events.h1}</h1>

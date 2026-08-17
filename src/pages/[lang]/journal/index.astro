@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import Pic from '../../../components/Pic.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import { localePaths, dict, p, type Locale } from '../../../lib/i18n';
 import { breadcrumbJsonLd } from '../../../lib/seo';
@@ -17,6 +18,8 @@ const fmt = new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : `${lang}-CH`, { da
 ---
 
 <Base {lang} title={t.journal.metaTitle} description={t.journal.metaDesc} route="journal">
+  <Breadcrumbs {lang} crumbs={[{ label: t.nav.journal }]} />
+
   <section class="section">
     <div class="container container--narrow">
       <h1 class="page-title">{t.journal.h1}</h1>

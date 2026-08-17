@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { localePaths, dict, p, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
@@ -17,6 +18,8 @@ const offers = (await getCollection('offers')).sort((a, b) => a.data.order - b.d
 ---
 
 <Base {lang} title={t.experiences.metaTitle} description={t.experiences.metaDesc} route="experiences">
+  <Breadcrumbs {lang} crumbs={[{ label: t.nav.experiences }]} />
+
   <section class="section">
     <div class="container container--narrow">
       <h1 class="page-title">{t.experiences.h1}</h1>

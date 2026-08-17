@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { localePaths, dict, p, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd, imageJsonLd } from '../../lib/seo';
@@ -28,6 +29,8 @@ const cats = Object.keys(catLabels).filter((c) => PHOTOS.some((ph) => ph.categor
 ---
 
 <Base {lang} title={t.gallery.metaTitle} description={t.gallery.metaDesc} route="gallery">
+  <Breadcrumbs {lang} crumbs={[{ label: t.nav.gallery }]} />
+
   <section class="section">
     <div class="container container--narrow">
       <h1 class="page-title">{t.gallery.h1}</h1>

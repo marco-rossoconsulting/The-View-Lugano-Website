@@ -3,8 +3,8 @@ import { dict, p, type Locale } from '../lib/i18n';
 import { SITE, egumaUrl } from '../lib/site';
 import Waterline from './Waterline.astro';
 
-interface Props { lang: Locale }
-const { lang } = Astro.props;
+interface Props { lang: Locale; route?: string }
+const { lang, route = '' } = Astro.props;
 const t = dict(lang);
 ---
 
@@ -25,17 +25,17 @@ const t = dict(lang);
     </div>
 
     <nav class="footer__nav" aria-label="Footer">
-      <a href={p(lang, 'suites')}>{t.nav.suites}</a>
-      <a href={p(lang, 'dining')}>{t.nav.dining}</a>
-      <a href={p(lang, 'spa')}>{t.nav.spa}</a>
-      <a href={p(lang, 'experiences')}>{t.nav.experiences}</a>
-      <a href={p(lang, 'events')}>{t.nav.events}</a>
-      <a href={p(lang, 'gallery')}>{t.nav.gallery}</a>
-      <a href={p(lang, 'location')}>{t.nav.location}</a>
-      <a href={p(lang, 'sustainability')}>{t.nav.sustainability}</a>
-      <a href={p(lang, 'press')}>{t.nav.press}</a>
-      <a href={p(lang, 'journal')}>{t.nav.journal}</a>
-      <a href={p(lang, 'contact')}>{t.nav.contact}</a>
+      <a href={p(lang, 'suites')} class={route === 'suites' || route.startsWith('suites/') ? 'is-active' : ''}>{t.nav.suites}</a>
+      <a href={p(lang, 'dining')} class={route === 'dining' ? 'is-active' : ''}>{t.nav.dining}</a>
+      <a href={p(lang, 'spa')} class={route === 'spa' ? 'is-active' : ''}>{t.nav.spa}</a>
+      <a href={p(lang, 'experiences')} class={route === 'experiences' ? 'is-active' : ''}>{t.nav.experiences}</a>
+      <a href={p(lang, 'events')} class={route === 'events' ? 'is-active' : ''}>{t.nav.events}</a>
+      <a href={p(lang, 'gallery')} class={route === 'gallery' ? 'is-active' : ''}>{t.nav.gallery}</a>
+      <a href={p(lang, 'location')} class={route === 'location' ? 'is-active' : ''}>{t.nav.location}</a>
+      <a href={p(lang, 'sustainability')} class={route === 'sustainability' ? 'is-active' : ''}>{t.nav.sustainability}</a>
+      <a href={p(lang, 'press')} class={route === 'press' ? 'is-active' : ''}>{t.nav.press}</a>
+      <a href={p(lang, 'journal')} class={route === 'journal' || route.startsWith('journal/') ? 'is-active' : ''}>{t.nav.journal}</a>
+      <a href={p(lang, 'contact')} class={route === 'contact' ? 'is-active' : ''}>{t.nav.contact}</a>
       <a href={egumaUrl('vouchers', lang)} rel="noopener">{t.common.vouchers}</a>
     </nav>
   </div>
@@ -102,6 +102,10 @@ const t = dict(lang);
     font-size: 0.9rem;
     padding-block: 0.35rem;
     color: var(--ink);
+  }
+  .footer__nav a.is-active {
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
   }
   .footer__awards {
     list-style: none;

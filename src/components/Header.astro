@@ -35,6 +35,7 @@ const links: { href: string; label: string }[] = [
   </a>
 
   <div class="header__actions">
+    <LanguageSwitcher lang={lang} route={route} />
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
       <span data-label-open>{t.nav.menuOpen}</span>
       <span data-label-close hidden>{t.nav.menuClose}</span>
@@ -105,7 +106,21 @@ const links: { href: string; label: string }[] = [
   .header__actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+  }
+  .header__actions :global(.langs) {
+    gap: 0.6rem;
+    margin-right: 0.5rem;
+  }
+  .header__actions :global(.langs a) {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    padding: 0.4rem 0.2rem;
+    color: var(--clay);
+  }
+  .header__actions :global(.langs a[aria-current='page']) {
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
   }
   .menu-btn,
   .reserve-btn {

@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
-import BookingBar from '../../components/BookingBar.astro';
 import Waterline from '../../components/Waterline.astro';
 import Faq from '../../components/Faq.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -34,12 +33,6 @@ const intro = find('hotel_09');
   preloadImage={hero.src}
 >
   <Hero src={hero.src} alt={hero.alt[lang]} line={t.home.heroLine} tagline={t.home.heroTagline} h1 />
-
-  <section class="section">
-    <div class="container">
-      <BookingBar {lang} />
-    </div>
-  </section>
 
   <section class="section">
     <div class="container">

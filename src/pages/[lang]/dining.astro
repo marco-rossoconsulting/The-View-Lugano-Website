@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TheForkWidget from '../../components/TheForkWidget.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
@@ -21,6 +22,8 @@ const bar = venues.find((v) => v.data.kind === 'bar')!;
 ---
 
 <Base {lang} title={t.dining.metaTitle} description={t.dining.metaDesc} route="dining" ogImage={restaurant.data.photos[0].src}>
+  <Breadcrumbs {lang} crumbs={[{ label: t.nav.dining }]} />
+
   <section class="section">
     <div class="container container--narrow">
       <h1 class="page-title">{t.dining.h1}</h1>
