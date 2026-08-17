@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import TrustBadges from '../../components/TrustBadges.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
 import { localePaths, dict, p, type Locale } from '../../lib/i18n';
@@ -34,8 +33,6 @@ const t = dict(lang);
       </ul>
     </div>
   </section>
-
-  <TrustBadges {lang} />
 
   <div class="container"><Waterline /></div>
 
