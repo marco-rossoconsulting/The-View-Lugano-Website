@@ -36,11 +36,6 @@ collections:
   # ── 1. SETTINGS ──
   - name: settings
     label: ⚙️ Site Settings
-    folder: src/content/settings
-    extension: json
-    format: json
-    create: false
-    delete: false
     files:
       - name: settings
         label: Settings
@@ -134,11 +129,6 @@ collections:
   # ── 2. HOMEPAGE ──
   - name: homepage
     label: 🏠 Homepage
-    folder: src/content/homepage
-    extension: json
-    format: json
-    create: false
-    delete: false
     files:
       - name: homepage
         label: Homepage Content
