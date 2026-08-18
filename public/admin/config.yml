@@ -5,7 +5,7 @@ backend:
   repo: marco-rossoconsulting/The-View-Lugano-Website
   branch: main
   auth_type: pkce
-  app_id: YOUR_GITHUB_OAUTH_APP_CLIENT_ID
+  app_id: Ov23lixSTXig8j4gRcUX
 
 media_folder: src/assets/photos
 public_folder: /src/assets/photos
