@@ -1,17 +1,17 @@
 # Sveltia CMS configuration — THE VIEW Lugano
-# Backend: adjust repo/branch to the production Git remote before first use.
-# Sveltia supports GitHub and GitLab backends with the same config schema.
+# Backend: GitHub with PKCE auth (no client secret needed)
 backend:
   name: github
-  repo: planhotel/theview-website # ← set to the real repository
+  repo: marco-rossoconsulting/The-View-Lugano-Website
   branch: main
-  base_url: https://api.netlify.com # or your OAuth proxy
+  auth_type: pkce
+  app_id: YOUR_GITHUB_OAUTH_APP_CLIENT_ID
 
 media_folder: src/assets/photos
 public_folder: /src/assets/photos
 
-site_url: https://www.theviewlugano.com
-display_url: https://www.theviewlugano.com
+site_url: https://theview-lugano.netlify.app
+display_url: https://theview-lugano.netlify.app
 locale: en
 
 # Shared field template: every localized string carries all four languages.
