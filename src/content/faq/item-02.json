@@ -1,0 +1,15 @@
+{
+  "order": 2,
+  "question": {
+    "en": "What are the spa hours, and can I visit without staying?",
+    "de": "Welche Öffnungszeiten hat das Spa, und ist es auch ohne Übernachtung zugänglich?",
+    "it": "Quali sono gli orari della spa, e si può accedere senza soggiornare?",
+    "fr": "Quels sont les horaires du spa, et peut-on y accéder sans séjourner ?"
+  },
+  "answer": {
+    "en": "THE VIEW SPA is open daily from 09:00 to 20:30. Guests of the house always have priority; a limited number of external day entries and memberships exist, on request.",
+    "de": "Das THE VIEW SPA ist täglich von 09:00 bis 20:30 geöffnet. Hausgäste haben jederzeit Vorrang; eine begrenzte Zahl externer Tageseintritte und Mitgliedschaften ist auf Anfrage möglich.",
+    "it": "La THE VIEW SPA è aperta tutti i giorni dalle 9.00 alle 20.30. Gli ospiti della casa hanno sempre la precedenza; un numero limitato di ingressi giornalieri esterni e membership è disponibile su richiesta.",
+    "fr": "Le THE VIEW SPA est ouvert tous les jours de 9h00 à 20h30. Les hôtes de la maison ont toujours priorité ; un nombre limité d'entrées à la journée et d'abonnements est possible sur demande."
+  }
+}

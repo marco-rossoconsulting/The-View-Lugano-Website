@@ -1,66 +1,71 @@
 ---
-import { dict, type Locale } from '../lib/i18n';
-import { faqJsonLd } from '../lib/seo';
-import JsonLd from './JsonLd.astro';
+import { getCollection } from 'astro:content';
+import type { Locale } from '../../lib/i18n';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
-const t = dict(lang);
-const items = t.faq.items as { q: string; a: string }[];
+
+const [faqEntries, settingsEntries] = await Promise.all([
+  getCollection('faq'),
+  getCollection('settings'),
+]);
+
+const items = faqEntries.sort((a, b) => a.data.order - b.data.order);
+const settings = settingsEntries[0]?.data;
+const faqTitle = settings?.common?.faqTitle?.[lang] ?? 'FAQ';
 ---
 
-<section class="section faq">
+<section class="section section--tortora">
   <div class="container container--narrow">
-    <h2 class="faq__title">{t.faq.title}</h2>
-    {items.map((item) => (
-      <details class="faq__item">
-        <summary>{item.q}</summary>
-        <p>{item.a}</p>
-      </details>
-    ))}
+    <h2 class="faq-title">{faqTitle}</h2>
+    <ul class="faq">
+      {items.map((item) => (
+        <li class="faq__item">
+          <details class="faq__details">
+            <summary class="faq__q">{item.data.question[lang]}</summary>
+            <p class="faq__a">{item.data.answer[lang]}</p>
+          </details>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
-<JsonLd data={faqJsonLd(items)} />
 
 <style>
-  .faq__title {
+  .faq-title {
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(1.45rem, 2.6vw, 2.1rem);
     margin-bottom: var(--space-3);
   }
-  .faq__item {
-    border-bottom: 1px solid var(--tortora-densa);
-  }
-  .faq__item summary {
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 1.1rem 0;
-    list-style: none;
-    position: relative;
-    padding-right: 2rem;
-  }
-  .faq__item summary::-webkit-details-marker { display: none; }
-  .faq__item summary::after {
-    content: '+';
-    position: absolute;
-    right: 0.25rem;
-    top: 50%;
-    transform: translateY(-50%);
+  .faq { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .faq__item { border-top: 1px solid var(--tortora-densa); }
+  .faq__item:last-child { border-bottom: 1px solid var(--tortora-densa); }
+  .faq__details { padding: 1rem 0; }
+  .faq__q {
     font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .faq__q::-webkit-details-marker { display: none; }
+  .faq__q::after {
+    content: '+';
+    font-size: 1.2rem;
     font-weight: 300;
-    font-size: 1.3rem;
     color: var(--clay);
-    transition: transform 200ms ease;
+    flex-shrink: 0;
   }
-  .faq__item[open] summary::after {
-    transform: translateY(-50%) rotate(45deg);
-  }
-  .faq__item p {
-    padding-bottom: 1.25rem;
-    color: var(--ink);
+  .faq__details[open] .faq__q::after { content: '–'; }
+  .faq__a {
     max-width: 62ch;
+    padding-top: 0.75rem;
+    color: var(--clay);
   }
 </style>

@@ -1,0 +1,15 @@
+{
+  "order": 6,
+  "question": {
+    "en": "How far is the city, and do I need a car?",
+    "de": "Wie weit ist die Stadt, und brauche ich ein Auto?",
+    "it": "Quanto dista la città, e serve un'auto?",
+    "fr": "À quelle distance est la ville, et faut-il une voiture ?"
+  },
+  "answer": {
+    "en": "The centre of Lugano is about ten minutes down the hill. You do not need to bring a car: the included Smarts and e-bikes cover the city, and your Ambassador arranges transfers for arrivals and departures.",
+    "de": "Das Zentrum von Lugano liegt rund zehn Minuten den Hügel hinunter. Ein eigenes Auto brauchen Sie nicht: Die inbegriffenen Smarts und E-Bikes decken die Stadt ab, und Ihr Ambassador organisiert Transfers für An- und Abreise.",
+    "it": "Il centro di Lugano è a circa dieci minuti giù per la collina. Non serve portare un'auto: le Smart e le e-bike incluse coprono la città, e il vostro Ambassador organizza i transfer per arrivi e partenze.",
+    "fr": "Le centre de Lugano est à une dizaine de minutes en bas de la colline. Inutile d'amener une voiture : les Smart et vélos électriques compris couvrent la ville, et votre Ambassador organise les transferts d'arrivée et de départ."
+  }
+}

@@ -4,46 +4,48 @@ import BookingBar from '../../components/BookingBar.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
+import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
   return localePaths();
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const pageEntries = await getCollection('pages');
+const page = pageEntries.find((e) => e.data.slug === 'contact')?.data;
+if (!page) throw new Error('Missing contact CMS content');
 ---
 
-<Base {lang} title={t.contact.metaTitle} description={t.contact.metaDesc} route="contact">
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.contact }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="contact">
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.contact.h1}</h1>
-      <p class="page-intro">{t.contact.intro}</p>
-      <!-- All contact facts in plain, crawlable prose with functional links -->
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
       <address class="contact-card">
         <p><strong>{SITE.name}</strong><br />{SITE.address.street}, {SITE.address.postalCode} {SITE.address.locality}, {SITE.address.countryName}</p>
         <p>
-          {t.common.phone}: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a><br />
-          {t.contact.whatsapp}: <a href={`https://wa.me/${SITE.whatsapp}`} rel="noopener">{SITE.whatsapp}</a><br />
-          {t.common.email}: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          Telephone: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a><br />
+          {page.whatsapp?.[lang]}: <a href={`https://wa.me/${SITE.whatsapp}`} rel="noopener">{SITE.whatsapp}</a><br />
+          Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
         </p>
       </address>
 
-      <!-- WhatsApp click-to-chat -->
       <a class="btn btn--whatsapp" href={`https://wa.me/${SITE.whatsapp}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20a%20stay%20at%20THE%20VIEW%20Lugano.`} rel="noopener">
         <span class="whatsapp-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </span>
-        {t.contact.whatsapp}
+        {page.whatsapp?.[lang]}
       </a>
     </div>
   </section>
 
-  <!-- Google Maps embed -->
   <section class="section" style="padding-top:0;">
     <div class="container container--narrow">
       <div class="map-embed">
@@ -63,20 +65,19 @@ const t = dict(lang);
 
   <section class="section" style="padding-top:0;">
     <div class="container container--narrow">
-      <h2 class="section-title">{t.contact.reserveTitle}</h2>
-      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{t.contact.reserveBody}</p>
+      <h2 class="section-title">{page.reserveTitle?.[lang]}</h2>
+      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{page.reserveBody?.[lang]}</p>
       <BookingBar {lang} />
     </div>
   </section>
 
   <div class="container"><Waterline /></div>
 
-  <!-- Trade & advisor contact point: the one place GDS codes live (Brand Bible §10.3) -->
   <section class="section">
     <div class="container container--narrow">
-      <h2 class="section-title">{t.common.trade}</h2>
-      <p style="max-width: 62ch; margin-bottom: var(--space-2);">{t.contact.tradeBody}</p>
-      <p class="gds-note">{t.common.gdsNote}</p>
+      <h2 class="section-title">Travel trade & advisors</h2>
+      <p style="max-width: 62ch; margin-bottom: var(--space-2);">{page.tradeBody?.[lang]}</p>
+      <p class="gds-note">For advisors and trade partners. GDS codes:</p>
       <ul class="facts gds-list">
         <li>Amadeus: {SITE.gds.amadeus}</li>
         <li>Sabre: {SITE.gds.sabre}</li>
@@ -88,16 +89,16 @@ const t = dict(lang);
 
   <section class="section section--tortora">
     <div class="container container--narrow">
-      <h2 class="section-title">{t.contact.careersTitle}</h2>
-      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{t.contact.careersBody}</p>
-      <a class="btn" href={`mailto:${SITE.email}`}>{t.common.writeUs}</a>
+      <h2 class="section-title">{page.careersTitle?.[lang]}</h2>
+      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{page.careersBody?.[lang]}</p>
+      <a class="btn" href={`mailto:${SITE.email}`}>Write to us</a>
     </div>
   </section>
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.contact, url: p(lang, 'contact') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'contact') },
     ])}
   />
 </Base>
@@ -127,9 +128,7 @@ const t = dict(lang);
     border-color: var(--clay);
     color: var(--ground);
   }
-  .whatsapp-icon {
-    display: inline-flex;
-  }
+  .whatsapp-icon { display: inline-flex; }
   .map-embed {
     border: 1px solid var(--tortora-densa);
     overflow: hidden;

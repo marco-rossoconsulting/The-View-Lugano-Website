@@ -1,0 +1,45 @@
+{
+  "slug": "experiences",
+  "metaTitle": {
+    "en": "Experiences & Offers — THE VIEW Lugano",
+    "de": "Erlebnisse & Arrangements — THE VIEW Lugano",
+    "it": "Esperienze & Proposte — THE VIEW Lugano",
+    "fr": "Expériences & Propositions — THE VIEW Lugano"
+  },
+  "metaDesc": {
+    "en": "Arrangements at THE VIEW Lugano: longer stays on the lake, dinner with a suite above the restaurant, and the whole house to yourselves.",
+    "de": "Arrangements im THE VIEW Lugano: längere Aufenthalte am See, Dinner mit Suite über dem Restaurant und das ganze Haus für Sie allein.",
+    "it": "Le proposte di THE VIEW Lugano: soggiorni più lunghi sul lago, cena con suite sopra il ristorante, la casa intera tutta per voi.",
+    "fr": "Les propositions de THE VIEW Lugano : séjours plus longs sur le lac, dîner avec suite au-dessus du restaurant, la maison entière pour vous seuls."
+  },
+  "h1": {
+    "en": "Experiences & Offers",
+    "de": "Erlebnisse & Arrangements",
+    "it": "Esperienze & Proposte",
+    "fr": "Expériences & Propositions"
+  },
+  "intro": {
+    "en": "A few arrangements, composed rather than bundled. Each one exists because guests kept asking for it.",
+    "de": "Wenige Arrangements, komponiert statt geschnürt. Jedes existiert, weil Gäste immer wieder danach gefragt haben.",
+    "it": "Poche proposte, composte e non impacchettate. Ognuna esiste perché gli ospiti hanno continuato a chiederla.",
+    "fr": "Quelques propositions, composées plutôt qu'assemblées. Chacune existe parce que les hôtes n'ont cessé de la demander."
+  },
+  "cta": {
+    "en": "Enquire",
+    "de": "Anfragen",
+    "it": "Richiedi",
+    "fr": "Demander"
+  },
+  "voucherTitle": {
+    "en": "A stay, as a gift",
+    "de": "Ein Aufenthalt, als Geschenk",
+    "it": "Un soggiorno, in regalo",
+    "fr": "Un séjour, en cadeau"
+  },
+  "voucherBody": {
+    "en": "Vouchers for stays, the restaurant and the spa can be purchased directly online.",
+    "de": "Gutscheine für Aufenthalte, Restaurant und Spa sind direkt online erhältlich.",
+    "it": "I voucher per soggiorni, ristorante e spa si acquistano direttamente online.",
+    "fr": "Les bons cadeaux pour séjours, restaurant et spa s'achètent directement en ligne."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "order": 3,
+  "question": {
+    "en": "What time are check-in and check-out?",
+    "de": "Wann sind Check-in und Check-out?",
+    "it": "A che ora sono il check-in e il check-out?",
+    "fr": "À quelle heure sont l'arrivée et le départ ?"
+  },
+  "answer": {
+    "en": "Suites are ready from 15:00 and are yours until 11:00 on departure. Earlier or later can often be arranged — ask your Ambassador, ideally before you travel.",
+    "de": "Suiten sind ab 15:00 Uhr bereit und gehören Ihnen bis 11:00 Uhr am Abreisetag. Früher oder später lässt sich oft einrichten — fragen Sie Ihren Ambassador, am besten vor der Reise.",
+    "it": "Le suite sono pronte dalle 15.00 e restano vostre fino alle 11.00 del giorno di partenza. Prima o dopo è spesso possibile — chiedete al vostro Ambassador, meglio se prima di partire.",
+    "fr": "Les suites sont prêtes dès 15h00 et restent à vous jusqu'à 11h00 le jour du départ. Plus tôt ou plus tard est souvent possible — demandez à votre Ambassador, idéalement avant le voyage."
+  }
+}

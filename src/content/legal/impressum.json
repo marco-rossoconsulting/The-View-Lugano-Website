@@ -1,0 +1,43 @@
+{
+  "slug": "impressum",
+  "title": {
+    "en": "Impressum",
+    "de": "Impressum",
+    "it": "Impressum",
+    "fr": "Impressum"
+  },
+  "body": {
+    "en": [
+      "THE VIEW Lugano",
+      "Via Guidino 29, 6900 Lugano – Paradiso, Switzerland",
+      "VAT: CHE-352.530.324",
+      "Telephone: +41 91 210 0000",
+      "Email: info@theviewlugano.com",
+      "THE VIEW Lugano is part of Planhotel Hospitality Group, founded in Lugano in 1997."
+    ],
+    "de": [
+      "THE VIEW Lugano",
+      "Via Guidino 29, 6900 Lugano – Paradiso, Schweiz",
+      "MwSt: CHE-352.530.324",
+      "Telefon: +41 91 210 0000",
+      "E-Mail: info@theviewlugano.com",
+      "THE VIEW Lugano ist Teil der Planhotel Hospitality Group, 1997 in Lugano gegründet."
+    ],
+    "it": [
+      "THE VIEW Lugano",
+      "Via Guidino 29, 6900 Lugano – Paradiso, Svizzera",
+      "IVA: CHE-352.530.324",
+      "Telefono: +41 91 210 0000",
+      "E-mail: info@theviewlugano.com",
+      "THE VIEW Lugano fa parte di Planhotel Hospitality Group, fondato a Lugano nel 1997."
+    ],
+    "fr": [
+      "THE VIEW Lugano",
+      "Via Guidino 29, 6900 Lugano – Paradiso, Suisse",
+      "TVA : CHE-352.530.324",
+      "Téléphone : +41 91 210 0000",
+      "E-mail : info@theviewlugano.com",
+      "THE VIEW Lugano fait partie de Planhotel Hospitality Group, fondé à Lugano en 1997."
+    ]
+  }
+}

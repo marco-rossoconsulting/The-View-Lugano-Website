@@ -3,26 +3,32 @@ import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { byCategory } from '../../lib/photos';
+import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
   return localePaths();
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const pageEntries = await getCollection('pages');
+const page = pageEntries.find((e) => e.data.slug === 'sustainability')?.data;
+if (!page) throw new Error('Missing sustainability CMS content');
+
 const fleet = byCategory('fleet')[0];
 ---
 
-<Base {lang} title={t.sustainability.metaTitle} description={t.sustainability.metaDesc} route="sustainability">
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.sustainability }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="sustainability">
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.sustainability.h1}</h1>
-      <p class="page-intro">{t.sustainability.intro}</p>
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
     </div>
   </section>
 
@@ -32,17 +38,15 @@ const fleet = byCategory('fleet')[0];
         <Pic src={fleet.src} alt={fleet.alt[lang]} width={1600} height={1067} sizes="(max-width: 900px) 100vw, 58vw" />
       </div>
       <div class="sust__body fade-up">
-        <p>{t.sustainability.body1}</p>
-        <p>{t.sustainability.body2}</p>
-        <p>{t.sustainability.body3}</p>
+        {page.body?.[lang]?.map((pText: string) => <p>{pText}</p>)}
       </div>
     </div>
   </section>
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.sustainability, url: p(lang, 'sustainability') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'sustainability') },
     ])}
   />
 </Base>

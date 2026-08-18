@@ -1,0 +1,47 @@
+{
+  "slug": "privacy",
+  "title": {
+    "en": "Privacy Policy",
+    "de": "Datenschutzerklärung",
+    "it": "Informativa sulla privacy",
+    "fr": "Politique de confidentialité"
+  },
+  "body": {
+    "en": [
+      "This policy explains how THE VIEW Lugano (Via Guidino 29, 6900 Lugano – Paradiso, Switzerland) processes personal data in accordance with the Swiss Federal Act on Data Protection (FADP/nLPD) and, where applicable, the EU General Data Protection Regulation (GDPR).",
+      "Data we process: identification and contact details you provide when reserving, corresponding with us or subscribing to communications; stay-related details needed to prepare your visit; technical data generated when you use this website (see Cookie Policy).",
+      "Purposes and legal bases: performance of the accommodation contract and pre-contractual steps (reservations, correspondence); legal obligations (guest registration, accounting); legitimate interest in operating and securing this website; your consent for optional cookies and marketing communications, revocable at any time.",
+      "Recipients: our booking engine provider (SimpleBooking), restaurant reservation provider (TheFork) and voucher shop (e-guma) receive the data required to complete the reservation you initiate with them. We do not sell personal data.",
+      "Retention: contractual and accounting data are retained for the periods required by Swiss law; correspondence for as long as needed to handle your request; consent-based data until you withdraw consent.",
+      "Your rights: access, rectification, deletion, restriction, objection and data portability where applicable. Contact info@theviewlugano.com. You may also contact the Swiss Federal Data Protection and Information Commissioner (FDPIC).",
+      "This policy may be updated; the current version is always published on this page."
+    ],
+    "de": [
+      "Diese Erklärung beschreibt, wie THE VIEW Lugano (Via Guidino 29, 6900 Lugano – Paradiso, Schweiz) Personendaten gemäss dem Schweizer Datenschutzgesetz (DSG/nDSG) und, soweit anwendbar, der EU-Datenschutz-Grundverordnung (DSGVO) bearbeitet.",
+      "Bearbeitete Daten: Identifikations- und Kontaktdaten, die Sie bei Reservierungen, Korrespondenz oder Anmeldungen angeben; aufenthaltsbezogene Angaben zur Vorbereitung Ihres Besuchs; technische Daten bei der Nutzung dieser Website (siehe Cookie-Richtlinie).",
+      "Zwecke und Rechtsgrundlagen: Erfüllung des Beherbergungsvertrags und vorvertraglicher Schritte (Reservierungen, Korrespondenz); gesetzliche Pflichten (Gästemeldung, Buchhaltung); berechtigtes Interesse am Betrieb und an der Sicherheit dieser Website; Ihre Einwilligung für optionale Cookies und Marketingkommunikation, jederzeit widerrufbar.",
+      "Empfänger: Unser Buchungssystem (SimpleBooking), das Tischreservierungssystem (TheFork) und der Gutschein-Shop (e-guma) erhalten die Daten, die zur Abwicklung der von Ihnen dort ausgelösten Reservierung nötig sind. Wir verkaufen keine Personendaten.",
+      "Aufbewahrung: Vertrags- und Buchhaltungsdaten während der gesetzlich vorgeschriebenen Fristen; Korrespondenz, solange sie zur Bearbeitung Ihres Anliegens nötig ist; einwilligungsbasierte Daten bis zum Widerruf.",
+      "Ihre Rechte: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und, soweit anwendbar, Datenübertragbarkeit. Kontakt: info@theviewlugano.com. Sie können sich zudem an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) wenden.",
+      "Diese Erklärung kann aktualisiert werden; die jeweils gültige Fassung ist auf dieser Seite publiziert."
+    ],
+    "it": [
+      "Questa informativa spiega come THE VIEW Lugano (Via Guidino 29, 6900 Lugano – Paradiso, Svizzera) tratta i dati personali secondo la Legge federale svizzera sulla protezione dei dati (LPD/nLPD) e, dove applicabile, il Regolamento generale sulla protezione dei dati dell'UE (GDPR).",
+      "Dati trattati: dati identificativi e di contatto forniti per prenotazioni, corrispondenza o iscrizioni; dati relativi al soggiorno necessari a prepararne lo svolgimento; dati tecnici generati dall'uso di questo sito (v. Cookie Policy).",
+      "Finalità e basi giuridiche: esecuzione del contratto di alloggio e delle fasi precontrattuali (prenotazioni, corrispondenza); obblighi di legge (notifica degli ospiti, contabilità); interesse legittimo al funzionamento e alla sicurezza del sito; il vostro consenso per i cookie facoltativi e le comunicazioni di marketing, revocabile in ogni momento.",
+      "Destinatari: il motore di prenotazione (SimpleBooking), il sistema di prenotazione tavoli (TheFork) e lo shop voucher (e-guma) ricevono i dati necessari a completare la prenotazione che avviate presso di loro. Non vendiamo dati personali.",
+      "Conservazione: i dati contrattuali e contabili per i periodi previsti dal diritto svizzero; la corrispondenza per il tempo necessario a evadere la richiesta; i dati basati sul consenso fino alla revoca.",
+      "I vostri diritti: accesso, rettifica, cancellazione, limitazione, opposizione e, dove applicabile, portabilità. Contatto: info@theviewlugano.com. Potete inoltre rivolgervi all'Incaricato federale della protezione dei dati e della trasparenza (IFPDT).",
+      "L'informativa può essere aggiornata; la versione vigente è sempre pubblicata su questa pagina."
+    ],
+    "fr": [
+      "Cette politique explique comment THE VIEW Lugano (Via Guidino 29, 6900 Lugano – Paradiso, Suisse) traite les données personnelles conformément à la loi fédérale suisse sur la protection des données (LPD/nLPD) et, le cas échéant, au Règlement général sur la protection des données de l'UE (RGPD).",
+      "Données traitées : données d'identification et de contact fournies lors de réservations, de correspondances ou d'inscriptions ; données liées au séjour nécessaires à sa préparation ; données techniques générées par l'usage de ce site (voir Politique de cookies).",
+      "Finalités et bases juridiques : exécution du contrat d'hébergement et des étapes précontractuelles (réservations, correspondance) ; obligations légales (déclaration des hôtes, comptabilité) ; intérêt légitime au fonctionnement et à la sécurité du site ; votre consentement pour les cookies facultatifs et les communications marketing, révocable à tout moment.",
+      "Destinataires : le moteur de réservation (SimpleBooking), le système de réservation de tables (TheFork) et la boutique de bons (e-guma) reçoivent les données nécessaires à la réservation que vous engagez auprès d'eux. Nous ne vendons pas de données personnelles.",
+      "Conservation : les données contractuelles et comptables pendant les délais prévus par le droit suisse ; la correspondance le temps nécessaire au traitement de votre demande ; les données fondées sur le consentement jusqu'à sa révocation.",
+      "Vos droits : accès, rectification, effacement, limitation, opposition et, le cas échéant, portabilité. Contact : info@theviewlugano.com. Vous pouvez également vous adresser au Préposé fédéral à la protection des données et à la transparence (PFPDT).",
+      "Cette politique peut être mise à jour ; la version en vigueur est toujours publiée sur cette page."
+    ]
+  }
+}

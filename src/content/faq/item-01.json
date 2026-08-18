@@ -1,0 +1,15 @@
+{
+  "order": 1,
+  "question": {
+    "en": "Are the electric Smart cars and e-bikes really included?",
+    "de": "Sind die elektrischen Smarts und E-Bikes wirklich inbegriffen?",
+    "it": "Le Smart elettriche e le e-bike sono davvero incluse?",
+    "fr": "Les Smart électriques et les vélos électriques sont-ils vraiment compris ?"
+  },
+  "answer": {
+    "en": "Yes, they are included with the stay. The fleet is small, so availability is limited — reserve one through your Ambassador before arrival to be certain of a car or bike for the hours you want it.",
+    "de": "Ja, sie sind im Aufenthalt inbegriffen. Die Flotte ist klein, die Verfügbarkeit daher begrenzt — reservieren Sie vor der Anreise über Ihren Ambassador, um sicher ein Auto oder Rad für Ihre Stunden zu haben.",
+    "it": "Sì, sono incluse nel soggiorno. La flotta è piccola, quindi la disponibilità è limitata — riservatene una tramite il vostro Ambassador prima dell'arrivo per essere certi di auto o bici nelle ore che desiderate.",
+    "fr": "Oui, ils sont compris dans le séjour. La flotte est petite, la disponibilité donc limitée — réservez auprès de votre Ambassador avant l'arrivée pour être certain d'une voiture ou d'un vélo aux heures voulues."
+  }
+}

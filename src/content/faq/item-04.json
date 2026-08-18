@@ -1,0 +1,15 @@
+{
+  "order": 4,
+  "question": {
+    "en": "Do all suites really face the lake?",
+    "de": "Blicken wirklich alle Suiten auf den See?",
+    "it": "Tutte le suite guardano davvero il lago?",
+    "fr": "Toutes les suites regardent-elles vraiment le lac ?"
+  },
+  "answer": {
+    "en": "Yes. Every suite in the building faces the water and has its own terrace — the building was designed so that no room looks anywhere else. The photography on each suite page shows the exact category you book.",
+    "de": "Ja. Jede Suite im Gebäude blickt aufs Wasser und hat eine eigene Terrasse — das Haus wurde so entworfen, dass kein Zimmer woandershin schaut. Die Fotografie auf jeder Suitenseite zeigt exakt die gebuchte Kategorie.",
+    "it": "Sì. Ogni suite dell'edificio guarda l'acqua e ha la propria terrazza — la casa è stata disegnata perché nessuna stanza guardi altrove. Le fotografie di ogni pagina mostrano esattamente la categoria che prenotate.",
+    "fr": "Oui. Chaque suite du bâtiment regarde l'eau et possède sa propre terrasse — la maison a été dessinée pour qu'aucune chambre ne regarde ailleurs. Les photographies de chaque page montrent exactement la catégorie réservée."
+  }
+}

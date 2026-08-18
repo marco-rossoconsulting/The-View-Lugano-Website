@@ -1,0 +1,15 @@
+{
+  "order": 0,
+  "question": {
+    "en": "Is parking available, and how do I arrive by car?",
+    "de": "Gibt es Parkplätze, und wie reise ich mit dem Auto an?",
+    "it": "C'è il parcheggio, e come si arriva in auto?",
+    "fr": "Y a-t-il un parking, et comment arriver en voiture ?"
+  },
+  "answer": {
+    "en": "Yes — parking is available at the house. Leave the A2 motorway at Lugano Sud, follow signs for Paradiso, then Via Guidino to number 29. Tell your Ambassador when you expect to arrive and a space will be ready.",
+    "de": "Ja — Parkplätze stehen am Haus bereit. Verlassen Sie die A2 bei Lugano Sud, folgen Sie Paradiso und dann der Via Guidino bis Nummer 29. Nennen Sie Ihrem Ambassador Ihre Ankunftszeit, und ein Platz ist reserviert.",
+    "it": "Sì — il parcheggio è disponibile in casa. Uscite dalla A2 a Lugano Sud, seguite Paradiso, poi Via Guidino fino al numero 29. Dite al vostro Ambassador a che ora contate di arrivare e un posto sarà pronto.",
+    "fr": "Oui — le parking est disponible à la maison. Quittez l'A2 à Lugano Sud, suivez Paradiso, puis la Via Guidino jusqu'au numéro 29. Indiquez votre heure d'arrivée à votre Ambassador et une place sera prête."
+  }
+}

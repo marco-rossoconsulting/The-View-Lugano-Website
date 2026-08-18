@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TheForkWidget from '../../components/TheForkWidget.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { getCollection } from 'astro:content';
 
@@ -14,20 +14,28 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
-const venues = (await getCollection('dining')).sort((a, b) => a.data.order - b.data.order);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const [pageEntries, venueEntries] = await Promise.all([
+  getCollection('pages'),
+  getCollection('dining'),
+]);
+
+const page = pageEntries.find((e) => e.data.slug === 'dining-index')?.data;
+const venues = venueEntries.sort((a, b) => a.data.order - b.data.order);
 const restaurant = venues.find((v) => v.data.kind === 'restaurant')!;
 const terrace = venues.find((v) => v.data.kind === 'terrace')!;
 const bar = venues.find((v) => v.data.kind === 'bar')!;
+if (!page) throw new Error('Missing dining-index CMS content');
 ---
 
-<Base {lang} title={t.dining.metaTitle} description={t.dining.metaDesc} route="dining" ogImage={restaurant.data.photos[0].src}>
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.dining }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="dining" ogImage={restaurant.data.photos[0].src}>
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.dining.h1}</h1>
-      <p class="page-intro">{t.dining.intro}</p>
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
     </div>
   </section>
 
@@ -36,11 +44,9 @@ const bar = venues.find((v) => v.data.kind === 'bar')!;
       <EditorialSplit
         src={restaurant.data.photos[0].src}
         alt={restaurant.data.photos[0].alt[lang]}
-        eyebrow={t.home.diningEyebrow}
-        title={t.dining.restaurantTitle}
+        title={page.restaurantTitle?.[lang]}
       >
-        <p>{t.dining.restaurantBody1}</p>
-        <p>{t.dining.restaurantBody2}</p>
+        {page.restaurantBody?.[lang]?.map((par: string) => <p>{par}</p>)}
         <ul class="facts facts--inline">
           {restaurant.data.facts.map((f) => <li>{f[lang]}</li>)}
         </ul>
@@ -53,10 +59,10 @@ const bar = venues.find((v) => v.data.kind === 'bar')!;
       <EditorialSplit
         src={terrace.data.photos[0].src}
         alt={terrace.data.photos[0].alt[lang]}
-        title={t.dining.terraceTitle}
+        title={page.terraceTitle?.[lang]}
         flip
       >
-        <p>{t.dining.terraceBody}</p>
+        <p>{page.terraceBody?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
@@ -66,17 +72,17 @@ const bar = venues.find((v) => v.data.kind === 'bar')!;
       <EditorialSplit
         src={bar.data.photos[0].src}
         alt={bar.data.photos[0].alt[lang]}
-        title={t.dining.barTitle}
+        title={page.barTitle?.[lang]}
       >
-        <p>{t.dining.barBody}</p>
+        <p>{page.barBody?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
 
   <section class="section section--tortora">
     <div class="container container--narrow">
-      <h2 class="section-title">{t.dining.breakfastTitle}</h2>
-      <p style="max-width: 62ch;">{t.dining.breakfastBody}</p>
+      <h2 class="section-title">{page.breakfastTitle?.[lang]}</h2>
+      <p style="max-width: 62ch;">{page.breakfastBody?.[lang]}</p>
     </div>
   </section>
 
@@ -84,15 +90,15 @@ const bar = venues.find((v) => v.data.kind === 'bar')!;
 
   <section class="section">
     <div class="container container--narrow">
-      <h2 class="section-title">{t.dining.reserveTable}</h2>
+      <h2 class="section-title">{page.reserveTable?.[lang]}</h2>
       <TheForkWidget {lang} />
     </div>
   </section>
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.dining, url: p(lang, 'dining') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'dining') },
     ])}
   />
 </Base>

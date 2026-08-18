@@ -1,0 +1,15 @@
+{
+  "order": 5,
+  "question": {
+    "en": "Are children and pets welcome?",
+    "de": "Sind Kinder und Haustiere willkommen?",
+    "it": "Bambini e animali sono benvenuti?",
+    "fr": "Les enfants et les animaux sont-ils bienvenus ?"
+  },
+  "answer": {
+    "en": "Children are welcome. For pets, write to us before booking — we will tell you honestly whether the house suits your animal and your dates.",
+    "de": "Kinder sind willkommen. Für Haustiere schreiben Sie uns bitte vor der Buchung — wir sagen Ihnen ehrlich, ob Haus und Termin zu Ihrem Tier passen.",
+    "it": "I bambini sono benvenuti. Per gli animali, scriveteci prima di prenotare — vi diremo con onestà se la casa e le date sono adatte al vostro animale.",
+    "fr": "Les enfants sont bienvenus. Pour les animaux, écrivez-nous avant de réserver — nous vous dirons honnêtement si la maison et vos dates conviennent à votre animal."
+  }
+}

@@ -3,45 +3,50 @@ import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd, imageJsonLd } from '../../lib/seo';
 import { PHOTOS } from '../../lib/photos';
+import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
   return localePaths();
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const pageEntries = await getCollection('pages');
+const page = pageEntries.find((e) => e.data.slug === 'gallery')?.data;
+if (!page) throw new Error('Missing gallery CMS content');
 
 const catLabels: Record<string, string> = {
-  hotel: t.gallery.catHotel,
-  suite: t.gallery.catSuite,
-  dining: t.gallery.catDining,
-  terrace: t.gallery.catTerrace,
-  bar: t.gallery.catBar,
-  spa: t.gallery.catSpa,
-  meeting: t.gallery.catMeeting,
-  events: t.gallery.catEvents,
-  fleet: t.gallery.catFleet,
+  hotel: page.catHotel?.[lang] ?? 'Hotel',
+  suite: page.catSuite?.[lang] ?? 'Suites',
+  dining: page.catDining?.[lang] ?? 'Dining',
+  terrace: page.catTerrace?.[lang] ?? 'Terrace',
+  bar: page.catBar?.[lang] ?? 'Bar',
+  spa: page.catSpa?.[lang] ?? 'Spa',
+  meeting: page.catMeeting?.[lang] ?? 'Meetings',
+  events: page.catEvents?.[lang] ?? 'Events',
+  fleet: page.catFleet?.[lang] ?? 'Fleet',
 };
 const cats = Object.keys(catLabels).filter((c) => PHOTOS.some((ph) => ph.category === c));
 ---
 
-<Base {lang} title={t.gallery.metaTitle} description={t.gallery.metaDesc} route="gallery">
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.gallery }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="gallery">
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.gallery.h1}</h1>
-      <p class="page-intro">{t.gallery.intro}</p>
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
     </div>
   </section>
 
   <section class="section" style="padding-top:0;">
     <div class="container">
-      <div class="gallery-filters" role="group" aria-label={t.gallery.h1}>
-        <button type="button" class="gallery-filter is-active" data-filter="all">{t.gallery.filterAll}</button>
+      <div class="gallery-filters" role="group" aria-label={page.h1[lang]}>
+        <button type="button" class="gallery-filter is-active" data-filter="all">{page.filterAll?.[lang]}</button>
         {cats.map((c) => (
           <button type="button" class="gallery-filter" data-filter={c}>{catLabels[c]}</button>
         ))}
@@ -70,18 +75,17 @@ const cats = Object.keys(catLabels).filter((c) => PHOTOS.some((ph) => ph.categor
     </div>
   </section>
 
-  <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label={t.gallery.h1}>
-    <button type="button" class="lightbox__close" data-lb-close aria-label={t.gallery.lightboxClose}>×</button>
-    <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb-prev aria-label={t.gallery.lightboxPrev}>‹</button>
+  <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label={page.h1[lang]}>
+    <button type="button" class="lightbox__close" data-lb-close aria-label={page.lightboxClose?.[lang]}>×</button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb-prev aria-label={page.lightboxPrev?.[lang]}>‹</button>
     <figure class="lightbox__figure">
       <img data-lb-img src="" alt="" />
       <figcaption data-lb-caption></figcaption>
     </figure>
-    <button type="button" class="lightbox__nav lightbox__nav--next" data-lb-next aria-label={t.gallery.lightboxNext}>›</button>
+    <button type="button" class="lightbox__nav lightbox__nav--next" data-lb-next aria-label={page.lightboxNext?.[lang]}>›</button>
   </div>
 
   <script define:vars={{ photos: PHOTOS.map((ph) => ({ src: ph.src, alt: ph.alt[lang], category: ph.category })) }}>
-    // Filters
     const buttons = document.querySelectorAll('.gallery-filter');
     const items = document.querySelectorAll('.gallery-item');
     buttons.forEach((btn) => {
@@ -95,7 +99,6 @@ const cats = Object.keys(catLabels).filter((c) => PHOTOS.some((ph) => ph.categor
       });
     });
 
-    // Lightbox — keyboard accessible, focus returned on close
     const lb = document.querySelector('[data-lightbox]');
     const lbImg = lb.querySelector('[data-lb-img]');
     const lbCaption = lb.querySelector('[data-lb-caption]');
@@ -147,8 +150,8 @@ const cats = Object.keys(catLabels).filter((c) => PHOTOS.some((ph) => ph.categor
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.gallery, url: p(lang, 'gallery') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'gallery') },
     ])}
   />
   <JsonLd data={imageJsonLd(PHOTOS.map((ph) => ({ url: ph.src, caption: ph.alt[lang] })))} />

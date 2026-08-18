@@ -5,9 +5,10 @@ import EditorialSplit from '../../components/EditorialSplit.astro';
 import Waterline from '../../components/Waterline.astro';
 import Faq from '../../components/Faq.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { localePaths, dict, p, isLocale, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { hotelJsonLd } from '../../lib/seo';
 import { find } from '../../lib/photos';
+import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
   return localePaths();
@@ -15,109 +16,56 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Locale;
 if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
-const t = dict(lang);
 
-const hero = find('hotel_012');
-const ambassador = find('hotel_061');
-const dining = find('fine-dining-restaurant.jpg');
-const spa = find('spa_011');
-const fleet = find('smart-2');
-const intro = find('hotel_09');
+const [homeEntries, settingsEntries] = await Promise.all([
+  getCollection('homepage'),
+  getCollection('settings'),
+]);
+
+const home = homeEntries[0]?.data;
+const settings = settingsEntries[0]?.data;
+if (!home || !settings) throw new Error('Missing CMS content');
+
+const hero = find(home.hero.image);
 ---
 
 <Base
   {lang}
-  title={t.home.metaTitle}
-  description={t.home.metaDesc}
+  title={home.hero.line[lang]}
+  description={home.hero.tagline[lang]}
   route=""
   preloadImage={hero.src}
 >
-  <Hero src={hero.src} alt={hero.alt[lang]} line={t.home.heroLine} tagline={t.home.heroTagline} h1 />
+  <Hero src={hero.src} alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
 
-  <section class="section">
-    <div class="container">
-      <EditorialSplit
-        src={intro.src}
-        alt={intro.alt[lang]}
-        eyebrow={t.home.introEyebrow}
-        title={t.home.introTitle}
-        cta={{ href: p(lang, 'suites'), label: t.home.creativeCta }}
-      >
-        <p>{t.home.introBody1}</p>
-        <p>{t.home.introBody2}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section section--tortora">
-    <div class="container">
-      <EditorialSplit
-        src={ambassador.src}
-        alt={ambassador.alt[lang]}
-        eyebrow={t.home.ambassadorEyebrow}
-        title={t.home.ambassadorTitle}
-        flip
-        cta={{ href: p(lang, 'contact'), label: t.common.writeUs }}
-      >
-        <p>{t.home.ambassadorBody}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <EditorialSplit
-        src={dining.src}
-        alt={dining.alt[lang]}
-        eyebrow={t.home.diningEyebrow}
-        title={t.home.diningTitle}
-        cta={{ href: p(lang, 'dining'), label: t.common.discover }}
-      >
-        <p>{t.home.diningBody}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section section--tortora">
-    <div class="container">
-      <EditorialSplit
-        src={spa.src}
-        alt={spa.alt[lang]}
-        eyebrow={t.home.spaEyebrow}
-        title={t.home.spaTitle}
-        flip
-        cta={{ href: p(lang, 'spa'), label: t.common.discover }}
-      >
-        <p>{t.home.spaBody}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <EditorialSplit
-        src={fleet.src}
-        alt={fleet.alt[lang]}
-        eyebrow={t.home.fleetEyebrow}
-        title={t.home.fleetTitle}
-        cta={{ href: p(lang, 'location'), label: t.common.discover }}
-      >
-        <p>{t.home.fleetBody}</p>
-      </EditorialSplit>
-    </div>
-  </section>
+  {home.sections.map((sec) => {
+    const img = find(sec.image);
+    return (
+      <section class={`section${sec.id === 'ambassador' || sec.id === 'spa' ? ' section--tortora' : ''}`}>
+        <div class="container">
+          <EditorialSplit
+            src={img.src}
+            alt={img.alt[lang]}
+            eyebrow={sec.eyebrow?.[lang]}
+            title={sec.title[lang]}
+            flip={sec.flip}
+            cta={{ href: sec.ctaHref, label: sec.ctaLabel[lang] }}
+          >
+            {sec.body[lang].map((pText: string) => <p>{pText}</p>)}
+          </EditorialSplit>
+        </div>
+      </section>
+    );
+  })}
 
   <div class="container"><Waterline /></div>
 
-  <!-- Trust: distilled from eight years of guest reviews — themes, not testimonial carousels -->
   <section class="section">
     <div class="container container--narrow fade-up">
-      <p class="eyebrow">{t.home.trustEyebrow}</p>
-      <h2 class="trust-title">{t.home.trustTitle}</h2>
+      <p class="eyebrow">{home.trust.eyebrow[lang]}</p>
+      <h2 class="trust-title">{home.trust.title[lang]}</h2>
       <div class="trust">
-        <p>{t.home.trustView}</p>
-        <p>{t.home.trustPeople}</p>
-        <p>{t.home.trustFleet}</p>
+        {home.trust.items.map((item) => <p>{item.text[lang]}</p>)}
       </div>
     </div>
   </section>

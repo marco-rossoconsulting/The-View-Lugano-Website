@@ -1,0 +1,99 @@
+{
+  "slug": "dining-index",
+  "metaTitle": {
+    "en": "Fine Dining, Terrace & Bar — THE VIEW Lugano",
+    "de": "Fine Dining, Terrasse & Bar — THE VIEW Lugano",
+    "it": "Fine Dining, Terrazza & Bar — THE VIEW Lugano",
+    "fr": "Fine Dining, Terrasse & Bar — THE VIEW Lugano"
+  },
+  "metaDesc": {
+    "en": "THE VIEW Fine Dining — one Michelin star, Chef Diego Della Schiava, 16 points Gault & Millau. Terrazza TreCinqueZero and the Lounge Bar above Lake Lugano.",
+    "de": "THE VIEW Fine Dining — ein Michelin-Stern, Chef Diego Della Schiava, 16 Punkte Gault & Millau. Terrazza TreCinqueZero und Lounge Bar über dem Luganersee.",
+    "it": "THE VIEW Fine Dining — una stella Michelin, Chef Diego Della Schiava, 16 punti Gault & Millau. Terrazza TreCinqueZero e Lounge Bar sopra il Lago di Lugano.",
+    "fr": "THE VIEW Fine Dining — une étoile Michelin, Chef Diego Della Schiava, 16 points Gault & Millau. Terrazza TreCinqueZero et Lounge Bar au-dessus du lac de Lugano."
+  },
+  "h1": {
+    "en": "The table above the lake",
+    "de": "Der Tisch über dem See",
+    "it": "La tavola sopra il lago",
+    "fr": "La table au-dessus du lac"
+  },
+  "intro": {
+    "en": "One kitchen sets the standard for the whole house — the tasting menu at evening, the terrace at noon, the bar before dinner, breakfast the morning after.",
+    "de": "Eine Küche setzt den Standard für das ganze Haus — das Degustationsmenü am Abend, die Terrasse am Mittag, die Bar vor dem Dinner, das Frühstück am Morgen danach.",
+    "it": "Una sola cucina detta lo standard per tutta la casa — il menu degustazione la sera, la terrazza a mezzogiorno, il bar prima di cena, la colazione la mattina dopo.",
+    "fr": "Une seule cuisine fixe le niveau de toute la maison — le menu dégustation le soir, la terrasse à midi, le bar avant le dîner, le petit-déjeuner le lendemain matin."
+  },
+  "restaurantTitle": {
+    "en": "THE VIEW Fine Dining",
+    "de": "THE VIEW Fine Dining",
+    "it": "THE VIEW Fine Dining",
+    "fr": "THE VIEW Fine Dining"
+  },
+  "restaurantBody": {
+    "en": [
+      "Chef Diego Della Schiava cooks a Mediterranean menu with a Michelin star held since 2022 and 16 points from Gault & Millau. The room seats few, faces the water, and takes its time.",
+      "The restaurant welcomes guests of the house and the city alike — many discover the hotel from this table first."
+    ],
+    "de": [
+      "Chef Diego Della Schiava kocht ein mediterranes Menü, ausgezeichnet mit einem Michelin-Stern seit 2022 und 16 Punkten Gault & Millau. Der Saal hat wenige Plätze, blickt aufs Wasser und nimmt sich Zeit.",
+      "Das Restaurant empfängt Gäste des Hauses wie der Stadt — viele entdecken das Hotel zuerst von diesem Tisch aus."
+    ],
+    "it": [
+      "Lo Chef Diego Della Schiava cucina un menu mediterraneo con una stella Michelin dal 2022 e 16 punti Gault & Millau. La sala ha pochi coperti, guarda l'acqua e si prende il suo tempo.",
+      "Il ristorante accoglie gli ospiti della casa e della città — molti scoprono l'hotel per la prima volta da questo tavolo."
+    ],
+    "fr": [
+      "Le Chef Diego Della Schiava compose un menu méditerranéen, étoilé Michelin depuis 2022, avec 16 points au Gault & Millau. La salle compte peu de couverts, regarde l'eau et prend son temps.",
+      "Le restaurant accueille les hôtes de la maison comme ceux de la ville — beaucoup découvrent l'hôtel pour la première fois depuis cette table."
+    ]
+  },
+  "terraceTitle": {
+    "en": "Terrazza TreCinqueZero",
+    "de": "Terrazza TreCinqueZero",
+    "it": "Terrazza TreCinqueZero",
+    "fr": "Terrazza TreCinqueZero"
+  },
+  "terraceBody": {
+    "en": "The terrace at 350 metres above sea level: aperitivo, lunch and summer evenings in the open air, the lake below and Monte San Salvatore behind.",
+    "de": "Die Terrasse auf 350 Metern über Meer: Aperitivo, Lunch und Sommerabende im Freien, der See darunter, der Monte San Salvatore im Rücken.",
+    "it": "La terrazza a 350 metri sul mare: aperitivo, pranzo e sere d'estate all'aperto, il lago sotto e il Monte San Salvatore alle spalle.",
+    "fr": "La terrasse à 350 mètres d'altitude : aperitivo, déjeuner et soirées d'été à l'air libre, le lac en contrebas et le Monte San Salvatore dans le dos."
+  },
+  "barTitle": {
+    "en": "The Lounge Bar",
+    "de": "Die Lounge Bar",
+    "it": "La Lounge Bar",
+    "fr": "Le Lounge Bar"
+  },
+  "barBody": {
+    "en": "Champagne, a considered list of Ticino wines, and armchairs turned toward the window. The lake is grey at seven and platinum by noon; both are worth a seat.",
+    "de": "Champagner, eine durchdachte Karte mit Tessiner Weinen und Sessel, die zum Fenster gedreht sind. Der See ist grau um sieben und platin am Mittag; beides ist einen Platz wert.",
+    "it": "Champagne, una carta ragionata di vini ticinesi e poltrone girate verso la finestra. Il lago è grigio alle sette e platino a mezzogiorno; entrambi meritano un posto.",
+    "fr": "Du champagne, une carte réfléchie de vins tessinois et des fauteuils tournés vers la fenêtre. Le lac est gris à sept heures et platine à midi ; les deux valent une place."
+  },
+  "breakfastTitle": {
+    "en": "Breakfast",
+    "de": "Frühstück",
+    "it": "La colazione",
+    "fr": "Le petit-déjeuner"
+  },
+  "breakfastBody": {
+    "en": "Served each morning in the restaurant, with the same view the evening had. Fresh, unhurried, cooked to order where it should be.",
+    "de": "Jeden Morgen im Restaurant serviert, mit derselben Aussicht wie am Abend. Frisch, ohne Eile, und dort à la minute, wo es sein soll.",
+    "it": "Servita ogni mattina al ristorante, con la stessa vista della sera. Fresca, senza fretta, espressa dove deve esserlo.",
+    "fr": "Servi chaque matin au restaurant, avec la même vue que la veille au soir. Frais, sans hâte, préparé à la minute là où il le faut."
+  },
+  "reserveTable": {
+    "en": "Reserve a table",
+    "de": "Tisch reservieren",
+    "it": "Prenota un tavolo",
+    "fr": "Réserver une table"
+  },
+  "menuNote": {
+    "en": "Menus follow the season. For today's menu and dietary requirements, the restaurant answers directly.",
+    "de": "Die Menüs folgen der Saison. Für das Tagesmenü und Unverträglichkeiten antwortet das Restaurant direkt.",
+    "it": "I menu seguono la stagione. Per il menu del giorno e le esigenze alimentari risponde direttamente il ristorante.",
+    "fr": "Les menus suivent la saison. Pour le menu du jour et les régimes particuliers, le restaurant répond directement."
+  }
+}

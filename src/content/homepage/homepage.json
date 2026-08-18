@@ -1,0 +1,256 @@
+{
+  "hero": {
+    "line": {
+      "en": "Eighteen suites above the lake. Every one of them faces the water.",
+      "de": "Achtzehn Suiten über dem See. Jede einzelne blickt aufs Wasser.",
+      "it": "Diciotto suite sopra il lago. Ognuna guarda l'acqua.",
+      "fr": "Dix-huit suites au-dessus du lac. Chacune regarde l'eau."
+    },
+    "tagline": {
+      "en": "A world of its own",
+      "de": "Eine Welt für sich",
+      "it": "Un mondo a sé",
+      "fr": "Un monde à part"
+    },
+    "image": "hotel_012"
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "eyebrow": {
+        "en": "The house",
+        "de": "Das Haus",
+        "it": "La casa",
+        "fr": "La maison"
+      },
+      "title": {
+        "en": "The panorama is not a room category. It is the building.",
+        "de": "Das Panorama ist keine Zimmerkategorie. Es ist das Gebäude.",
+        "it": "Il panorama non è una categoria di camera. È l'edificio.",
+        "fr": "Le panorama n'est pas une catégorie de chambre. C'est le bâtiment."
+      },
+      "body": {
+        "en": [
+          "The View stands on the hillside at Paradiso, on the slope of Monte San Salvatore, and it was built around a single obstinate decision: every room would face the water. Not the best rooms — every room. Every suite, both pools, the fitness room, the restaurant, the lounge and the terrace.",
+          "Eighteen suites. That number was a choice, and it is still the choice. It is why no guest here receives the lesser version of the place."
+        ],
+        "de": [
+          "The View steht am Hang von Paradiso, an der Flanke des Monte San Salvatore, gebaut um eine einzige, eigensinnige Entscheidung: Jeder Raum sollte aufs Wasser blicken. Nicht die besten Räume — jeder Raum. Jede Suite, beide Pools, der Fitnessraum, das Restaurant, die Lounge und die Terrasse.",
+          "Achtzehn Suiten. Diese Zahl war eine Entscheidung, und sie ist es bis heute. Darum bekommt hier kein Gast die geringere Version des Hauses."
+        ],
+        "it": [
+          "The View sorge sulla collina di Paradiso, sul fianco del Monte San Salvatore, ed è nato da un'unica decisione ostinata: ogni stanza avrebbe guardato l'acqua. Non le stanze migliori — ogni stanza. Ogni suite, entrambe le piscine, la sala fitness, il ristorante, la lounge e la terrazza.",
+          "Diciotto suite. Quel numero è stato una scelta, e lo è ancora. È il motivo per cui qui nessun ospite riceve la versione minore della casa."
+        ],
+        "fr": [
+          "The View se tient sur la colline de Paradiso, au flanc du Monte San Salvatore, né d'une seule décision obstinée : chaque pièce regarderait l'eau. Pas les meilleures pièces — chaque pièce. Chaque suite, les deux piscines, la salle de fitness, le restaurant, le salon et la terrasse.",
+          "Dix-huit suites. Ce chiffre a été un choix, et il l'est encore. C'est pourquoi aucun hôte ne reçoit ici la version moindre de la maison."
+        ]
+      },
+      "image": "hotel_09",
+      "ctaHref": "/suites/",
+      "ctaLabel": {
+        "en": "See the suites",
+        "de": "Zu den Suiten",
+        "it": "Le suite",
+        "fr": "Voir les suites"
+      },
+      "flip": false
+    },
+    {
+      "id": "ambassador",
+      "eyebrow": {
+        "en": "The Ambassador",
+        "de": "Der Ambassador",
+        "it": "L'Ambassador",
+        "fr": "L'Ambassador"
+      },
+      "title": {
+        "en": "One person, from before you arrive until after you leave",
+        "de": "Eine Person, von vor der Anreise bis nach der Abreise",
+        "it": "Una persona, da prima dell'arrivo a dopo la partenza",
+        "fr": "Une seule personne, d'avant l'arrivée à après le départ"
+      },
+      "body": {
+        "en": [
+          "Every stay is handled by an Ambassador — one person who arranges the arrival, holds the restaurant table, keeps a Smart charged for the morning, and knows your coffee by the second day. Guests who write about their stay tend to use a first name."
+        ],
+        "de": [
+          "Jeden Aufenthalt betreut ein Ambassador — eine Person, die die Anreise organisiert, den Tisch im Restaurant hält, morgens einen geladenen Smart bereitstellt und am zweiten Tag Ihren Kaffee kennt. Wer über seinen Aufenthalt schreibt, nennt meist einen Vornamen."
+        ],
+        "it": [
+          "Ogni soggiorno è seguito da un Ambassador — una persona che organizza l'arrivo, tiene il tavolo al ristorante, lascia una Smart carica per la mattina e al secondo giorno conosce il vostro caffè. Chi scrive del proprio soggiorno tende a usare un nome proprio."
+        ],
+        "fr": [
+          "Chaque séjour est suivi par un Ambassador — une personne qui organise l'arrivée, retient la table au restaurant, laisse une Smart chargée pour le matin et connaît votre café dès le deuxième jour. Ceux qui écrivent sur leur séjour citent le plus souvent un prénom."
+        ]
+      },
+      "image": "hotel_061",
+      "ctaHref": "/contact/",
+      "ctaLabel": {
+        "en": "Write to us",
+        "de": "Schreiben Sie uns",
+        "it": "Scriveteci",
+        "fr": "Écrivez-nous"
+      },
+      "flip": true
+    },
+    {
+      "id": "dining",
+      "eyebrow": {
+        "en": "The table",
+        "de": "Der Tisch",
+        "it": "La tavola",
+        "fr": "La table"
+      },
+      "title": {
+        "en": "One Michelin star, two floors below the bedrooms",
+        "de": "Ein Michelin-Stern, zwei Etagen unter den Schlafzimmern",
+        "it": "Una stella Michelin, due piani sotto le camere",
+        "fr": "Une étoile Michelin, deux étages sous les chambres"
+      },
+      "body": {
+        "en": [
+          "Chef Diego Della Schiava has held a Michelin star since 2022 and 16 points from Gault & Millau. The dining room faces the lake, as every room here does. Terrazza TreCinqueZero and the Lounge Bar carry the same kitchen's standard into the open air."
+        ],
+        "de": [
+          "Chef Diego Della Schiava hält seit 2022 einen Michelin-Stern und 16 Punkte Gault & Millau. Der Speisesaal blickt auf den See, wie jeder Raum hier. Die Terrazza TreCinqueZero und die Lounge Bar tragen den Standard derselben Küche ins Freie."
+        ],
+        "it": [
+          "Lo Chef Diego Della Schiava tiene una stella Michelin dal 2022 e 16 punti Gault & Millau. La sala guarda il lago, come ogni stanza qui. La Terrazza TreCinqueZero e la Lounge Bar portano lo stesso standard all'aria aperta."
+        ],
+        "fr": [
+          "Le Chef Diego Della Schiava détient une étoile Michelin depuis 2022 et 16 points au Gault & Millau. La salle regarde le lac, comme chaque pièce ici. La Terrazza TreCinqueZero et le Lounge Bar portent le même niveau d'exigence à l'air libre."
+        ]
+      },
+      "image": "fine-dining-restaurant.jpg",
+      "ctaHref": "/dining/",
+      "ctaLabel": {
+        "en": "Discover",
+        "de": "Entdecken",
+        "it": "Scopri",
+        "fr": "Découvrir"
+      },
+      "flip": false
+    },
+    {
+      "id": "spa",
+      "eyebrow": {
+        "en": "The spa",
+        "de": "Das Spa",
+        "it": "La spa",
+        "fr": "Le spa"
+      },
+      "title": {
+        "en": "A thousand square metres, and rarely more than four people in them",
+        "de": "Tausend Quadratmeter, und selten mehr als vier Menschen darin",
+        "it": "Mille metri quadrati, e raramente più di quattro persone",
+        "fr": "Mille mètres carrés, et rarement plus de quatre personnes"
+      },
+      "body": {
+        "en": [
+          "An indoor pool, two wet zones, a Kneipp circuit and a relaxation room with a Himalayan salt wall. Resident guests come first; access from outside the house is deliberately limited."
+        ],
+        "de": [
+          "Ein Innenpool, zwei Nasszonen, ein Kneipp-Parcours und ein Ruheraum mit Himalaya-Salzwand. Hausgäste zuerst; der Zugang von aussen bleibt bewusst begrenzt."
+        ],
+        "it": [
+          "Una piscina interna, due zone umide, un percorso Kneipp e una sala relax con parete di sale himalayano. Prima gli ospiti della casa; l'accesso dall'esterno resta volutamente limitato."
+        ],
+        "fr": [
+          "Une piscine intérieure, deux zones humides, un parcours Kneipp et une salle de repos au mur de sel de l'Himalaya. Les hôtes de la maison d'abord ; l'accès extérieur reste volontairement limité."
+        ]
+      },
+      "image": "spa_011",
+      "ctaHref": "/spa/",
+      "ctaLabel": {
+        "en": "Discover",
+        "de": "Entdecken",
+        "it": "Scopri",
+        "fr": "Découvrir"
+      },
+      "flip": true
+    },
+    {
+      "id": "fleet",
+      "eyebrow": {
+        "en": "The keys on the console",
+        "de": "Die Schlüssel auf der Konsole",
+        "it": "Le chiavi sulla consolle",
+        "fr": "Les clés sur la console"
+      },
+      "title": {
+        "en": "A Smart and an e-bike are waiting",
+        "de": "Ein Smart und ein E-Bike stehen bereit",
+        "it": "Una Smart e una e-bike vi aspettano",
+        "fr": "Une Smart et un vélo électrique vous attendent"
+      },
+      "body": {
+        "en": [
+          "Electric Smart cars and e-bikes are included with the stay. The city is ten minutes down the hill; the lakefront a few more. Availability is limited to keep them genuinely available — your Ambassador will reserve one before you arrive."
+        ],
+        "de": [
+          "Elektrische Smarts und E-Bikes sind im Aufenthalt inbegriffen. Die Stadt liegt zehn Minuten den Hügel hinunter, das Seeufer wenig weiter. Die Flotte ist bewusst klein, damit sie wirklich verfügbar bleibt — Ihr Ambassador reserviert vor Ihrer Anreise."
+        ],
+        "it": [
+          "Smart elettriche ed e-bike sono incluse nel soggiorno. La città è a dieci minuti giù per la collina; il lungolago poco oltre. La flotta è volutamente piccola perché resti davvero disponibile — il vostro Ambassador la riserva prima dell'arrivo."
+        ],
+        "fr": [
+          "Les Smart électriques et les vélos électriques sont compris dans le séjour. La ville est à dix minutes en bas de la colline ; les quais un peu plus loin. La flotte est petite à dessein pour rester réellement disponible — votre Ambassador la réserve avant votre arrivée."
+        ]
+      },
+      "image": "smart-2",
+      "ctaHref": "/location/",
+      "ctaLabel": {
+        "en": "Discover",
+        "de": "Entdecken",
+        "it": "Scopri",
+        "fr": "Découvrir"
+      },
+      "flip": false
+    }
+  ],
+  "trust": {
+    "eyebrow": {
+      "en": "Why guests return",
+      "de": "Warum Gäste wiederkommen",
+      "it": "Perché gli ospiti tornano",
+      "fr": "Pourquoi les hôtes reviennent"
+    },
+    "title": {
+      "en": "Eight years of guest commentary, in 23 languages, keeps returning to three things",
+      "de": "Acht Jahre Gästestimmen in 23 Sprachen kehren zu drei Dingen zurück",
+      "it": "Otto anni di commenti degli ospiti, in 23 lingue, tornano a tre cose",
+      "fr": "Huit ans de commentaires d'hôtes, en 23 langues, reviennent à trois choses"
+    },
+    "items": [
+      {
+        "id": "view",
+        "text": {
+          "en": "The view. Guests describe the lake from the pillow, from the pool, from the table — and reach, unprompted, for the word paradiso.",
+          "de": "Die Aussicht. Gäste beschreiben den See vom Kissen, vom Pool, vom Tisch — und greifen von selbst zum Wort paradiso.",
+          "it": "La vista. Gli ospiti descrivono il lago dal cuscino, dalla piscina, dal tavolo — e arrivano da soli alla parola paradiso.",
+          "fr": "La vue. Les hôtes décrivent le lac depuis l'oreiller, la piscine, la table — et arrivent d'eux-mêmes au mot paradiso."
+        }
+      },
+      {
+        "id": "people",
+        "text": {
+          "en": "The people. What guests remember most often is not a facility but a first name — Giacomo, Galin, Martin, Edoardo, Adriano.",
+          "de": "Die Menschen. Was Gäste am häufigsten erinnern, ist keine Einrichtung, sondern ein Vorname — Giacomo, Galin, Martin, Edoardo, Adriano.",
+          "it": "Le persone. Ciò che gli ospiti ricordano più spesso non è un servizio ma un nome — Giacomo, Galin, Martin, Edoardo, Adriano.",
+          "fr": "Les personnes. Ce que les hôtes retiennent le plus souvent n'est pas un équipement mais un prénom — Giacomo, Galin, Martin, Edoardo, Adriano."
+        }
+      },
+      {
+        "id": "fleet",
+        "text": {
+          "en": "The Smarts and the e-bikes. Described again and again as the thing no one expected and no one forgets.",
+          "de": "Die Smarts und die E-Bikes. Immer wieder beschrieben als das, was niemand erwartet und niemand vergisst.",
+          "it": "Le Smart e le e-bike. Descritte ogni volta come la cosa che nessuno si aspettava e nessuno dimentica.",
+          "fr": "Les Smart et les vélos électriques. Décrits chaque fois comme la chose que personne n'attendait et que personne n'oublie."
+        }
+      }
+    ]
+  }
+}

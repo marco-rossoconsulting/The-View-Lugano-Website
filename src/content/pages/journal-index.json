@@ -1,0 +1,39 @@
+{
+  "slug": "journal-index",
+  "metaTitle": {
+    "en": "Journal — THE VIEW Lugano",
+    "de": "Journal — THE VIEW Lugano",
+    "it": "Journal — THE VIEW Lugano",
+    "fr": "Journal — THE VIEW Lugano"
+  },
+  "metaDesc": {
+    "en": "Notes from the house: the lake by the hour, the choice of eighteen, one kitchen and its standard.",
+    "de": "Notizen aus dem Haus: der See nach Stunden, die Entscheidung für achtzehn, eine Küche und ihr Standard.",
+    "it": "Appunti dalla casa: il lago ora per ora, la scelta di diciotto, una cucina e il suo standard.",
+    "fr": "Notes de la maison : le lac heure par heure, le choix de dix-huit, une cuisine et son exigence."
+  },
+  "h1": {
+    "en": "Journal",
+    "de": "Journal",
+    "it": "Journal",
+    "fr": "Journal"
+  },
+  "intro": {
+    "en": "Notes from the house. Written slowly, published rarely.",
+    "de": "Notizen aus dem Haus. Langsam geschrieben, selten publiziert.",
+    "it": "Appunti dalla casa. Scritti lentamente, pubblicati di rado.",
+    "fr": "Notes de la maison. Écrites lentement, publiées rarement."
+  },
+  "readingTime": {
+    "en": "min read",
+    "de": "Min. Lesezeit",
+    "it": "min di lettura",
+    "fr": "min de lecture"
+  },
+  "published": {
+    "en": "Published",
+    "de": "Publiziert",
+    "it": "Pubblicato",
+    "fr": "Publié"
+  }
+}

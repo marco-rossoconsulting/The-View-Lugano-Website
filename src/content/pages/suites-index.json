@@ -1,0 +1,39 @@
+{
+  "slug": "suites-index",
+  "metaTitle": {
+    "en": "Suites & Residence — THE VIEW Lugano",
+    "de": "Suiten & Residence — THE VIEW Lugano",
+    "it": "Suite & Residence — THE VIEW Lugano",
+    "fr": "Suites & Residence — THE VIEW Lugano"
+  },
+  "metaDesc": {
+    "en": "Sixteen Junior Suites of 50 m², two Suite Superior of 105 m² and THE VIEW Residence apartments. Every suite faces Lake Lugano, each with its own terrace.",
+    "de": "Sechzehn Junior Suiten mit 50 m², zwei Suiten Superior mit 105 m² und die Apartments der THE VIEW Residence. Jede Suite blickt auf den Luganersee, jede mit eigener Terrasse.",
+    "it": "Sedici Junior Suite da 50 m², due Suite Superior da 105 m² e gli appartamenti di THE VIEW Residence. Ogni suite guarda il Lago di Lugano, ognuna con la propria terrazza.",
+    "fr": "Seize Junior Suites de 50 m², deux Suites Superior de 105 m² et les appartements de THE VIEW Residence. Chaque suite regarde le lac de Lugano, chacune avec sa terrasse."
+  },
+  "h1": {
+    "en": "Suites & Residence",
+    "de": "Suiten & Residence",
+    "it": "Suite & Residence",
+    "fr": "Suites & Residence"
+  },
+  "intro": {
+    "en": "Sixteen Junior Suites of fifty square metres. Two Suite Superior of one hundred and five. Every one of them faces the lake, because every room in the building does, and every one opens onto its own terrace. The interiors follow the line of a ship — clean, warm, unhurried.",
+    "de": "Sechzehn Junior Suiten mit fünfzig Quadratmetern. Zwei Suiten Superior mit hundertfünf. Jede blickt auf den See, weil jeder Raum im Gebäude es tut, und jede öffnet sich auf die eigene Terrasse. Die Interieurs folgen der Linie eines Schiffs — klar, warm, ohne Eile.",
+    "it": "Sedici Junior Suite da cinquanta metri quadrati. Due Suite Superior da centocinque. Ognuna guarda il lago, perché ogni stanza dell'edificio lo fa, e ognuna si apre sulla propria terrazza. Gli interni seguono la linea di una nave — puliti, caldi, senza fretta.",
+    "fr": "Seize Junior Suites de cinquante mètres carrés. Deux Suites Superior de cent cinq. Chacune regarde le lac, parce que chaque pièce du bâtiment le fait, et chacune s'ouvre sur sa propre terrasse. Les intérieurs suivent la ligne d'un navire — nets, chaleureux, sans hâte."
+  },
+  "honesty": {
+    "en": "What you see is the category you book. Photography on these pages shows the suite type it belongs to, exactly.",
+    "de": "Was Sie sehen, ist die Kategorie, die Sie buchen. Die Fotografie auf diesen Seiten zeigt exakt den jeweiligen Suitentyp.",
+    "it": "Ciò che vedete è la categoria che prenotate. Le fotografie di queste pagine mostrano esattamente il tipo di suite a cui appartengono.",
+    "fr": "Ce que vous voyez est la catégorie que vous réservez. Les photographies de ces pages montrent exactement le type de suite auquel elles appartiennent."
+  },
+  "residenceNote": {
+    "en": "For stays with a kitchen and more room to live in, THE VIEW Residence apartments sit within the same building, with the same lake in the window.",
+    "de": "Für Aufenthalte mit Küche und mehr Raum zum Leben liegen die Apartments der THE VIEW Residence im selben Gebäude, mit demselben See im Fenster.",
+    "it": "Per soggiorni con cucina e più spazio da vivere, gli appartamenti di THE VIEW Residence si trovano nello stesso edificio, con lo stesso lago nella finestra.",
+    "fr": "Pour des séjours avec cuisine et davantage d'espace à vivre, les appartements de THE VIEW Residence se trouvent dans le même bâtiment, avec le même lac à la fenêtre."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "slug": "cookies",
+  "title": {
+    "en": "Cookie Policy",
+    "de": "Cookie-Richtlinie",
+    "it": "Cookie Policy",
+    "fr": "Politique de cookies"
+  },
+  "body": {
+    "en": [
+      "This website uses cookies and similar technologies. Under the Swiss FADP/nLPD we ask for your consent for all non-essential cookies before they are set, and you can change your choices at any time via 'Cookie settings' in the footer.",
+      "Necessary cookies keep the site functioning: they remember your consent choices and your language. They cannot be switched off.",
+      "Preference cookies remember settings such as your language across visits.",
+      "Statistics cookies, if you allow them, help us understand how the site is used, in anonymised form.",
+      "Marketing cookies, if you allow them, enable embedded third-party services — the SimpleBooking reservation engine, the TheFork table reservation widget and the e-guma voucher shop — which may set their own cookies under their own policies.",
+      "Withdrawing consent: reopen the cookie settings at any time and save a new choice. Necessary cookies remain active as they are required for operation."
+    ],
+    "de": [
+      "Diese Website verwendet Cookies und ähnliche Technologien. Nach dem Schweizer DSG/nDSG holen wir Ihre Einwilligung für alle nicht notwendigen Cookies ein, bevor sie gesetzt werden; Ihre Wahl können Sie jederzeit über «Cookie-Einstellungen» im Footer ändern.",
+      "Notwendige Cookies halten die Website funktionsfähig: Sie speichern Ihre Einwilligungswahl und Ihre Sprache. Sie lassen sich nicht deaktivieren.",
+      "Präferenz-Cookies merken sich Einstellungen wie Ihre Sprache über Besuche hinweg.",
+      "Statistik-Cookies helfen uns, sofern erlaubt, die Nutzung der Website in anonymisierter Form zu verstehen.",
+      "Marketing-Cookies ermöglichen, sofern erlaubt, eingebettete Dienste Dritter — das SimpleBooking-Buchungssystem, das TheFork-Widget und den e-guma-Shop —, die eigene Cookies nach eigenen Richtlinien setzen können.",
+      "Widerruf: Öffnen Sie die Cookie-Einstellungen jederzeit erneut und speichern Sie eine neue Wahl. Notwendige Cookies bleiben aktiv, da sie für den Betrieb erforderlich sind."
+    ],
+    "it": [
+      "Questo sito utilizza cookie e tecnologie simili. In base alla LPD/nLPD svizzera chiediamo il consenso per tutti i cookie non essenziali prima di impostarli; potete cambiare le vostre scelte in ogni momento da «Impostazioni cookie» nel footer.",
+      "I cookie necessari mantengono il sito funzionante: ricordano le scelte di consenso e la lingua. Non possono essere disattivati.",
+      "I cookie di preferenza ricordano impostazioni come la lingua tra una visita e l'altra.",
+      "I cookie statistici, se consentiti, ci aiutano a capire l'uso del sito in forma anonimizzata.",
+      "I cookie di marketing, se consentiti, abilitano servizi di terzi incorporati — il motore SimpleBooking, il widget TheFork e lo shop e-guma — che possono impostare propri cookie secondo le proprie policy.",
+      "Revoca: riaprite le impostazioni cookie in qualsiasi momento e salvate una nuova scelta. I cookie necessari restano attivi perché indispensabili al funzionamento."
+    ],
+    "fr": [
+      "Ce site utilise des cookies et technologies similaires. Conformément à la LPD/nLPD suisse, nous demandons votre consentement pour tous les cookies non essentiels avant leur dépôt ; vous pouvez modifier vos choix à tout moment via « Réglages des cookies » en pied de page.",
+      "Les cookies nécessaires assurent le fonctionnement du site : ils retiennent vos choix de consentement et votre langue. Ils ne peuvent pas être désactivés.",
+      "Les cookies de préférences retiennent des réglages comme votre langue d'une visite à l'autre.",
+      "Les cookies statistiques, si vous les autorisez, nous aident à comprendre l'usage du site sous forme anonymisée.",
+      "Les cookies marketing, si vous les autorisez, activent des services tiers intégrés — le moteur SimpleBooking, le widget TheFork et la boutique e-guma — susceptibles de déposer leurs propres cookies selon leurs propres politiques.",
+      "Révocation : rouvrez à tout moment les réglages des cookies et enregistrez un nouveau choix. Les cookies nécessaires restent actifs car indispensables au fonctionnement."
+    ]
+  }
+}

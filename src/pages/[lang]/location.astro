@@ -4,36 +4,40 @@ import EditorialSplit from '../../components/EditorialSplit.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd, localBusinessJsonLd, howToArriveJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
 import { find, byCategory } from '../../lib/photos';
+import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
   return localePaths();
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const pageEntries = await getCollection('pages');
+const page = pageEntries.find((e) => e.data.slug === 'location')?.data;
+if (!page) throw new Error('Missing location CMS content');
+
 const hero = find('hotel_041');
 const fleet = byCategory('fleet');
 ---
 
-<Base {lang} title={t.location.metaTitle} description={t.location.metaDesc} route="location">
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.location }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="location">
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.location.h1}</h1>
-      <p class="page-intro">{t.location.intro}</p>
-      <!-- Full address in crawlable prose -->
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
       <p class="page-note">
         {SITE.name} · {SITE.address.street}, {SITE.address.postalCode} {SITE.address.locality}, {SITE.address.countryName}
       </p>
     </div>
   </section>
 
-  <!-- Google Maps embed -->
   <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="map-embed">
@@ -53,10 +57,10 @@ const fleet = byCategory('fleet');
 
   <section class="section">
     <div class="container">
-      <EditorialSplit src={hero.src} alt={hero.alt[lang]} title={t.location.arrivingTitle}>
-        <p>{t.location.byCar}</p>
-        <p>{t.location.byTrain}</p>
-        <p>{t.location.byAir}</p>
+      <EditorialSplit src={hero.src} alt={hero.alt[lang]} title={page.arrivingTitle?.[lang]}>
+        <p>{page.byCar?.[lang]}</p>
+        <p>{page.byTrain?.[lang]}</p>
+        <p>{page.byAir?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
@@ -66,18 +70,18 @@ const fleet = byCategory('fleet');
       <EditorialSplit
         src={fleet[1] ? fleet[1].src : fleet[0].src}
         alt={fleet[1] ? fleet[1].alt[lang] : fleet[0].alt[lang]}
-        title={t.location.aroundTitle}
+        title={page.aroundTitle?.[lang]}
         flip
       >
-        <p>{t.location.aroundBody}</p>
+        <p>{page.aroundBody?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
 
   <section class="section">
     <div class="container container--narrow">
-      <h2 class="section-title">{t.location.luganoTitle}</h2>
-      <p style="max-width: 62ch;">{t.location.luganoBody}</p>
+      <h2 class="section-title">{page.luganoTitle?.[lang]}</h2>
+      <p style="max-width: 62ch;">{page.luganoBody?.[lang]}</p>
     </div>
   </section>
 
@@ -85,8 +89,8 @@ const fleet = byCategory('fleet');
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.location, url: p(lang, 'location') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'location') },
     ])}
   />
   <JsonLd data={localBusinessJsonLd(lang)} />

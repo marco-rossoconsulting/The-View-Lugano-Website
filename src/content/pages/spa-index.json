@@ -1,0 +1,75 @@
+{
+  "slug": "spa-index",
+  "metaTitle": {
+    "en": "THE VIEW SPA — THE VIEW Lugano",
+    "de": "THE VIEW SPA — THE VIEW Lugano",
+    "it": "THE VIEW SPA — THE VIEW Lugano",
+    "fr": "THE VIEW SPA — THE VIEW Lugano"
+  },
+  "metaDesc": {
+    "en": "1,000 m² of intimate wellness above Lake Lugano: indoor pool, two wet zones, Kneipp circuit, Himalayan salt relaxation room. Open daily 09:00–20:30, resident guests first.",
+    "de": "1'000 m² intimer Wellnessbereich über dem Luganersee: Innenpool, zwei Nasszonen, Kneipp-Parcours, Ruheraum mit Himalaya-Salzwand. Täglich 09:00–20:30, Hausgäste zuerst.",
+    "it": "1.000 m² di benessere riservato sopra il Lago di Lugano: piscina interna, due zone umide, percorso Kneipp, sala relax al sale himalayano. Aperta tutti i giorni 9.00–20.30, prima gli ospiti della casa.",
+    "fr": "1 000 m² de bien-être préservé au-dessus du lac de Lugano : piscine intérieure, deux zones humides, parcours Kneipp, salle de repos au sel de l'Himalaya. Tous les jours 9h00–20h30, les hôtes de la maison d'abord."
+  },
+  "h1": {
+    "en": "THE VIEW SPA",
+    "de": "THE VIEW SPA",
+    "it": "THE VIEW SPA",
+    "fr": "THE VIEW SPA"
+  },
+  "intro": {
+    "en": "A thousand square metres, an indoor pool with the lake beyond the glass, two wet zones, a Kneipp circuit and a relaxation room lined with Himalayan salt. Rarely more than four people in them.",
+    "de": "Tausend Quadratmeter, ein Innenpool mit dem See hinter dem Glas, zwei Nasszonen, ein Kneipp-Parcours und ein Ruheraum mit Himalaya-Salzwand. Selten mehr als vier Menschen darin.",
+    "it": "Mille metri quadrati, una piscina interna con il lago oltre il vetro, due zone umide, un percorso Kneipp e una sala relax rivestita di sale himalayano. Raramente più di quattro persone.",
+    "fr": "Mille mètres carrés, une piscine intérieure avec le lac derrière la vitre, deux zones humides, un parcours Kneipp et une salle de repos tapissée de sel de l'Himalaya. Rarement plus de quatre personnes."
+  },
+  "philosophy": {
+    "en": "This is not a spa that argues by size. It is small on purpose and quiet by design: residents of the house come first, and access from outside is deliberately limited so that it stays that way.",
+    "de": "Dieses Spa argumentiert nicht mit Grösse. Es ist mit Absicht klein und mit System ruhig: Gäste des Hauses kommen zuerst, und der Zugang von aussen bleibt bewusst begrenzt, damit das so bleibt.",
+    "it": "Questa non è una spa che argomenta con le dimensioni. È piccola di proposito e silenziosa per disegno: prima gli ospiti della casa, e l'accesso dall'esterno resta volutamente limitato perché rimanga così.",
+    "fr": "Ce spa ne plaide pas par la taille. Il est petit à dessein et silencieux par conception : les hôtes de la maison d'abord, et l'accès extérieur reste volontairement limité pour que cela dure."
+  },
+  "treatmentsTitle": {
+    "en": "Treatments",
+    "de": "Behandlungen",
+    "it": "Trattamenti",
+    "fr": "Soins"
+  },
+  "treatmentsIntro": {
+    "en": "Treatments are booked by the hour, prepared for one person at a time.",
+    "de": "Behandlungen werden stundenweise gebucht und für jeweils eine Person vorbereitet.",
+    "it": "I trattamenti si prenotano a ore e si preparano per una persona alla volta.",
+    "fr": "Les soins se réservent à l'heure et se préparent pour une personne à la fois."
+  },
+  "hoursTitle": {
+    "en": "Hours & access",
+    "de": "Öffnungszeiten & Zugang",
+    "it": "Orari & accesso",
+    "fr": "Horaires & accès"
+  },
+  "hoursBody": {
+    "en": "Open daily from 09:00 to 20:30. House guests have priority at all times; a limited number of day entries and memberships are available on request.",
+    "de": "Täglich von 09:00 bis 20:30 geöffnet. Hausgäste haben jederzeit Vorrang; eine begrenzte Zahl von Tageseintritten und Mitgliedschaften ist auf Anfrage möglich.",
+    "it": "Aperta tutti i giorni dalle 9.00 alle 20.30. Gli ospiti della casa hanno sempre la precedenza; un numero limitato di ingressi giornalieri e membership è disponibile su richiesta.",
+    "fr": "Ouvert tous les jours de 9h00 à 20h30. Les hôtes de la maison ont priorité à tout moment ; un nombre limité d'entrées à la journée et d'abonnements est possible sur demande."
+  },
+  "fitnessTitle": {
+    "en": "Fitness & personal training",
+    "de": "Fitness & Personal Training",
+    "it": "Fitness & personal training",
+    "fr": "Fitness & personal training"
+  },
+  "fitnessBody": {
+    "en": "The fitness room faces the lake — the only wall worth running toward. Personal training sessions can be arranged through your Ambassador.",
+    "de": "Der Fitnessraum blickt auf den See — die einzige Wand, auf die zuzulaufen sich lohnt. Personal-Training-Einheiten organisiert Ihr Ambassador.",
+    "it": "La sala fitness guarda il lago — l'unica parete verso cui valga la pena correre. Le sessioni di personal training si organizzano tramite il vostro Ambassador.",
+    "fr": "La salle de fitness regarde le lac — le seul mur vers lequel courir en vaille la peine. Les séances de personal training s'organisent avec votre Ambassador."
+  },
+  "bookTreatment": {
+    "en": "Enquire about treatments",
+    "de": "Behandlungen anfragen",
+    "it": "Richiedi un trattamento",
+    "fr": "Demander un soin"
+  }
+}

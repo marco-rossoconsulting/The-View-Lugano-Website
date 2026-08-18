@@ -4,29 +4,35 @@ import EditorialSplit from '../../components/EditorialSplit.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { egumaUrl } from '../../lib/site';
-import { byCategory, find } from '../../lib/photos';
+import { byCategory } from '../../lib/photos';
+import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
   return localePaths();
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const pageEntries = await getCollection('pages');
+const page = pageEntries.find((e) => e.data.slug === 'events')?.data;
+if (!page) throw new Error('Missing events CMS content');
+
 const eventsPhoto = byCategory('events')[0];
 const meetingPhoto = byCategory('meeting')[0];
 const terracePhoto = byCategory('terrace')[0];
 ---
 
-<Base {lang} title={t.events.metaTitle} description={t.events.metaDesc} route="events">
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.events }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="events">
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.events.h1}</h1>
-      <p class="page-intro">{t.events.intro}</p>
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
     </div>
   </section>
 
@@ -35,9 +41,9 @@ const terracePhoto = byCategory('terrace')[0];
       <EditorialSplit
         src={eventsPhoto.src}
         alt={eventsPhoto.alt[lang]}
-        title={t.events.privateTitle}
+        title={page.privateTitle?.[lang]}
       >
-        <p>{t.events.privateBody}</p>
+        <p>{page.privateBody?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
@@ -47,10 +53,10 @@ const terracePhoto = byCategory('terrace')[0];
       <EditorialSplit
         src={meetingPhoto.src}
         alt={meetingPhoto.alt[lang]}
-        title={t.events.meetingTitle}
+        title={page.meetingTitle?.[lang]}
         flip
       >
-        <p>{t.events.meetingBody}</p>
+        <p>{page.meetingBody?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
@@ -60,20 +66,19 @@ const terracePhoto = byCategory('terrace')[0];
       <EditorialSplit
         src={terracePhoto.src}
         alt={terracePhoto.alt[lang]}
-        title={t.events.buyoutTitle}
+        title={page.buyoutTitle?.[lang]}
       >
-        <p>{t.events.buyoutBody}</p>
+        <p>{page.buyoutBody?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
 
-  <!-- Honest anti-positioning: what the house does not do, stated plainly -->
   <section class="section section--tortora">
     <div class="container container--narrow">
-      <p style="max-width: 62ch;">{t.events.honest}</p>
+      <p style="max-width: 62ch;">{page.honest?.[lang]}</p>
       <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top: var(--space-3);">
-        <a class="btn btn--solid" href={p(lang, 'contact')}>{t.events.cta}</a>
-        <a class="btn" href={egumaUrl('events', lang)} rel="noopener">{t.common.eventsShop}</a>
+        <a class="btn btn--solid" href={p(lang, 'contact')}>{page.cta?.[lang]}</a>
+        <a class="btn" href={egumaUrl('events', lang)} rel="noopener">Tickets & events</a>
       </div>
     </div>
   </section>
@@ -82,8 +87,8 @@ const terracePhoto = byCategory('terrace')[0];
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.events, url: p(lang, 'events') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'events') },
     ])}
   />
 </Base>

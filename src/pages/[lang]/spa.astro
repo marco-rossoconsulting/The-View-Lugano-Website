@@ -4,7 +4,7 @@ import EditorialSplit from '../../components/EditorialSplit.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
 import { byCategory } from '../../lib/photos';
@@ -15,19 +15,28 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
-const treatments = (await getCollection('spa')).sort((a, b) => a.data.order - b.data.order);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const [pageEntries, treatmentEntries] = await Promise.all([
+  getCollection('pages'),
+  getCollection('spa'),
+]);
+
+const page = pageEntries.find((e) => e.data.slug === 'spa-index')?.data;
+const treatments = treatmentEntries.sort((a, b) => a.data.order - b.data.order);
+if (!page) throw new Error('Missing spa-index CMS content');
+
 const spaPhotos = byCategory('spa');
 ---
 
-<Base {lang} title={t.spa.metaTitle} description={t.spa.metaDesc} route="spa" ogImage={spaPhotos[0].src}>
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.spa }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="spa" ogImage={spaPhotos[0].src}>
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.spa.h1}</h1>
-      <p class="page-intro">{t.spa.intro}</p>
-      <p class="page-note">{t.spa.philosophy}</p>
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
+      <p class="page-note">{page.philosophy?.[lang]}</p>
     </div>
   </section>
 
@@ -36,18 +45,18 @@ const spaPhotos = byCategory('spa');
       <EditorialSplit
         src={spaPhotos[0].src}
         alt={spaPhotos[0].alt[lang]}
-        eyebrow={t.spa.hoursTitle}
-        title={`${t.common.openDaily} ${SITE.spa.hours}`}
+        eyebrow={page.hoursTitle?.[lang]}
+        title={`Open daily ${SITE.spa.hours}`}
       >
-        <p>{t.spa.hoursBody}</p>
+        <p>{page.hoursBody?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
 
   <section class="section section--tortora">
     <div class="container container--narrow">
-      <h2 class="section-title">{t.spa.treatmentsTitle}</h2>
-      <p style="margin-bottom: var(--space-3); max-width: 62ch;">{t.spa.treatmentsIntro}</p>
+      <h2 class="section-title">{page.treatmentsTitle?.[lang]}</h2>
+      <p style="margin-bottom: var(--space-3); max-width: 62ch;">{page.treatmentsIntro?.[lang]}</p>
       <ul class="treatments">
         {treatments.map((tr) => (
           <li class="treatment fade-up">
@@ -59,7 +68,7 @@ const spaPhotos = byCategory('spa');
           </li>
         ))}
       </ul>
-      <a class="btn" href={p(lang, 'contact')}>{t.spa.bookTreatment}</a>
+      <a class="btn" href={p(lang, 'contact')}>{page.bookTreatment?.[lang]}</a>
     </div>
   </section>
 
@@ -68,10 +77,10 @@ const spaPhotos = byCategory('spa');
       <EditorialSplit
         src={spaPhotos.length > 1 ? spaPhotos[1].src : spaPhotos[0].src}
         alt={spaPhotos.length > 1 ? spaPhotos[1].alt[lang] : spaPhotos[0].alt[lang]}
-        title={t.spa.fitnessTitle}
+        title={page.fitnessTitle?.[lang]}
         flip
       >
-        <p>{t.spa.fitnessBody}</p>
+        <p>{page.fitnessBody?.[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
@@ -80,8 +89,8 @@ const spaPhotos = byCategory('spa');
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.spa, url: p(lang, 'spa') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'spa') },
     ])}
   />
 </Base>

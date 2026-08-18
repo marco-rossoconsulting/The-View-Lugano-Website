@@ -1,0 +1,47 @@
+{
+  "slug": "terms",
+  "title": {
+    "en": "Terms & Conditions",
+    "de": "Allgemeine Geschäftsbedingungen",
+    "it": "Termini e Condizioni",
+    "fr": "Conditions générales"
+  },
+  "body": {
+    "en": [
+      "These terms govern reservations made directly with THE VIEW Lugano, Via Guidino 29, 6900 Lugano – Paradiso, Switzerland (VAT CHE-352.530.324).",
+      "Reservations and confirmation: a reservation is binding once confirmed in writing by the hotel or through the online booking engine. The rate, inclusions and cancellation conditions applicable to your reservation are those stated at the time of booking and in your confirmation.",
+      "Payment: we accept the payment methods indicated during booking. Where a deposit or prepayment is required, it is stated before you confirm. Invoices are payable at check-out unless otherwise agreed.",
+      "Cancellation and no-show: the conditions shown for your rate at the time of booking apply. Cancellations must be made in writing; the confirmation email states the applicable deadlines and any fees.",
+      "Arrival and departure: suites are available from 15:00 on the day of arrival and until 11:00 on the day of departure. Earlier arrival or later departure can be arranged subject to availability — ask your Ambassador.",
+      "Liability: the hotel is liable in accordance with Swiss law. Valuables should be placed in the in-suite safe or deposited with the front desk.",
+      "Applicable law and jurisdiction: Swiss law applies. Place of jurisdiction is Lugano, Switzerland."
+    ],
+    "de": [
+      "Diese Bedingungen gelten für Reservierungen direkt bei THE VIEW Lugano, Via Guidino 29, 6900 Lugano – Paradiso, Schweiz (MwSt CHE-352.530.324).",
+      "Reservierung und Bestätigung: Eine Reservierung ist verbindlich, sobald sie vom Hotel schriftlich oder über das Online-Buchungssystem bestätigt wurde. Es gelten Rate, Inklusivleistungen und Stornobedingungen, wie sie bei der Buchung und in Ihrer Bestätigung ausgewiesen sind.",
+      "Zahlung: Wir akzeptieren die bei der Buchung angegebenen Zahlungsmittel. Wo eine Anzahlung oder Vorauszahlung nötig ist, wird dies vor der Bestätigung ausgewiesen. Rechnungen sind beim Check-out zahlbar, sofern nichts anderes vereinbart wurde.",
+      "Stornierung und No-Show: Es gelten die für Ihre Rate bei der Buchung ausgewiesenen Bedingungen. Stornierungen bedürfen der Schriftform; die Bestätigungs-E-Mail nennt Fristen und allfällige Gebühren.",
+      "An- und Abreise: Suiten stehen am Anreisetag ab 15:00 Uhr bereit und am Abreisetag bis 11:00 Uhr zur Verfügung. Frühere Anreise oder spätere Abreise sind nach Verfügbarkeit möglich — fragen Sie Ihren Ambassador.",
+      "Haftung: Das Hotel haftet nach Schweizer Recht. Wertsachen gehören in den Suitensafe oder in Verwahrung an der Rezeption.",
+      "Anwendbares Recht und Gerichtsstand: Es gilt Schweizer Recht. Gerichtsstand ist Lugano, Schweiz."
+    ],
+    "it": [
+      "Questi termini regolano le prenotazioni effettuate direttamente con THE VIEW Lugano, Via Guidino 29, 6900 Lugano – Paradiso, Svizzera (IVA CHE-352.530.324).",
+      "Prenotazione e conferma: la prenotazione è vincolante dal momento della conferma scritta dell'hotel o tramite il motore di prenotazione online. Valgono tariffa, inclusioni e condizioni di cancellazione indicate al momento della prenotazione e nella conferma.",
+      "Pagamento: accettiamo i metodi di pagamento indicati in fase di prenotazione. Dove è richiesto un deposito o un pagamento anticipato, ciò è indicato prima della conferma. Le fatture si saldano al check-out, salvo diverso accordo.",
+      "Cancellazione e no-show: valgono le condizioni indicate per la vostra tariffa al momento della prenotazione. Le cancellazioni vanno comunicate per iscritto; l'e-mail di conferma indica termini ed eventuali penali.",
+      "Arrivo e partenza: le suite sono disponibili dalle 15.00 del giorno di arrivo e fino alle 11.00 del giorno di partenza. Arrivi anticipati o partenze posticipate sono possibili secondo disponibilità — chiedete al vostro Ambassador.",
+      "Responsabilità: l'hotel risponde secondo il diritto svizzero. I valori vanno riposti nella cassaforte in suite o depositati alla reception.",
+      "Diritto applicabile e foro: si applica il diritto svizzero. Foro competente è Lugano, Svizzera."
+    ],
+    "fr": [
+      "Ces conditions régissent les réservations effectuées directement auprès de THE VIEW Lugano, Via Guidino 29, 6900 Lugano – Paradiso, Suisse (TVA CHE-352.530.324).",
+      "Réservation et confirmation : une réservation est ferme dès sa confirmation écrite par l'hôtel ou via le moteur de réservation en ligne. S'appliquent le tarif, les prestations comprises et les conditions d'annulation indiqués lors de la réservation et dans votre confirmation.",
+      "Paiement : nous acceptons les moyens de paiement indiqués lors de la réservation. Lorsqu'un acompte ou un prépaiement est requis, cela est indiqué avant confirmation. Les factures sont payables au départ, sauf accord contraire.",
+      "Annulation et non-présentation : les conditions affichées pour votre tarif lors de la réservation s'appliquent. Les annulations se font par écrit ; l'e-mail de confirmation précise les délais et frais éventuels.",
+      "Arrivée et départ : les suites sont disponibles dès 15h00 le jour d'arrivée et jusqu'à 11h00 le jour du départ. Une arrivée anticipée ou un départ tardif sont possibles selon disponibilité — demandez à votre Ambassador.",
+      "Responsabilité : l'hôtel répond conformément au droit suisse. Les objets de valeur sont à placer dans le coffre de la suite ou à déposer à la réception.",
+      "Droit applicable et for : le droit suisse s'applique. Le for est à Lugano, Suisse."
+    ]
+  }
+}

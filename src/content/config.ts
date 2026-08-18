@@ -12,9 +12,150 @@ const localized = z.object({
   fr: z.string().min(1),
 });
 
+const localizedArray = z.object({
+  en: z.array(z.string()),
+  de: z.array(z.string()),
+  it: z.array(z.string()),
+  fr: z.array(z.string()),
+});
+
 const photoRef = z.object({
   src: z.string().url(),
   alt: localized, // required per-locale alt text
+});
+
+const homepage = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/homepage' }),
+  schema: z.object({
+    hero: z.object({
+      line: localized,
+      tagline: localized,
+      image: z.string(),
+    }),
+    sections: z.array(z.object({
+      id: z.string(),
+      eyebrow: localized.optional(),
+      title: localized,
+      body: localizedArray,
+      image: z.string(),
+      ctaHref: z.string(),
+      ctaLabel: localized,
+      flip: z.boolean().default(false),
+    })),
+    trust: z.object({
+      eyebrow: localized,
+      title: localized,
+      items: z.array(z.object({
+        id: z.string(),
+        text: localized,
+      })),
+    }),
+  }),
+});
+
+const pages = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/pages' }),
+  schema: z.object({
+    slug: z.string(),
+    metaTitle: localized,
+    metaDesc: localized,
+    h1: localized,
+    intro: localized,
+    // Flexible optional fields for different page types
+    honesty: localized.optional(),
+    residenceNote: localized.optional(),
+    restaurantTitle: localized.optional(),
+    restaurantBody: localizedArray.optional(),
+    terraceTitle: localized.optional(),
+    terraceBody: localized.optional(),
+    barTitle: localized.optional(),
+    barBody: localized.optional(),
+    breakfastTitle: localized.optional(),
+    breakfastBody: localized.optional(),
+    reserveTable: localized.optional(),
+    menuNote: localized.optional(),
+    philosophy: localized.optional(),
+    treatmentsTitle: localized.optional(),
+    treatmentsIntro: localized.optional(),
+    hoursTitle: localized.optional(),
+    hoursBody: localized.optional(),
+    fitnessTitle: localized.optional(),
+    fitnessBody: localized.optional(),
+    bookTreatment: localized.optional(),
+    cta: localized.optional(),
+    voucherTitle: localized.optional(),
+    voucherBody: localized.optional(),
+    privateTitle: localized.optional(),
+    privateBody: localized.optional(),
+    meetingTitle: localized.optional(),
+    meetingBody: localized.optional(),
+    buyoutTitle: localized.optional(),
+    buyoutBody: localized.optional(),
+    honest: localized.optional(),
+    filterAll: localized.optional(),
+    catHotel: localized.optional(),
+    catSuite: localized.optional(),
+    catDining: localized.optional(),
+    catTerrace: localized.optional(),
+    catBar: localized.optional(),
+    catSpa: localized.optional(),
+    catMeeting: localized.optional(),
+    catEvents: localized.optional(),
+    catFleet: localized.optional(),
+    lightboxClose: localized.optional(),
+    lightboxPrev: localized.optional(),
+    lightboxNext: localized.optional(),
+    arrivingTitle: localized.optional(),
+    byCar: localized.optional(),
+    byTrain: localized.optional(),
+    byAir: localized.optional(),
+    aroundTitle: localized.optional(),
+    aroundBody: localized.optional(),
+    luganoTitle: localized.optional(),
+    luganoBody: localized.optional(),
+    body: localizedArray.optional(),
+    mediaTitle: localized.optional(),
+    mediaBody: localized.optional(),
+    factsTitle: localized.optional(),
+    factsBody: localized.optional(),
+    whatsapp: localized.optional(),
+    reserveTitle: localized.optional(),
+    reserveBody: localized.optional(),
+    tradeBody: localized.optional(),
+    careersTitle: localized.optional(),
+    careersBody: localized.optional(),
+    readingTime: localized.optional(),
+    published: localized.optional(),
+  }),
+});
+
+const faq = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/faq' }),
+  schema: z.object({
+    order: z.number(),
+    question: localized,
+    answer: localized,
+  }),
+});
+
+const legal = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/legal' }),
+  schema: z.object({
+    slug: z.string(),
+    title: localized,
+    body: localizedArray,
+  }),
+});
+
+const settings = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/settings' }),
+  schema: z.object({
+    nav: z.record(localized),
+    common: z.record(localized),
+    footer: z.record(localized),
+    consent: z.record(localized),
+    notFound: z.record(localized),
+  }),
 });
 
 const suites = defineCollection({
@@ -79,4 +220,4 @@ const journal = defineCollection({
   }),
 });
 
-export const collections = { suites, dining, spa, offers, journal };
+export const collections = { homepage, pages, faq, legal, settings, suites, dining, spa, offers, journal };

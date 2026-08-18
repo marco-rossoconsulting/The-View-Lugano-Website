@@ -13,13 +13,189 @@ site_url: https://theview-lugano.netlify.app
 display_url: https://theview-lugano.netlify.app
 locale: en
 
-# Shared field template: every localized string carries all four languages.
-# (Sveltia renders these as grouped inputs; validation is enforced again by
-# the Astro content schema at build time, so a missing translation fails CI.)
+# ── Reusable field templates ──
+localize: &loc
+  - { name: en, label: English, widget: string }
+  - { name: de, label: Deutsch, widget: string }
+  - { name: it, label: Italiano, widget: string }
+  - { name: fr, label: Français, widget: string }
+
+localize_text: &loctext
+  - { name: en, label: English, widget: text }
+  - { name: de, label: Deutsch, widget: text }
+  - { name: it, label: Italiano, widget: text }
+  - { name: fr, label: Français, widget: text }
+
+localize_paragraphs: &locpars
+  - { name: en, label: English, widget: list, field: { name: p, label: Paragraph, widget: text } }
+  - { name: de, label: Deutsch, widget: list, field: { name: p, label: Paragraph, widget: text } }
+  - { name: it, label: Italiano, widget: list, field: { name: p, label: Paragraph, widget: text } }
+  - { name: fr, label: Français, widget: list, field: { name: p, label: Paragraph, widget: text } }
 
 collections:
+  # ── 1. SETTINGS ──
+  - name: settings
+    label: ⚙️ Site Settings
+    folder: src/content/settings
+    extension: json
+    format: json
+    create: false
+    delete: false
+    files:
+      - name: settings
+        label: Settings
+        file: src/content/settings/settings.json
+        fields:
+          - name: nav
+            label: Navigation Labels
+            widget: object
+            fields:
+              - { name: home, label: Home, widget: object, fields: *loc }
+              - { name: suites, label: Suites, widget: object, fields: *loc }
+              - { name: dining, label: Dining, widget: object, fields: *loc }
+              - { name: spa, label: Spa, widget: object, fields: *loc }
+              - { name: experiences, label: Experiences, widget: object, fields: *loc }
+              - { name: events, label: Events, widget: object, fields: *loc }
+              - { name: gallery, label: Gallery, widget: object, fields: *loc }
+              - { name: location, label: Location, widget: object, fields: *loc }
+              - { name: sustainability, label: Sustainability, widget: object, fields: *loc }
+              - { name: press, label: Press, widget: object, fields: *loc }
+              - { name: journal, label: Journal, widget: object, fields: *loc }
+              - { name: contact, label: Contact, widget: object, fields: *loc }
+              - { name: legal, label: Legal, widget: object, fields: *loc }
+              - { name: impressum, label: Impressum, widget: object, fields: *loc }
+              - { name: privacy, label: Privacy, widget: object, fields: *loc }
+              - { name: terms, label: Terms, widget: object, fields: *loc }
+              - { name: cookies, label: Cookies, widget: object, fields: *loc }
+              - { name: menuOpen, label: Menu Open, widget: object, fields: *loc }
+              - { name: menuClose, label: Menu Close, widget: object, fields: *loc }
+          - name: common
+            label: Common Strings
+            widget: object
+            fields:
+              - { name: reserve, label: Reserve, widget: object, fields: *loc }
+              - { name: checkAvailability, label: Check Availability, widget: object, fields: *loc }
+              - { name: arrival, label: Arrival, widget: object, fields: *loc }
+              - { name: departure, label: Departure, widget: object, fields: *loc }
+              - { name: adults, label: Adults, widget: object, fields: *loc }
+              - { name: children, label: Children, widget: object, fields: *loc }
+              - { name: bookTable, label: Book Table, widget: object, fields: *loc }
+              - { name: vouchers, label: Vouchers, widget: object, fields: *loc }
+              - { name: eventsShop, label: Events Shop, widget: object, fields: *loc }
+              - { name: continue, label: Continue, widget: object, fields: *loc }
+              - { name: discover, label: Discover, widget: object, fields: *loc }
+              - { name: skip, label: Skip, widget: object, fields: *loc }
+              - { name: langSwitch, label: Language, widget: object, fields: *loc }
+              - { name: phone, label: Phone, widget: object, fields: *loc }
+              - { name: email, label: Email, widget: object, fields: *loc }
+              - { name: address, label: Address, widget: object, fields: *loc }
+              - { name: callUs, label: Call Us, widget: object, fields: *loc }
+              - { name: writeUs, label: Write Us, widget: object, fields: *loc }
+              - { name: openDaily, label: Open Daily, widget: object, fields: *loc }
+              - { name: included, label: Included, widget: object, fields: *loc }
+              - { name: faqTitle, label: FAQ Title, widget: object, fields: *loc }
+              - { name: trade, label: Trade, widget: object, fields: *loc }
+              - { name: gdsNote, label: GDS Note, widget: object, fields: *loc }
+              - { name: backTo, label: Back To, widget: object, fields: *loc }
+              - { name: photoCredit, label: Photo Credit, widget: object, fields: *loc }
+          - name: footer
+            label: Footer
+            widget: object
+            fields:
+              - { name: factLine, label: Fact Line, widget: object, fields: *loctext }
+              - { name: partOf, label: Part Of, widget: object, fields: *loctext }
+              - { name: credentials, label: Credentials, widget: object, fields: *loc }
+          - name: consent
+            label: Cookie Consent
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Body, widget: object, fields: *loctext }
+              - { name: acceptAll, label: Accept All, widget: object, fields: *loc }
+              - { name: necessaryOnly, label: Necessary Only, widget: object, fields: *loc }
+              - { name: settings, label: Settings, widget: object, fields: *loc }
+              - { name: save, label: Save, widget: object, fields: *loc }
+              - { name: catNecessary, label: Category Necessary, widget: object, fields: *loc }
+              - { name: catNecessaryDesc, label: Necessary Desc, widget: object, fields: *loctext }
+              - { name: catPreferences, label: Category Preferences, widget: object, fields: *loc }
+              - { name: catPreferencesDesc, label: Preferences Desc, widget: object, fields: *loctext }
+              - { name: catStatistics, label: Category Statistics, widget: object, fields: *loc }
+              - { name: catStatisticsDesc, label: Statistics Desc, widget: object, fields: *loctext }
+              - { name: catMarketing, label: Category Marketing, widget: object, fields: *loc }
+              - { name: catMarketingDesc, label: Marketing Desc, widget: object, fields: *loctext }
+          - name: notFound
+            label: 404 Page
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Body, widget: object, fields: *loctext }
+              - { name: cta, label: CTA, widget: object, fields: *loc }
+
+  # ── 2. HOMEPAGE ──
+  - name: homepage
+    label: 🏠 Homepage
+    folder: src/content/homepage
+    extension: json
+    format: json
+    create: false
+    delete: false
+    files:
+      - name: homepage
+        label: Homepage Content
+        file: src/content/homepage/homepage.json
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: line, label: Line, widget: object, fields: *loctext }
+              - { name: tagline, label: Tagline, widget: object, fields: *loc }
+              - { name: image, label: Image Key, widget: string, hint: 'Reference key from photos library' }
+          - name: sections
+            label: Sections
+            widget: list
+            fields:
+              - { name: id, label: Section ID, widget: string }
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc, required: false }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Body Paragraphs, widget: object, fields: *locpars }
+              - { name: image, label: Image Key, widget: string }
+              - { name: ctaHref, label: CTA Link, widget: string }
+              - { name: ctaLabel, label: CTA Label, widget: object, fields: *loc }
+              - { name: flip, label: Flip Layout, widget: boolean, default: false }
+          - name: trust
+            label: Trust Section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - name: items
+                label: Items
+                widget: list
+                fields:
+                  - { name: id, label: ID, widget: string }
+                  - { name: text, label: Text, widget: object, fields: *loctext }
+
+  # ── 3. PAGES ──
+  - name: pages
+    label: 📄 Pages
+    folder: src/content/pages
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.slug}}'
+    identifier_field: slug
+    fields:
+      - { name: slug, label: Page Slug, widget: string, hint: 'e.g. suites-index, dining-index, contact, location' }
+      - { name: metaTitle, label: Meta Title, widget: object, fields: *loc }
+      - { name: metaDesc, label: Meta Description, widget: object, fields: *loctext }
+      - { name: h1, label: H1, widget: object, fields: *loc }
+      - { name: intro, label: Intro, widget: object, fields: *loctext }
+      - { name: body, label: Body Paragraphs, widget: object, fields: *locpars, required: false }
+
+  # ── 4. SUITES ──
   - name: suites
-    label: Suites & Residence
+    label: 🛏️ Suites & Residence
     folder: src/content/suites
     extension: json
     format: json
@@ -31,11 +207,7 @@ collections:
       - name: name
         label: Name
         widget: object
-        fields: &loc
-          - { name: en, label: English, widget: string }
-          - { name: de, label: Deutsch, widget: string }
-          - { name: it, label: Italiano, widget: string }
-          - { name: fr, label: Français, widget: string }
+        fields: *loc
       - { name: sqm, label: Size (m²), widget: number }
       - { name: sleeps, label: Sleeps, widget: number }
       - { name: count, label: Number of units, widget: number }
@@ -47,32 +219,25 @@ collections:
         fields:
           - { name: src, label: Image URL, widget: string, hint: 'Full URL or /src/assets/photos/... path' }
           - name: alt
-            label: 'Alt text (required, all languages)'
+            label: 'Alt text (all languages)'
             widget: object
             fields: *loc
       - name: summary
         label: Summary
         widget: object
-        fields: &loctext
-          - { name: en, label: English, widget: text }
-          - { name: de, label: Deutsch, widget: text }
-          - { name: it, label: Italiano, widget: text }
-          - { name: fr, label: Français, widget: text }
+        fields: *loctext
       - name: body
         label: Body paragraphs
         widget: object
-        fields:
-          - { name: en, label: English, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: de, label: Deutsch, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: it, label: Italiano, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: fr, label: Français, widget: list, field: { name: p, label: Paragraph, widget: text } }
+        fields: *locpars
       - name: amenities
         label: Amenities
         widget: list
         fields: *loc
 
+  # ── 5. DINING ──
   - name: dining
-    label: Dining venues
+    label: 🍽️ Dining venues
     folder: src/content/dining
     extension: json
     format: json
@@ -101,8 +266,9 @@ collections:
         widget: list
         fields: *loc
 
+  # ── 6. SPA ──
   - name: spa
-    label: Spa treatments
+    label: 💆 Spa treatments
     folder: src/content/spa
     extension: json
     format: json
@@ -120,8 +286,9 @@ collections:
         widget: object
         fields: *loctext
 
+  # ── 7. OFFERS ──
   - name: offers
-    label: Experiences & Offers
+    label: 🎁 Experiences & Offers
     folder: src/content/offers
     extension: json
     format: json
@@ -140,11 +307,7 @@ collections:
       - name: body
         label: Body paragraphs
         widget: object
-        fields:
-          - { name: en, label: English, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: de, label: Deutsch, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: it, label: Italiano, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: fr, label: Français, widget: list, field: { name: p, label: Paragraph, widget: text } }
+        fields: *locpars
       - name: includes
         label: What it includes
         widget: list
@@ -159,8 +322,9 @@ collections:
             widget: object
             fields: *loc
 
+  # ── 8. JOURNAL ──
   - name: journal
-    label: Journal
+    label: 📝 Journal
     folder: src/content/journal
     extension: json
     format: json
@@ -179,11 +343,7 @@ collections:
       - name: body
         label: Body paragraphs
         widget: object
-        fields:
-          - { name: en, label: English, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: de, label: Deutsch, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: it, label: Italiano, widget: list, field: { name: p, label: Paragraph, widget: text } }
-          - { name: fr, label: Français, widget: list, field: { name: p, label: Paragraph, widget: text } }
+        fields: *locpars
       - name: photo
         label: Photo
         widget: object
@@ -193,3 +353,42 @@ collections:
             label: 'Alt text (all languages)'
             widget: object
             fields: *loc
+
+  # ── 9. FAQ ──
+  - name: faq
+    label: ❓ FAQ
+    folder: src/content/faq
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.question.en}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - name: question
+        label: Question
+        widget: object
+        fields: *loctext
+      - name: answer
+        label: Answer
+        widget: object
+        fields: *loctext
+
+  # ── 10. LEGAL ──
+  - name: legal
+    label: ⚖️ Legal Pages
+    folder: src/content/legal
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.slug}}'
+    identifier_field: slug
+    fields:
+      - { name: slug, label: Slug, widget: string, hint: 'impressum, privacy, terms, cookies' }
+      - name: title
+        label: Title
+        widget: object
+        fields: *loc
+      - name: body
+        label: Body Paragraphs
+        widget: object
+        fields: *locpars

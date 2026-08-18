@@ -2,7 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import Pic from '../../../components/Pic.astro';
 import JsonLd from '../../../components/JsonLd.astro';
-import { localePaths, dict, p, type Locale } from '../../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../../lib/i18n';
 import { breadcrumbJsonLd } from '../../../lib/seo';
 import { getCollection } from 'astro:content';
 
@@ -11,16 +11,24 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
-const suites = (await getCollection('suites')).sort((a, b) => a.data.order - b.data.order);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const [pageEntries, suiteEntries] = await Promise.all([
+  getCollection('pages'),
+  getCollection('suites'),
+]);
+
+const page = pageEntries.find((e) => e.data.slug === 'suites-index')?.data;
+const suites = suiteEntries.sort((a, b) => a.data.order - b.data.order);
+if (!page) throw new Error('Missing suites-index CMS content');
 ---
 
-<Base {lang} title={t.suites.metaTitle} description={t.suites.metaDesc} route="suites">
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="suites">
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.suites.h1}</h1>
-      <p class="page-intro">{t.suites.intro}</p>
-      <p class="page-note">{t.suites.honesty}</p>
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
+      <p class="page-note">{page.honesty?.[lang]}</p>
     </div>
   </section>
 
@@ -39,31 +47,28 @@ const suites = (await getCollection('suites')).sort((a, b) => a.data.order - b.d
           </a>
           <div class="editorial__text">
             <p class="eyebrow">
-              {s.data.count} × {s.data.sqm} {t.suites.sqm} · {t.suites.sleeps} {s.data.sleeps}
+              {s.data.count} × {s.data.sqm} m² · Sleeps {s.data.sleeps}
             </p>
             <h2 class="suite-name">{s.data.name[lang]}</h2>
             <p>{s.data.summary[lang]}</p>
-            <a class="btn" href={p(lang, 'suites', s.id)}>{t.common.discover}</a>
+            <a class="btn" href={p(lang, 'suites', s.id)}>Discover</a>
           </div>
         </article>
       ))}
-      <p class="page-note">{t.suites.residenceNote}</p>
+      <p class="page-note">{page.residenceNote?.[lang]}</p>
     </div>
   </section>
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.suites, url: p(lang, 'suites') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'suites') },
     ])}
   />
 </Base>
 
 <style>
-  .suites-list {
-    display: grid;
-    gap: var(--space-5);
-  }
+  .suites-list { display: grid; gap: var(--space-5); }
   .editorial {
     display: grid;
     grid-template-columns: 7fr 4fr;

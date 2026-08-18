@@ -1,0 +1,75 @@
+{
+  "slug": "location",
+  "metaTitle": {
+    "en": "Location & Arrival — THE VIEW Lugano",
+    "de": "Lage & Anreise — THE VIEW Lugano",
+    "it": "Dove siamo & Come arrivare — THE VIEW Lugano",
+    "fr": "Situation & Accès — THE VIEW Lugano"
+  },
+  "metaDesc": {
+    "en": "Via Guidino 29, 6900 Lugano–Paradiso. Ten minutes above the city centre, 25 minutes from Lugano Airport, an hour from Milan Malpensa. Parking at the house; electric Smart cars included.",
+    "de": "Via Guidino 29, 6900 Lugano–Paradiso. Zehn Minuten über dem Stadtzentrum, 25 Minuten vom Flughafen Lugano, eine Stunde von Mailand Malpensa. Parkplätze am Haus; elektrische Smarts inbegriffen.",
+    "it": "Via Guidino 29, 6900 Lugano–Paradiso. Dieci minuti sopra il centro, 25 minuti dall'aeroporto di Lugano, un'ora da Milano Malpensa. Parcheggio in casa; Smart elettriche incluse.",
+    "fr": "Via Guidino 29, 6900 Lugano–Paradiso. Dix minutes au-dessus du centre, 25 minutes de l'aéroport de Lugano, une heure de Milan Malpensa. Parking à la maison ; Smart électriques comprises."
+  },
+  "h1": {
+    "en": "Above the city, on the hillside at Paradiso",
+    "de": "Über der Stadt, am Hang von Paradiso",
+    "it": "Sopra la città, sulla collina di Paradiso",
+    "fr": "Au-dessus de la ville, sur la colline de Paradiso"
+  },
+  "intro": {
+    "en": "The View stands above Lugano on the slope of Monte San Salvatore. The city is ten minutes down the hill, the lakefront a few more, and the lake itself is in the window the whole time.",
+    "de": "The View steht über Lugano an der Flanke des Monte San Salvatore. Die Stadt liegt zehn Minuten den Hügel hinunter, das Seeufer wenig weiter — und der See selbst ist die ganze Zeit im Fenster.",
+    "it": "The View sta sopra Lugano, sul fianco del Monte San Salvatore. La città è a dieci minuti giù per la collina, il lungolago poco oltre — e il lago è nella finestra per tutto il tempo.",
+    "fr": "The View domine Lugano au flanc du Monte San Salvatore. La ville est à dix minutes en bas de la colline, les quais un peu plus loin — et le lac reste à la fenêtre tout du long."
+  },
+  "arrivingTitle": {
+    "en": "Arriving",
+    "de": "Anreise",
+    "it": "Arrivare",
+    "fr": "Arriver"
+  },
+  "byCar": {
+    "en": "By car: leave the A2 at Lugano Sud, follow Paradiso, then Via Guidino to number 29. Parking is available at the house — tell your Ambassador when you expect to arrive and it will be waiting.",
+    "de": "Mit dem Auto: Autobahn A2, Ausfahrt Lugano Sud, Richtung Paradiso, dann die Via Guidino bis Nummer 29. Parkplätze stehen am Haus bereit — nennen Sie Ihrem Ambassador Ihre Ankunftszeit, und ein Platz wartet.",
+    "it": "In auto: uscite dalla A2 a Lugano Sud, seguite Paradiso, poi Via Guidino fino al numero 29. Il parcheggio è disponibile in casa — dite al vostro Ambassador a che ora contate di arrivare e un posto sarà pronto.",
+    "fr": "En voiture : quittez l'A2 à Lugano Sud, suivez Paradiso, puis la Via Guidino jusqu'au numéro 29. Le parking est disponible à la maison — indiquez votre heure d'arrivée à votre Ambassador et une place vous attendra."
+  },
+  "byTrain": {
+    "en": "By train: Lugano station is ten minutes away; Paradiso station closer still. We will collect you — arrange it with your Ambassador before travelling.",
+    "de": "Mit dem Zug: Der Bahnhof Lugano liegt zehn Minuten entfernt, der Bahnhof Paradiso noch näher. Wir holen Sie ab — vereinbaren Sie es vor der Reise mit Ihrem Ambassador.",
+    "it": "In treno: la stazione di Lugano è a dieci minuti; quella di Paradiso ancora più vicina. Veniamo a prendervi — accordatevi con il vostro Ambassador prima di partire.",
+    "fr": "En train : la gare de Lugano est à dix minutes ; celle de Paradiso encore plus proche. Nous venons vous chercher — convenez-en avec votre Ambassador avant le voyage."
+  },
+  "byAir": {
+    "en": "By air: Lugano Airport is around 25 minutes, Milan Malpensa around an hour, Zurich around two and a half by road or rail. Private transfers can be arranged for any of them.",
+    "de": "Mit dem Flugzeug: Flughafen Lugano rund 25 Minuten, Mailand Malpensa rund eine Stunde, Zürich rund zweieinhalb per Strasse oder Bahn. Private Transfers organisieren wir für jede Verbindung.",
+    "it": "In aereo: l'aeroporto di Lugano è a circa 25 minuti, Milano Malpensa a circa un'ora, Zurigo a circa due ore e mezza su strada o rotaia. Per ciascuno organizziamo transfer privati.",
+    "fr": "En avion : l'aéroport de Lugano est à environ 25 minutes, Milan Malpensa à environ une heure, Zurich à environ deux heures et demie par la route ou le rail. Nous organisons des transferts privés pour chacun."
+  },
+  "aroundTitle": {
+    "en": "Moving around",
+    "de": "Unterwegs",
+    "it": "Muoversi",
+    "fr": "Se déplacer"
+  },
+  "aroundBody": {
+    "en": "Electric Smart cars and e-bikes are included with the stay, and they change what the hillside means: the position gives you the panorama, the keys give you the city. Reserve one with your Ambassador before arrival — the fleet is small on purpose.",
+    "de": "Elektrische Smarts und E-Bikes sind im Aufenthalt inbegriffen — und sie verändern, was der Hang bedeutet: Die Lage gibt Ihnen das Panorama, die Schlüssel geben Ihnen die Stadt. Reservieren Sie vor der Anreise über Ihren Ambassador — die Flotte ist mit Absicht klein.",
+    "it": "Smart elettriche ed e-bike sono incluse nel soggiorno, e cambiano il senso della collina: la posizione vi dà il panorama, le chiavi vi danno la città. Riservatene una con il vostro Ambassador prima dell'arrivo — la flotta è piccola di proposito.",
+    "fr": "Les Smart électriques et les vélos électriques sont compris dans le séjour, et ils changent le sens de la colline : la position vous donne le panorama, les clés vous donnent la ville. Réservez avec votre Ambassador avant l'arrivée — la flotte est petite à dessein."
+  },
+  "luganoTitle": {
+    "en": "Lugano & Ticino",
+    "de": "Lugano & Tessin",
+    "it": "Lugano & Ticino",
+    "fr": "Lugano & le Tessin"
+  },
+  "luganoBody": {
+    "en": "Italian Switzerland is a particular arrangement of things: Swiss timetables, Italian evenings. The lake, Monte Brè and San Salvatore, Gandria along the shore, Morcote at the tip of the peninsula, Como and Milan an easy day away.",
+    "de": "Die italienische Schweiz ist eine besondere Anordnung der Dinge: Schweizer Fahrpläne, italienische Abende. Der See, Monte Brè und San Salvatore, Gandria am Ufer, Morcote an der Spitze der Halbinsel, Como und Mailand einen leichten Tagesausflug entfernt.",
+    "it": "La Svizzera italiana è una disposizione particolare delle cose: orari svizzeri, sere italiane. Il lago, il Monte Brè e il San Salvatore, Gandria lungo la riva, Morcote in punta alla penisola, Como e Milano a una gita di distanza.",
+    "fr": "La Suisse italienne est un arrangement particulier des choses : horaires suisses, soirées italiennes. Le lac, le Monte Brè et le San Salvatore, Gandria le long de la rive, Morcote à la pointe de la péninsule, Côme et Milan à une journée facile."
+  }
+}

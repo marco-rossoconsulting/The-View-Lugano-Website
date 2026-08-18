@@ -1,0 +1,75 @@
+{
+  "slug": "events",
+  "metaTitle": {
+    "en": "Events & Meetings — THE VIEW Lugano",
+    "de": "Events & Meetings — THE VIEW Lugano",
+    "it": "Eventi & Meeting — THE VIEW Lugano",
+    "fr": "Événements & Réunions — THE VIEW Lugano"
+  },
+  "metaDesc": {
+    "en": "Private events for 10 to 20 guests, board meetings with the lake beyond the glass, celebrations up to 30 with the house to yourselves. No banqueting halls, deliberately.",
+    "de": "Private Anlässe für 10 bis 20 Gäste, Board-Meetings mit dem See hinter dem Glas, Feste bis 30 mit dem Haus für Sie allein. Keine Bankettsäle — mit Absicht.",
+    "it": "Eventi privati da 10 a 20 ospiti, riunioni con il lago oltre il vetro, celebrazioni fino a 30 con la casa tutta per voi. Nessuna sala banchetti, di proposito.",
+    "fr": "Événements privés de 10 à 20 hôtes, conseils avec le lac derrière la vitre, célébrations jusqu'à 30 avec la maison pour vous seuls. Pas de salles de banquet, à dessein."
+  },
+  "h1": {
+    "en": "Events & Meetings",
+    "de": "Events & Meetings",
+    "it": "Eventi & Meeting",
+    "fr": "Événements & Réunions"
+  },
+  "intro": {
+    "en": "The house takes events the way it takes guests: few at a time, looked after by name.",
+    "de": "Das Haus nimmt Anlässe wie Gäste an: wenige aufs Mal, betreut beim Namen.",
+    "it": "La casa accoglie gli eventi come accoglie gli ospiti: pochi alla volta, seguiti per nome.",
+    "fr": "La maison reçoit les événements comme elle reçoit les hôtes : peu à la fois, suivis par leur nom."
+  },
+  "privateTitle": {
+    "en": "Private occasions",
+    "de": "Private Anlässe",
+    "it": "Occasioni private",
+    "fr": "Occasions privées"
+  },
+  "privateBody": {
+    "en": "Dinners and celebrations for ten to twenty guests, cooked by a Michelin kitchen rather than a banqueting menu. Small weddings — up to thirty — are welcome when the house is yours alone.",
+    "de": "Dinner und Feste für zehn bis zwanzig Gäste, gekocht von einer Michelin-Küche statt von einer Bankettkarte. Kleine Hochzeiten — bis dreissig — sind willkommen, wenn das Haus Ihnen allein gehört.",
+    "it": "Cene e celebrazioni da dieci a venti ospiti, cucinate da una cucina Michelin e non da un menu banchetti. I piccoli matrimoni — fino a trenta — sono benvenuti quando la casa è soltanto vostra.",
+    "fr": "Dîners et célébrations de dix à vingt hôtes, préparés par une cuisine étoilée et non par une carte de banquet. Les petits mariages — jusqu'à trente — sont bienvenus lorsque la maison est à vous seuls."
+  },
+  "meetingTitle": {
+    "en": "Meetings",
+    "de": "Meetings",
+    "it": "Meeting",
+    "fr": "Réunions"
+  },
+  "meetingBody": {
+    "en": "One meeting room, daylight, and the lake beyond the glass. Built for a board, not a congress: a working table, exact technology, and the restaurant two floors down for the evening.",
+    "de": "Ein Sitzungsraum, Tageslicht und der See hinter dem Glas. Gebaut für ein Board, nicht für einen Kongress: ein Arbeitstisch, präzise Technik und das Restaurant zwei Etagen tiefer für den Abend.",
+    "it": "Una sala riunioni, luce naturale e il lago oltre il vetro. Pensata per un board, non per un congresso: un tavolo di lavoro, tecnologia esatta e il ristorante due piani sotto per la sera.",
+    "fr": "Une salle de réunion, la lumière du jour et le lac derrière la vitre. Conçue pour un conseil, pas pour un congrès : une table de travail, une technique précise et le restaurant deux étages plus bas pour le soir."
+  },
+  "buyoutTitle": {
+    "en": "The whole house",
+    "de": "Das ganze Haus",
+    "it": "La casa intera",
+    "fr": "La maison entière"
+  },
+  "buyoutBody": {
+    "en": "Eighteen suites means the entire property can be yours — every suite, both pools, the spa, the restaurant and the terrace, for the days you need them.",
+    "de": "Achtzehn Suiten heisst: Das gesamte Haus kann Ihnen gehören — jede Suite, beide Pools, das Spa, das Restaurant und die Terrasse, für die Tage, die Sie brauchen.",
+    "it": "Diciotto suite significa che l'intera proprietà può essere vostra — ogni suite, entrambe le piscine, la spa, il ristorante e la terrazza, per i giorni che vi servono.",
+    "fr": "Dix-huit suites : la propriété entière peut être à vous — chaque suite, les deux piscines, le spa, le restaurant et la terrasse, pour les jours qu'il vous faut."
+  },
+  "honest": {
+    "en": "What we do not do: groups above twenty, congresses, large-format weddings. The properties that do them well are built differently — and we would rather send you to one than serve you badly.",
+    "de": "Was wir nicht tun: Gruppen über zwanzig, Kongresse, grosse Hochzeiten. Häuser, die das gut können, sind anders gebaut — und wir schicken Sie lieber dorthin, als Sie schlecht zu bedienen.",
+    "it": "Ciò che non facciamo: gruppi oltre i venti, congressi, matrimoni in grande formato. Le case che li fanno bene sono costruite diversamente — e preferiamo indicarvene una piuttosto che servirvi male.",
+    "fr": "Ce que nous ne faisons pas : les groupes de plus de vingt, les congrès, les mariages en grand format. Les maisons qui les réussissent sont construites autrement — et nous préférons vous en indiquer une plutôt que de mal vous servir."
+  },
+  "cta": {
+    "en": "Speak to us about a date",
+    "de": "Sprechen Sie mit uns über einen Termin",
+    "it": "Parliamo di una data",
+    "fr": "Parlons d'une date"
+  }
+}

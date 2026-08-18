@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { egumaUrl } from '../../lib/site';
 import { getCollection } from 'astro:content';
@@ -13,17 +13,25 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
-const offers = (await getCollection('offers')).sort((a, b) => a.data.order - b.data.order);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const [pageEntries, offerEntries] = await Promise.all([
+  getCollection('pages'),
+  getCollection('offers'),
+]);
+
+const page = pageEntries.find((e) => e.data.slug === 'experiences')?.data;
+const offers = offerEntries.sort((a, b) => a.data.order - b.data.order);
+if (!page) throw new Error('Missing experiences CMS content');
 ---
 
-<Base {lang} title={t.experiences.metaTitle} description={t.experiences.metaDesc} route="experiences">
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.experiences }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="experiences">
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.experiences.h1}</h1>
-      <p class="page-intro">{t.experiences.intro}</p>
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
     </div>
   </section>
 
@@ -46,7 +54,7 @@ const offers = (await getCollection('offers')).sort((a, b) => a.data.order - b.d
             <ul class="facts">
               {o.data.includes.map((inc) => <li>{inc[lang]}</li>)}
             </ul>
-            <a class="btn" href={p(lang, 'contact')}>{t.experiences.cta}</a>
+            <a class="btn" href={p(lang, 'contact')}>{page.cta?.[lang]}</a>
           </div>
         </article>
       ))}
@@ -55,16 +63,16 @@ const offers = (await getCollection('offers')).sort((a, b) => a.data.order - b.d
 
   <section class="section section--tortora">
     <div class="container container--narrow">
-      <h2 class="offer-name">{t.experiences.voucherTitle}</h2>
-      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{t.experiences.voucherBody}</p>
-      <a class="btn" href={egumaUrl('vouchers', lang)} rel="noopener">{t.common.vouchers}</a>
+      <h2 class="offer-name">{page.voucherTitle?.[lang]}</h2>
+      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{page.voucherBody?.[lang]}</p>
+      <a class="btn" href={egumaUrl('vouchers', lang)} rel="noopener">Vouchers</a>
     </div>
   </section>
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.experiences, url: p(lang, 'experiences') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'experiences') },
     ])}
   />
 </Base>

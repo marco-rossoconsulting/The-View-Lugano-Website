@@ -3,31 +3,35 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Waterline from '../../components/Waterline.astro';
-import { localePaths, dict, p, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
+import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
   return localePaths();
 }
 
 const lang = Astro.params.lang as Locale;
-const t = dict(lang);
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const pageEntries = await getCollection('pages');
+const page = pageEntries.find((e) => e.data.slug === 'press')?.data;
+if (!page) throw new Error('Missing press CMS content');
 ---
 
-<Base {lang} title={t.press.metaTitle} description={t.press.metaDesc} route="press">
-  <Breadcrumbs {lang} crumbs={[{ label: t.nav.press }]} />
+<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="press">
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section">
     <div class="container container--narrow">
-      <h1 class="page-title">{t.press.h1}</h1>
-      <p class="page-intro">{t.press.intro}</p>
+      <h1 class="page-title">{page.h1[lang]}</h1>
+      <p class="page-intro">{page.intro[lang]}</p>
     </div>
   </section>
 
   <section class="section" style="padding-top:0;">
     <div class="container container--narrow">
-      <!-- Recognition, once and clearly. No badge wall. -->
       <ul class="awards-list">
         {SITE.awards.map((a) => <li>{a.name}</li>)}
       </ul>
@@ -39,23 +43,21 @@ const t = dict(lang);
   <section class="section">
     <div class="container container--narrow press-grid">
       <div>
-        <h2 class="section-title">{t.press.mediaTitle}</h2>
-        <p style="max-width: 56ch; margin-bottom: var(--space-2);">{t.press.mediaBody}</p>
-        <a class="btn" href={`mailto:${SITE.email}`}>{t.common.writeUs}</a>
+        <h2 class="section-title">{page.mediaTitle?.[lang]}</h2>
+        <p style="max-width: 56ch; margin-bottom: var(--space-2);">{page.mediaBody?.[lang]}</p>
+        <a class="btn" href={`mailto:${SITE.email}`}>Write to us</a>
       </div>
       <div>
-        <h2 class="section-title">{t.press.factsTitle}</h2>
-        <!-- Fact sheet register: the one guest-adjacent surface where the
-             five-star classification is stated (Brand Bible §10.3). -->
-        <p style="max-width: 56ch;">{t.press.factsBody}</p>
+        <h2 class="section-title">{page.factsTitle?.[lang]}</h2>
+        <p style="max-width: 56ch;">{page.factsBody?.[lang]}</p>
       </div>
     </div>
   </section>
 
   <JsonLd
     data={breadcrumbJsonLd([
-      { name: t.nav.home, url: p(lang) },
-      { name: t.nav.press, url: p(lang, 'press') },
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'press') },
     ])}
   />
 </Base>

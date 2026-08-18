@@ -1,0 +1,105 @@
+{
+  "slug": "gallery",
+  "metaTitle": {
+    "en": "Gallery — THE VIEW Lugano",
+    "de": "Galerie — THE VIEW Lugano",
+    "it": "Galleria — THE VIEW Lugano",
+    "fr": "Galerie — THE VIEW Lugano"
+  },
+  "metaDesc": {
+    "en": "Photography of THE VIEW Lugano: the house at Paradiso, the suites, THE VIEW Fine Dining, Terrazza TreCinqueZero, THE VIEW SPA and the electric fleet.",
+    "de": "Fotografien des THE VIEW Lugano: das Haus in Paradiso, die Suiten, THE VIEW Fine Dining, Terrazza TreCinqueZero, THE VIEW SPA und die elektrische Flotte.",
+    "it": "Fotografie di THE VIEW Lugano: la casa a Paradiso, le suite, THE VIEW Fine Dining, la Terrazza TreCinqueZero, la THE VIEW SPA e la flotta elettrica.",
+    "fr": "Photographies de THE VIEW Lugano : la maison à Paradiso, les suites, THE VIEW Fine Dining, la Terrazza TreCinqueZero, le THE VIEW SPA et la flotte électrique."
+  },
+  "h1": {
+    "en": "Gallery",
+    "de": "Galerie",
+    "it": "Galleria",
+    "fr": "Galerie"
+  },
+  "intro": {
+    "en": "The property, photographed as it is. Every image on this site is of this house.",
+    "de": "Das Haus, fotografiert wie es ist. Jedes Bild auf dieser Website zeigt dieses Haus.",
+    "it": "La casa, fotografata com'è. Ogni immagine di questo sito è di questa casa.",
+    "fr": "La maison, photographiée telle qu'elle est. Chaque image de ce site est celle de cette maison."
+  },
+  "filterAll": {
+    "en": "All",
+    "de": "Alle",
+    "it": "Tutte",
+    "fr": "Toutes"
+  },
+  "catHotel": {
+    "en": "The house",
+    "de": "Das Haus",
+    "it": "La casa",
+    "fr": "La maison"
+  },
+  "catSuite": {
+    "en": "Suites",
+    "de": "Suiten",
+    "it": "Suite",
+    "fr": "Suites"
+  },
+  "catDining": {
+    "en": "Fine Dining",
+    "de": "Fine Dining",
+    "it": "Fine Dining",
+    "fr": "Fine Dining"
+  },
+  "catTerrace": {
+    "en": "Terrazza TreCinqueZero",
+    "de": "Terrazza TreCinqueZero",
+    "it": "Terrazza TreCinqueZero",
+    "fr": "Terrazza TreCinqueZero"
+  },
+  "catBar": {
+    "en": "Lounge Bar",
+    "de": "Lounge Bar",
+    "it": "Lounge Bar",
+    "fr": "Lounge Bar"
+  },
+  "catSpa": {
+    "en": "Spa",
+    "de": "Spa",
+    "it": "Spa",
+    "fr": "Spa"
+  },
+  "catMeeting": {
+    "en": "Meetings",
+    "de": "Meetings",
+    "it": "Meeting",
+    "fr": "Réunions"
+  },
+  "catEvents": {
+    "en": "Events",
+    "de": "Events",
+    "it": "Eventi",
+    "fr": "Événements"
+  },
+  "catFleet": {
+    "en": "Smart & e-bikes",
+    "de": "Smart & E-Bikes",
+    "it": "Smart & e-bike",
+    "fr": "Smart & vélos électriques"
+  },
+  "lightboxClose": {
+    "en": "Close",
+    "de": "Schliessen",
+    "it": "Chiudi",
+    "fr": "Fermer"
+  },
+  "lightboxPrev": {
+    "en": "Previous image",
+    "de": "Vorheriges Bild",
+    "it": "Immagine precedente",
+    "fr": "Image précédente"
+  },
+  "lightboxNext": {
+    "en": "Next image",
+    "de": "Nächstes Bild",
+    "it": "Immagine successiva",
+    "fr": "Image suivante"
+  }
+}
