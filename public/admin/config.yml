@@ -1,11 +1,8 @@
 # Sveltia CMS configuration — THE VIEW Lugano
-# Backend: GitHub with PKCE auth (no client secret needed)
+# Backend: Git Gateway via Netlify Identity
 backend:
-  name: github
-  repo: marco-rossoconsulting/The-View-Lugano-Website
+  name: git-gateway
   branch: main
-  auth_type: pkce
-  app_id: Ov23lixSTXig8j4gRcUX
 
 media_folder: src/assets/photos
 public_folder: /src/assets/photos
