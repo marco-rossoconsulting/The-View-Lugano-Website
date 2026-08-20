@@ -27,11 +27,7 @@ const links: { href: string; label: string }[] = [
 
 <header class="header">
   <a class="wordmark" href={p(lang)} aria-label="THE VIEW Lugano">
-    <!-- Logo lettering per CI 2015: THE VIEW (Futura TT Regular) / LUGANO (Futura Light) -->
-    <svg viewBox="0 0 176 44" width="132" height="33" role="img" aria-hidden="true" focusable="false">
-      <text x="0" y="18" font-family="Jost, Futura, sans-serif" font-weight="400" font-size="19" letter-spacing="4.2" fill="currentColor">THE VIEW</text>
-      <text x="0" y="39" font-family="Jost, Futura, sans-serif" font-weight="300" font-size="12.5" letter-spacing="7.4" fill="currentColor">LUGANO</text>
-    </svg>
+    <img src="/logo.png" alt="THE VIEW Lugano" width="180" height="91" class="wordmark__img" />
   </a>
 
   <div class="header__actions">
@@ -94,7 +90,7 @@ const links: { href: string; label: string }[] = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.9rem clamp(1.25rem, 4vw, 3.5rem);
+    padding: 0.6rem clamp(1.25rem, 4vw, 3.5rem);
     background: color-mix(in srgb, var(--ground) 92%, transparent);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--tortora-densa);
@@ -102,6 +98,12 @@ const links: { href: string; label: string }[] = [
   .wordmark {
     color: var(--ink);
     display: inline-flex;
+  }
+  .wordmark__img {
+    width: 180px;
+    height: 91px;
+    object-fit: contain;
+    display: block;
   }
   .header__actions {
     display: flex;
@@ -139,7 +141,7 @@ const links: { href: string; label: string }[] = [
   .menu {
     position: fixed;
     inset: 0;
-    top: 66px;
+    top: 112px;
     z-index: 39;
     background: var(--ground);
     overflow-y: auto;
@@ -202,9 +204,12 @@ const links: { href: string; label: string }[] = [
     }
   }
   @media (max-width: 480px) {
-    .wordmark svg {
-      width: 108px;
-      height: 27px;
+    .wordmark__img {
+      width: 140px;
+      height: 71px;
+    }
+    .menu {
+      top: 92px;
     }
     .menu-btn,
     .reserve-btn {
@@ -213,7 +218,7 @@ const links: { href: string; label: string }[] = [
       letter-spacing: 0.2em;
     }
     .header {
-      padding: 0.75rem 1rem;
+      padding: 0.55rem 1rem;
     }
   }
 </style>

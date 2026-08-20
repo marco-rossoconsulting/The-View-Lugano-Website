@@ -12,7 +12,7 @@ const t = dict(lang);
 <footer class="footer">
   <div class="container footer__grid">
     <div class="footer__brand">
-      <p class="footer__wordmark">THE VIEW<br /><span>LUGANO</span></p>
+      <img src="/logo.png" alt="THE VIEW Lugano" width="200" height="101" class="footer__wordmark" />
       <!-- Key guest-facing facts stated in plain declarative prose,
            server-rendered — readable by people and answer engines alike. -->
       <p class="footer__fact">{t.footer.factLine}</p>
@@ -73,16 +73,11 @@ const t = dict(lang);
     margin-bottom: var(--space-4);
   }
   .footer__wordmark {
-    font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: 0.32em;
-    font-size: 1.05rem;
+    width: 200px;
+    height: 101px;
+    object-fit: contain;
+    display: block;
     margin-bottom: var(--space-3);
-  }
-  .footer__wordmark span {
-    font-weight: 300;
-    font-size: 0.8rem;
-    letter-spacing: 0.55em;
   }
   .footer__fact {
     font-size: 0.92rem;
