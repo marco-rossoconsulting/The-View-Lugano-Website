@@ -267,13 +267,13 @@ p {
   font-size: 0.82rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  padding: 1.05rem 2.4rem;
+  padding: 1rem 2.2rem;
   border: 1px solid var(--ink);
   color: var(--ink);
   background: transparent;
   cursor: pointer;
-  transition: background-color 250ms ease, color 250ms ease;
-  min-height: 48px; /* touch target */
+  transition: background-color 400ms ease, color 400ms ease, border-color 400ms ease;
+  min-height: 48px;
 }
 .btn:hover,
 .btn:focus-visible {
@@ -298,6 +298,17 @@ p {
   background: var(--clay);
   border-color: var(--clay);
   color: var(--ground);
+}
+
+/* Light buttons on dark sections */
+.section--ink .btn {
+  border-color: var(--tortora);
+  color: var(--tortora);
+}
+.section--ink .btn:hover,
+.section--ink .btn:focus-visible {
+  background: var(--tortora);
+  color: var(--ink);
 }
 
 /* --- Motion: slow and sparing. --- */
