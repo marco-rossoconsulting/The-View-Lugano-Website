@@ -36,7 +36,7 @@ const hero = find(home.hero.image);
   route=""
   preloadImage={hero.src}
 >
-  <Hero src={hero.src} alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
+  <Hero src={hero.src} video="/hero-video.mp4" alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
 
   {home.sections.map((sec) => {
     const img = find(sec.image);
