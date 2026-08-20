@@ -49,7 +49,7 @@ const hero = find(home.hero.image);
             eyebrow={sec.eyebrow?.[lang]}
             title={sec.title[lang]}
             flip={sec.flip}
-            cta={{ href: sec.ctaHref, label: sec.ctaLabel[lang] }}
+            cta={{ href: p(lang, sec.ctaHref.replace(/^\/|\/$/g, '')), label: sec.ctaLabel[lang] }}
           >
             {sec.body[lang].map((pText: string) => <p>{pText}</p>)}
           </EditorialSplit>
