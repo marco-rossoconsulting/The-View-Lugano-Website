@@ -13,8 +13,9 @@ interface Props {
   route: string;
   ogImage?: string;
   preloadImage?: string;
+  overlayHeader?: boolean;
 }
-const { lang, title, description, route, ogImage, preloadImage } = Astro.props;
+const { lang, title, description, route, ogImage, preloadImage, overlayHeader = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +24,7 @@ const { lang, title, description, route, ogImage, preloadImage } = Astro.props;
     <BaseHead {lang} {title} {description} {route} {ogImage} {preloadImage} />
   </head>
   <body>
-    <Header {lang} {route} />
+    <Header {lang} {route} overlay={overlayHeader} />
     <main id="main">
       <slot />
     </main>
