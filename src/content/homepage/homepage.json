@@ -252,5 +252,52 @@
         }
       }
     ]
+  },
+  "stats": [
+    {
+      "value": "18",
+      "label": {
+        "en": "Suites, every one facing the water",
+        "de": "Suiten, jede zum Wasser ausgerichtet",
+        "it": "Suite, ognuna rivolta verso l'acqua",
+        "fr": "Suites, chacune tournée vers l'eau"
+      }
+    },
+    {
+      "value": "1",
+      "label": {
+        "en": "Michelin star, held since 2022",
+        "de": "Michelin-Stern, seit 2022 gehalten",
+        "it": "Stella Michelin, dal 2022",
+        "fr": "Étoile Michelin, détenue depuis 2022"
+      }
+    },
+    {
+      "value": "1,000 m²",
+      "label": {
+        "en": "Spa, rarely more than four guests",
+        "de": "Spa, selten mehr als vier Gäste",
+        "it": "Spa, raramente più di quattro ospiti",
+        "fr": "Spa, rarement plus de quatre hôtes"
+      }
+    },
+    {
+      "value": "23",
+      "label": {
+        "en": "Languages of guest commentary, in eight years",
+        "de": "Sprachen der Gästestimmen, in acht Jahren",
+        "it": "Lingue dei commenti degli ospiti, in otto anni",
+        "fr": "Langues de commentaires d'hôtes, en huit ans"
+      }
+    }
+  ],
+  "cinematic": {
+    "image": "terrazza-1",
+    "caption": {
+      "en": "The Terrazza TreCinqueZero, at the hour the lake turns to gold.",
+      "de": "Die Terrazza TreCinqueZero, zur Stunde, in der sich der See golden färbt.",
+      "it": "La Terrazza TreCinqueZero, nell'ora in cui il lago si fa dorato.",
+      "fr": "La Terrazza TreCinqueZero, à l'heure où le lac devient or."
+    }
   }
 }

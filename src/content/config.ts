@@ -50,6 +50,14 @@ const homepage = defineCollection({
         text: localized,
       })),
     }),
+    stats: z.array(z.object({
+      value: z.string(),
+      label: localized,
+    })),
+    cinematic: z.object({
+      image: z.string(),
+      caption: localized,
+    }),
   }),
 });
 

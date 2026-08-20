@@ -367,6 +367,15 @@ p {
 .section--ink .facts li {
   border-color: color-mix(in srgb, var(--grigio) 35%, transparent);
 }
+.section--ink .btn {
+  border-color: var(--ground);
+  color: var(--ground);
+}
+.section--ink .btn:hover,
+.section--ink .btn:focus-visible {
+  background: var(--ground);
+  color: var(--ink);
+}
 
 /* --- Tables (rare) --- */
 table {
