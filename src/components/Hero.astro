@@ -15,36 +15,43 @@ const { src, alt, line, tagline, h1 = false, video } = Astro.props;
 
 <section class="hero">
   {video ? (
-    <video
-      class="hero__img"
-      src={video}
-      poster={src}
-      autoplay
-      loop
-      muted
-      playsinline
-      preload="auto"
-      aria-label={alt}
-    />
+    <>
+      <video
+        class="hero__img"
+        src={video}
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+        aria-label={alt}
+      />
+      <div class="hero__text">
+        {h1 ? <h1 class="hero__line">{line}</h1> : <p class="hero__line">{line}</p>}
+        {tagline && <p class="hero__tagline">{tagline}</p>}
+      </div>
+    </>
   ) : (
-    <Pic
-      src={src}
-      alt={alt}
-      width={1600}
-      height={1067}
-      widths={[640, 960, 1280, 1600, 1920]}
-      sizes="100vw"
-      loading="eager"
-      fetchpriority="high"
-      class="hero__img"
-    />
+    <>
+      <Pic
+        src={src}
+        alt={alt}
+        width={1600}
+        height={1067}
+        widths={[640, 960, 1280, 1600, 1920]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="hero__img"
+      />
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__text">
+        {h1 ? <h1 class="hero__line">{line}</h1> : <p class="hero__line">{line}</p>}
+        {tagline && <p class="hero__tagline">{tagline}</p>}
+      </div>
+      <div class="hero__waterline"><Waterline onDark /></div>
+    </>
   )}
-  <div class="hero__scrim" aria-hidden="true"></div>
-  <div class="hero__text">
-    {h1 ? <h1 class="hero__line">{line}</h1> : <p class="hero__line">{line}</p>}
-    {tagline && <p class="hero__tagline">{tagline}</p>}
-  </div>
-  <div class="hero__waterline"><Waterline onDark /></div>
 </section>
 
 <style>

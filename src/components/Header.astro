@@ -3,8 +3,8 @@ import { dict, p, type Locale } from '../lib/i18n';
 import { egumaUrl, simpleBookingUrl } from '../lib/site';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
-interface Props { lang: Locale; route: string }
-const { lang, route } = Astro.props;
+interface Props { lang: Locale; route: string; overlay?: boolean }
+const { lang, route, overlay = false } = Astro.props;
 const t = dict(lang);
 
 const links: { href: string; label: string }[] = [
@@ -25,9 +25,9 @@ const links: { href: string; label: string }[] = [
 
 <a class="skip-link" href="#main">{t.common.skip}</a>
 
-<header class="header">
+<header class={`header${overlay ? ' header--overlay' : ''}`}>
   <a class="wordmark" href={p(lang)} aria-label="THE VIEW Lugano">
-    <img src="/logo.png" alt="THE VIEW Lugano" width="180" height="91" class="wordmark__img" />
+    <img src="/logo.png" alt="THE VIEW Lugano" width="153" height="77" class="wordmark__img" />
   </a>
 
   <div class="header__actions">
@@ -80,6 +80,16 @@ const links: { href: string; label: string }[] = [
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') setMenu(false);
   });
+
+  // Homepage overlay header: transparent at top, solid on scroll
+  const header = document.querySelector('.header--overlay');
+  if (header) {
+    function updateHeader() {
+      header.classList.toggle('header--scrolled', window.scrollY > 0);
+    }
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  }
 </script>
 
 <style>
@@ -90,18 +100,28 @@ const links: { href: string; label: string }[] = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.6rem clamp(1.25rem, 4vw, 3.5rem);
+    padding: 0.5rem clamp(1.25rem, 4vw, 3.5rem);
     background: color-mix(in srgb, var(--ground) 92%, transparent);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--tortora-densa);
+  }
+  .header--overlay {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    background: color-mix(in srgb, var(--ground) 50%, transparent);
+    transition: background-color 200ms ease;
+  }
+  .header--overlay.header--scrolled {
+    background: color-mix(in srgb, var(--ground) 92%, transparent);
   }
   .wordmark {
     color: var(--ink);
     display: inline-flex;
   }
   .wordmark__img {
-    width: 180px;
-    height: 91px;
+    width: 153px;
+    height: 77px;
     object-fit: contain;
     display: block;
   }
@@ -141,7 +161,7 @@ const links: { href: string; label: string }[] = [
   .menu {
     position: fixed;
     inset: 0;
-    top: 112px;
+    top: 96px;
     z-index: 39;
     background: var(--ground);
     overflow-y: auto;
@@ -205,20 +225,20 @@ const links: { href: string; label: string }[] = [
   }
   @media (max-width: 480px) {
     .wordmark__img {
-      width: 140px;
-      height: 71px;
+      width: 120px;
+      height: 61px;
     }
     .menu {
-      top: 92px;
+      top: 80px;
     }
     .menu-btn,
     .reserve-btn {
-      padding: 0.7rem 1rem;
+      padding: 0.65rem 0.9rem;
       font-size: 0.72rem;
       letter-spacing: 0.2em;
     }
     .header {
-      padding: 0.55rem 1rem;
+      padding: 0.5rem 1rem;
     }
   }
 </style>
