@@ -44,6 +44,11 @@ const Heading = headingLevel;
     width: 100%;
     height: auto;
     display: block;
+    transform: scale(1.04);
+    transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .editorial.is-visible .editorial__photo :global(img) {
+    transform: scale(1);
   }
   .editorial__title {
     font-family: var(--font-display);
@@ -55,7 +60,6 @@ const Heading = headingLevel;
   }
   .editorial__body :global(p) {
     margin-bottom: 1rem;
-    color: var(--ink);
   }
   .editorial__body :global(p:last-child) { margin-bottom: 0; }
   .editorial__text .btn { margin-top: var(--space-2); }

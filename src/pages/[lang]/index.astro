@@ -2,6 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
+import CinematicBreak from '../../components/CinematicBreak.astro';
+import StatBand from '../../components/StatBand.astro';
+import Quote from '../../components/Quote.astro';
 import Waterline from '../../components/Waterline.astro';
 import Faq from '../../components/Faq.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -27,6 +30,64 @@ const settings = settingsEntries[0]?.data;
 if (!home || !settings) throw new Error('Missing CMS content');
 
 const hero = find(home.hero.image);
+const section = (id: string) => home.sections.find((s) => s.id === id)!;
+const intro = section('intro');
+const ambassador = section('ambassador');
+const dining = section('dining');
+const spa = section('spa');
+const fleet = section('fleet');
+const editorialCta = (sec: typeof intro) => ({
+  href: p(lang, sec.ctaHref.replace(/^\/|\/$/g, '')),
+  label: sec.ctaLabel[lang],
+});
+
+// Localised stat labels
+const statLabels: Record<Locale, { value: string; label: string }[]> = {
+  en: [
+    { value: '18', label: 'Suites, every one facing the lake' },
+    { value: '1', label: 'Michelin Star since 2022' },
+    { value: '16', label: 'Points, Gault & Millau' },
+    { value: '1,000', label: 'Square metres of spa' },
+  ],
+  de: [
+    { value: '18', label: 'Suiten, jede mit Seeblick' },
+    { value: '1', label: 'Michelin-Stern seit 2022' },
+    { value: '16', label: 'Punkte, Gault & Millau' },
+    { value: '1.000', label: 'Quadratmeter Spa' },
+  ],
+  it: [
+    { value: '18', label: 'Suite, tutte sul lago' },
+    { value: '1', label: 'Stella Michelin dal 2022' },
+    { value: '16', label: 'Punti, Gault & Millau' },
+    { value: '1.000', label: 'Metri quadrati di spa' },
+  ],
+  fr: [
+    { value: '18', label: 'Suites, toutes face au lac' },
+    { value: '1', label: 'Étoile Michelin depuis 2022' },
+    { value: '16', label: 'Points, Gault & Millau' },
+    { value: '1 000', label: 'Mètres carrés de spa' },
+  ],
+};
+
+// Localised quotes
+const quotes: Record<Locale, { text: string; attr: string }> = {
+  en: {
+    text: 'Guests describe the lake from the pillow, from the pool, from the table — and reach, unprompted, for the word paradiso.',
+    attr: 'Eight years of guest commentary, 23 languages',
+  },
+  de: {
+    text: 'Gäste beschreiben den See vom Kissen, vom Pool, vom Tisch — und greifen von selbst zum Wort paradiso.',
+    attr: 'Acht Jahre Gästestimmen, 23 Sprachen',
+  },
+  it: {
+    text: 'Gli ospiti descrivono il lago dal cuscino, dalla piscina, dal tavolo — e arrivano da soli alla parola paradiso.',
+    attr: 'Otto anni di commenti, 23 lingue',
+  },
+  fr: {
+    text: 'Les hôtes décrivent le lac depuis l\'oreiller, la piscine, la table — et arrivent d\'eux-mêmes au mot paradiso.',
+    attr: 'Huit ans de commentaires, 23 langues',
+  },
+};
 ---
 
 <Base
@@ -39,25 +100,105 @@ const hero = find(home.hero.image);
 >
   <Hero src={hero.src} video="/hero-video.mp4" alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
 
-  {home.sections.map((sec) => {
-    const img = find(sec.image);
-    return (
-      <section class={`section${sec.id === 'ambassador' || sec.id === 'spa' ? ' section--tortora' : ''}`}>
-        <div class="container">
-          <EditorialSplit
-            src={img.src}
-            alt={img.alt[lang]}
-            eyebrow={sec.eyebrow?.[lang]}
-            title={sec.title[lang]}
-            flip={sec.flip}
-            cta={{ href: p(lang, sec.ctaHref.replace(/^\/|\/$/g, '')), label: sec.ctaLabel[lang] }}
-          >
-            {sec.body[lang].map((pText: string) => <p>{pText}</p>)}
-          </EditorialSplit>
-        </div>
-      </section>
-    );
-  })}
+  {/* 1. The house */}
+  <section class="section">
+    <div class="container">
+      <EditorialSplit
+        src={find(intro.image).src}
+        alt={find(intro.image).alt[lang]}
+        eyebrow={intro.eyebrow?.[lang]}
+        title={intro.title[lang]}
+        flip={intro.flip}
+        cta={editorialCta(intro)}
+      >
+        {intro.body[lang].map((pText: string) => <p>{pText}</p>)}
+      </EditorialSplit>
+    </div>
+  </section>
+
+  {/* Cinematic breath */}
+  <CinematicBreak
+    src={find('hotel_041').src}
+    alt={find('hotel_041').alt[lang]}
+  />
+
+  {/* 2. The table — dark for tonal contrast */}
+  <section class="section section--ink">
+    <div class="container">
+      <EditorialSplit
+        src={find(dining.image).src}
+        alt={find(dining.image).alt[lang]}
+        eyebrow={dining.eyebrow?.[lang]}
+        title={dining.title[lang]}
+        flip={dining.flip}
+        cta={editorialCta(dining)}
+      >
+        {dining.body[lang].map((pText: string) => <p>{pText}</p>)}
+      </EditorialSplit>
+    </div>
+  </section>
+
+  {/* Numbers moment */}
+  <section class="section section--tortora">
+    <div class="container container--narrow">
+      <StatBand items={statLabels[lang]} />
+    </div>
+  </section>
+
+  {/* 3. The spa */}
+  <section class="section">
+    <div class="container">
+      <EditorialSplit
+        src={find(spa.image).src}
+        alt={find(spa.image).alt[lang]}
+        eyebrow={spa.eyebrow?.[lang]}
+        title={spa.title[lang]}
+        flip={spa.flip}
+        cta={editorialCta(spa)}
+      >
+        {spa.body[lang].map((pText: string) => <p>{pText}</p>)}
+      </EditorialSplit>
+    </div>
+  </section>
+
+  {/* Quote */}
+  <section class="section section--tortora">
+    <div class="container container--narrow">
+      <Quote quote={quotes[lang].text} attribution={quotes[lang].attr} />
+    </div>
+  </section>
+
+  {/* 4. The Ambassador */}
+  <section class="section">
+    <div class="container">
+      <EditorialSplit
+        src={find(ambassador.image).src}
+        alt={find(ambassador.image).alt[lang]}
+        eyebrow={ambassador.eyebrow?.[lang]}
+        title={ambassador.title[lang]}
+        flip={ambassador.flip}
+        cta={editorialCta(ambassador)}
+      >
+        {ambassador.body[lang].map((pText: string) => <p>{pText}</p>)}
+      </EditorialSplit>
+    </div>
+  </section>
+
+  {/* 5. The fleet */}
+  <section class="section section--tortora">
+    <div class="container">
+      <EditorialSplit
+        src={find(fleet.image).src}
+        alt={find(fleet.image).alt[lang]}
+        eyebrow={fleet.eyebrow?.[lang]}
+        title={fleet.title[lang]}
+        flip={fleet.flip}
+        cta={editorialCta(fleet)}
+      >
+        {fleet.body[lang].map((pText: string) => <p>{pText}</p>)}
+      </EditorialSplit>
+    </div>
+  </section>
 
   <div class="container"><Waterline /></div>
 
