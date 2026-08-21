@@ -2,8 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
-import CinematicBreak from '../../components/CinematicBreak.astro';
-import StatBand from '../../components/StatBand.astro';
 import Quote from '../../components/Quote.astro';
 import Waterline from '../../components/Waterline.astro';
 import Faq from '../../components/Faq.astro';
@@ -40,34 +38,6 @@ const editorialCta = (sec: typeof intro) => ({
   href: p(lang, sec.ctaHref.replace(/^\/|\/$/g, '')),
   label: sec.ctaLabel[lang],
 });
-
-// Localised stat labels
-const statLabels: Record<Locale, { value: string; label: string }[]> = {
-  en: [
-    { value: '18', label: 'Suites, every one facing the lake' },
-    { value: '1', label: 'Michelin Star since 2022' },
-    { value: '16', label: 'Points, Gault & Millau' },
-    { value: '1,000', label: 'Square metres of spa' },
-  ],
-  de: [
-    { value: '18', label: 'Suiten, jede mit Seeblick' },
-    { value: '1', label: 'Michelin-Stern seit 2022' },
-    { value: '16', label: 'Punkte, Gault & Millau' },
-    { value: '1.000', label: 'Quadratmeter Spa' },
-  ],
-  it: [
-    { value: '18', label: 'Suite, tutte sul lago' },
-    { value: '1', label: 'Stella Michelin dal 2022' },
-    { value: '16', label: 'Punti, Gault & Millau' },
-    { value: '1.000', label: 'Metri quadrati di spa' },
-  ],
-  fr: [
-    { value: '18', label: 'Suites, toutes face au lac' },
-    { value: '1', label: 'Étoile Michelin depuis 2022' },
-    { value: '16', label: 'Points, Gault & Millau' },
-    { value: '1 000', label: 'Mètres carrés de spa' },
-  ],
-};
 
 // Localised quotes
 const quotes: Record<Locale, { text: string; attr: string }> = {
@@ -116,12 +86,6 @@ const quotes: Record<Locale, { text: string; attr: string }> = {
     </div>
   </section>
 
-  {/* Cinematic breath */}
-  <CinematicBreak
-    src={find('hotel_041').src}
-    alt={find('hotel_041').alt[lang]}
-  />
-
   {/* 2. The table — dark for tonal contrast */}
   <section class="section section--ink">
     <div class="container">
@@ -135,13 +99,6 @@ const quotes: Record<Locale, { text: string; attr: string }> = {
       >
         {dining.body[lang].map((pText: string) => <p>{pText}</p>)}
       </EditorialSplit>
-    </div>
-  </section>
-
-  {/* Numbers moment */}
-  <section class="section section--tortora">
-    <div class="container container--narrow">
-      <StatBand items={statLabels[lang]} />
     </div>
   </section>
 
