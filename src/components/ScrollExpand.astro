@@ -1,0 +1,264 @@
+---
+import { Picture } from 'astro:assets';
+import luganoMemory from '../assets/images/lugano-memory.jpg';
+
+interface Props {
+  compactTitle: string;
+  expandedTitle: string;
+  alt: string;
+}
+
+const { compactTitle, expandedTitle, alt } = Astro.props;
+---
+
+<section class="memory-reveal">
+  <div class="memory-reveal__stage">
+    <div class="memory-reveal__frame">
+      <Picture
+        src={luganoMemory}
+        alt={alt}
+        widths={[640, 960, 1440, 1920, 2400]}
+        sizes="100vw"
+        formats={['avif', 'webp']}
+        fallbackFormat="jpg"
+        loading="lazy"
+        decoding="async"
+        class="memory-reveal__media"
+      />
+      <div class="memory-reveal__scrim" aria-hidden="true"></div>
+    </div>
+
+    <h2 class="memory-reveal__compact-title">{compactTitle}</h2>
+    <p class="memory-reveal__expanded-title">{expandedTitle}</p>
+  </div>
+</section>
+
+<style>
+  .memory-reveal {
+    position: relative;
+    min-height: 220dvh;
+    background: var(--ground);
+    view-timeline-name: --memory-reveal;
+    view-timeline-axis: block;
+  }
+
+  .memory-reveal__stage {
+    position: sticky;
+    top: 0;
+    min-height: 100dvh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .memory-reveal__frame {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    clip-path: inset(15% 18% 15% 18%);
+    will-change: clip-path;
+  }
+
+  .memory-reveal :global(.memory-reveal__media) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center 50%;
+    transform: scale(1.12);
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  .memory-reveal__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(51 41 26 / 0.78), rgb(51 41 26 / 0.08) 56%, rgb(51 41 26 / 0.28));
+    opacity: 0.18;
+    will-change: opacity;
+  }
+
+  .memory-reveal__compact-title,
+  .memory-reveal__expanded-title {
+    position: absolute;
+    z-index: 1;
+    margin: 0;
+    color: var(--ground);
+    text-wrap: balance;
+    text-shadow: 0 2px 24px rgb(51 41 26 / 0.45);
+    will-change: opacity, transform;
+  }
+
+  .memory-reveal__compact-title {
+    inset-inline: clamp(2rem, 9vw, 10rem);
+    bottom: clamp(2rem, 10vh, 6rem);
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.65rem, 3.3vw, 3.5rem);
+    line-height: 1.12;
+  }
+
+  .memory-reveal__expanded-title {
+    inset-inline: clamp(1.5rem, 8vw, 9rem);
+    bottom: clamp(2.5rem, 8vh, 5.5rem);
+    max-width: 31ch;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2rem, 4.6vw, 4.75rem);
+    line-height: 1.08;
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+
+  @supports (animation-timeline: view()) {
+    .memory-reveal__frame {
+      animation: memory-frame-open linear both;
+      animation-timeline: --memory-reveal;
+      animation-range: entry 100% cover 45%;
+    }
+
+    .memory-reveal :global(.memory-reveal__media) {
+      animation: memory-media-settle linear both;
+      animation-timeline: --memory-reveal;
+      animation-range: entry 100% cover 45%;
+    }
+
+    .memory-reveal__scrim {
+      animation: memory-scrim-in linear both;
+      animation-timeline: --memory-reveal;
+      animation-range: entry 100% cover 45%;
+    }
+
+    .memory-reveal__compact-title {
+      animation: memory-compact-title-out linear both;
+      animation-timeline: --memory-reveal;
+      animation-range: entry 100% cover 45%;
+    }
+
+    .memory-reveal__expanded-title {
+      animation: memory-expanded-title-in linear both;
+      animation-timeline: --memory-reveal;
+      animation-range: entry 100% cover 45%;
+    }
+  }
+
+  @keyframes memory-frame-open {
+    0%, 16% { clip-path: inset(15% 18% 15% 18%); }
+    72%, 100% { clip-path: inset(0); }
+  }
+
+  @keyframes memory-media-settle {
+    0%, 16% { transform: scale(1.12); }
+    72%, 100% { transform: scale(1); }
+  }
+
+  @keyframes memory-scrim-in {
+    0%, 38% { opacity: 0.18; }
+    72%, 100% { opacity: 1; }
+  }
+
+  @keyframes memory-compact-title-out {
+    0%, 36% { opacity: 1; transform: translate3d(0, 0, 0); }
+    60%, 100% { opacity: 0; transform: translate3d(0, -1.5rem, 0); }
+  }
+
+  @keyframes memory-expanded-title-in {
+    0%, 56% { opacity: 0; transform: translate3d(0, 1.5rem, 0); }
+    78%, 100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+
+  @media (max-width: 720px) {
+    .memory-reveal {
+      min-height: 175dvh;
+    }
+
+    .memory-reveal__frame {
+      clip-path: inset(17% 8% 18% 8%);
+    }
+
+    .memory-reveal__compact-title {
+      inset-inline: 2rem;
+      bottom: 15vh;
+    }
+
+    .memory-reveal__expanded-title {
+      inset-inline: 1.5rem;
+      bottom: 12vh;
+      max-width: 19ch;
+      font-size: clamp(2rem, 10vw, 3.2rem);
+      line-height: 1.12;
+    }
+
+    @keyframes memory-frame-open {
+      0%, 16% { clip-path: inset(17% 8% 18% 8%); }
+      72%, 100% { clip-path: inset(0); }
+    }
+  }
+
+  @supports not (animation-timeline: view()) {
+    .memory-reveal {
+      min-height: 76dvh;
+    }
+
+    .memory-reveal__stage {
+      position: relative;
+      min-height: 76dvh;
+      height: 76dvh;
+    }
+
+    .memory-reveal__frame {
+      clip-path: none;
+    }
+
+    .memory-reveal :global(.memory-reveal__media) {
+      transform: none;
+    }
+
+    .memory-reveal__scrim {
+      opacity: 1;
+    }
+
+    .memory-reveal__compact-title {
+      display: none;
+    }
+
+    .memory-reveal__expanded-title {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .memory-reveal {
+      min-height: 76dvh;
+    }
+
+    .memory-reveal__stage {
+      position: relative;
+      min-height: 76dvh;
+      height: 76dvh;
+    }
+
+    .memory-reveal__frame {
+      clip-path: none;
+    }
+
+    .memory-reveal :global(.memory-reveal__media) {
+      transform: none;
+    }
+
+    .memory-reveal__scrim {
+      opacity: 1;
+    }
+
+    .memory-reveal__compact-title {
+      display: none;
+    }
+
+    .memory-reveal__expanded-title {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
