@@ -1,49 +1,84 @@
 ---
-// Pull-quote treatment for guest commentary.
+// Compact guest-commentary treatment for paired testimonials.
 interface Props {
-  quote: string;
-  attribution?: string;
+  quotes: string[];
 }
-const { quote, attribution } = Astro.props;
+const { quotes } = Astro.props;
 ---
 
-<blockquote class="quote fade-up">
-  <span class="quote__mark" aria-hidden="true">"</span>
-  <p class="quote__text">{quote}</p>
-  {attribution && <cite class="quote__attribution">{attribution}</cite>}
-</blockquote>
+<div class="guest-quotes">
+  {quotes.map((quote, index) => (
+    <blockquote
+      class:list={['guest-quotes__item', 'fade-up', index === 1 && 'guest-quotes__item--second']}
+    >
+      <span class="guest-quotes__mark" aria-hidden="true">“</span>
+      <p class="guest-quotes__text">{quote}</p>
+    </blockquote>
+  ))}
+</div>
 
 <style>
-  .quote {
+  .guest-quotes {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(3rem, 7vw, 7rem);
+    max-width: 74rem;
     margin: 0;
-    text-align: center;
-    max-width: 56ch;
     margin-inline: auto;
   }
-  .quote__mark {
+
+  .guest-quotes::before {
+    content: '';
+    position: absolute;
+    inset-block: 0.75rem;
+    inset-inline-start: 50%;
+    width: 1px;
+    background: var(--argento);
+  }
+
+  .guest-quotes__item {
+    margin: 0;
+    padding-inline: clamp(0rem, 2vw, 1.5rem);
+  }
+
+  .guest-quotes__mark {
     display: block;
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(4rem, 10vw, 7rem);
+    font-size: clamp(3rem, 5vw, 4.25rem);
     line-height: 0.6;
-    color: var(--tortora-densa);
-    margin-bottom: var(--space-2);
+    color: var(--clay);
+    margin-bottom: 1.25rem;
   }
-  .quote__text {
+
+  .guest-quotes__text {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(1.35rem, 2.8vw, 2rem);
-    line-height: 1.35;
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    line-height: 1.42;
     color: var(--ink);
-    margin: 0 0 var(--space-2);
+    margin: 0;
     text-wrap: balance;
   }
-  .quote__attribution {
-    font-family: var(--font-display);
-    font-size: 0.82rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--clay);
-    font-style: normal;
+
+  @media (max-width: 720px) {
+    .guest-quotes {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+
+    .guest-quotes::before {
+      display: none;
+    }
+
+    .guest-quotes__item {
+      padding-inline: 0;
+    }
+
+    .guest-quotes__item--second {
+      border-top: 1px solid var(--argento);
+      padding-top: var(--space-3);
+    }
   }
 </style>

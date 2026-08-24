@@ -39,24 +39,24 @@ const editorialCta = (sec: typeof intro) => ({
   label: sec.ctaLabel[lang],
 });
 
-// Localised quotes
-const quotes: Record<Locale, { text: string; attr: string }> = {
-  en: {
-    text: 'Guests describe the lake from the pillow, from the pool, from the table — and reach, unprompted, for the word paradiso.',
-    attr: 'Eight years of guest commentary, 23 languages',
-  },
-  de: {
-    text: 'Gäste beschreiben den See vom Kissen, vom Pool, vom Tisch — und greifen von selbst zum Wort paradiso.',
-    attr: 'Acht Jahre Gästestimmen, 23 Sprachen',
-  },
-  it: {
-    text: 'Gli ospiti descrivono il lago dal cuscino, dalla piscina, dal tavolo — e arrivano da soli alla parola paradiso.',
-    attr: 'Otto anni di commenti, 23 lingue',
-  },
-  fr: {
-    text: 'Les hôtes décrivent le lac depuis l\'oreiller, la piscine, la table — et arrivent d\'eux-mêmes au mot paradiso.',
-    attr: 'Huit ans de commentaires, 23 langues',
-  },
+// Localised guest testimonials.
+const guestQuotes: Record<Locale, string[]> = {
+  en: [
+    "The hotel's intimate size created an ambiance of exclusivity, making us feel like cherished guests rather than just visitors.",
+    'A wonderful blend of luxury, comfort, and serenity.',
+  ],
+  de: [
+    'Die intime Größe des Hotels schuf eine Atmosphäre der Exklusivität, in der wir uns wie geschätzte Gäste und nicht einfach wie Besucher fühlten.',
+    'Eine wunderbare Verbindung aus Luxus, Komfort und Ruhe.',
+  ],
+  it: [
+    "Le dimensioni intime dell'hotel hanno creato un'atmosfera di esclusività, facendoci sentire ospiti preziosi e non semplici visitatori.",
+    'Un meraviglioso connubio di lusso, comfort e serenità.',
+  ],
+  fr: [
+    "La taille intime de l'hôtel a créé une atmosphère d'exclusivité, nous faisant sentir comme des hôtes précieux plutôt que de simples visiteurs.",
+    'Un merveilleux équilibre de luxe, de confort et de sérénité.',
+  ],
 };
 ---
 
@@ -69,6 +69,12 @@ const quotes: Record<Locale, { text: string; attr: string }> = {
   overlayHeader
 >
   <Hero src={hero.src} video="/hero-video.mp4" alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
+
+  <section class="section section--tortora guest-quote-section">
+    <div class="container">
+      <Quote quotes={guestQuotes[lang]} />
+    </div>
+  </section>
 
   {/* 1. The house */}
   <section class="section">
@@ -115,13 +121,6 @@ const quotes: Record<Locale, { text: string; attr: string }> = {
       >
         {spa.body[lang].map((pText: string) => <p>{pText}</p>)}
       </EditorialSplit>
-    </div>
-  </section>
-
-  {/* Quote */}
-  <section class="section section--tortora">
-    <div class="container container--narrow">
-      <Quote quote={quotes[lang].text} attribution={quotes[lang].attr} />
     </div>
   </section>
 
@@ -174,6 +173,10 @@ const quotes: Record<Locale, { text: string; attr: string }> = {
 </Base>
 
 <style>
+  .guest-quote-section {
+    padding-block: clamp(4rem, 7vw, 5.5rem);
+  }
+
   .trust-title {
     font-family: var(--font-display);
     font-weight: 300;
