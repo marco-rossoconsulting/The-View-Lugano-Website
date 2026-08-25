@@ -103,6 +103,22 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
 >
   <Hero src={hero.src} video="/hero-video.mp4" alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
 
+  {/* The House */}
+  <section class="section">
+    <div class="container">
+      <EditorialSplit
+        src={find(intro.image).src}
+        alt={find(intro.image).alt[lang]}
+        eyebrow={intro.eyebrow?.[lang]}
+        title={intro.title[lang]}
+        flip={intro.flip}
+        cta={editorialCta(intro)}
+      >
+        {intro.body[lang].map((pText: string) => <p>{pText}</p>)}
+      </EditorialSplit>
+    </div>
+  </section>
+
   <section class="section section--tortora days-section">
     <div class="container">
       <div class="days-section__header">
@@ -124,22 +140,6 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
           };
         })}
       />
-    </div>
-  </section>
-
-  {/* The House */}
-  <section class="section">
-    <div class="container">
-      <EditorialSplit
-        src={find(intro.image).src}
-        alt={find(intro.image).alt[lang]}
-        eyebrow={intro.eyebrow?.[lang]}
-        title={intro.title[lang]}
-        flip={intro.flip}
-        cta={editorialCta(intro)}
-      >
-        {intro.body[lang].map((pText: string) => <p>{pText}</p>)}
-      </EditorialSplit>
     </div>
   </section>
 
@@ -218,7 +218,7 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
   }
 
   .days-section__header-copy {
-    grid-column: 2;
+    grid-column: 1;
   }
 
   @media (max-width: 900px) {
