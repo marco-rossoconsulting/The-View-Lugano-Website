@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
+import AmbassadorTeam from '../../components/AmbassadorTeam.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ExperienceAccordion from '../../components/ExperienceAccordion.astro';
@@ -144,20 +145,12 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
   </section>
 
   {/* The Ambassador */}
-  <section class="section section--ink">
-    <div class="container">
-      <EditorialSplit
-        src={find(ambassador.image).src}
-        alt={find(ambassador.image).alt[lang]}
-        eyebrow={ambassador.eyebrow?.[lang]}
-        title={ambassador.title[lang]}
-        flip={ambassador.flip}
-        cta={editorialCta(ambassador)}
-      >
-        {ambassador.body[lang].map((pText: string) => <p>{pText}</p>)}
-      </EditorialSplit>
-    </div>
-  </section>
+  <AmbassadorTeam
+    {lang}
+    eyebrow={ambassador.eyebrow?.[lang]}
+    title={ambassador.title[lang]}
+    body={ambassador.body[lang]}
+  />
 
   {/* The spa */}
   <section class="section">

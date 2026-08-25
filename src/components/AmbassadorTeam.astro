@@ -1,0 +1,205 @@
+---
+import { Picture } from 'astro:assets';
+import type { Locale } from '../lib/i18n';
+import SectionHeader from './SectionHeader.astro';
+import angela from '../assets/images/ambassadors/ambassador-angela.jpg';
+import marco from '../assets/images/ambassadors/ambassador-marco.jpg';
+import sara from '../assets/images/ambassadors/ambassador-sara.jpg';
+import silviaDiego from '../assets/images/ambassadors/ambassador-silvia-diego.jpg';
+import vivianeGiulia from '../assets/images/ambassadors/ambassador-viviane-giulia.jpg';
+
+interface Props {
+  lang: Locale;
+  eyebrow?: string;
+  title: string;
+  body: string[];
+}
+
+const { lang, eyebrow, title, body } = Astro.props;
+
+const people = [
+  {
+    name: 'Viviane & Giulia',
+    image: vivianeGiulia,
+    position: '50% 42%',
+    alt: {
+      en: 'Viviane and Giulia of The View Lugano',
+      de: 'Viviane und Giulia von The View Lugano',
+      it: 'Viviane e Giulia di The View Lugano',
+      fr: 'Viviane et Giulia de The View Lugano',
+    },
+  },
+  {
+    name: 'Angela',
+    image: angela,
+    position: '56% 42%',
+    alt: {
+      en: 'Angela of The View Lugano',
+      de: 'Angela von The View Lugano',
+      it: 'Angela di The View Lugano',
+      fr: 'Angela de The View Lugano',
+    },
+  },
+  {
+    name: 'Silvia & Diego',
+    image: silviaDiego,
+    position: '50% 39%',
+    alt: {
+      en: 'Silvia and Chef Diego of The View Lugano',
+      de: 'Silvia und Chef Diego von The View Lugano',
+      it: 'Silvia e lo Chef Diego di The View Lugano',
+      fr: 'Silvia et le Chef Diego de The View Lugano',
+    },
+  },
+  {
+    name: 'Marco',
+    image: marco,
+    position: '50% 41%',
+    alt: {
+      en: 'Marco of The View Lugano',
+      de: 'Marco von The View Lugano',
+      it: 'Marco di The View Lugano',
+      fr: 'Marco de The View Lugano',
+    },
+  },
+  {
+    name: 'Sara',
+    image: sara,
+    position: '36% 44%',
+    alt: {
+      en: 'Sara of The View Lugano',
+      de: 'Sara von The View Lugano',
+      it: 'Sara di The View Lugano',
+      fr: 'Sara de The View Lugano',
+    },
+  },
+];
+---
+
+<section class="section section--ink ambassador-team">
+  <div class="container">
+    <div class="ambassador-team__intro fade-up">
+      <SectionHeader {eyebrow} {title} />
+      <div class="ambassador-team__body">
+        {body.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+
+    <ul class="ambassador-team__grid" role="list">
+      {people.map((person, index) => (
+        <li class="ambassador-team__person fade-up" style={`--ambassador-index: ${index};`}>
+          <div class="ambassador-team__portrait">
+            <Picture
+              src={person.image}
+              alt={person.alt[lang]}
+              widths={[320, 480, 640, 960]}
+              sizes={index === people.length - 1 ? '(max-width: 720px) 100vw, (max-width: 1100px) 33vw, 20vw' : '(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 20vw'}
+              formats={['avif', 'webp']}
+              fallbackFormat="jpg"
+              loading="lazy"
+              decoding="async"
+              style={`object-position: ${person.position};`}
+            />
+          </div>
+          <h3>{person.name}</h3>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .ambassador-team__intro {
+    max-width: 52rem;
+    margin-bottom: clamp(3rem, 5vw, 5.5rem);
+  }
+
+  .ambassador-team__body {
+    max-width: 51rem;
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
+    line-height: 1.8;
+  }
+
+  .ambassador-team__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ambassador-team__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .ambassador-team__person {
+    min-width: 0;
+    transition-delay: calc(var(--ambassador-index) * 80ms);
+  }
+
+  .ambassador-team__portrait {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    margin-bottom: 0.9rem;
+    background: color-mix(in srgb, var(--clay) 62%, var(--ink));
+  }
+
+  .ambassador-team__portrait :global(img) {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    filter: saturate(0.9) contrast(1.02) brightness(0.99);
+    transform: scale(1.001);
+    transition: transform 750ms cubic-bezier(0.22, 0.61, 0.36, 1), filter 750ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .ambassador-team__person h3 {
+    margin: 0;
+    color: var(--tortora);
+    font-size: clamp(1rem, 1.3vw, 1.22rem);
+    font-weight: 400;
+    letter-spacing: 0.035em;
+    line-height: 1.25;
+  }
+
+  @media (hover: hover) {
+    .ambassador-team__person:hover :global(img) {
+      filter: saturate(0.96) contrast(1.03) brightness(1.02);
+      transform: scale(1.035);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .ambassador-team__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.25rem, 3vw, 2rem);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .ambassador-team__intro {
+      margin-bottom: var(--space-4);
+    }
+
+    .ambassador-team__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem 1rem;
+    }
+
+    .ambassador-team__person:last-child {
+      grid-column: span 2;
+    }
+
+    .ambassador-team__person:last-child .ambassador-team__portrait {
+      aspect-ratio: 3 / 2;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ambassador-team__portrait :global(img) {
+      transition: none;
+    }
+  }
+</style>
