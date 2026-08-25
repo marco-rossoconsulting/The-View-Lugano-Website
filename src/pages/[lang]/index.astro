@@ -7,6 +7,7 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import ExperienceAccordion from '../../components/ExperienceAccordion.astro';
 import Quote from '../../components/Quote.astro';
 import ScrollExpand from '../../components/ScrollExpand.astro';
+import FedAndRestored from '../../components/FedAndRestored.astro';
 import Waterline from '../../components/Waterline.astro';
 import Faq from '../../components/Faq.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -73,23 +74,50 @@ const guestQuotes: Record<Locale, string[]> = {
 const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string; alt: string }> = {
   en: {
     compactTitle: 'some things you see',
-    expandedTitle: "Some things you feel — and remember long after you've left.",
+    expandedTitle: "some things you feel, and remember long after you've left.",
     alt: 'Lugano and the lake seen through a window at golden hour',
   },
   de: {
     compactTitle: 'manches sieht man',
-    expandedTitle: 'Manches spürt man — und erinnert sich noch lange daran, nachdem man gegangen ist.',
+    expandedTitle: 'manches spürt man, und erinnert sich noch lange daran, nachdem man gegangen ist.',
     alt: 'Lugano und der See im Abendlicht, durch ein Fenster gesehen',
   },
   it: {
     compactTitle: 'alcune cose si vedono',
-    expandedTitle: 'Alcune cose si percepiscono — e restano nella memoria molto tempo dopo la partenza.',
+    expandedTitle: 'alcune cose si percepiscono, e restano nella memoria molto tempo dopo la partenza.',
     alt: 'Lugano e il lago al tramonto, visti attraverso una finestra',
   },
   fr: {
     compactTitle: 'certaines choses se voient',
-    expandedTitle: 'Certaines choses se ressentent — et restent en mémoire longtemps après votre départ.',
+    expandedTitle: 'certaines choses se ressentent, et restent en mémoire longtemps après votre départ.',
     alt: 'Lugano et le lac à l’heure dorée, vus à travers une fenêtre',
+  },
+};
+
+const fedAndRestored: Record<Locale, { title: string; subtitle: string; diningAlt: string; spaAlt: string }> = {
+  en: {
+    title: 'Fed and Restored',
+    subtitle: 'Two rituals shape every stay here - one at the table, one in stillness.',
+    diningAlt: 'A plated course from THE VIEW Fine Dining',
+    spaAlt: 'A massage treatment at THE VIEW SPA',
+  },
+  de: {
+    title: 'Genährt und erneuert',
+    subtitle: 'Zwei Rituale prägen jeden Aufenthalt hier: eines am Tisch, eines in der Stille.',
+    diningAlt: 'Ein angerichteter Gang aus dem THE VIEW Fine Dining',
+    spaAlt: 'Eine Massagebehandlung im THE VIEW SPA',
+  },
+  it: {
+    title: 'Nutriti e rigenerati',
+    subtitle: 'Due rituali danno forma a ogni soggiorno qui: uno a tavola, uno nella quiete.',
+    diningAlt: 'Una portata impiattata di THE VIEW Fine Dining',
+    spaAlt: 'Un trattamento di massaggio alla THE VIEW SPA',
+  },
+  fr: {
+    title: 'Nourri et ressourcé',
+    subtitle: "Deux rituels façonnent chaque séjour ici : l'un à table, l'autre dans le calme.",
+    diningAlt: 'Un plat dressé de THE VIEW Fine Dining',
+    spaAlt: 'Un soin de massage au THE VIEW SPA',
   },
 };
 ---
@@ -152,43 +180,30 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
     body={ambassador.body[lang]}
   />
 
-  {/* The spa */}
-  <section class="section">
-    <div class="container">
-      <EditorialSplit
-        src={find(spa.image).src}
-        alt={find(spa.image).alt[lang]}
-        eyebrow={spa.eyebrow?.[lang]}
-        title={spa.title[lang]}
-        flip={spa.flip}
-        cta={editorialCta(spa)}
-      >
-        {spa.body[lang].map((pText: string) => <p>{pText}</p>)}
-      </EditorialSplit>
-    </div>
-  </section>
+  <FedAndRestored
+    title={fedAndRestored[lang].title}
+    subtitle={fedAndRestored[lang].subtitle}
+    dining={{
+      eyebrow: dining.eyebrow?.[lang],
+      title: dining.title[lang],
+      body: dining.body[lang],
+      cta: editorialCta(dining),
+      alt: fedAndRestored[lang].diningAlt,
+    }}
+    spa={{
+      eyebrow: spa.eyebrow?.[lang],
+      title: spa.title[lang],
+      body: spa.body[lang],
+      cta: editorialCta(spa),
+      alt: fedAndRestored[lang].spaAlt,
+    }}
+  />
+
+  <ScrollExpand {...memoryReveal[lang]} />
 
   <section class="section section--tortora guest-quote-section">
     <div class="container">
       <Quote quotes={guestQuotes[lang]} />
-    </div>
-  </section>
-
-  <ScrollExpand {...memoryReveal[lang]} />
-
-  {/* The table */}
-  <section class="section">
-    <div class="container">
-      <EditorialSplit
-        src={find(dining.image).src}
-        alt={find(dining.image).alt[lang]}
-        eyebrow={dining.eyebrow?.[lang]}
-        title={dining.title[lang]}
-        flip={dining.flip}
-        cta={editorialCta(dining)}
-      >
-        {dining.body[lang].map((pText: string) => <p>{pText}</p>)}
-      </EditorialSplit>
     </div>
   </section>
 
