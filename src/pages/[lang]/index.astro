@@ -143,15 +143,7 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
     </div>
   </section>
 
-  <section class="section section--tortora guest-quote-section">
-    <div class="container">
-      <Quote quotes={guestQuotes[lang]} />
-    </div>
-  </section>
-
-  <ScrollExpand {...memoryReveal[lang]} />
-
-  {/* 2. The table — dark for tonal contrast */}
+  {/* The table */}
   <section class="section section--ink">
     <div class="container">
       <EditorialSplit
@@ -167,7 +159,7 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
     </div>
   </section>
 
-  {/* 3. The spa */}
+  {/* The spa */}
   <section class="section">
     <div class="container">
       <EditorialSplit
@@ -182,6 +174,14 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
       </EditorialSplit>
     </div>
   </section>
+
+  <section class="section section--tortora guest-quote-section">
+    <div class="container">
+      <Quote quotes={guestQuotes[lang]} />
+    </div>
+  </section>
+
+  <ScrollExpand {...memoryReveal[lang]} />
 
   {/* 4. The Ambassador */}
   <section class="section">
