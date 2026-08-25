@@ -104,6 +104,30 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
 >
   <Hero src={hero.src} video="/hero-video.mp4" alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
 
+  <section class="section section--tortora days-section">
+    <div class="container">
+      <div class="days-section__header">
+        <div class="days-section__header-copy">
+          <SectionHeader eyebrow={days.eyebrow[lang]} title={days.title[lang]} />
+        </div>
+      </div>
+      <ExperienceAccordion
+        ariaLabel={days.eyebrow[lang]}
+        defaultIndex={2}
+        items={days.items.map((item) => {
+          const photo = find(item.image);
+          return {
+            src: photo.src,
+            alt: photo.alt[lang],
+            title: item.title[lang],
+            body: item.body[lang],
+            href: p(lang, dayDestinations[item.id]),
+          };
+        })}
+      />
+    </div>
+  </section>
+
   <section class="section section--tortora guest-quote-section">
     <div class="container">
       <Quote quotes={guestQuotes[lang]} />
@@ -141,30 +165,6 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
       >
         {dining.body[lang].map((pText: string) => <p>{pText}</p>)}
       </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section section--tortora days-section">
-    <div class="container">
-      <div class="days-section__header">
-        <div class="days-section__header-copy">
-          <SectionHeader eyebrow={days.eyebrow[lang]} title={days.title[lang]} />
-        </div>
-      </div>
-      <ExperienceAccordion
-        ariaLabel={days.eyebrow[lang]}
-        defaultIndex={2}
-        items={days.items.map((item) => {
-          const photo = find(item.image);
-          return {
-            src: photo.src,
-            alt: photo.alt[lang],
-            title: item.title[lang],
-            body: item.body[lang],
-            href: p(lang, dayDestinations[item.id]),
-          };
-        })}
-      />
     </div>
   </section>
 
