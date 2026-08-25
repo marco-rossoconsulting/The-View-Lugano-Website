@@ -128,15 +128,7 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
     </div>
   </section>
 
-  <section class="section section--tortora guest-quote-section">
-    <div class="container">
-      <Quote quotes={guestQuotes[lang]} />
-    </div>
-  </section>
-
-  <ScrollExpand {...memoryReveal[lang]} />
-
-  {/* 1. The house */}
+  {/* The House */}
   <section class="section">
     <div class="container">
       <EditorialSplit
@@ -151,6 +143,14 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
       </EditorialSplit>
     </div>
   </section>
+
+  <section class="section section--tortora guest-quote-section">
+    <div class="container">
+      <Quote quotes={guestQuotes[lang]} />
+    </div>
+  </section>
+
+  <ScrollExpand {...memoryReveal[lang]} />
 
   {/* 2. The table — dark for tonal contrast */}
   <section class="section section--ink">
