@@ -3,8 +3,8 @@ import { Picture } from 'astro:assets';
 import type { Locale } from '../lib/i18n';
 import SectionHeader from './SectionHeader.astro';
 import angela from '../assets/images/ambassadors/ambassador-angela.jpg';
+import chadiClaudia from '../assets/images/ambassadors/ambassador-chadi-claudia.jpg';
 import marco from '../assets/images/ambassadors/ambassador-marco.jpg';
-import sara from '../assets/images/ambassadors/ambassador-sara.jpg';
 import silviaDiego from '../assets/images/ambassadors/ambassador-silvia-diego.jpg';
 import vivianeGiulia from '../assets/images/ambassadors/ambassador-viviane-giulia.jpg';
 
@@ -63,14 +63,14 @@ const people = [
     },
   },
   {
-    name: 'Sara',
-    image: sara,
-    position: '36% 44%',
+    name: 'Chadi & Claudia',
+    image: chadiClaudia,
+    position: '50% 48%',
     alt: {
-      en: 'Sara of The View Lugano',
-      de: 'Sara von The View Lugano',
-      it: 'Sara di The View Lugano',
-      fr: 'Sara de The View Lugano',
+      en: 'Chadi and Claudia of The View Lugano',
+      de: 'Chadi und Claudia von The View Lugano',
+      it: 'Chadi e Claudia di The View Lugano',
+      fr: 'Chadi et Claudia de The View Lugano',
     },
   },
 ];
@@ -93,7 +93,7 @@ const people = [
               src={person.image}
               alt={person.alt[lang]}
               widths={[320, 480, 640, 960]}
-              sizes={index === people.length - 1 ? '(max-width: 720px) 100vw, (max-width: 1100px) 33vw, 20vw' : '(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 20vw'}
+              sizes="(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 20vw"
               formats={['avif', 'webp']}
               fallbackFormat="jpg"
               loading="lazy"
@@ -188,13 +188,6 @@ const people = [
       gap: 1.5rem 1rem;
     }
 
-    .ambassador-team__person:last-child {
-      grid-column: span 2;
-    }
-
-    .ambassador-team__person:last-child .ambassador-team__portrait {
-      aspect-ratio: 3 / 2;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
