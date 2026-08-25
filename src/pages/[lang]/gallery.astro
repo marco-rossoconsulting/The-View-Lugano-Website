@@ -210,6 +210,9 @@ const cats = Object.keys(catLabels).filter((c) => PHOTOS.some((ph) => ph.categor
     align-items: center;
     justify-content: center;
   }
+  .lightbox[hidden] {
+    display: none !important;
+  }
   .lightbox__figure {
     max-width: min(92vw, 78rem);
     max-height: 88vh;
