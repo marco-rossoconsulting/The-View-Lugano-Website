@@ -210,6 +210,77 @@
       "flip": false
     }
   ],
+  "days": {
+    "eyebrow": {
+      "en": "The days",
+      "de": "Die Tage",
+      "it": "Le giornate",
+      "fr": "Les journées"
+    },
+    "title": {
+      "en": "Five ways to spend one. Take them in any order, or none.",
+      "de": "Fünf Arten, einen Tag zu verbringen. Wählen Sie sie in beliebiger Reihenfolge, oder gar nicht.",
+      "it": "Cinque modi di viverne una. In qualsiasi ordine, oppure nessuno.",
+      "fr": "Cinq façons de passer une journée. Dans l’ordre de votre choix, ou aucune."
+    },
+    "items": [
+      {
+        "id": "explore",
+        "title": { "en": "Explore", "de": "Entdecken", "it": "Esplorare", "fr": "Explorer" },
+        "body": {
+          "en": "Electric cars and bikes to explore the city, on your own time.",
+          "de": "Elektrische Autos und E-Bikes, um die Stadt in Ihrem eigenen Tempo zu entdecken.",
+          "it": "Smart elettriche ed e-bike per esplorare la città secondo i vostri ritmi.",
+          "fr": "Des voitures électriques et des vélos électriques pour explorer la ville à votre rythme."
+        },
+        "image": "smart-2"
+      },
+      {
+        "id": "relax",
+        "title": { "en": "Relax", "de": "Entspannen", "it": "Rilassarsi", "fr": "Se détendre" },
+        "body": {
+          "en": "A Spa, two pools, a thousand square metres, and rarely anyone else in them.",
+          "de": "Ein Spa, zwei Pools und tausend Quadratmeter, in denen selten jemand sonst ist.",
+          "it": "Una spa, due piscine, mille metri quadrati e raramente qualcun altro a condividerli.",
+          "fr": "Un spa, deux piscines, mille mètres carrés et rarement quelqu’un d’autre pour les partager."
+        },
+        "image": "spa_011"
+      },
+      {
+        "id": "taste",
+        "title": { "en": "Taste", "de": "Kosten", "it": "Assaporare", "fr": "Déguster" },
+        "body": {
+          "en": "One Michelin star downstairs, and the same kitchen for bistrot on the terrace.",
+          "de": "Ein Michelin-Stern im Haus und dieselbe Küche für das Bistrot auf der Terrasse.",
+          "it": "Una stella Michelin al piano di sotto e la stessa cucina per il bistrot in terrazza.",
+          "fr": "Une étoile Michelin à l’étage du dessous, et la même cuisine pour le bistrot en terrasse."
+        },
+        "image": "fine-dining-restaurant.jpg"
+      },
+      {
+        "id": "move",
+        "title": { "en": "Move", "de": "Bewegen", "it": "Muoversi", "fr": "Bouger" },
+        "body": {
+          "en": "Climb Monte San Salvatore from the door, or train inside with a lake view.",
+          "de": "Besteigen Sie den Monte San Salvatore direkt vor der Tür oder trainieren Sie drinnen mit Seeblick.",
+          "it": "Salite il Monte San Salvatore dalla porta di casa o allenatevi all’interno con vista sul lago.",
+          "fr": "Gravissez le Monte San Salvatore depuis le seuil, ou entraînez-vous à l’intérieur avec vue sur le lac."
+        },
+        "image": "hotel_041"
+      },
+      {
+        "id": "gather",
+        "title": { "en": "Gather", "de": "Zusammenkommen", "it": "Riunirsi", "fr": "Se réunir" },
+        "body": {
+          "en": "Private dining for a table you fill yourself. Eighteen suites means the house can be yours.",
+          "de": "Privates Dining an einem Tisch, den Sie selbst füllen. Achtzehn Suiten bedeuten, dass das Haus Ihnen gehören kann.",
+          "it": "Cena privata per un tavolo che riempite voi. Diciotto suite significano che la casa può essere vostra.",
+          "fr": "Un dîner privé pour une table que vous composez vous-même. Dix-huit suites font que la maison peut être à vous."
+        },
+        "image": "eventi"
+      }
+    ]
+  },
   "trust": {
     "eyebrow": {
       "en": "Why guests return",

@@ -1,0 +1,26 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { eyebrow, title, headingLevel = 'h2' } = Astro.props;
+const Heading = headingLevel;
+---
+
+<div class="section-header">
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <Heading class="section-header__title">{title}</Heading>
+</div>
+
+<style>
+  .section-header__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    line-height: 1.25;
+    margin-bottom: var(--space-2);
+    text-wrap: balance;
+  }
+</style>

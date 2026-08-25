@@ -2,6 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ExperienceAccordion from '../../components/ExperienceAccordion.astro';
 import Quote from '../../components/Quote.astro';
 import ScrollExpand from '../../components/ScrollExpand.astro';
 import Waterline from '../../components/Waterline.astro';
@@ -35,6 +37,7 @@ const ambassador = section('ambassador');
 const dining = section('dining');
 const spa = section('spa');
 const fleet = section('fleet');
+const days = home.days;
 const editorialCta = (sec: typeof intro) => ({
   href: p(lang, sec.ctaHref.replace(/^\/|\/$/g, '')),
   label: sec.ctaLabel[lang],
@@ -134,6 +137,29 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
     </div>
   </section>
 
+  <section class="section section--tortora days-section">
+    <div class="container">
+      <div class="days-section__header">
+        <div class="days-section__header-copy">
+          <SectionHeader eyebrow={days.eyebrow[lang]} title={days.title[lang]} />
+        </div>
+      </div>
+      <ExperienceAccordion
+        ariaLabel={days.eyebrow[lang]}
+        defaultIndex={2}
+        items={days.items.map((item) => {
+          const photo = find(item.image);
+          return {
+            src: photo.src,
+            alt: photo.alt[lang],
+            title: item.title[lang],
+            body: item.body[lang],
+          };
+        })}
+      />
+    </div>
+  </section>
+
   {/* 3. The spa */}
   <section class="section">
     <div class="container">
@@ -201,6 +227,27 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
 <style>
   .guest-quote-section {
     padding-block: clamp(4rem, 7vw, 5.5rem);
+  }
+
+  .days-section__header {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    margin-bottom: clamp(3rem, 4.5vw, 4.5rem);
+  }
+
+  .days-section__header-copy {
+    grid-column: 2;
+  }
+
+  @media (max-width: 900px) {
+    .days-section__header {
+      grid-template-columns: 1fr;
+    }
+
+    .days-section__header-copy {
+      grid-column: 1;
+    }
   }
 
   .trust-title {

@@ -42,6 +42,16 @@ const homepage = defineCollection({
       ctaLabel: localized,
       flip: z.boolean().default(false),
     })),
+    days: z.object({
+      eyebrow: localized,
+      title: localized,
+      items: z.array(z.object({
+        id: z.string(),
+        title: localized,
+        body: localized,
+        image: z.string(),
+      })).length(5),
+    }),
     trust: z.object({
       eyebrow: localized,
       title: localized,
