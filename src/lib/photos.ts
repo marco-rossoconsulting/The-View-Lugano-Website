@@ -67,6 +67,12 @@ export const PHOTOS: Photo[] = [
     it: "Il viale d'ingresso al crepuscolo",
     fr: 'L’allée d’entrée au crépuscule',
   }),
+  photo('2018/12/12104412/%C2%A9r.patti_6871.jpg', 'hotel', {
+    en: 'Outdoor fitness trail on Monte San Salvatore, overlooking Lugano',
+    de: 'Outdoor-Fitnesspfad am Monte San Salvatore mit Blick über Lugano',
+    it: 'Percorso fitness all’aperto sul Monte San Salvatore, con vista su Lugano',
+    fr: 'Parcours de fitness en plein air sur le Monte San Salvatore, avec vue sur Lugano',
+  }),
   photo('2018/07/12135418/hotel_09.jpg', 'hotel', {
     en: 'Clean ship-line architecture of the facade',
     de: 'Die klare, schiffsähnliche Linienführung der Fassade',

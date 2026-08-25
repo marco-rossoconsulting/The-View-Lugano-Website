@@ -1,0 +1,237 @@
+---
+import Pic from './Pic.astro';
+
+interface Item {
+  src: string;
+  alt: string;
+  title: string;
+  body: string;
+  href: string;
+}
+
+interface Props {
+  items: Item[];
+  ariaLabel: string;
+  defaultIndex?: number;
+}
+
+const { items, ariaLabel, defaultIndex = 0 } = Astro.props;
+const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
+---
+
+<div class="experience-accordion" role="list" aria-label={ariaLabel}>
+  {items.map((item, index) => {
+    const descriptionId = `experience-day-${index}-description`;
+    return (
+      <article class={`experience-accordion__panel${index === activeIndex ? ' experience-accordion__panel--default' : ''}`} role="listitem">
+        <Pic
+          src={item.src}
+          alt={item.alt}
+          width={1600}
+          height={1067}
+          sizes="(max-width: 720px) 100vw, 52vw"
+          class="experience-accordion__media"
+        />
+        <div class="experience-accordion__copy">
+          <h3 class="experience-accordion__title">{item.title}</h3>
+          <p class="experience-accordion__description" id={descriptionId}>{item.body}</p>
+        </div>
+        <a class="experience-accordion__link" href={item.href} aria-label={item.title} aria-describedby={descriptionId}></a>
+      </article>
+    );
+  })}
+</div>
+
+<style>
+  .experience-accordion {
+    display: flex;
+    gap: clamp(0.35rem, 0.8vw, 0.65rem);
+    height: clamp(25rem, 44vw, 33rem);
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .experience-accordion__panel {
+    position: relative;
+    isolation: isolate;
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--ink);
+    transition: flex 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .experience-accordion__panel--default {
+    flex: 4.4 1 0;
+  }
+
+  .experience-accordion__link {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .experience-accordion__panel:has(.experience-accordion__link:focus-visible) {
+    outline: 2px solid var(--clay);
+    outline-offset: 3px;
+  }
+
+  .experience-accordion :global(.experience-accordion__media) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    filter: grayscale(0.48) saturate(0.66) brightness(0.76);
+    transform: scale(1.06);
+    transition: filter 700ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .experience-accordion__panel--default :global(.experience-accordion__media) {
+    filter: saturate(0.88) contrast(1.03) brightness(1);
+    transform: scale(1);
+  }
+
+  .experience-accordion__panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to top, rgb(51 41 26 / 0.78), rgb(51 41 26 / 0.08) 62%, rgb(51 41 26 / 0.28));
+    transition: opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .experience-accordion__panel--default::after {
+    opacity: 0.72;
+  }
+
+  .experience-accordion__copy {
+    position: absolute;
+    inset-inline: clamp(0.85rem, 2.2vw, 1.75rem);
+    bottom: clamp(0.85rem, 2.2vw, 1.75rem);
+    z-index: 2;
+    color: var(--white);
+    pointer-events: none;
+  }
+
+  .experience-accordion__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.05rem, 1.8vw, 1.7rem);
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+    text-shadow: 0 2px 18px rgb(51 41 26 / 0.7);
+  }
+
+  .experience-accordion__description {
+    max-width: 25ch;
+    margin: 0.65rem 0 0;
+    color: var(--ground);
+    font-family: var(--font-body);
+    font-size: clamp(0.88rem, 1.15vw, 1rem);
+    line-height: 1.55;
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0);
+    transition: opacity 420ms ease, transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .experience-accordion__panel--default .experience-accordion__description {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .experience-accordion:has(.experience-accordion__panel:hover) .experience-accordion__panel {
+      flex: 1 1 0;
+    }
+
+    .experience-accordion:has(.experience-accordion__panel:hover) .experience-accordion__panel:hover {
+      flex: 4.4 1 0;
+    }
+
+    .experience-accordion:has(.experience-accordion__panel:hover) :global(.experience-accordion__media) {
+      filter: grayscale(0.48) saturate(0.66) brightness(0.76);
+      transform: scale(1.06);
+    }
+
+    .experience-accordion:has(.experience-accordion__panel:hover) .experience-accordion__panel:hover :global(.experience-accordion__media) {
+      filter: saturate(0.88) contrast(1.03) brightness(1);
+      transform: scale(1);
+    }
+
+    .experience-accordion:has(.experience-accordion__panel:hover) .experience-accordion__description {
+      opacity: 0;
+      transform: translate3d(0, 0.75rem, 0);
+    }
+
+    .experience-accordion:has(.experience-accordion__panel:hover) .experience-accordion__panel:hover .experience-accordion__description {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__panel {
+    flex: 1 1 0;
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__panel:has(.experience-accordion__link:focus-visible) {
+    flex: 4.4 1 0;
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) :global(.experience-accordion__media) {
+    filter: grayscale(0.48) saturate(0.66) brightness(0.76);
+    transform: scale(1.06);
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__panel:has(.experience-accordion__link:focus-visible) :global(.experience-accordion__media) {
+    filter: saturate(0.88) contrast(1.03) brightness(1);
+    transform: scale(1);
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__description {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0);
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__panel:has(.experience-accordion__link:focus-visible) .experience-accordion__description {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 720px) {
+    .experience-accordion {
+      display: grid;
+      height: auto;
+    }
+
+    .experience-accordion__panel,
+    .experience-accordion__panel--default {
+      flex: none;
+      min-height: 7.5rem;
+      transition: min-height 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .experience-accordion__panel--default {
+      min-height: 22rem;
+    }
+
+    .experience-accordion__description {
+      max-width: 34ch;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .experience-accordion__panel,
+    .experience-accordion :global(.experience-accordion__media),
+    .experience-accordion__panel::after,
+    .experience-accordion__description {
+      transition: none;
+    }
+  }
+</style>
