@@ -28,8 +28,8 @@ const { compactTitle, expandedTitle, alt } = Astro.props;
       <div class="memory-reveal__scrim" aria-hidden="true"></div>
     </div>
 
-    <h2 class="memory-reveal__compact-title">{compactTitle}</h2>
-    <p class="memory-reveal__expanded-title">{expandedTitle}</p>
+    <h2 class="memory-reveal__compact-title"><span>{compactTitle}</span></h2>
+    <p class="memory-reveal__expanded-title"><span>{expandedTitle}</span></p>
   </div>
 </section>
 
@@ -82,17 +82,25 @@ const { compactTitle, expandedTitle, alt } = Astro.props;
   .memory-reveal__compact-title,
   .memory-reveal__expanded-title {
     position: absolute;
+    inset: 0;
     z-index: 1;
+    display: grid;
+    place-items: center;
     margin: 0;
+    padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 8vw, 9rem);
     color: var(--ground);
+    text-align: center;
     text-wrap: balance;
     text-shadow: 0 2px 24px rgb(51 41 26 / 0.45);
     will-change: opacity, transform;
   }
 
+  .memory-reveal__compact-title span,
+  .memory-reveal__expanded-title span {
+    display: block;
+  }
+
   .memory-reveal__compact-title {
-    inset-inline: clamp(2rem, 9vw, 10rem);
-    bottom: clamp(2rem, 10vh, 6rem);
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(1.65rem, 3.3vw, 3.5rem);
@@ -100,15 +108,16 @@ const { compactTitle, expandedTitle, alt } = Astro.props;
   }
 
   .memory-reveal__expanded-title {
-    inset-inline: clamp(1.5rem, 8vw, 9rem);
-    bottom: clamp(2.5rem, 8vh, 5.5rem);
-    max-width: 31ch;
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(2rem, 4.6vw, 4.75rem);
     line-height: 1.08;
     opacity: 0;
     transform: translate3d(0, 1.5rem, 0);
+  }
+
+  .memory-reveal__expanded-title span {
+    max-width: 28ch;
   }
 
   @supports (animation-timeline: view()) {
@@ -177,17 +186,13 @@ const { compactTitle, expandedTitle, alt } = Astro.props;
       clip-path: inset(17% 8% 18% 8%);
     }
 
-    .memory-reveal__compact-title {
-      inset-inline: 2rem;
-      bottom: 15vh;
-    }
-
     .memory-reveal__expanded-title {
-      inset-inline: 1.5rem;
-      bottom: 12vh;
-      max-width: 19ch;
       font-size: clamp(2rem, 10vw, 3.2rem);
       line-height: 1.12;
+    }
+
+    .memory-reveal__expanded-title span {
+      max-width: 19ch;
     }
 
     @keyframes memory-frame-open {
