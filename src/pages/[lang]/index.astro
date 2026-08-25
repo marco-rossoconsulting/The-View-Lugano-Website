@@ -36,7 +36,6 @@ const intro = section('intro');
 const ambassador = section('ambassador');
 const dining = section('dining');
 const spa = section('spa');
-const fleet = section('fleet');
 const days = home.days;
 const dayDestinations: Record<string, string> = {
   explore: 'experiences',
@@ -200,33 +199,7 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
     </div>
   </section>
 
-  {/* 5. The fleet */}
-  <section class="section section--tortora">
-    <div class="container">
-      <EditorialSplit
-        src={find(fleet.image).src}
-        alt={find(fleet.image).alt[lang]}
-        eyebrow={fleet.eyebrow?.[lang]}
-        title={fleet.title[lang]}
-        flip={fleet.flip}
-        cta={editorialCta(fleet)}
-      >
-        {fleet.body[lang].map((pText: string) => <p>{pText}</p>)}
-      </EditorialSplit>
-    </div>
-  </section>
-
   <div class="container"><Waterline /></div>
-
-  <section class="section">
-    <div class="container container--narrow fade-up">
-      <p class="eyebrow">{home.trust.eyebrow[lang]}</p>
-      <h2 class="trust-title">{home.trust.title[lang]}</h2>
-      <div class="trust">
-        {home.trust.items.map((item) => <p>{item.text[lang]}</p>)}
-      </div>
-    </div>
-  </section>
 
   <Faq {lang} />
   <JsonLd data={hotelJsonLd(lang)} />
@@ -258,16 +231,4 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
     }
   }
 
-  .trust-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
-    margin-bottom: var(--space-3);
-    text-wrap: balance;
-  }
-  .trust {
-    display: grid;
-    gap: 1.25rem;
-    max-width: 62ch;
-  }
 </style>
