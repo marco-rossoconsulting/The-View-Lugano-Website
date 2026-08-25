@@ -38,6 +38,13 @@ const dining = section('dining');
 const spa = section('spa');
 const fleet = section('fleet');
 const days = home.days;
+const dayDestinations: Record<string, string> = {
+  explore: 'experiences',
+  relax: 'spa',
+  taste: 'dining',
+  move: 'spa',
+  gather: 'events',
+};
 const editorialCta = (sec: typeof intro) => ({
   href: p(lang, sec.ctaHref.replace(/^\/|\/$/g, '')),
   label: sec.ctaLabel[lang],
@@ -154,6 +161,7 @@ const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string
             alt: photo.alt[lang],
             title: item.title[lang],
             body: item.body[lang],
+            href: p(lang, dayDestinations[item.id]),
           };
         })}
       />

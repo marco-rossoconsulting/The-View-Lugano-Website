@@ -6,6 +6,7 @@ interface Item {
   alt: string;
   title: string;
   body: string;
+  href: string;
 }
 
 interface Props {
@@ -18,23 +19,11 @@ const { items, ariaLabel, defaultIndex = 0 } = Astro.props;
 const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
 ---
 
-<fieldset class="experience-accordion">
-  <legend class="visually-hidden">{ariaLabel}</legend>
+<div class="experience-accordion" role="list" aria-label={ariaLabel}>
   {items.map((item, index) => {
-    const inputId = `experience-day-${index}`;
     const descriptionId = `experience-day-${index}-description`;
     return (
-      <div class="experience-accordion__panel">
-        <input
-          class="experience-accordion__input"
-          type="radio"
-          name="experience-day"
-          id={inputId}
-          aria-label={item.title}
-          aria-describedby={descriptionId}
-          checked={index === activeIndex}
-        />
-        <label class="experience-accordion__control" for={inputId} aria-hidden="true"></label>
+      <article class={`experience-accordion__panel${index === activeIndex ? ' experience-accordion__panel--default' : ''}`} role="listitem">
         <Pic
           src={item.src}
           alt={item.alt}
@@ -47,10 +36,11 @@ const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
           <h3 class="experience-accordion__title">{item.title}</h3>
           <p class="experience-accordion__description" id={descriptionId}>{item.body}</p>
         </div>
-      </div>
+        <a class="experience-accordion__link" href={item.href} aria-label={item.title} aria-describedby={descriptionId}></a>
+      </article>
     );
   })}
-</fieldset>
+</div>
 
 <style>
   .experience-accordion {
@@ -72,19 +62,11 @@ const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
     transition: flex 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  .experience-accordion__panel:has(.experience-accordion__input:checked) {
+  .experience-accordion__panel--default {
     flex: 4.4 1 0;
   }
 
-  .experience-accordion__input {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .experience-accordion__control {
+  .experience-accordion__link {
     position: absolute;
     inset: 0;
     z-index: 3;
@@ -92,7 +74,7 @@ const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
     -webkit-tap-highlight-color: transparent;
   }
 
-  .experience-accordion__panel:has(.experience-accordion__input:focus-visible) {
+  .experience-accordion__panel:has(.experience-accordion__link:focus-visible) {
     outline: 2px solid var(--clay);
     outline-offset: 3px;
   }
@@ -109,7 +91,7 @@ const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
     transition: filter 700ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  .experience-accordion__panel:has(.experience-accordion__input:checked) :global(.experience-accordion__media) {
+  .experience-accordion__panel--default :global(.experience-accordion__media) {
     filter: saturate(0.88) contrast(1.03) brightness(1);
     transform: scale(1);
   }
@@ -123,7 +105,7 @@ const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
     transition: opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  .experience-accordion__panel:has(.experience-accordion__input:checked)::after {
+  .experience-accordion__panel--default::after {
     opacity: 0.72;
   }
 
@@ -159,7 +141,7 @@ const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
     transition: opacity 420ms ease, transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  .experience-accordion__panel:has(.experience-accordion__input:checked) .experience-accordion__description {
+  .experience-accordion__panel--default .experience-accordion__description {
     opacity: 1;
     transform: none;
   }
@@ -194,6 +176,34 @@ const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
     }
   }
 
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__panel {
+    flex: 1 1 0;
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__panel:has(.experience-accordion__link:focus-visible) {
+    flex: 4.4 1 0;
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) :global(.experience-accordion__media) {
+    filter: grayscale(0.48) saturate(0.66) brightness(0.76);
+    transform: scale(1.06);
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__panel:has(.experience-accordion__link:focus-visible) :global(.experience-accordion__media) {
+    filter: saturate(0.88) contrast(1.03) brightness(1);
+    transform: scale(1);
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__description {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0);
+  }
+
+  .experience-accordion:has(.experience-accordion__link:focus-visible) .experience-accordion__panel:has(.experience-accordion__link:focus-visible) .experience-accordion__description {
+    opacity: 1;
+    transform: none;
+  }
+
   @media (max-width: 720px) {
     .experience-accordion {
       display: grid;
@@ -201,13 +211,13 @@ const activeIndex = Math.min(Math.max(defaultIndex, 0), items.length - 1);
     }
 
     .experience-accordion__panel,
-    .experience-accordion__panel:has(.experience-accordion__input:checked) {
+    .experience-accordion__panel--default {
       flex: none;
       min-height: 7.5rem;
       transition: min-height 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
-    .experience-accordion__panel:has(.experience-accordion__input:checked) {
+    .experience-accordion__panel--default {
       min-height: 22rem;
     }
 
