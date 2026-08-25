@@ -212,15 +212,15 @@
   ],
   "days": {
     "eyebrow": {
-      "en": "The days",
+      "en": "The Days",
       "de": "Die Tage",
       "it": "Le giornate",
       "fr": "Les journées"
     },
     "title": {
-      "en": "Five ways to spend one. Take them in any order, or none.",
-      "de": "Fünf Arten, einen Tag zu verbringen. Wählen Sie sie in beliebiger Reihenfolge, oder gar nicht.",
-      "it": "Cinque modi di viverne una. In qualsiasi ordine, oppure nessuno.",
+      "en": "Five ways to spend a day. Take them in any order, or none.",
+      "de": "Fünf Möglichkeiten, einen Tag zu verbringen. Wählen Sie sie in beliebiger Reihenfolge, oder keine davon.",
+      "it": "Cinque modi di trascorrere una giornata. In qualsiasi ordine, oppure nessuno.",
       "fr": "Cinq façons de passer une journée. Dans l’ordre de votre choix, ou aucune."
     },
     "items": [
@@ -261,12 +261,12 @@
         "id": "move",
         "title": { "en": "Move", "de": "Bewegen", "it": "Muoversi", "fr": "Bouger" },
         "body": {
-          "en": "Climb Monte San Salvatore from the door, or train inside with a lake view.",
-          "de": "Besteigen Sie den Monte San Salvatore direkt vor der Tür oder trainieren Sie drinnen mit Seeblick.",
-          "it": "Salite il Monte San Salvatore dalla porta di casa o allenatevi all’interno con vista sul lago.",
-          "fr": "Gravissez le Monte San Salvatore depuis le seuil, ou entraînez-vous à l’intérieur avec vue sur le lac."
+          "en": "Climb Monte San Salvatore from the door, or train in our indoor gym.",
+          "de": "Besteigen Sie den Monte San Salvatore direkt vor der Tür oder trainieren Sie in unserem Fitnessraum.",
+          "it": "Salite il Monte San Salvatore dalla porta di casa o allenatevi nella nostra palestra interna.",
+          "fr": "Gravissez le Monte San Salvatore depuis le seuil, ou entraînez-vous dans notre salle de fitness intérieure."
         },
-        "image": "hotel_041"
+        "image": "r.patti_6871"
       },
       {
         "id": "gather",
