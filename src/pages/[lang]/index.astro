@@ -73,22 +73,22 @@ const guestQuotes: Record<Locale, string[]> = {
 const memoryReveal: Record<Locale, { compactTitle: string; expandedTitle: string; alt: string }> = {
   en: {
     compactTitle: 'some things you see',
-    expandedTitle: "Some things you feel — and remember long after you've left.",
+    expandedTitle: "some things you feel, and remember long after you've left.",
     alt: 'Lugano and the lake seen through a window at golden hour',
   },
   de: {
     compactTitle: 'manches sieht man',
-    expandedTitle: 'Manches spürt man — und erinnert sich noch lange daran, nachdem man gegangen ist.',
+    expandedTitle: 'manches spürt man, und erinnert sich noch lange daran, nachdem man gegangen ist.',
     alt: 'Lugano und der See im Abendlicht, durch ein Fenster gesehen',
   },
   it: {
     compactTitle: 'alcune cose si vedono',
-    expandedTitle: 'Alcune cose si percepiscono — e restano nella memoria molto tempo dopo la partenza.',
+    expandedTitle: 'alcune cose si percepiscono, e restano nella memoria molto tempo dopo la partenza.',
     alt: 'Lugano e il lago al tramonto, visti attraverso una finestra',
   },
   fr: {
     compactTitle: 'certaines choses se voient',
-    expandedTitle: 'Certaines choses se ressentent — et restent en mémoire longtemps après votre départ.',
+    expandedTitle: 'certaines choses se ressentent, et restent en mémoire longtemps après votre départ.',
     alt: 'Lugano et le lac à l’heure dorée, vus à travers une fenêtre',
   },
 };
@@ -206,13 +206,13 @@ const fedAndRestored: Record<Locale, { title: string; subtitle: string; diningAl
     }}
   />
 
+  <ScrollExpand {...memoryReveal[lang]} />
+
   <section class="section section--tortora guest-quote-section">
     <div class="container">
       <Quote quotes={guestQuotes[lang]} />
     </div>
   </section>
-
-  <ScrollExpand {...memoryReveal[lang]} />
 
   <div class="container"><Waterline /></div>
 
