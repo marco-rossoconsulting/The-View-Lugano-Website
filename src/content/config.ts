@@ -149,9 +149,6 @@ const sustainability = defineCollection({
       eyebrow: localized,
       image: z.string(),
       caption: localized,
-    }),
-    intro: z.object({
-      title: localized,
       body: localizedArray,
     }),
     explorer: z.object({
@@ -172,6 +169,11 @@ const sustainability = defineCollection({
       title: localized,
       body: localized,
       points: z.array(localized).min(1),
+      logos: z.array(z.object({
+        id: z.string(),
+        src: z.string(),
+        alt: localized,
+      })).min(1),
     }),
     next: z.object({
       eyebrow: localized,

@@ -12,14 +12,6 @@
       "de": "Der Luganersee, eine Landschaft, die es zu bewahren gilt.",
       "it": "Il lago di Lugano, un paesaggio di cui prendersi cura.",
       "fr": "Le lac de Lugano, un paysage dont il faut prendre soin."
-    }
-  },
-  "intro": {
-    "title": {
-      "en": "A quieter kind of progress",
-      "de": "Fortschritt, der leise wirkt",
-      "it": "Un progresso silenzioso",
-      "fr": "Une progression plus discrète"
     },
     "body": {
       "en": [
@@ -294,6 +286,38 @@
         "de": "Barrierefreiheitsinformationen über die Initiative OK:GO, damit Gäste ihren Aufenthalt mit Sicherheit planen können.",
         "it": "Informazioni sull'accessibilità condivise attraverso l'iniziativa OK:GO, per aiutare gli ospiti a pianificare con tranquillità.",
         "fr": "Informations sur l'accessibilité partagées via l'initiative OK:GO, pour aider les hôtes à préparer leur séjour en confiance."
+      }
+    ],
+    "logos": [
+      {
+        "id": "swisstainable",
+        "src": "/images/awards/swisstainable.webp",
+        "alt": {
+          "en": "Swisstainable Leading certification mark",
+          "de": "Auszeichnung Swisstainable Leading",
+          "it": "Marchio di certificazione Swisstainable Leading",
+          "fr": "Marque de certification Swisstainable Leading"
+        }
+      },
+      {
+        "id": "travelife",
+        "src": "/images/awards/travelife-gold.webp",
+        "alt": {
+          "en": "Travelife Gold certification mark",
+          "de": "Auszeichnung Travelife Gold",
+          "it": "Marchio di certificazione Travelife Gold",
+          "fr": "Marque de certification Travelife Gold"
+        }
+      },
+      {
+        "id": "okgo",
+        "src": "/images/awards/okgo-negativ.svg",
+        "alt": {
+          "en": "OK:GO accessibility information mark",
+          "de": "OK:GO Auszeichnung für Barrierefreiheitsinformationen",
+          "it": "Marchio OK:GO per le informazioni sull'accessibilità",
+          "fr": "Marque OK:GO pour les informations sur l'accessibilité"
+        }
       }
     ]
   },

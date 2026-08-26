@@ -36,6 +36,9 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
         <p class="eyebrow">{sustainability.hero.eyebrow[lang]}</p>
         <h1>{page.h1[lang]}</h1>
         <p class="sust-hero__lede">{page.intro[lang]}</p>
+        <div class="sust-hero__body">
+          {sustainability.hero.body[lang].map((paragraph) => <p>{paragraph}</p>)}
+        </div>
       </div>
       <figure class="sust-hero__media fade-up">
         <Pic
@@ -49,15 +52,6 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
         />
         <figcaption>{sustainability.hero.caption[lang]}</figcaption>
       </figure>
-    </div>
-  </section>
-
-  <section class="section sust-intro">
-    <div class="container sust-intro__inner">
-      <h2 class="fade-up">{sustainability.intro.title[lang]}</h2>
-      <div class="sust-intro__body fade-up">
-        {sustainability.intro.body[lang].map((paragraph) => <p>{paragraph}</p>)}
-      </div>
     </div>
   </section>
 
@@ -139,6 +133,13 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
         ))}
       </ol>
     </div>
+    <ul class="container sust-standards__logos fade-up" aria-label={sustainability.standards.title[lang]}>
+      {sustainability.standards.logos.map((logo) => (
+        <li class={`sust-standards__logo sust-standards__logo--${logo.id}`}>
+          <img src={logo.src} alt={logo.alt[lang]} width="183" height="180" loading="lazy" decoding="async" />
+        </li>
+      ))}
+    </ul>
   </section>
 
   <section class="section section--ink sust-next">
@@ -235,6 +236,19 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
     line-height: 1.72;
   }
 
+  .sust-hero__body {
+    border-top: 1px solid var(--tortora-densa);
+    margin-top: 1.5rem;
+    max-width: 43ch;
+    padding-top: 1.35rem;
+  }
+
+  .sust-hero__body p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    margin: 0 0 0.9rem;
+  }
+
   .sust-hero__media {
     grid-column: 7 / -1;
     margin: 0;
@@ -258,22 +272,11 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
     letter-spacing: 0.07em;
   }
 
-  .sust-intro__inner,
   .sust-standards__inner,
   .sust-next__inner {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: clamp(2rem, 6vw, 6rem);
-  }
-
-  .sust-intro h2 {
-    grid-column: 1 / span 4;
-    max-width: 10ch;
-  }
-
-  .sust-intro__body {
-    grid-column: 6 / span 6;
-    font-size: 1.08rem;
   }
 
   .sust-section-heading {
@@ -431,6 +434,48 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
     margin: 0;
   }
 
+  .sust-standards__logos {
+    border-bottom: 1px solid var(--tortora-densa);
+    border-top: 1px solid var(--tortora-densa);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    margin: clamp(3rem, 6vw, 5.5rem) auto 0;
+    padding: 0;
+  }
+
+  .sust-standards__logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: clamp(8.75rem, 14vw, 11.5rem);
+    padding: 1.5rem clamp(1rem, 3vw, 3rem);
+  }
+
+  .sust-standards__logo + .sust-standards__logo {
+    border-left: 1px solid var(--tortora-densa);
+  }
+
+  .sust-standards__logo img {
+    display: block;
+    height: auto;
+    max-height: 5.5rem;
+    max-width: min(100%, 10rem);
+    object-fit: contain;
+    width: auto;
+  }
+
+  .sust-standards__logo--swisstainable img {
+    max-height: 6.5rem;
+    max-width: 6.5rem;
+  }
+
+  .sust-standards__logo--okgo img {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(11%) saturate(2427%) hue-rotate(359deg) brightness(91%) contrast(88%);
+    max-height: 4.5rem;
+    opacity: 0.72;
+  }
+
   .sust-next__intro {
     grid-column: 1 / span 4;
   }
@@ -477,8 +522,6 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
     .sust-hero { padding-top: var(--space-4); }
     .sust-hero__copy,
     .sust-hero__media,
-    .sust-intro h2,
-    .sust-intro__body,
     .sust-standards__copy,
     .sust-standards__points,
     .sust-next__intro,
@@ -488,7 +531,6 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
     .sust-hero__media { margin-top: var(--space-2); }
     .sust-hero__media :global(picture),
     .sust-hero__media :global(img) { height: auto; }
-    .sust-intro h2 { margin-bottom: 0; max-width: 14ch; }
     .sust-explorer__layout { grid-template-columns: 1fr; }
     .sust-explorer__tabs {
       display: grid;
@@ -510,6 +552,10 @@ const commitments = sustainability.explorer.items.map((item) => ({ ...item, phot
     .sust-tab:nth-child(odd) { border-right: 0; }
     .sust-panel__content { padding: 1.75rem; }
     .sust-next__item { gap: 0.75rem; grid-template-columns: 1.5rem 1fr; }
+    .sust-standards__logo { min-height: 7.5rem; padding-inline: 0.75rem; }
+    .sust-standards__logo img { max-height: 3.6rem; max-width: 5.5rem; }
+    .sust-standards__logo--swisstainable img { max-height: 4.5rem; max-width: 4.5rem; }
+    .sust-standards__logo--okgo img { max-height: 3.25rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {

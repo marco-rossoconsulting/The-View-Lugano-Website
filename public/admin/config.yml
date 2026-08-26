@@ -198,12 +198,7 @@ collections:
               - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
               - { name: image, label: Image Key, widget: string, hint: 'Reference key from the photos library, for example hotel_041' }
               - { name: caption, label: Image Caption, widget: object, fields: *loc }
-          - name: intro
-            label: Introduction
-            widget: object
-            fields:
-              - { name: title, label: Title, widget: object, fields: *loc }
-              - { name: body, label: Paragraphs, widget: object, fields: *locpars }
+              - { name: body, label: Introductory Paragraphs, widget: object, fields: *locpars }
           - name: explorer
             label: Interactive Commitments
             widget: object
@@ -232,6 +227,13 @@ collections:
                 label: Credentials
                 widget: list
                 fields: *loctext
+              - name: logos
+                label: Accreditation Logos
+                widget: list
+                fields:
+                  - { name: id, label: ID, widget: string, hint: 'Use a stable lowercase identifier, for example swisstainable' }
+                  - { name: src, label: Image Path, widget: string, hint: 'Public image path, for example /images/awards/swisstainable.webp' }
+                  - { name: alt, label: Accessible Image Description, widget: object, fields: *loc }
           - name: next
             label: Next Steps
             widget: object
