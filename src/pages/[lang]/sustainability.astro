@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
-import { byCategory } from '../../lib/photos';
+import { find } from '../../lib/photos';
 import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
@@ -16,29 +16,149 @@ const lang = Astro.params.lang as Locale;
 if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
 
 const pageEntries = await getCollection('pages');
-const page = pageEntries.find((e) => e.data.slug === 'sustainability')?.data;
-if (!page) throw new Error('Missing sustainability CMS content');
+const page = pageEntries.find((entry) => entry.data.slug === 'sustainability')?.data;
+const sustainabilityEntries = await getCollection('sustainability');
+const sustainability = sustainabilityEntries[0]?.data;
 
-const fleet = byCategory('fleet')[0];
+if (!page) throw new Error('Missing sustainability SEO content');
+if (!sustainability) throw new Error('Missing sustainability CMS content');
+
+const heroPhoto = find(sustainability.hero.image);
+const commitments = sustainability.explorer.items.map((item) => ({ ...item, photo: find(item.image) }));
 ---
 
 <Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="sustainability">
   <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
-  <section class="section">
-    <div class="container container--narrow">
-      <h1 class="page-title">{page.h1[lang]}</h1>
-      <p class="page-intro">{page.intro[lang]}</p>
+  <section class="sust-hero">
+    <div class="container sust-hero__inner">
+      <div class="sust-hero__copy fade-up">
+        <p class="eyebrow">{sustainability.hero.eyebrow[lang]}</p>
+        <h1>{page.h1[lang]}</h1>
+        <p class="sust-hero__lede">{page.intro[lang]}</p>
+        <div class="sust-hero__body">
+          {sustainability.hero.body[lang].map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+      <figure class="sust-hero__media fade-up">
+        <Pic
+          src={heroPhoto.src}
+          alt={heroPhoto.alt[lang]}
+          width={1600}
+          height={1067}
+          loading="eager"
+          fetchpriority="high"
+          sizes="(max-width: 900px) 100vw, 48vw"
+        />
+        <figcaption>{sustainability.hero.caption[lang]}</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="container sust">
-      <div class="sust__photo fade-up">
-        <Pic src={fleet.src} alt={fleet.alt[lang]} width={1600} height={1067} sizes="(max-width: 900px) 100vw, 58vw" />
+  <section class="section section--tortora sust-explorer" data-sustainability-explorer>
+    <div class="container">
+      <header class="sust-section-heading fade-up">
+        <p class="eyebrow">{sustainability.explorer.eyebrow[lang]}</p>
+        <h2>{sustainability.explorer.title[lang]}</h2>
+        <p class="caption">{sustainability.explorer.instruction[lang]}</p>
+      </header>
+
+      <div class="sust-explorer__layout fade-up">
+        <div class="sust-explorer__tabs" role="tablist" aria-orientation="vertical" aria-label={sustainability.explorer.title[lang]}>
+          {commitments.map((item, index) => (
+            <button
+              class:list={['sust-tab', { 'is-active': index === 0 }]}
+              id={`sust-tab-${item.id}`}
+              type="button"
+              role="tab"
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-controls={`sust-panel-${item.id}`}
+              tabindex={index === 0 ? '0' : '-1'}
+              data-sustainability-tab={item.id}
+            >
+              <span class="sust-tab__number">{item.number}</span>
+              <span>{item.title[lang]}</span>
+            </button>
+          ))}
+        </div>
+
+        <div class="sust-explorer__panels">
+          {commitments.map((item, index) => (
+            <article
+              class:list={['sust-panel', { 'is-active': index === 0 }]}
+              id={`sust-panel-${item.id}`}
+              role="tabpanel"
+              aria-labelledby={`sust-tab-${item.id}`}
+              tabindex="0"
+              hidden={index !== 0}
+              data-sustainability-panel={item.id}
+            >
+              <div class="sust-panel__content">
+                <p class="eyebrow">{item.number}</p>
+                <h3>{item.title[lang]}</h3>
+                <p class="sust-panel__summary">{item.summary[lang]}</p>
+                <ul class="sust-panel__details">
+                  {item.details[lang].map((detail) => <li>{detail}</li>)}
+                </ul>
+              </div>
+              <div class="sust-panel__media">
+                <Pic
+                  src={item.photo.src}
+                  alt={item.photo.alt[lang]}
+                  width={1600}
+                  height={1067}
+                  sizes="(max-width: 900px) 100vw, 44vw"
+                />
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      <div class="sust__body fade-up">
-        {page.body?.[lang]?.map((pText: string) => <p>{pText}</p>)}
+    </div>
+  </section>
+
+  <section class="section sust-standards">
+    <div class="container sust-standards__inner">
+      <div class="sust-standards__copy fade-up">
+        <p class="eyebrow">{sustainability.standards.eyebrow[lang]}</p>
+        <h2>{sustainability.standards.title[lang]}</h2>
+        <p>{sustainability.standards.body[lang]}</p>
+      </div>
+      <ol class="sust-standards__points fade-up">
+        {sustainability.standards.points.map((point, index) => (
+          <li>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <p>{point[lang]}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+    <ul class="container sust-standards__logos fade-up" aria-label={sustainability.standards.title[lang]}>
+      {sustainability.standards.logos.map((logo) => (
+        <li class={`sust-standards__logo sust-standards__logo--${logo.id}`}>
+          <img src={logo.src} alt={logo.alt[lang]} width="183" height="180" loading="lazy" decoding="async" />
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section section--ink sust-next">
+    <div class="container sust-next__inner">
+      <header class="sust-next__intro fade-up">
+        <p class="eyebrow">{sustainability.next.eyebrow[lang]}</p>
+        <h2>{sustainability.next.title[lang]}</h2>
+        <p>{sustainability.next.intro[lang]}</p>
+      </header>
+      <div class="sust-next__items fade-up">
+        {sustainability.next.items.map((item, index) => (
+          <article class="sust-next__item">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{item.title[lang]}</h3>
+              <p>{item.body[lang]}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -51,14 +171,395 @@ const fleet = byCategory('fleet')[0];
   />
 </Base>
 
+<script>
+  const explorer = document.querySelector<HTMLElement>('[data-sustainability-explorer]');
+
+  if (explorer) {
+    const tabs = Array.from(explorer.querySelectorAll<HTMLButtonElement>('[data-sustainability-tab]'));
+    const panels = Array.from(explorer.querySelectorAll<HTMLElement>('[data-sustainability-panel]'));
+
+    const activate = (id: string) => {
+      tabs.forEach((tab) => {
+        const active = tab.dataset.sustainabilityTab === id;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        const active = panel.dataset.sustainabilityPanel === id;
+        panel.hidden = !active;
+        panel.classList.toggle('is-active', active);
+      });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activate(tab.dataset.sustainabilityTab ?? ''));
+      tab.addEventListener('keydown', (event) => {
+        if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        const direction = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : event.key === 'ArrowUp' || event.key === 'ArrowLeft' ? -1 : 0;
+        const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + direction + tabs.length) % tabs.length;
+        const nextTab = tabs[nextIndex];
+        activate(nextTab.dataset.sustainabilityTab ?? '');
+        nextTab.focus();
+      });
+    });
+  }
+</script>
+
 <style>
-  .sust {
+  .sust-hero {
+    padding-block: clamp(3rem, 8vw, 8rem) var(--space-6);
+  }
+
+  .sust-hero__inner {
     display: grid;
-    grid-template-columns: 7fr 4fr;
-    gap: clamp(1.5rem, 5vw, 4.5rem);
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .sust-hero__copy {
+    grid-column: 1 / span 5;
+    padding-block: var(--space-3);
+  }
+
+  .sust-hero__copy h1 {
+    max-width: 11ch;
+    font-size: clamp(2.8rem, 6vw, 5.3rem);
+  }
+
+  .sust-hero__lede {
+    max-width: 39ch;
+    font-size: clamp(1.08rem, 1.5vw, 1.32rem);
+    line-height: 1.72;
+  }
+
+  .sust-hero__body {
+    border-top: 1px solid var(--tortora-densa);
+    margin-top: 1.5rem;
+    max-width: 43ch;
+    padding-top: 1.35rem;
+  }
+
+  .sust-hero__body p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    margin: 0 0 0.9rem;
+  }
+
+  .sust-hero__media {
+    grid-column: 7 / -1;
+    margin: 0;
+  }
+
+  .sust-hero__media :global(picture),
+  .sust-hero__media :global(img) {
+    display: block;
+    width: 100%;
+    height: min(55vw, 45rem);
+  }
+
+  .sust-hero__media :global(img) {
+    object-fit: cover;
+  }
+
+  .sust-hero__media figcaption {
+    margin-top: 0.75rem;
+    color: var(--clay);
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+  }
+
+  .sust-standards__inner,
+  .sust-next__inner {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+  }
+
+  .sust-section-heading {
+    max-width: 45rem;
+    margin-bottom: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .sust-section-heading h2 {
+    max-width: 15ch;
+  }
+
+  .sust-explorer__layout {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 2fr);
+    gap: clamp(2rem, 6vw, 7rem);
     align-items: start;
   }
-  .sust__photo :global(img) { width: 100%; height: auto; display: block; }
-  .sust__body p { margin-bottom: 1rem; }
-  @media (max-width: 900px) { .sust { grid-template-columns: 1fr; } }
+
+  .sust-explorer__tabs {
+    border-top: 1px solid color-mix(in srgb, var(--clay) 45%, transparent);
+  }
+
+  .sust-tab {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--clay) 45%, transparent);
+    color: var(--ink);
+    cursor: pointer;
+    display: grid;
+    font: 400 0.95rem/1.35 var(--font-display);
+    gap: 0.8rem;
+    grid-template-columns: 2rem 1fr;
+    letter-spacing: 0.02em;
+    padding: 1rem 0;
+    text-align: left;
+    transition: color 220ms ease, padding-inline 220ms ease;
+    width: 100%;
+  }
+
+  .sust-tab:hover,
+  .sust-tab.is-active {
+    color: var(--clay);
+    padding-inline: 0.45rem;
+  }
+
+  .sust-tab__number,
+  .sust-next__item > span,
+  .sust-standards__points span {
+    color: var(--clay);
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+
+  .sust-panel {
+    align-items: stretch;
+    animation: sustain-panel-in 550ms ease both;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.92fr);
+    min-height: 32rem;
+  }
+
+  .sust-panel[hidden] {
+    display: none;
+  }
+
+  .sust-panel__content {
+    background: var(--ground);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1.75rem, 4vw, 4rem);
+  }
+
+  .sust-panel__content .eyebrow {
+    margin-bottom: 1.5rem;
+  }
+
+  .sust-panel__content h3 {
+    font-size: clamp(1.65rem, 3vw, 2.6rem);
+    max-width: 12ch;
+  }
+
+  .sust-panel__summary {
+    font-size: 1.08rem;
+    line-height: 1.72;
+  }
+
+  .sust-panel__details {
+    border-top: 1px solid var(--tortora-densa);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 1.25rem 0 0;
+  }
+
+  .sust-panel__details li {
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .sust-panel__details li::before {
+    background: var(--clay);
+    border-radius: 50%;
+    content: '';
+    height: 0.25rem;
+    left: 0;
+    position: absolute;
+    top: 0.55rem;
+    width: 0.25rem;
+  }
+
+  .sust-panel__media,
+  .sust-panel__media :global(picture),
+  .sust-panel__media :global(img) {
+    height: 100%;
+    width: 100%;
+  }
+
+  .sust-panel__media :global(img) {
+    object-fit: cover;
+  }
+
+  .sust-standards__copy {
+    grid-column: 1 / span 5;
+  }
+
+  .sust-standards__copy h2 {
+    max-width: 12ch;
+  }
+
+  .sust-standards__points {
+    grid-column: 7 / -1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sust-standards__points li {
+    border-top: 1px solid var(--tortora-densa);
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 2rem 1fr;
+    padding: 1.25rem 0;
+  }
+
+  .sust-standards__points li:last-child {
+    border-bottom: 1px solid var(--tortora-densa);
+  }
+
+  .sust-standards__points p {
+    margin: 0;
+  }
+
+  .sust-standards__logos {
+    border-bottom: 1px solid var(--tortora-densa);
+    border-top: 1px solid var(--tortora-densa);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    margin: clamp(3rem, 6vw, 5.5rem) auto 0;
+    padding: 0;
+  }
+
+  .sust-standards__logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: clamp(8.75rem, 14vw, 11.5rem);
+    padding: 1.5rem clamp(1rem, 3vw, 3rem);
+  }
+
+  .sust-standards__logo + .sust-standards__logo {
+    border-left: 1px solid var(--tortora-densa);
+  }
+
+  .sust-standards__logo img {
+    display: block;
+    height: auto;
+    max-height: 5.5rem;
+    max-width: min(100%, 10rem);
+    object-fit: contain;
+    width: auto;
+  }
+
+  .sust-standards__logo--swisstainable img {
+    max-height: 6.5rem;
+    max-width: 6.5rem;
+  }
+
+  .sust-standards__logo--okgo img {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(11%) saturate(2427%) hue-rotate(359deg) brightness(91%) contrast(88%);
+    max-height: 4.5rem;
+    opacity: 0.72;
+  }
+
+  .sust-next__intro {
+    grid-column: 1 / span 4;
+  }
+
+  .sust-next__intro h2 {
+    max-width: 9ch;
+  }
+
+  .sust-next__items {
+    grid-column: 6 / -1;
+  }
+
+  .sust-next__item {
+    border-top: 1px solid color-mix(in srgb, var(--tortora) 42%, transparent);
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 2rem 1fr;
+    padding: 1.35rem 0;
+  }
+
+  .sust-next__item:last-child {
+    border-bottom: 1px solid color-mix(in srgb, var(--tortora) 42%, transparent);
+  }
+
+  .sust-next__item h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .sust-next__item p,
+  .sust-next__intro p {
+    color: color-mix(in srgb, var(--tortora) 84%, transparent);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @keyframes sustain-panel-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .sust-hero { padding-top: var(--space-4); }
+    .sust-hero__copy,
+    .sust-hero__media,
+    .sust-standards__copy,
+    .sust-standards__points,
+    .sust-next__intro,
+    .sust-next__items {
+      grid-column: 1 / -1;
+    }
+    .sust-hero__media { margin-top: var(--space-2); }
+    .sust-hero__media :global(picture),
+    .sust-hero__media :global(img) { height: auto; }
+    .sust-explorer__layout { grid-template-columns: 1fr; }
+    .sust-explorer__tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .sust-tab:nth-child(odd) { border-right: 1px solid color-mix(in srgb, var(--clay) 45%, transparent); }
+    .sust-tab { min-height: 4.25rem; padding-inline: 0.4rem; }
+    .sust-tab:hover,
+    .sust-tab.is-active { padding-inline: 0.7rem; }
+    .sust-panel { grid-template-columns: 1fr; min-height: 0; }
+    .sust-panel__media { min-height: 18rem; }
+    .sust-panel__content { order: 2; }
+    .sust-panel__media { order: 1; }
+  }
+
+  @media (max-width: 560px) {
+    .sust-hero__copy h1 { font-size: clamp(2.65rem, 13vw, 4rem); }
+    .sust-explorer__tabs { grid-template-columns: 1fr; }
+    .sust-tab:nth-child(odd) { border-right: 0; }
+    .sust-panel__content { padding: 1.75rem; }
+    .sust-next__item { gap: 0.75rem; grid-template-columns: 1.5rem 1fr; }
+    .sust-standards__logo { min-height: 7.5rem; padding-inline: 0.75rem; }
+    .sust-standards__logo img { max-height: 3.6rem; max-width: 5.5rem; }
+    .sust-standards__logo--swisstainable img { max-height: 4.5rem; max-width: 4.5rem; }
+    .sust-standards__logo--okgo img { max-height: 3.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sust-tab { transition: none; }
+    .sust-panel { animation: none; }
+  }
 </style>

@@ -139,6 +139,54 @@ const pages = defineCollection({
   }),
 });
 
+// The sustainability page is deliberately its own singleton. Its long-form
+// editorial content, SEO copy and image references can be maintained in
+// SveltiaCMS without exposing page-specific fields on every other page.
+const sustainability = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/sustainability' }),
+  schema: z.object({
+    hero: z.object({
+      eyebrow: localized,
+      image: z.string(),
+      caption: localized,
+      body: localizedArray,
+    }),
+    explorer: z.object({
+      eyebrow: localized,
+      title: localized,
+      instruction: localized,
+      items: z.array(z.object({
+        id: z.string(),
+        number: z.string(),
+        title: localized,
+        summary: localized,
+        details: localizedArray,
+        image: z.string(),
+      })).min(1),
+    }),
+    standards: z.object({
+      eyebrow: localized,
+      title: localized,
+      body: localized,
+      points: z.array(localized).min(1),
+      logos: z.array(z.object({
+        id: z.string(),
+        src: z.string(),
+        alt: localized,
+      })).min(1),
+    }),
+    next: z.object({
+      eyebrow: localized,
+      title: localized,
+      intro: localized,
+      items: z.array(z.object({
+        title: localized,
+        body: localized,
+      })).min(1),
+    }),
+  }),
+});
+
 const faq = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/faq' }),
   schema: z.object({
@@ -230,4 +278,4 @@ const journal = defineCollection({
   }),
 });
 
-export const collections = { homepage, pages, faq, legal, settings, suites, dining, spa, offers, journal };
+export const collections = { homepage, pages, sustainability, faq, legal, settings, suites, dining, spa, offers, journal };

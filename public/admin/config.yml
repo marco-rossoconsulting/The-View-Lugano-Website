@@ -183,7 +183,72 @@ collections:
       - { name: intro, label: Intro, widget: object, fields: *loctext }
       - { name: body, label: Body Paragraphs, widget: object, fields: *locpars, required: false }
 
-  # ── 4. SUITES ──
+  # ── 4. SUSTAINABILITY ──
+  - name: sustainability
+    label: 🌿 Sustainability Page
+    files:
+      - name: sustainability
+        label: Sustainability Story
+        file: src/content/sustainability/sustainability.json
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: image, label: Image Key, widget: string, hint: 'Reference key from the photos library, for example hotel_041' }
+              - { name: caption, label: Image Caption, widget: object, fields: *loc }
+              - { name: body, label: Introductory Paragraphs, widget: object, fields: *locpars }
+          - name: explorer
+            label: Interactive Commitments
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: instruction, label: Instruction, widget: object, fields: *loc }
+              - name: items
+                label: Commitment Areas
+                widget: list
+                fields:
+                  - { name: id, label: ID, widget: string }
+                  - { name: number, label: Number, widget: string, hint: 'Use a two-digit number, for example 01' }
+                  - { name: title, label: Title, widget: object, fields: *loc }
+                  - { name: summary, label: Summary, widget: object, fields: *loctext }
+                  - { name: details, label: Detail Paragraphs, widget: object, fields: *locpars }
+                  - { name: image, label: Image Key, widget: string, hint: 'Reference key from the photos library' }
+          - name: standards
+            label: Standards and Credentials
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Introductory Text, widget: object, fields: *loctext }
+              - name: points
+                label: Credentials
+                widget: list
+                fields: *loctext
+              - name: logos
+                label: Accreditation Logos
+                widget: list
+                fields:
+                  - { name: id, label: ID, widget: string, hint: 'Use a stable lowercase identifier, for example swisstainable' }
+                  - { name: src, label: Image Path, widget: string, hint: 'Public image path, for example /images/awards/swisstainable.webp' }
+                  - { name: alt, label: Accessible Image Description, widget: object, fields: *loc }
+          - name: next
+            label: Next Steps
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: intro, label: Intro, widget: object, fields: *loctext }
+              - name: items
+                label: Initiatives
+                widget: list
+                fields:
+                  - { name: title, label: Title, widget: object, fields: *loc }
+                  - { name: body, label: Text, widget: object, fields: *loctext }
+
+  # ── 5. SUITES ──
   - name: suites
     label: 🛏️ Suites & Residence
     folder: src/content/suites
