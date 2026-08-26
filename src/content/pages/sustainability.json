@@ -1,49 +1,27 @@
 {
   "slug": "sustainability",
   "metaTitle": {
-    "en": "Sustainability — THE VIEW Lugano",
-    "de": "Nachhaltigkeit — THE VIEW Lugano",
-    "it": "Sostenibilità — THE VIEW Lugano",
-    "fr": "Durabilité — THE VIEW Lugano"
+    "en": "Sustainability at THE VIEW Lugano | Conscious Luxury",
+    "de": "Nachhaltigkeit im THE VIEW Lugano | Bewusster Luxus",
+    "it": "Sostenibilità a THE VIEW Lugano | Lusso consapevole",
+    "fr": "Durabilité à THE VIEW Lugano | Luxe conscient"
   },
   "metaDesc": {
-    "en": "Swisstainable Level III and Travelife Gold. Hydropower operation, an all-electric guest fleet, and a small building that treats resources the way it treats guests: with care.",
-    "de": "Swisstainable Level III und Travelife Gold. Betrieb mit Wasserkraft, eine vollelektrische Gästeflotte und ein kleines Haus, das Ressourcen behandelt wie Gäste: mit Sorgfalt.",
-    "it": "Swisstainable livello III e Travelife Gold. Energia idroelettrica, una flotta ospiti interamente elettrica e una casa piccola che tratta le risorse come tratta gli ospiti: con cura.",
-    "fr": "Swisstainable niveau III et Travelife Gold. Énergie hydraulique, une flotte d'hôtes entièrement électrique et une petite maison qui traite les ressources comme ses hôtes : avec soin."
+    "en": "Discover sustainability at THE VIEW Lugano: Swiss hydropower, considered stays, local sourcing, electric mobility and independently recognised standards.",
+    "de": "Entdecken Sie Nachhaltigkeit im THE VIEW Lugano: Schweizer Wasserkraft, bewusste Aufenthalte, lokale Beschaffung, elektrische Mobilität und anerkannte Standards.",
+    "it": "Scoprite la sostenibilità a THE VIEW Lugano: energia idroelettrica svizzera, soggiorni consapevoli, fornitori locali, mobilità elettrica e standard riconosciuti.",
+    "fr": "Découvrez la durabilité à THE VIEW Lugano : énergie hydroélectrique suisse, séjours pensés avec soin, sourcing local, mobilité électrique et standards reconnus."
   },
   "h1": {
-    "en": "Quietly, and properly",
-    "de": "Leise, und richtig",
-    "it": "In silenzio, e per bene",
-    "fr": "Sans bruit, et proprement"
+    "en": "Care, with a view to the future",
+    "de": "Achtsamkeit mit Blick in die Zukunft",
+    "it": "Cura, con lo sguardo al futuro",
+    "fr": "Prendre soin, avec le regard tourné vers l'avenir"
   },
   "intro": {
-    "en": "Sustainability here is not a campaign. It is how the house is run, and it shows up as quality rather than as slogans.",
-    "de": "Nachhaltigkeit ist hier keine Kampagne. Sie ist die Art, wie das Haus geführt wird — und sie zeigt sich als Qualität, nicht als Parole.",
-    "it": "La sostenibilità qui non è una campagna. È il modo in cui la casa è condotta — e si manifesta come qualità, non come slogan.",
-    "fr": "La durabilité n'est pas ici une campagne. C'est la manière dont la maison est tenue — et elle se manifeste comme qualité, pas comme slogan."
-  },
-  "body": {
-    "en": [
-      "The property operates on hydropower. The guest fleet is entirely electric — the Smarts and the e-bikes that guests write about were an environmental decision before they were a signature. Eighteen suites keep consumption, waste and laundry at the scale of a large private house rather than a hotel block.",
-      "The work is audited rather than asserted: THE VIEW Lugano holds Swisstainable Level III — the highest level of the Swiss tourism sustainability programme — and Travelife Gold certification, and publishes accessibility information through OK:GO.",
-      "None of this appears on a plate or a pillow. It appears in the electricity, the water, and the fact that the lake below the terrace deserves the effort."
-    ],
-    "de": [
-      "Das Haus wird mit Wasserkraft betrieben. Die Gästeflotte ist vollständig elektrisch — die Smarts und E-Bikes, über die Gäste schreiben, waren eine Umweltentscheidung, bevor sie eine Signatur wurden. Achtzehn Suiten halten Verbrauch, Abfall und Wäsche im Massstab eines grossen Privathauses statt eines Hotelblocks.",
-      "Die Arbeit wird geprüft statt behauptet: THE VIEW Lugano trägt Swisstainable Level III — die höchste Stufe des Schweizer Nachhaltigkeitsprogramms für den Tourismus — sowie die Travelife-Gold-Zertifizierung und publiziert Barrierefreiheits-Informationen über OK:GO.",
-      "Nichts davon liegt auf einem Teller oder einem Kissen. Es liegt im Strom, im Wasser und darin, dass der See unter der Terrasse die Mühe verdient."
-    ],
-    "it": [
-      "La proprietà funziona con energia idroelettrica. La flotta per gli ospiti è interamente elettrica — le Smart e le e-bike di cui gli ospiti scrivono sono state una decisione ambientale prima che una firma. Diciotto suite tengono consumi, rifiuti e biancheria alla scala di una grande casa privata, non di un blocco alberghiero.",
-      "Il lavoro è certificato, non dichiarato: THE VIEW Lugano ha il livello Swisstainable III — il più alto del programma svizzero di sostenibilità turistica — e la certificazione Travelife Gold, e pubblica le informazioni di accessibilità tramite OK:GO.",
-      "Niente di tutto questo compare su un piatto o su un cuscino. Compare nell'elettricità, nell'acqua e nel fatto che il lago sotto la terrazza merita lo sforzo."
-    ],
-    "fr": [
-      "La propriété fonctionne à l'énergie hydraulique. La flotte des hôtes est entièrement électrique — les Smart et les vélos dont les hôtes parlent furent une décision environnementale avant d'être une signature. Dix-huit suites maintiennent consommation, déchets et blanchisserie à l'échelle d'une grande maison privée, non d'un bloc hôtelier.",
-      "Le travail est audité plutôt qu'affirmé : THE VIEW Lugano détient le niveau Swisstainable III — le plus haut du programme suisse de durabilité touristique — et la certification Travelife Gold, et publie ses informations d'accessibilité via OK:GO.",
-      "Rien de tout cela n'apparaît sur une assiette ou un oreiller. Cela apparaît dans l'électricité, dans l'eau, et dans le fait que le lac sous la terrasse mérite cet effort."
-    ]
+    "en": "Luxury can feel effortless while being considered at every turn. At THE VIEW Lugano, that care shapes the way we source, host and move through our place by the lake.",
+    "de": "Luxus kann mühelos wirken und dennoch in jedem Detail bewusst gestaltet sein. Im THE VIEW Lugano prägt diese Haltung die Art, wie wir einkaufen, Gastgeber sind und unseren Ort am See leben.",
+    "it": "Il lusso può apparire naturale ed essere al tempo stesso consapevole in ogni dettaglio. A THE VIEW Lugano, questa cura guida il nostro modo di selezionare, accogliere e vivere il luogo che ci circonda.",
+    "fr": "Le luxe peut sembler naturel tout en étant pensé dans chaque détail. À THE VIEW Lugano, cette attention guide notre manière de choisir, d'accueillir et d'habiter notre lieu au bord du lac."
   }
 }

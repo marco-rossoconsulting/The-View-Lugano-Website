@@ -1,0 +1,364 @@
+{
+  "hero": {
+    "eyebrow": {
+      "en": "Sustainability at THE VIEW",
+      "de": "Nachhaltigkeit im THE VIEW",
+      "it": "Sostenibilità a THE VIEW",
+      "fr": "Durabilité à THE VIEW"
+    },
+    "image": "hotel_012",
+    "caption": {
+      "en": "Lake Lugano, a landscape worth looking after.",
+      "de": "Der Luganersee, eine Landschaft, die es zu bewahren gilt.",
+      "it": "Il lago di Lugano, un paesaggio di cui prendersi cura.",
+      "fr": "Le lac de Lugano, un paysage dont il faut prendre soin."
+    }
+  },
+  "intro": {
+    "title": {
+      "en": "A quieter kind of progress",
+      "de": "Fortschritt, der leise wirkt",
+      "it": "Un progresso silenzioso",
+      "fr": "Une progression plus discrète"
+    },
+    "body": {
+      "en": [
+        "For us, sustainability is not a separate experience. It is considered in the decisions that make a stay feel seamless, from the energy behind the room to the water on the table and the ingredients on the plate.",
+        "We work locally where possible, make lower-impact choices without compromising comfort, and invite guests to take part in ways that feel simple and natural."
+      ],
+      "de": [
+        "Für uns ist Nachhaltigkeit kein separates Erlebnis. Sie zeigt sich in den Entscheidungen, die einen Aufenthalt mühelos machen: von der Energie im Zimmer über das Wasser auf dem Tisch bis zu den Zutaten auf dem Teller.",
+        "Wo immer möglich arbeiten wir lokal, treffen ressourcenschonendere Entscheidungen ohne Komforteinbussen und laden Gäste ein, auf einfache und natürliche Weise mitzuwirken."
+      ],
+      "it": [
+        "Per noi la sostenibilità non è un'esperienza a parte. È presente nelle scelte che rendono il soggiorno naturale e fluido: dall'energia della camera all'acqua in tavola, fino agli ingredienti nel piatto.",
+        "Quando possibile lavoriamo con realtà locali, scegliamo soluzioni a minore impatto senza rinunciare al comfort e invitiamo gli ospiti a partecipare in modo semplice e spontaneo."
+      ],
+      "fr": [
+        "Pour nous, la durabilité n'est pas une expérience à part. Elle se retrouve dans les choix qui rendent le séjour fluide, de l'énergie de la chambre à l'eau servie à table, jusqu'aux ingrédients dans l'assiette.",
+        "Nous privilégions le local lorsque cela est possible, faisons des choix à moindre impact sans compromis sur le confort et invitons nos hôtes à participer de manière simple et naturelle."
+      ]
+    }
+  },
+  "explorer": {
+    "eyebrow": {
+      "en": "In practice",
+      "de": "In der Praxis",
+      "it": "Nella pratica",
+      "fr": "Au quotidien"
+    },
+    "title": {
+      "en": "The details that make a difference",
+      "de": "Die Details, die den Unterschied machen",
+      "it": "I dettagli che fanno la differenza",
+      "fr": "Les détails qui font la différence"
+    },
+    "instruction": {
+      "en": "Select an area to explore our approach.",
+      "de": "Wählen Sie einen Bereich und entdecken Sie unseren Ansatz.",
+      "it": "Selezionate un tema per scoprire il nostro approccio.",
+      "fr": "Sélectionnez un thème pour découvrir notre approche."
+    },
+    "items": [
+      {
+        "id": "energy-water",
+        "number": "01",
+        "title": {
+          "en": "Energy and water",
+          "de": "Energie und Wasser",
+          "it": "Energia e acqua",
+          "fr": "Énergie et eau"
+        },
+        "summary": {
+          "en": "More natural light, lower-impact electricity and thoughtful water use form the quiet infrastructure of every stay.",
+          "de": "Natürliches Licht, emissionsärmere Elektrizität und ein bewusster Umgang mit Wasser bilden die stille Infrastruktur jedes Aufenthalts.",
+          "it": "Luce naturale, elettricità a minore impatto e un uso attento dell'acqua costituiscono l'infrastruttura discreta di ogni soggiorno.",
+          "fr": "Lumière naturelle, électricité à moindre impact et gestion attentive de l'eau composent l'infrastructure discrète de chaque séjour."
+        },
+        "details": {
+          "en": [
+            "THE VIEW Lugano is powered by Swiss hydroelectric energy, with LED lighting and motion sensors used throughout public areas and corridors.",
+            "Wide windows bring daylight deep into the house, while energy-efficient equipment is prioritised when appliances are replaced.",
+            "Water use is monitored, reusable glass bottles are served throughout the hotel, and laundry procedures are designed to avoid unnecessary cycles."
+          ],
+          "de": [
+            "THE VIEW Lugano wird mit Schweizer Wasserkraft betrieben. LED-Beleuchtung und Bewegungsmelder kommen in den öffentlichen Bereichen und Fluren zum Einsatz.",
+            "Grosszügige Fenster bringen Tageslicht tief ins Haus, während bei der Erneuerung von Geräten auf hohe Energieeffizienz geachtet wird.",
+            "Der Wasserverbrauch wird überwacht, im ganzen Haus werden wiederverwendbare Glasflaschen eingesetzt und die Wäscherei vermeidet unnötige Waschzyklen."
+          ],
+          "it": [
+            "THE VIEW Lugano è alimentato da energia idroelettrica svizzera, con illuminazione LED e sensori di movimento nelle aree comuni e nei corridoi.",
+            "Le ampie vetrate portano la luce diurna all'interno della struttura e, quando le apparecchiature vengono sostituite, si privilegiano soluzioni ad alta efficienza energetica.",
+            "Il consumo idrico viene monitorato, l'acqua è servita in bottiglie di vetro riutilizzabili in tutto l'hotel e le procedure di lavanderia evitano cicli non necessari."
+          ],
+          "fr": [
+            "THE VIEW Lugano est alimenté par de l'énergie hydroélectrique suisse, avec un éclairage LED et des détecteurs de mouvement dans les espaces publics et les couloirs.",
+            "De larges baies vitrées font entrer la lumière du jour au cœur de la maison et les équipements économes en énergie sont privilégiés lors des remplacements.",
+            "La consommation d'eau est suivie, l'eau est servie dans des bouteilles en verre réutilisables dans tout l'hôtel et les pratiques de blanchisserie évitent les cycles superflus."
+          ]
+        },
+        "image": "hotel_032"
+      },
+      {
+        "id": "considered-stays",
+        "number": "02",
+        "title": {
+          "en": "Considered stays",
+          "de": "Bewusst übernachten",
+          "it": "Soggiorni consapevoli",
+          "fr": "Des séjours pensés avec soin"
+        },
+        "summary": {
+          "en": "Small, practical choices in the suite make it easier to enjoy a more considerate stay without changing its rhythm.",
+          "de": "Kleine, praktische Entscheidungen in der Suite machen einen bewussteren Aufenthalt möglich, ohne seinen Rhythmus zu verändern.",
+          "it": "Piccole scelte pratiche in suite rendono più semplice vivere un soggiorno consapevole, senza cambiarne il ritmo.",
+          "fr": "De petits choix pratiques dans la suite facilitent un séjour plus attentif, sans en changer le rythme."
+        },
+        "details": {
+          "en": [
+            "Guest amenities are presented in refillable containers and minibars use glass or metal packaging instead of single-use plastic.",
+            "Each suite has separate recycling bins, while tea is offered in compostable paper sachets.",
+            "Discreet in-room reminders make towel, bathrobe and linen reuse an easy choice, with housekeeping trained to reduce unnecessary changes."
+          ],
+          "de": [
+            "Die Pflegeprodukte stehen in nachfüllbaren Behältern bereit, und die Minibars verwenden Glas- oder Metallverpackungen anstelle von Einwegplastik.",
+            "Jede Suite verfügt über getrennte Recyclingbehälter, und Tee wird in kompostierbaren Papierbeuteln angeboten.",
+            "Dezente Hinweise im Zimmer machen die Wiederverwendung von Handtüchern, Bademänteln und Bettwäsche einfach. Das Housekeeping ist darauf geschult, unnötige Wechsel zu reduzieren."
+          ],
+          "it": [
+            "I prodotti di cortesia sono presentati in contenitori ricaricabili e i minibar utilizzano vetro o metallo invece di plastica monouso.",
+            "Ogni suite dispone di contenitori separati per il riciclo e il tè è proposto in bustine di carta compostabile.",
+            "Promemoria discreti in camera rendono naturale riutilizzare asciugamani, accappatoi e biancheria. Il personale di housekeeping è formato per limitare cambi non necessari."
+          ],
+          "fr": [
+            "Les produits d'accueil sont présentés dans des contenants rechargeables et les minibars utilisent du verre ou du métal plutôt que du plastique à usage unique.",
+            "Chaque suite dispose de bacs de tri séparés et le thé est proposé dans des sachets en papier compostable.",
+            "Des rappels discrets dans la chambre facilitent la réutilisation des serviettes, peignoirs et du linge. Les équipes d'étage sont formées pour limiter les changements inutiles."
+          ]
+        },
+        "image": "room_012"
+      },
+      {
+        "id": "local-table",
+        "number": "03",
+        "title": {
+          "en": "A local table",
+          "de": "Eine lokale Küche",
+          "it": "Una tavola locale",
+          "fr": "Une table locale"
+        },
+        "summary": {
+          "en": "Seasonality, freshness and trusted regional suppliers guide a cuisine with a lighter footprint and a stronger sense of place.",
+          "de": "Saisonalität, Frische und vertrauensvolle regionale Lieferanten prägen eine Küche mit leichterem Fussabdruck und stärkerem Ortsbezug.",
+          "it": "Stagionalità, freschezza e fornitori regionali di fiducia guidano una cucina dal minore impatto e con un forte legame con il territorio.",
+          "fr": "Saisonnalité, fraîcheur et fournisseurs régionaux de confiance guident une cuisine à moindre impact et plus ancrée dans son territoire."
+        },
+        "details": {
+          "en": [
+            "Ingredients are selected daily from regional suppliers where possible, supporting local producers while limiting unnecessary storage and waste.",
+            "Menus favour Mediterranean-inspired, lower-impact ingredients and avoid choices associated with overfishing or unsustainable farming practices.",
+            "Bulk purchasing and reusable glass containers for condiments help reduce packaging across the kitchen and dining rooms."
+          ],
+          "de": [
+            "Zutaten werden, wo möglich, täglich bei regionalen Lieferanten ausgewählt. Das unterstützt lokale Produzenten und reduziert unnötige Lagerung und Abfall.",
+            "Die Menüs bevorzugen mediterran inspirierte Zutaten mit geringerem Fussabdruck und vermeiden Produkte, die mit Überfischung oder nicht nachhaltigen Anbaumethoden verbunden sind.",
+            "Grossgebinde und wiederverwendbare Glasbehälter für Würzmittel helfen, Verpackungen in Küche und Restaurant zu reduzieren."
+          ],
+          "it": [
+            "Gli ingredienti vengono selezionati quotidianamente, quando possibile, da fornitori regionali. In questo modo sosteniamo i produttori locali e limitiamo scorte e sprechi non necessari.",
+            "I menu privilegiano ingredienti di ispirazione mediterranea e a minore impatto, evitando scelte legate alla pesca eccessiva o a pratiche agricole non sostenibili.",
+            "L'acquisto in grandi formati e i contenitori in vetro riutilizzabili per i condimenti aiutano a ridurre gli imballaggi in cucina e nelle sale."
+          ],
+          "fr": [
+            "Les ingrédients sont sélectionnés chaque jour, lorsque possible, auprès de fournisseurs régionaux. Cela soutient les producteurs locaux et limite le stockage et le gaspillage inutiles.",
+            "Les menus privilégient des ingrédients d'inspiration méditerranéenne à moindre impact et évitent les choix liés à la surpêche ou à des pratiques agricoles non durables.",
+            "Les achats en vrac et les contenants en verre réutilisables pour les condiments contribuent à réduire les emballages en cuisine comme en salle."
+          ]
+        },
+        "image": "fine-dining-restaurant-food"
+      },
+      {
+        "id": "movement-landscape",
+        "number": "04",
+        "title": {
+          "en": "Move gently",
+          "de": "Sanft unterwegs",
+          "it": "Muoversi con leggerezza",
+          "fr": "Se déplacer en douceur"
+        },
+        "summary": {
+          "en": "Electric Smart cars, e-bikes and charging make it easy to explore Lugano and its surroundings with less impact.",
+          "de": "Elektrische Smarts, E-Bikes und Lademöglichkeiten machen es einfach, Lugano und die Umgebung mit geringerem Einfluss zu entdecken.",
+          "it": "Smart elettriche, e-bike e ricarica rendono semplice esplorare Lugano e i suoi dintorni con un minore impatto.",
+          "fr": "Smart électriques, vélos électriques et recharge facilitent la découverte de Lugano et de ses environs avec moins d'impact."
+        },
+        "details": {
+          "en": [
+            "Guests can use electric Smart cars and e-bikes for considered, comfortable travel around the city and nearby landscape.",
+            "Fast-charging stations in the private parking area are available to guests travelling with an electric vehicle.",
+            "We encourage low-impact experiences such as walks in the forest, cycling, visits to nearby villages and time on the lake."
+          ],
+          "de": [
+            "Gäste können elektrische Smarts und E-Bikes für eine bewusste und komfortable Fortbewegung in der Stadt und der näheren Umgebung nutzen.",
+            "Schnellladestationen im privaten Parkplatz stehen Gästen mit Elektrofahrzeug zur Verfügung.",
+            "Wir empfehlen naturnahe Erlebnisse wie Waldspaziergänge, Velotouren, Besuche in umliegenden Dörfern und Zeit auf dem See."
+          ],
+          "it": [
+            "Gli ospiti possono utilizzare Smart elettriche ed e-bike per muoversi con comfort e consapevolezza in città e nel paesaggio circostante.",
+            "Le stazioni di ricarica rapida nel parcheggio privato sono a disposizione degli ospiti che viaggiano con un veicolo elettrico.",
+            "Promuoviamo esperienze a basso impatto come passeggiate nel bosco, gite in bicicletta, visite ai villaggi vicini e momenti sul lago."
+          ],
+          "fr": [
+            "Les hôtes peuvent utiliser des Smart électriques et des vélos électriques pour se déplacer avec confort et attention dans la ville et les paysages alentour.",
+            "Des bornes de recharge rapide sont à la disposition des hôtes voyageant avec un véhicule électrique dans le parking privé.",
+            "Nous encourageons les expériences à faible impact, comme les promenades en forêt, le vélo, les visites de villages voisins et les moments sur le lac."
+          ]
+        },
+        "image": "smart-2"
+      },
+      {
+        "id": "people-place",
+        "number": "05",
+        "title": {
+          "en": "People and place",
+          "de": "Menschen und Ort",
+          "it": "Persone e territorio",
+          "fr": "Les personnes et le lieu"
+        },
+        "summary": {
+          "en": "A more sustainable house is made with its team, neighbours, artisans and the natural environment that surrounds it.",
+          "de": "Ein nachhaltigeres Haus entsteht mit seinem Team, seinen Nachbarn, Handwerkern und der natürlichen Umgebung, die es umgibt.",
+          "it": "Una casa più sostenibile si costruisce insieme al suo team, ai vicini, agli artigiani e all'ambiente naturale che la circonda.",
+          "fr": "Une maison plus durable se construit avec son équipe, ses voisins, les artisans et l'environnement naturel qui l'entoure."
+        },
+        "details": {
+          "en": [
+            "We support an inclusive, safe workplace through fair conditions, ongoing training, professional development and channels for team feedback.",
+            "Relationships with local artisans and producers strengthen the regional economy and carry local traditions into the guest experience.",
+            "Our approach includes support for Swiss natural habitats and a commitment to avoid products that can harm biodiversity."
+          ],
+          "de": [
+            "Wir fördern einen sicheren und inklusiven Arbeitsplatz durch faire Bedingungen, laufende Weiterbildung, berufliche Entwicklung und Möglichkeiten für Feedback aus dem Team.",
+            "Die Zusammenarbeit mit lokalen Handwerkern und Produzenten stärkt die regionale Wirtschaft und bringt lokale Traditionen in das Gästeerlebnis ein.",
+            "Unser Ansatz umfasst die Unterstützung Schweizer Naturräume und das Ziel, Produkte zu vermeiden, die der Biodiversität schaden können."
+          ],
+          "it": [
+            "Sosteniamo un ambiente di lavoro sicuro e inclusivo attraverso condizioni eque, formazione continua, crescita professionale e canali per il feedback del team.",
+            "I rapporti con artigiani e produttori locali rafforzano l'economia regionale e portano le tradizioni del territorio nell'esperienza degli ospiti.",
+            "Il nostro approccio include il sostegno agli habitat naturali svizzeri e l'impegno a evitare prodotti che possano danneggiare la biodiversità."
+          ],
+          "fr": [
+            "Nous soutenons un environnement de travail sûr et inclusif grâce à des conditions équitables, une formation continue, un développement professionnel et des canaux de retour pour les équipes.",
+            "Les relations avec les artisans et producteurs locaux renforcent l'économie régionale et font entrer les traditions du territoire dans l'expérience des hôtes.",
+            "Notre démarche comprend le soutien aux habitats naturels suisses et l'engagement à éviter les produits susceptibles de nuire à la biodiversité."
+          ]
+        },
+        "image": "foto-10_0538"
+      }
+    ]
+  },
+  "standards": {
+    "eyebrow": {
+      "en": "Measured and shared",
+      "de": "Gemessen und geteilt",
+      "it": "Misurato e condiviso",
+      "fr": "Mesuré et partagé"
+    },
+    "title": {
+      "en": "Commitment that can be checked",
+      "de": "Ein Engagement, das überprüfbar ist",
+      "it": "Un impegno che può essere verificato",
+      "fr": "Un engagement qui peut être vérifié"
+    },
+    "body": {
+      "en": "Progress matters most when it is accountable. Our sustainability work is supported by independent standards and practical information that guests can use.",
+      "de": "Fortschritt zählt besonders dann, wenn er nachvollziehbar ist. Unsere Nachhaltigkeitsarbeit wird durch unabhängige Standards und praktische Informationen für unsere Gäste gestützt.",
+      "it": "Il progresso conta davvero quando è verificabile. Il nostro impegno per la sostenibilità è sostenuto da standard indipendenti e da informazioni pratiche per gli ospiti.",
+      "fr": "Le progrès compte surtout lorsqu'il est vérifiable. Notre démarche de durabilité s'appuie sur des standards indépendants et des informations pratiques pour nos hôtes."
+    },
+    "points": [
+      {
+        "en": "Swisstainable Level III, the highest level of the Swiss tourism sustainability programme.",
+        "de": "Swisstainable Level III, die höchste Stufe des Schweizer Nachhaltigkeitsprogramms für den Tourismus.",
+        "it": "Swisstainable Level III, il livello più alto del programma svizzero per la sostenibilità nel turismo.",
+        "fr": "Swisstainable Level III, le niveau le plus élevé du programme suisse de durabilité dans le tourisme."
+      },
+      {
+        "en": "Travelife Gold certification, recognising sustainability performance in hospitality.",
+        "de": "Travelife Gold Zertifizierung als Anerkennung der Nachhaltigkeitsleistung in der Hotellerie.",
+        "it": "Certificazione Travelife Gold, che riconosce la performance di sostenibilità nell'ospitalità.",
+        "fr": "Certification Travelife Gold, qui reconnaît la performance en matière de durabilité dans l'hôtellerie."
+      },
+      {
+        "en": "Accessibility information shared through the OK:GO initiative, helping guests plan with confidence.",
+        "de": "Barrierefreiheitsinformationen über die Initiative OK:GO, damit Gäste ihren Aufenthalt mit Sicherheit planen können.",
+        "it": "Informazioni sull'accessibilità condivise attraverso l'iniziativa OK:GO, per aiutare gli ospiti a pianificare con tranquillità.",
+        "fr": "Informations sur l'accessibilité partagées via l'initiative OK:GO, pour aider les hôtes à préparer leur séjour en confiance."
+      }
+    ]
+  },
+  "next": {
+    "eyebrow": {
+      "en": "Looking ahead",
+      "de": "Mit Blick nach vorn",
+      "it": "Guardando avanti",
+      "fr": "Regarder vers l'avenir"
+    },
+    "title": {
+      "en": "The work continues",
+      "de": "Die Arbeit geht weiter",
+      "it": "Il percorso continua",
+      "fr": "Le travail continue"
+    },
+    "intro": {
+      "en": "There is no finish line. Our next steps focus on cutting packaging, reducing the impact of water service and creating more moments that connect guests with the local community.",
+      "de": "Es gibt keine Ziellinie. Unsere nächsten Schritte konzentrieren sich auf weniger Verpackung, einen geringeren Einfluss beim Wasserservice und mehr Begegnungen zwischen Gästen und der lokalen Gemeinschaft.",
+      "it": "Non esiste un traguardo finale. I nostri prossimi passi puntano a ridurre gli imballaggi, l'impatto del servizio dell'acqua e a creare più occasioni di incontro tra ospiti e comunità locale.",
+      "fr": "Il n'y a pas de ligne d'arrivée. Nos prochaines étapes visent à réduire les emballages, l'impact du service de l'eau et à créer davantage de moments de rencontre entre les hôtes et la communauté locale."
+    },
+    "items": [
+      {
+        "title": {
+          "en": "Water, bottled on site",
+          "de": "Wasser, vor Ort abgefüllt",
+          "it": "Acqua, imbottigliata in loco",
+          "fr": "De l'eau, embouteillée sur place"
+        },
+        "body": {
+          "en": "We are preparing to introduce BE WTR, a system to purify and bottle still and sparkling water on site, reducing transport and packaging associated with bottled water.",
+          "de": "Wir bereiten die Einführung von BE WTR vor, einem System zur Aufbereitung und Abfüllung von stillem und sprudelndem Wasser vor Ort. So werden Transport und Verpackungen für Flaschenwasser reduziert.",
+          "it": "Stiamo preparando l'introduzione di BE WTR, un sistema per purificare e imbottigliare acqua naturale e frizzante in loco, riducendo trasporto e imballaggi legati all'acqua in bottiglia.",
+          "fr": "Nous préparons l'introduction de BE WTR, un système permettant de purifier et d'embouteiller sur place l'eau plate et gazeuse, afin de réduire le transport et les emballages liés à l'eau en bouteille."
+        }
+      },
+      {
+        "title": {
+          "en": "Less single-use plastic",
+          "de": "Weniger Einwegplastik",
+          "it": "Meno plastica monouso",
+          "fr": "Moins de plastique à usage unique"
+        },
+        "body": {
+          "en": "The transition away from single-use plastics continues across departments, building on reusable glass containers and lower-packaging purchasing already in place.",
+          "de": "Der schrittweise Abschied von Einwegplastik wird in allen Bereichen fortgesetzt. Er baut auf bereits eingesetzten wiederverwendbaren Glasbehältern und beschaffungsseitig weniger Verpackung auf.",
+          "it": "La transizione lontano dalla plastica monouso prosegue in tutti i reparti, partendo dai contenitori in vetro riutilizzabili e da acquisti con meno imballaggi già attivi.",
+          "fr": "La transition hors du plastique à usage unique se poursuit dans tous les services, en s'appuyant sur les contenants en verre réutilisables et des achats déjà moins emballés."
+        }
+      },
+      {
+        "title": {
+          "en": "More local occasions",
+          "de": "Mehr lokale Begegnungen",
+          "it": "Più occasioni locali",
+          "fr": "Davantage d'occasions locales"
+        },
+        "body": {
+          "en": "Future seasonal and cultural events will bring guests and neighbours together around the flavours, people and traditions of the region.",
+          "de": "Künftige saisonale und kulturelle Veranstaltungen werden Gäste und Nachbarn über die Aromen, Menschen und Traditionen der Region zusammenbringen.",
+          "it": "I futuri eventi stagionali e culturali riuniranno ospiti e comunità locale attorno ai sapori, alle persone e alle tradizioni della regione.",
+          "fr": "De futurs événements saisonniers et culturels réuniront hôtes et voisins autour des saveurs, des personnes et des traditions de la région."
+        }
+      }
+    ]
+  }
+}
