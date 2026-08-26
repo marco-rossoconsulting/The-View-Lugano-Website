@@ -10,6 +10,7 @@ import FedAndRestored from '../../components/FedAndRestored.astro';
 import Faq from '../../components/Faq.astro';
 import AwardsLogoLoop from '../../components/AwardsLogoLoop.astro';
 import JsonLd from '../../components/JsonLd.astro';
+import juniorSuiteImage from '../../assets/images/home/the-view-lugano-junior-suite.jpg';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { hotelJsonLd } from '../../lib/seo';
 import { find } from '../../lib/photos';
@@ -49,6 +50,16 @@ const editorialCta = (sec: typeof intro) => ({
   href: p(lang, sec.ctaHref.replace(/^\/|\/$/g, '')),
   label: sec.ctaLabel[lang],
 });
+
+const theHouseImage = {
+  src: juniorSuiteImage,
+  alt: {
+    en: 'Junior Suite at THE VIEW Lugano with a freestanding bath, living area and view of Lake Lugano',
+    de: 'Junior Suite im THE VIEW Lugano mit freistehender Badewanne, Wohnbereich und Blick auf den Luganersee',
+    it: 'Junior Suite al THE VIEW Lugano con vasca freestanding, zona giorno e vista sul Lago di Lugano',
+    fr: 'Junior Suite au THE VIEW Lugano avec baignoire îlot, salon et vue sur le lac de Lugano',
+  } satisfies Record<Locale, string>,
+};
 
 // Localised guest testimonials.
 const guestQuotes: Record<Locale, string[]> = {
@@ -142,12 +153,15 @@ const awardsLabel: Record<Locale, string> = {
   <section class="section">
     <div class="container">
       <EditorialSplit
-        src={find(intro.image).src}
-        alt={find(intro.image).alt[lang]}
+        src={theHouseImage.src}
+        alt={theHouseImage.alt[lang]}
         eyebrow={intro.eyebrow?.[lang]}
         title={intro.title[lang]}
         flip={intro.flip}
         cta={editorialCta(intro)}
+        imageWidth={theHouseImage.src.width}
+        imageHeight={theHouseImage.src.height}
+        imageWidths={[480, 800, 1200, 1600, 2196]}
       >
         {intro.body[lang].map((pText: string) => <p>{pText}</p>)}
       </EditorialSplit>
