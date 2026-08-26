@@ -3,22 +3,44 @@
 // 7 columns of photograph, 4 of text, 1 of air — never a symmetric card grid.
 import Pic from './Pic.astro';
 import SectionHeader from './SectionHeader.astro';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
-  src: string;
+  src: string | ImageMetadata;
   alt: string;
   eyebrow?: string;
   title: string;
   flip?: boolean;
   headingLevel?: 'h2' | 'h3';
   cta?: { href: string; label: string };
+  imageWidth?: number;
+  imageHeight?: number;
+  imageWidths?: number[];
 }
-const { src, alt, eyebrow, title, flip = false, headingLevel = 'h2', cta } = Astro.props;
+const {
+  src,
+  alt,
+  eyebrow,
+  title,
+  flip = false,
+  headingLevel = 'h2',
+  cta,
+  imageWidth = 1600,
+  imageHeight = 1067,
+  imageWidths,
+} = Astro.props;
 ---
 
 <div class={`editorial fade-up${flip ? ' editorial--flip' : ''}`}>
   <div class="editorial__photo">
-    <Pic src={src} alt={alt} width={1600} height={1067} sizes="(max-width: 900px) 100vw, 58vw" />
+    <Pic
+      {src}
+      {alt}
+      width={imageWidth}
+      height={imageHeight}
+      widths={imageWidths}
+      sizes="(max-width: 900px) 100vw, 58vw"
+    />
   </div>
   <div class="editorial__text">
     <SectionHeader {eyebrow} {title} headingLevel={headingLevel} />

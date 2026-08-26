@@ -4,7 +4,6 @@ import EditorialSplit from '../../components/EditorialSplit.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TheForkWidget from '../../components/TheForkWidget.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import Waterline from '../../components/Waterline.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { getCollection } from 'astro:content';
@@ -85,8 +84,6 @@ if (!page) throw new Error('Missing dining-index CMS content');
       <p style="max-width: 62ch;">{page.breakfastBody?.[lang]}</p>
     </div>
   </section>
-
-  <div class="container"><Waterline /></div>
 
   <section class="section">
     <div class="container container--narrow">

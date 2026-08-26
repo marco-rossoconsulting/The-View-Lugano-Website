@@ -3,7 +3,6 @@ import Base from '../../layouts/Base.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import Waterline from '../../components/Waterline.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
@@ -84,8 +83,6 @@ const spaPhotos = byCategory('spa');
       </EditorialSplit>
     </div>
   </section>
-
-  <div class="container"><Waterline /></div>
 
   <JsonLd
     data={breadcrumbJsonLd([

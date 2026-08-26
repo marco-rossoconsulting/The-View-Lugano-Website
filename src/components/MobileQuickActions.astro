@@ -1,0 +1,112 @@
+---
+import type { Locale } from '../lib/i18n';
+import { getQuickActions } from '../lib/quick-actions';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const quickActions = getQuickActions(lang);
+const [reserveAction, ...secondaryActions] = quickActions.items;
+---
+
+<nav class="mobile-quick-actions" aria-label={quickActions.title}>
+  <a class="mobile-quick-actions__reserve" href={reserveAction.href} rel="noopener">
+    {reserveAction.mobileLines.map((line) => <span>{line}</span>)}
+  </a>
+  <div class="mobile-quick-actions__grid">
+    {secondaryActions.map((action) => (
+      <a class="mobile-quick-actions__action" href={action.href} rel="noopener">
+        {action.mobileLines.map((line) => <span>{line}</span>)}
+      </a>
+    ))}
+  </div>
+</nav>
+
+<style>
+  .mobile-quick-actions {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    :global(body) {
+      padding-bottom: calc(10.5rem + env(safe-area-inset-bottom));
+    }
+
+    .mobile-quick-actions {
+      position: fixed;
+      z-index: 35;
+      bottom: 0;
+      left: 50%;
+      display: block;
+      width: min(calc(100% - 1.25rem), 42rem);
+      padding-bottom: env(safe-area-inset-bottom);
+      overflow: hidden;
+      border: 1px solid var(--tortora-densa);
+      background: var(--ground);
+      color: var(--ink);
+      transform: translateX(-50%);
+    }
+
+    .mobile-quick-actions__reserve,
+    .mobile-quick-actions__action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.15rem;
+      padding: 0.45rem 0.65rem;
+      font-family: var(--font-display);
+      font-size: clamp(0.62rem, 1.8vw, 0.74rem);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: 0.13em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .mobile-quick-actions__reserve {
+      min-height: 3.35rem;
+      background: var(--ink);
+      color: var(--ground);
+    }
+
+    .mobile-quick-actions__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mobile-quick-actions__action {
+      flex-direction: column;
+      border-top: 1px solid var(--tortora-densa);
+    }
+
+    .mobile-quick-actions__action:nth-child(even) {
+      border-left: 1px solid var(--tortora-densa);
+    }
+
+    .mobile-quick-actions__reserve:focus-visible,
+    .mobile-quick-actions__action:focus-visible {
+      position: relative;
+      z-index: 1;
+      outline: 2px solid currentColor;
+      outline-offset: -5px;
+    }
+
+    .mobile-quick-actions__reserve:active,
+    .mobile-quick-actions__action:active {
+      transform: scale(0.985);
+    }
+  }
+
+  @media (max-width: 390px) {
+    .mobile-quick-actions__reserve,
+    .mobile-quick-actions__action {
+      font-size: 0.61rem;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  @media (hover: hover) and (max-width: 1024px) {
+    .mobile-quick-actions__action:hover {
+      background: var(--tortora);
+    }
+  }
+</style>

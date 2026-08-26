@@ -3,9 +3,10 @@
 // <Picture> emits AVIF + WebP sources with a JPEG fallback, responsive
 // srcset from `widths`, and explicit dimensions (no CLS).
 import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
-  src: string;
+  src: string | ImageMetadata;
   alt: string;
   width: number;
   height: number;

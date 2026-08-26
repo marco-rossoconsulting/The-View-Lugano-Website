@@ -1,14 +1,12 @@
 ---
 import { dict, p, type Locale } from '../lib/i18n';
 import { SITE, egumaUrl } from '../lib/site';
-import Waterline from './Waterline.astro';
 
 interface Props { lang: Locale; route?: string }
 const { lang, route = '' } = Astro.props;
 const t = dict(lang);
 ---
 
-<Waterline />
 <footer class="footer">
   <div class="container footer__grid">
     <div class="footer__brand">

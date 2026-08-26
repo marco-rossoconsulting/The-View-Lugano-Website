@@ -1,0 +1,149 @@
+---
+interface Props {
+  ariaLabel: string;
+}
+
+const { ariaLabel } = Astro.props;
+
+const logos = [
+  { src: '/images/awards/okgo-negativ.svg', alt: 'OK:GO Accessibility Information' },
+  { src: '/images/awards/swisstainable.webp', alt: 'Swisstainable Leading', preserveColor: true },
+  { src: '/images/awards/small-luxury-hotels.webp', alt: 'Small Luxury Hotels of the World' },
+  { src: '/images/awards/michelin-keys.webp', alt: 'Michelin Keys' },
+  { src: '/images/awards/travelife-gold.webp', alt: 'Travelife Gold' },
+  { src: '/images/awards/michelin-star.webp', alt: 'Michelin Star' },
+  { src: '/images/awards/serandipians.webp', alt: 'Serandipians Hotel Partner' },
+  { src: '/images/awards/forbes-four-star.webp', alt: 'Forbes Travel Guide Four-Star Rating' },
+];
+---
+
+<section class="awards-loop section section--tortora" aria-label={ariaLabel}>
+  <div class="container awards-loop__viewport">
+    <div class="awards-loop__track">
+      <ul class="awards-loop__list">
+        {logos.map((logo) => (
+          <li class="awards-loop__item">
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              class:list={{ 'awards-loop__mark--colour': logo.preserveColor }}
+              width="360"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </li>
+        ))}
+      </ul>
+      <ul class="awards-loop__list" aria-hidden="true">
+        {logos.map((logo) => (
+          <li class="awards-loop__item">
+            <img
+              src={logo.src}
+              alt=""
+              class:list={{ 'awards-loop__mark--colour': logo.preserveColor }}
+              width="360"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .awards-loop {
+    overflow: hidden;
+    padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .awards-loop__viewport {
+    overflow: hidden;
+  }
+
+  .awards-loop__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: awards-loop-scroll 42s linear infinite;
+    will-change: transform;
+  }
+
+  .awards-loop__list {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: clamp(2.25rem, 5vw, 5.5rem);
+    list-style: none;
+    margin: 0;
+    padding: 0 clamp(1.25rem, 3vw, 3rem);
+  }
+
+  .awards-loop__item {
+    display: grid;
+    flex: 0 0 clamp(8rem, 12vw, 10.5rem);
+    position: relative;
+    width: clamp(8rem, 12vw, 10.5rem);
+    height: clamp(3.5rem, 5vw, 4.5rem);
+    place-items: center;
+  }
+
+  .awards-loop__item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.72;
+    filter: brightness(0) saturate(100%) invert(15%) sepia(11%) saturate(2427%) hue-rotate(359deg) brightness(91%) contrast(88%);
+  }
+
+  .awards-loop__item img.awards-loop__mark--colour {
+    opacity: 1;
+    filter: none;
+  }
+
+  @keyframes awards-loop-scroll {
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .awards-loop__viewport {
+      overflow: visible;
+    }
+
+    .awards-loop__track {
+      display: block;
+      width: auto;
+    }
+
+    .awards-loop__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: var(--space-3);
+    }
+
+    .awards-loop__list[aria-hidden='true'] {
+      display: none;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .awards-loop__list {
+      gap: 2rem;
+      padding-inline: 1rem;
+    }
+
+    .awards-loop__item {
+      flex-basis: 7.5rem;
+      width: 7.5rem;
+      height: 3.25rem;
+    }
+  }
+</style>
