@@ -7,7 +7,7 @@ const { ariaLabel } = Astro.props;
 
 const logos = [
   { src: '/images/awards/okgo-negativ.svg', alt: 'OK:GO Accessibility Information' },
-  { src: '/images/awards/swisstainable.webp', alt: 'Swisstainable Leading' },
+  { src: '/images/awards/swisstainable.webp', alt: 'Swisstainable Leading', preserveColor: true },
   { src: '/images/awards/small-luxury-hotels.webp', alt: 'Small Luxury Hotels of the World' },
   { src: '/images/awards/michelin-keys.webp', alt: 'Michelin Keys' },
   { src: '/images/awards/travelife-gold.webp', alt: 'Travelife Gold' },
@@ -23,14 +23,30 @@ const logos = [
       <ul class="awards-loop__list">
         {logos.map((logo) => (
           <li class="awards-loop__item">
-            <img src={logo.src} alt={logo.alt} width="360" height="180" loading="lazy" decoding="async" />
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              class:list={{ 'awards-loop__mark--colour': logo.preserveColor }}
+              width="360"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
           </li>
         ))}
       </ul>
       <ul class="awards-loop__list" aria-hidden="true">
         {logos.map((logo) => (
           <li class="awards-loop__item">
-            <img src={logo.src} alt="" width="360" height="180" loading="lazy" decoding="async" />
+            <img
+              src={logo.src}
+              alt=""
+              class:list={{ 'awards-loop__mark--colour': logo.preserveColor }}
+              width="360"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
           </li>
         ))}
       </ul>
@@ -83,6 +99,11 @@ const logos = [
     object-fit: contain;
     opacity: 0.72;
     filter: brightness(0) saturate(100%) invert(15%) sepia(11%) saturate(2427%) hue-rotate(359deg) brightness(91%) contrast(88%);
+  }
+
+  .awards-loop__item img.awards-loop__mark--colour {
+    opacity: 1;
+    filter: none;
   }
 
   @keyframes awards-loop-scroll {
