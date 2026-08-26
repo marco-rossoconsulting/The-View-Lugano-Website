@@ -24,6 +24,7 @@ const links: { href: string; label: string }[] = [
 ];
 
 const quickActions = getQuickActions(lang);
+const voucherAction = quickActions.items.find((action) => action.id === 'vouchers');
 ---
 
 <a class="skip-link" href="#main">{t.common.skip}</a>
@@ -39,6 +40,7 @@ const quickActions = getQuickActions(lang);
       <span data-label-open>{t.nav.menuOpen}</span>
       <span data-label-close hidden>{t.nav.menuClose}</span>
     </button>
+    {voucherAction && <a class="voucher-btn" href={voucherAction.href} rel="noopener">{voucherAction.label}</a>}
     <a class="reserve-btn" href={simpleBookingUrl(lang)} rel="noopener">{t.common.reserve}</a>
   </div>
 </header>
@@ -159,6 +161,7 @@ const quickActions = getQuickActions(lang);
     gap: 0.5rem;
   }
   .menu-btn,
+  .voucher-btn,
   .reserve-btn {
     font-family: var(--font-display);
     font-size: 0.78rem;
@@ -175,6 +178,17 @@ const quickActions = getQuickActions(lang);
     border: 0;
     color: var(--ink);
   }
+  .voucher-btn {
+    border: 1px solid currentColor;
+    color: var(--ink);
+    transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+  }
+  .voucher-btn:hover,
+  .voucher-btn:focus-visible {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--ground);
+  }
   /* The persistent Reserve affordance: slim, always available, never a popup */
   .reserve-btn {
     border: 1px solid var(--ink);
@@ -188,6 +202,16 @@ const quickActions = getQuickActions(lang);
   }
   .header--overlay .menu-btn {
     color: var(--ground);
+  }
+  .header--overlay .voucher-btn {
+    border-color: var(--ground);
+    color: var(--ground);
+  }
+  .header--overlay .voucher-btn:hover,
+  .header--overlay .voucher-btn:focus-visible {
+    background: var(--ground);
+    border-color: var(--ground);
+    color: var(--ink);
   }
   .header--overlay .reserve-btn,
   .header--overlay .reserve-btn:hover,
@@ -203,6 +227,15 @@ const quickActions = getQuickActions(lang);
   }
   .header--overlay.header--scrolled .menu-btn {
     color: var(--ink);
+  }
+  .header--overlay.header--scrolled .voucher-btn {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .header--overlay.header--scrolled .voucher-btn:hover,
+  .header--overlay.header--scrolled .voucher-btn:focus-visible {
+    background: var(--ink);
+    color: var(--ground);
   }
   :global(.header--overlay.header--scrolled .lang-select) {
     color: var(--ink);
@@ -302,6 +335,7 @@ const quickActions = getQuickActions(lang);
     z-index: 2;
   }
   @media (max-width: 1024px) {
+    .voucher-btn,
     .reserve-btn {
       display: none;
     }
