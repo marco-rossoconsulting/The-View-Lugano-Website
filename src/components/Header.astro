@@ -1,6 +1,7 @@
 ---
 import { dict, p, type Locale } from '../lib/i18n';
-import { egumaUrl, simpleBookingUrl, SITE } from '../lib/site';
+import { simpleBookingUrl } from '../lib/site';
+import { getQuickActions } from '../lib/quick-actions';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props { lang: Locale; route: string; overlay?: boolean }
@@ -22,45 +23,7 @@ const links: { href: string; label: string }[] = [
   { href: p(lang, 'contact'), label: t.nav.contact },
 ];
 
-const quickActionLabels = {
-  en: {
-    title: 'Plan your stay',
-    reserve: 'Reserve a room',
-    vouchers: 'Vouchers',
-    fineDining: 'Book a table at Fine Dining',
-    bistrot: 'Book a table at the Bistrot',
-  },
-  de: {
-    title: 'Aufenthalt planen',
-    reserve: 'Zimmer reservieren',
-    vouchers: 'Gutscheine',
-    fineDining: 'Tisch im Fine Dining reservieren',
-    bistrot: 'Tisch im Bistrot reservieren',
-  },
-  it: {
-    title: 'Organizza il soggiorno',
-    reserve: 'Prenota una camera',
-    vouchers: 'Voucher',
-    fineDining: 'Prenota un tavolo al Fine Dining',
-    bistrot: 'Prenota un tavolo al Bistrot',
-  },
-  fr: {
-    title: 'Préparer votre séjour',
-    reserve: 'Réserver une chambre',
-    vouchers: 'Bons cadeaux',
-    fineDining: 'Réserver une table au Fine Dining',
-    bistrot: 'Réserver une table au Bistrot',
-  },
-} as const;
-
-const quickActions = quickActionLabels[lang];
-const utilityLinks = [
-  { href: simpleBookingUrl(lang), label: quickActions.reserve },
-  { href: egumaUrl('vouchers', lang), label: quickActions.vouchers },
-  { href: SITE.integrations.theForkFineDining, label: quickActions.fineDining },
-  { href: SITE.integrations.theForkBistrot, label: quickActions.bistrot },
-  { href: p(lang, 'contact'), label: t.nav.contact },
-];
+const quickActions = getQuickActions(lang);
 ---
 
 <a class="skip-link" href="#main">{t.common.skip}</a>
@@ -95,7 +58,7 @@ const utilityLinks = [
       <section class="menu__quick-actions" aria-labelledby="quick-actions-title">
         <h2 id="quick-actions-title" class="menu__section-title">{quickActions.title}</h2>
         <div class="menu__shop">
-          {utilityLinks.map((link) => <a href={link.href} rel="noopener">{link.label}</a>)}
+          {quickActions.items.map((link) => <a href={link.href} rel="noopener">{link.label}</a>)}
         </div>
       </section>
       <div class="menu__legal">
@@ -337,6 +300,11 @@ const utilityLinks = [
     border: 0;
     color: var(--ink);
     z-index: 2;
+  }
+  @media (max-width: 1024px) {
+    .reserve-btn {
+      display: none;
+    }
   }
   @media (max-width: 820px) {
     .menu__inner {

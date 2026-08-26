@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
+import MobileQuickActions from '../components/MobileQuickActions.astro';
 import type { Locale } from '../lib/i18n';
 import '../styles/global.css';
 
@@ -30,6 +31,7 @@ const { lang, title, description, route, ogImage, preloadImage, overlayHeader = 
     </main>
     <Footer {lang} />
     <ConsentBanner {lang} />
+    <MobileQuickActions {lang} />
 
     <script>
       // Single, restrained motion: sections fade up once as they enter view.
