@@ -3,7 +3,6 @@ import Base from '../../layouts/Base.astro';
 import BookingBar from '../../components/BookingBar.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import Waterline from '../../components/Waterline.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
@@ -70,8 +69,6 @@ if (!page) throw new Error('Missing contact CMS content');
       <BookingBar {lang} />
     </div>
   </section>
-
-  <div class="container"><Waterline /></div>
 
   <section class="section">
     <div class="container container--narrow">
