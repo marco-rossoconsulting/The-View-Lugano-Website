@@ -187,6 +187,41 @@ const sustainability = defineCollection({
   }),
 });
 
+// Press & Awards has its own editable content model: the SEO essentials stay
+// with the shared pages collection while the editorial layout and accreditation
+// assets remain easy to maintain in one focused SveltiaCMS entry.
+const press = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/press' }),
+  schema: z.object({
+    hero: z.object({
+      eyebrow: localized,
+      image: z.string(),
+      alt: localized,
+      caption: localized,
+    }),
+    awards: z.object({
+      title: localized,
+      intro: localized,
+      items: z.array(z.object({
+        id: z.string(),
+        src: z.string(),
+        width: z.number().positive(),
+        height: z.number().positive(),
+        alt: localized,
+      })).min(1),
+    }),
+    media: z.object({
+      title: localized,
+      body: localized,
+      cta: localized,
+    }),
+    facts: z.object({
+      title: localized,
+      body: localized,
+    }),
+  }),
+});
+
 const faq = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/faq' }),
   schema: z.object({
@@ -278,4 +313,4 @@ const journal = defineCollection({
   }),
 });
 
-export const collections = { homepage, pages, sustainability, faq, legal, settings, suites, dining, spa, offers, journal };
+export const collections = { homepage, pages, sustainability, press, faq, legal, settings, suites, dining, spa, offers, journal };

@@ -1,10 +1,10 @@
 {
   "slug": "press",
   "metaTitle": {
-    "en": "Press & Awards — THE VIEW Lugano",
-    "de": "Presse & Auszeichnungen — THE VIEW Lugano",
-    "it": "Press & Awards — THE VIEW Lugano",
-    "fr": "Presse & Distinctions — THE VIEW Lugano"
+    "en": "Press & Awards - THE VIEW Lugano",
+    "de": "Presse & Auszeichnungen - THE VIEW Lugano",
+    "it": "Press & Awards - THE VIEW Lugano",
+    "fr": "Presse & Distinctions - THE VIEW Lugano"
   },
   "metaDesc": {
     "en": "Recognitions of THE VIEW Lugano: one Michelin star, Michelin Key, Forbes Travel Guide Four-Star, Small Luxury Hotels of the World, Switzerland's Leading Design Hotel, 16 points Gault & Millau.",
@@ -23,29 +23,5 @@
     "de": "Die Auszeichnungen, einmal und klar genannt. Das Haus lässt sich lieber von einer Terrasse beurteilen als von einem Trophäenregal.",
     "it": "I riconoscimenti, detti una volta e con chiarezza. La casa preferisce farsi giudicare da una terrazza che da una bacheca.",
     "fr": "Les distinctions, énoncées une fois et clairement. La maison préfère être jugée depuis une terrasse plutôt que depuis une vitrine."
-  },
-  "mediaTitle": {
-    "en": "Media enquiries",
-    "de": "Medienanfragen",
-    "it": "Richieste stampa",
-    "fr": "Demandes presse"
-  },
-  "mediaBody": {
-    "en": "For press material, photography in print resolution and interview requests, write to us directly. We answer quickly and say yes selectively.",
-    "de": "Für Pressematerial, Fotografie in Druckauflösung und Interviewanfragen schreiben Sie uns direkt. Wir antworten schnell und sagen selektiv zu.",
-    "it": "Per materiale stampa, fotografie in risoluzione di stampa e richieste di intervista, scriveteci direttamente. Rispondiamo in fretta e accettiamo con selettività.",
-    "fr": "Pour les dossiers de presse, la photographie en résolution d'impression et les demandes d'entretien, écrivez-nous directement. Nous répondons vite et acceptons avec discernement."
-  },
-  "factsTitle": {
-    "en": "Fact sheet",
-    "de": "Fact Sheet",
-    "it": "Fact sheet",
-    "fr": "Fiche technique"
-  },
-  "factsBody": {
-    "en": "THE VIEW Lugano is a five-star boutique property of Planhotel Hospitality Group: 18 suites (16 Junior Suites of 50 m², 2 Suite Superior of 105 m²), all lake-facing with private terrace; THE VIEW Fine Dining (1 Michelin star, 16 Gault & Millau points, Chef Diego Della Schiava); Terrazza TreCinqueZero; 1,000 m² spa with indoor pool; outdoor pool; meeting room; electric Smart cars and e-bikes included.",
-    "de": "THE VIEW Lugano ist ein Fünf-Sterne-Boutique-Haus der Planhotel Hospitality Group: 18 Suiten (16 Junior Suiten à 50 m², 2 Suiten Superior à 105 m²), alle seeseitig mit privater Terrasse; THE VIEW Fine Dining (1 Michelin-Stern, 16 Punkte Gault & Millau, Chef Diego Della Schiava); Terrazza TreCinqueZero; 1'000 m² Spa mit Innenpool; Aussenpool; Sitzungsraum; elektrische Smarts und E-Bikes inbegriffen.",
-    "it": "THE VIEW Lugano è una struttura boutique cinque stelle di Planhotel Hospitality Group: 18 suite (16 Junior Suite da 50 m², 2 Suite Superior da 105 m²), tutte fronte lago con terrazza privata; THE VIEW Fine Dining (1 stella Michelin, 16 punti Gault & Millau, Chef Diego Della Schiava); Terrazza TreCinqueZero; spa di 1.000 m² con piscina interna; piscina esterna; sala riunioni; Smart elettriche ed e-bike incluse.",
-    "fr": "THE VIEW Lugano est une maison boutique cinq étoiles de Planhotel Hospitality Group : 18 suites (16 Junior Suites de 50 m², 2 Suites Superior de 105 m²), toutes face au lac avec terrasse privée ; THE VIEW Fine Dining (1 étoile Michelin, 16 points Gault & Millau, Chef Diego Della Schiava) ; Terrazza TreCinqueZero ; spa de 1 000 m² avec piscine intérieure ; piscine extérieure ; salle de réunion ; Smart électriques et vélos électriques compris."
   }
 }

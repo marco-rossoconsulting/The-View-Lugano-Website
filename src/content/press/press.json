@@ -1,0 +1,181 @@
+{
+  "hero": {
+    "eyebrow": {
+      "en": "Press & awards",
+      "de": "Presse & Auszeichnungen",
+      "it": "Press & Awards",
+      "fr": "Presse & distinctions"
+    },
+    "image": "hotel_032",
+    "alt": {
+      "en": "THE VIEW Lugano glowing at dusk above Lake Lugano",
+      "de": "THE VIEW Lugano im Abendlicht über dem Luganersee",
+      "it": "THE VIEW Lugano al crepuscolo sopra il lago di Lugano",
+      "fr": "THE VIEW Lugano illuminé au crépuscule au-dessus du lac de Lugano"
+    },
+    "caption": {
+      "en": "THE VIEW Lugano, above the lake at dusk.",
+      "de": "THE VIEW Lugano, über dem See bei Dämmerung.",
+      "it": "THE VIEW Lugano, sopra il lago al crepuscolo.",
+      "fr": "THE VIEW Lugano, au-dessus du lac au crépuscule."
+    }
+  },
+  "awards": {
+    "title": {
+      "en": "Recognition in view",
+      "de": "Auszeichnungen im Blick",
+      "it": "Riconoscimenti in primo piano",
+      "fr": "Les distinctions en vue"
+    },
+    "intro": {
+      "en": "A selection of the marks that recognise the experience we create, in the house and at the table.",
+      "de": "Eine Auswahl der Auszeichnungen, die das Erlebnis im Haus und am Tisch würdigen.",
+      "it": "Una selezione dei riconoscimenti che valorizzano l'esperienza che creiamo, nella casa e a tavola.",
+      "fr": "Une sélection de distinctions qui reconnaissent l'expérience que nous créons, dans la maison et à table."
+    },
+    "items": [
+      {
+        "id": "michelin-star",
+        "src": "/images/awards/michelin-star.webp",
+        "width": 165,
+        "height": 180,
+        "alt": {
+          "en": "Michelin Star logo",
+          "de": "Logo Michelin-Stern",
+          "it": "Logo Stella Michelin",
+          "fr": "Logo Étoile Michelin"
+        }
+      },
+      {
+        "id": "michelin-keys",
+        "src": "/images/awards/michelin-keys.webp",
+        "width": 162,
+        "height": 180,
+        "alt": {
+          "en": "Michelin Key logo",
+          "de": "Logo Michelin Key",
+          "it": "Logo Chiave Michelin",
+          "fr": "Logo Clef Michelin"
+        }
+      },
+      {
+        "id": "forbes",
+        "src": "/images/awards/forbes-four-star.webp",
+        "width": 192,
+        "height": 180,
+        "alt": {
+          "en": "Forbes Travel Guide Four-Star logo",
+          "de": "Logo Forbes Travel Guide Four-Star",
+          "it": "Logo Forbes Travel Guide Four-Star",
+          "fr": "Logo Forbes Travel Guide Four-Star"
+        }
+      },
+      {
+        "id": "small-luxury-hotels",
+        "src": "/images/awards/small-luxury-hotels.webp",
+        "width": 218,
+        "height": 180,
+        "alt": {
+          "en": "Small Luxury Hotels of the World logo",
+          "de": "Logo Small Luxury Hotels of the World",
+          "it": "Logo Small Luxury Hotels of the World",
+          "fr": "Logo Small Luxury Hotels of the World"
+        }
+      },
+      {
+        "id": "serandipians",
+        "src": "/images/awards/serandipians.webp",
+        "width": 360,
+        "height": 93,
+        "alt": {
+          "en": "Serandipians Hotel Partner logo",
+          "de": "Logo Serandipians Hotel Partner",
+          "it": "Logo Serandipians Hotel Partner",
+          "fr": "Logo Serandipians Hotel Partner"
+        }
+      },
+      {
+        "id": "gault-millau",
+        "src": "/images/awards/gault-millau-16-hats.webp",
+        "width": 269,
+        "height": 180,
+        "alt": {
+          "en": "Gault & Millau 16 points logo",
+          "de": "Logo Gault & Millau 16 Punkte",
+          "it": "Logo Gault & Millau 16 punti",
+          "fr": "Logo Gault & Millau 16 points"
+        }
+      },
+      {
+        "id": "travelife",
+        "src": "/images/awards/travelife-gold.webp",
+        "width": 183,
+        "height": 180,
+        "alt": {
+          "en": "Travelife Gold logo",
+          "de": "Logo Travelife Gold",
+          "it": "Logo Travelife Gold",
+          "fr": "Logo Travelife Gold"
+        }
+      },
+      {
+        "id": "swisstainable",
+        "src": "/images/awards/swisstainable.webp",
+        "width": 180,
+        "height": 180,
+        "alt": {
+          "en": "Swisstainable Level III logo",
+          "de": "Logo Swisstainable Level III",
+          "it": "Logo Swisstainable Level III",
+          "fr": "Logo Swisstainable niveau III"
+        }
+      },
+      {
+        "id": "okgo",
+        "src": "/images/awards/okgo-negativ.svg",
+        "width": 173,
+        "height": 173,
+        "alt": {
+          "en": "OK:GO accessibility information logo",
+          "de": "Logo OK:GO Barrierefreiheitsinformationen",
+          "it": "Logo OK:GO informazioni sull'accessibilità",
+          "fr": "Logo OK:GO informations sur l'accessibilité"
+        }
+      }
+    ]
+  },
+  "media": {
+    "title": {
+      "en": "Media enquiries",
+      "de": "Medienanfragen",
+      "it": "Richieste stampa",
+      "fr": "Demandes presse"
+    },
+    "body": {
+      "en": "For press material, photography in print resolution and interview requests, write to us directly. We answer quickly and say yes selectively.",
+      "de": "Für Pressematerial, Fotografie in Druckauflösung und Interviewanfragen schreiben Sie uns direkt. Wir antworten schnell und sagen selektiv zu.",
+      "it": "Per materiale stampa, fotografie in risoluzione di stampa e richieste di intervista, scriveteci direttamente. Rispondiamo in fretta e accettiamo con selettività.",
+      "fr": "Pour les dossiers de presse, la photographie en résolution d'impression et les demandes d'entretien, écrivez-nous directement. Nous répondons vite et acceptons avec discernement."
+    },
+    "cta": {
+      "en": "Write to us",
+      "de": "Schreiben Sie uns",
+      "it": "Scriveteci",
+      "fr": "Nous écrire"
+    }
+  },
+  "facts": {
+    "title": {
+      "en": "Fact sheet",
+      "de": "Fact Sheet",
+      "it": "Fact sheet",
+      "fr": "Fiche technique"
+    },
+    "body": {
+      "en": "THE VIEW Lugano is a five-star boutique property of Planhotel Hospitality Group: 18 suites (16 Junior Suites of 50 m², 2 Suite Superior of 105 m²), all lake-facing with private terrace; THE VIEW Fine Dining (1 Michelin star, 16 Gault & Millau points, Chef Diego Della Schiava); Terrazza TreCinqueZero; 1,000 m² spa with indoor pool; outdoor pool; meeting room; electric Smart cars and e-bikes included.",
+      "de": "THE VIEW Lugano ist ein Fünf-Sterne-Boutique-Haus der Planhotel Hospitality Group: 18 Suiten (16 Junior Suiten à 50 m², 2 Suiten Superior à 105 m²), alle seeseitig mit privater Terrasse; THE VIEW Fine Dining (1 Michelin-Stern, 16 Punkte Gault & Millau, Chef Diego Della Schiava); Terrazza TreCinqueZero; 1'000 m² Spa mit Innenpool; Aussenpool; Sitzungsraum; elektrische Smarts und E-Bikes inbegriffen.",
+      "it": "THE VIEW Lugano è una struttura boutique cinque stelle di Planhotel Hospitality Group: 18 suite (16 Junior Suite da 50 m², 2 Suite Superior da 105 m²), tutte fronte lago con terrazza privata; THE VIEW Fine Dining (1 stella Michelin, 16 punti Gault & Millau, Chef Diego Della Schiava); Terrazza TreCinqueZero; spa di 1.000 m² con piscina interna; piscina esterna; sala riunioni; Smart elettriche ed e-bike incluse.",
+      "fr": "THE VIEW Lugano est une maison boutique cinq étoiles de Planhotel Hospitality Group : 18 suites (16 Junior Suites de 50 m², 2 Suites Superior de 105 m²), toutes face au lac avec terrasse privée ; THE VIEW Fine Dining (1 étoile Michelin, 16 points Gault & Millau, Chef Diego Della Schiava) ; Terrazza TreCinqueZero ; spa de 1 000 m² avec piscine intérieure ; piscine extérieure ; salle de réunion ; Smart électriques et vélos électriques compris."
+    }
+  }
+}
