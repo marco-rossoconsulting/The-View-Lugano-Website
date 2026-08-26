@@ -9,8 +9,9 @@ interface Props {
   tagline?: string;
   h1?: boolean;
   video?: string;
+  poster?: string;
 }
-const { src, alt, line, tagline, h1 = false, video } = Astro.props;
+const { src, alt, line, tagline, h1 = false, video, poster } = Astro.props;
 ---
 
 <section class="hero">
@@ -19,6 +20,7 @@ const { src, alt, line, tagline, h1 = false, video } = Astro.props;
       <video
         class="hero__img"
         src={video}
+        poster={poster}
         autoplay
         loop
         muted

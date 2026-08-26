@@ -34,6 +34,7 @@ const settings = settingsEntries[0]?.data;
 if (!home || !settings) throw new Error('Missing CMS content');
 
 const hero = find(home.hero.image);
+const heroVideoPoster = '/images/hero-video-poster.webp';
 const section = (id: string) => home.sections.find((s) => s.id === id)!;
 const intro = section('intro');
 const ambassador = section('ambassador');
@@ -145,10 +146,10 @@ const awardsLabel: Record<Locale, string> = {
   title={home.hero.line[lang]}
   description={home.hero.tagline[lang]}
   route=""
-  preloadImage={hero.src}
+  preloadImage={heroVideoPoster}
   overlayHeader
 >
-  <Hero src={hero.src} video="/hero-video.mp4" alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
+  <Hero src={hero.src} video="/hero-video.mp4" poster={heroVideoPoster} alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
 
   {/* The House */}
   <section class="section">
