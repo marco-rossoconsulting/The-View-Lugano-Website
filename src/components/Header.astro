@@ -1,6 +1,6 @@
 ---
 import { dict, p, type Locale } from '../lib/i18n';
-import { egumaUrl, simpleBookingUrl } from '../lib/site';
+import { egumaUrl, simpleBookingUrl, SITE } from '../lib/site';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props { lang: Locale; route: string; overlay?: boolean }
@@ -19,6 +19,46 @@ const links: { href: string; label: string }[] = [
   { href: p(lang, 'sustainability'), label: t.nav.sustainability },
   { href: p(lang, 'press'), label: t.nav.press },
   { href: p(lang, 'journal'), label: t.nav.journal },
+  { href: p(lang, 'contact'), label: t.nav.contact },
+];
+
+const quickActionLabels = {
+  en: {
+    title: 'Plan your stay',
+    reserve: 'Reserve a room',
+    vouchers: 'Vouchers',
+    fineDining: 'Book a table at Fine Dining',
+    bistrot: 'Book a table at the Bistrot',
+  },
+  de: {
+    title: 'Aufenthalt planen',
+    reserve: 'Zimmer reservieren',
+    vouchers: 'Gutscheine',
+    fineDining: 'Tisch im Fine Dining reservieren',
+    bistrot: 'Tisch im Bistrot reservieren',
+  },
+  it: {
+    title: 'Organizza il soggiorno',
+    reserve: 'Prenota una camera',
+    vouchers: 'Voucher',
+    fineDining: 'Prenota un tavolo al Fine Dining',
+    bistrot: 'Prenota un tavolo al Bistrot',
+  },
+  fr: {
+    title: 'Préparer votre séjour',
+    reserve: 'Réserver une chambre',
+    vouchers: 'Bons cadeaux',
+    fineDining: 'Réserver une table au Fine Dining',
+    bistrot: 'Réserver une table au Bistrot',
+  },
+} as const;
+
+const quickActions = quickActionLabels[lang];
+const utilityLinks = [
+  { href: simpleBookingUrl(lang), label: quickActions.reserve },
+  { href: egumaUrl('vouchers', lang), label: quickActions.vouchers },
+  { href: SITE.integrations.theForkFineDining, label: quickActions.fineDining },
+  { href: SITE.integrations.theForkBistrot, label: quickActions.bistrot },
   { href: p(lang, 'contact'), label: t.nav.contact },
 ];
 ---
@@ -52,10 +92,12 @@ const links: { href: string; label: string }[] = [
     </ul>
     <div class="menu__aside">
       <LanguageSwitcher lang={lang} route={route} />
-      <div class="menu__shop">
-        <a href={egumaUrl('vouchers', lang)} rel="noopener">{t.common.vouchers}</a>
-        <a href={egumaUrl('events', lang)} rel="noopener">{t.common.eventsShop}</a>
-      </div>
+      <section class="menu__quick-actions" aria-labelledby="quick-actions-title">
+        <h2 id="quick-actions-title" class="menu__section-title">{quickActions.title}</h2>
+        <div class="menu__shop">
+          {utilityLinks.map((link) => <a href={link.href} rel="noopener">{link.label}</a>)}
+        </div>
+      </section>
       <div class="menu__legal">
         <a href={p(lang, 'legal', 'impressum')}>{t.nav.impressum}</a>
         <a href={p(lang, 'legal', 'privacy')}>{t.nav.privacy}</a>
@@ -247,6 +289,18 @@ const links: { href: string; label: string }[] = [
     flex-direction: column;
     gap: 0.5rem;
   }
+  .menu__quick-actions {
+    padding-top: 0.25rem;
+  }
+  .menu__section-title {
+    margin: 0 0 0.85rem;
+    color: var(--clay);
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
   .menu__shop a {
     font-family: var(--font-display);
     letter-spacing: 0.18em;
@@ -290,6 +344,10 @@ const links: { href: string; label: string }[] = [
     }
     .menu__list {
       columns: 1;
+    }
+    .menu__aside {
+      border-top: 1px solid var(--tortora-densa);
+      padding-top: var(--space-3);
     }
   }
   @media (max-width: 480px) {

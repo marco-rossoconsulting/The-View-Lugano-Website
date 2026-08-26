@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
-import FlowingMenu from '../../components/FlowingMenu.astro';
 import AmbassadorTeam from '../../components/AmbassadorTeam.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
@@ -13,10 +12,8 @@ import Faq from '../../components/Faq.astro';
 import AwardsLogoLoop from '../../components/AwardsLogoLoop.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import juniorSuiteImage from '../../assets/images/home/the-view-lugano-junior-suite.jpg';
-import { getImage } from 'astro:assets';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { hotelJsonLd } from '../../lib/seo';
-import { egumaUrl, simpleBookingUrl } from '../../lib/site';
 import { find } from '../../lib/photos';
 import { getCollection } from 'astro:content';
 
@@ -64,78 +61,6 @@ const theHouseImage = {
     fr: 'Junior Suite au THE VIEW Lugano avec terrasse privée et vue panoramique sur le lac de Lugano',
   } satisfies Record<Locale, string>,
 };
-
-const quickActionLabels: Record<Locale, { ariaLabel: string; room: string; vouchers: string; fineDining: string; bistrot: string; contact: string }> = {
-  en: {
-    ariaLabel: 'Plan your stay',
-    room: 'Reserve a Room',
-    vouchers: 'Vouchers',
-    fineDining: 'Book a Table Fine Dining',
-    bistrot: 'Book a Table Bistrot',
-    contact: 'Contact',
-  },
-  de: {
-    ariaLabel: 'Aufenthalt planen',
-    room: 'Zimmer reservieren',
-    vouchers: 'Gutscheine',
-    fineDining: 'Tisch reservieren Fine Dining',
-    bistrot: 'Tisch reservieren Bistrot',
-    contact: 'Kontakt',
-  },
-  it: {
-    ariaLabel: 'Organizza il soggiorno',
-    room: 'Prenota una camera',
-    vouchers: 'Voucher',
-    fineDining: 'Prenota un tavolo Fine Dining',
-    bistrot: 'Prenota un tavolo Bistrot',
-    contact: 'Contatti',
-  },
-  fr: {
-    ariaLabel: 'Préparer votre séjour',
-    room: 'Réserver une chambre',
-    vouchers: 'Bons cadeaux',
-    fineDining: 'Réserver une table Fine Dining',
-    bistrot: 'Réserver une table Bistrot',
-    contact: 'Contact',
-  },
-};
-
-const [roomMenuImage, voucherMenuImage, fineDiningMenuImage, bistrotMenuImage, contactMenuImage] = await Promise.all([
-  getImage({ src: juniorSuiteImage, width: 640, height: 427, fit: 'cover', format: 'webp' }),
-  getImage({ src: find('room_012').src, width: 640, height: 427, fit: 'cover', format: 'webp' }),
-  getImage({ src: find('the-view-lugano-fine-dining-restaurant-food').src, width: 640, height: 427, fit: 'cover', format: 'webp' }),
-  getImage({ src: find('terrazza-1').src, width: 640, height: 427, fit: 'cover', format: 'webp' }),
-  getImage({ src: find('hotel_061').src, width: 640, height: 427, fit: 'cover', format: 'webp' }),
-]);
-
-const quickActionLabelsForLocale = quickActionLabels[lang];
-const quickActionItems = [
-  {
-    href: simpleBookingUrl(lang),
-    label: quickActionLabelsForLocale.room,
-    image: roomMenuImage.src,
-  },
-  {
-    href: egumaUrl('vouchers', lang),
-    label: quickActionLabelsForLocale.vouchers,
-    image: voucherMenuImage.src,
-  },
-  {
-    href: 'https://widget.thefork.com/en/8383ce3c-0a38-4964-919a-981fe0c93cb4?utm_source=6a8ea2ad4d9378da9f244bbc--theview-lugano.netlify.app&step=date',
-    label: quickActionLabelsForLocale.fineDining,
-    image: fineDiningMenuImage.src,
-  },
-  {
-    href: 'https://widget.thefork.com/en/c3d07f7d-74f8-4ebf-84ab-704cd3e887f9/homepage/cca06037-40b6-4c31-a8ad-46adaf42b31b?utm_source=6a8ea2ad4d9378da9f244bbc--theview-lugano.netlify.app',
-    label: quickActionLabelsForLocale.bistrot,
-    image: bistrotMenuImage.src,
-  },
-  {
-    href: p(lang, 'contact'),
-    label: quickActionLabelsForLocale.contact,
-    image: contactMenuImage.src,
-  },
-];
 
 // Localised guest testimonials.
 const guestQuotes: Record<Locale, string[]> = {
@@ -224,8 +149,6 @@ const awardsLabel: Record<Locale, string> = {
   overlayHeader
 >
   <Hero src={hero.src} video="/hero-video.mp4" alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
-
-  <FlowingMenu items={quickActionItems} ariaLabel={quickActionLabelsForLocale.ariaLabel} />
 
   {/* The House */}
   <section class="section">
