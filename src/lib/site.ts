@@ -42,6 +42,9 @@ export const SITE = {
     hours: '09:00–20:30',
     opens: '09:00',
     closes: '20:30',
+    treatmentHours: '10:00–19:00',
+    treatmentOpens: '10:00',
+    treatmentCloses: '19:00',
   },
   restaurant: {
     name: 'THE VIEW Fine Dining',

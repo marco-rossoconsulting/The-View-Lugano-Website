@@ -396,7 +396,11 @@ const spaExperience = defineCollection({
         body: localized,
       })).min(1),
     }),
-    hours: z.object({ title: localized, body: localized }),
+    // Rendered as one line beside the booking buttons; the times themselves
+    // come from SITE.spa so they stay single-source.
+    hours: z.object({ openLabel: localized, treatmentsLabel: localized }),
+    // Not rendered on this page — retained, translated, for the planned
+    // Gym & Fitness page.
     fitness: z.object({ title: localized, body: localized }),
     booking: z.object({
       bookLabel: localized,

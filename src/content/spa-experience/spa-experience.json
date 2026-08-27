@@ -358,17 +358,17 @@
     ]
   },
   "hours": {
-    "title": {
-      "en": "Hours & Access",
-      "de": "Öffnungszeiten & Zugang",
-      "it": "Orari & Accesso",
-      "fr": "Horaires & Accès"
+    "openLabel": {
+      "en": "Open daily",
+      "de": "Täglich geöffnet",
+      "it": "Aperta tutti i giorni",
+      "fr": "Ouvert tous les jours"
     },
-    "body": {
-      "en": "Open daily from 09:00 to 20:30; treatments from 10:00 to 19:00. House guests, day visitors and members are all welcome — booking ahead is the surest way to have the hour you want.",
-      "de": "Täglich von 09:00 bis 20:30 geöffnet, Behandlungen von 10:00 bis 19:00. Hausgäste, Tagesgäste und Mitglieder sind gleichermassen willkommen – mit einer Reservierung sichern Sie sich die gewünschte Zeit.",
-      "it": "Aperta tutti i giorni dalle 9.00 alle 20.30; trattamenti dalle 10.00 alle 19.00. Ospiti della casa, visitatori di giornata e membri sono tutti benvenuti: prenotare in anticipo è il modo migliore per avere l'orario desiderato.",
-      "fr": "Ouvert tous les jours de 9h00 à 20h30 ; soins de 10h00 à 19h00. Hôtes de la maison, visiteurs à la journée et membres sont tous les bienvenus — réserver à l'avance reste le meilleur moyen d'obtenir l'horaire souhaité."
+    "treatmentsLabel": {
+      "en": "Treatments",
+      "de": "Behandlungen",
+      "it": "Trattamenti",
+      "fr": "Soins"
     }
   },
   "fitness": {
