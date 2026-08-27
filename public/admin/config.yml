@@ -293,7 +293,88 @@ collections:
               - { name: title, label: Title, widget: object, fields: *loc }
               - { name: body, label: Text, widget: object, fields: *loctext }
 
-  # ── 6. SUITES ──
+  # ── 6. CONTACT ──
+  - name: contact
+    label: ✉️ Contact Page
+    files:
+      - name: contact
+        label: Contact Page Content
+        file: src/content/contact/contact.json
+        fields:
+          - name: hero
+            label: Hero Image
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: image, label: Image Key, widget: string, hint: 'Reference key from the photos library, for example hotel_061' }
+              - { name: alt, label: Accessible Image Description, widget: object, fields: *loc }
+              - { name: caption, label: Image Caption, widget: object, fields: *loc }
+          - name: reach
+            label: Direct Contact
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: addressLabel, label: Address Label, widget: object, fields: *loc }
+              - { name: phoneLabel, label: Phone Label, widget: object, fields: *loc }
+              - { name: whatsappLabel, label: WhatsApp Label, widget: object, fields: *loc }
+              - { name: emailLabel, label: Email Label, widget: object, fields: *loc }
+              - { name: whatsappMessage, label: WhatsApp Prefilled Message, widget: object, fields: *loctext }
+          - name: form
+            label: Enquiry Form
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Introductory Text, widget: object, fields: *loctext }
+              - { name: nameLabel, label: Name Label, widget: object, fields: *loc }
+              - { name: emailLabel, label: Email Label, widget: object, fields: *loc }
+              - { name: topicLabel, label: Topic Label, widget: object, fields: *loc }
+              - { name: topicPlaceholder, label: Topic Placeholder, widget: object, fields: *loc }
+              - { name: messageLabel, label: Message Label, widget: object, fields: *loc }
+              - { name: submit, label: Submit Button, widget: object, fields: *loc }
+              - { name: privacy, label: Privacy Note, widget: object, fields: *loctext }
+              - { name: success, label: Success Message, widget: object, fields: *loctext }
+              - { name: error, label: Error Message, widget: object, fields: *loctext }
+              - name: topics
+                label: Enquiry Topics
+                widget: list
+                fields:
+                  - { name: value, label: Submission Value, widget: string, hint: 'Keep lowercase and stable, for example stay.' }
+                  - { name: label, label: Visible Label, widget: object, fields: *loc }
+          - name: map
+            label: Location Map
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: directions, label: Directions Link Label, widget: object, fields: *loc }
+          - name: reservations
+            label: Reservations
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+          - name: trade
+            label: Travel Trade
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: gdsNote, label: GDS Note, widget: object, fields: *loctext }
+              - { name: cta, label: Contact Button, widget: object, fields: *loc }
+          - name: careers
+            label: Careers
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: cta, label: Contact Button, widget: object, fields: *loc }
+
+  # ── 7. SUITES ──
   - name: suites
     label: 🛏️ Suites & Residence
     folder: src/content/suites
@@ -335,7 +416,7 @@ collections:
         widget: list
         fields: *loc
 
-  # ── 7. DINING ──
+  # ── 8. DINING ──
   - name: dining
     label: 🍽️ Dining venues
     folder: src/content/dining
@@ -366,7 +447,7 @@ collections:
         widget: list
         fields: *loc
 
-  # ── 8. SPA ──
+  # ── 9. SPA ──
   - name: spa
     label: 💆 Spa treatments
     folder: src/content/spa
@@ -386,7 +467,7 @@ collections:
         widget: object
         fields: *loctext
 
-  # ── 9. OFFERS ──
+  # ── 10. OFFERS ──
   - name: offers
     label: 🎁 Experiences & Offers
     folder: src/content/offers
@@ -422,7 +503,7 @@ collections:
             widget: object
             fields: *loc
 
-  # ── 10. JOURNAL ──
+  # ── 11. JOURNAL ──
   - name: journal
     label: 📝 Journal
     folder: src/content/journal
@@ -454,7 +535,7 @@ collections:
             widget: object
             fields: *loc
 
-  # ── 11. FAQ ──
+  # ── 12. FAQ ──
   - name: faq
     label: ❓ FAQ
     folder: src/content/faq
@@ -473,7 +554,7 @@ collections:
         widget: object
         fields: *loctext
 
-  # ── 12. LEGAL ──
+  # ── 13. LEGAL ──
   - name: legal
     label: ⚖️ Legal Pages
     folder: src/content/legal

@@ -19,45 +19,9 @@
     "fr": "Contact"
   },
   "intro": {
-    "en": "One address, one number, and people who answer it.",
-    "de": "Eine Adresse, eine Nummer — und Menschen, die abnehmen.",
-    "it": "Un indirizzo, un numero — e persone che rispondono.",
-    "fr": "Une adresse, un numéro — et des personnes qui répondent."
-  },
-  "whatsapp": {
-    "en": "WhatsApp",
-    "de": "WhatsApp",
-    "it": "WhatsApp",
-    "fr": "WhatsApp"
-  },
-  "reserveTitle": {
-    "en": "Reservations",
-    "de": "Reservierungen",
-    "it": "Prenotazioni",
-    "fr": "Réservations"
-  },
-  "reserveBody": {
-    "en": "Book directly online, or write to us — direct guests are looked after directly, from the first message.",
-    "de": "Buchen Sie direkt online oder schreiben Sie uns — Direktgäste werden direkt betreut, von der ersten Nachricht an.",
-    "it": "Prenotate direttamente online, o scriveteci — chi prenota diretto è seguito direttamente, dal primo messaggio.",
-    "fr": "Réservez directement en ligne, ou écrivez-nous — les hôtes en direct sont suivis en direct, dès le premier message."
-  },
-  "tradeBody": {
-    "en": "We work with Serandipians, Virtuoso and SLH advisors, and with corporate bookers who value discretion. For rates, contracting and the fact sheet, contact us and mark your message for the sales office.",
-    "de": "Wir arbeiten mit Serandipians-, Virtuoso- und SLH-Advisorn sowie mit Corporate-Buchern, die Diskretion schätzen. Für Raten, Verträge und das Fact Sheet kontaktieren Sie uns mit dem Vermerk Sales Office.",
-    "it": "Lavoriamo con advisor Serandipians, Virtuoso e SLH e con booker corporate che apprezzano la discrezione. Per tariffe, contratti e fact sheet, contattateci indicando l'ufficio vendite.",
-    "fr": "Nous travaillons avec les advisors Serandipians, Virtuoso et SLH, et avec des acheteurs corporate attachés à la discrétion. Pour les tarifs, les contrats et la fiche technique, contactez-nous à l'attention du bureau des ventes."
-  },
-  "careersTitle": {
-    "en": "Working here",
-    "de": "Bei uns arbeiten",
-    "it": "Lavorare qui",
-    "fr": "Travailler ici"
-  },
-  "careersBody": {
-    "en": "The house hires slowly and keeps people long. Speculative applications are read — all of them.",
-    "de": "Das Haus stellt langsam ein und hält Menschen lange. Initiativbewerbungen werden gelesen — alle.",
-    "it": "La casa assume lentamente e tiene a lungo le persone. Le candidature spontanee vengono lette — tutte.",
-    "fr": "La maison recrute lentement et garde ses collaborateurs longtemps. Les candidatures spontanées sont lues — toutes."
+    "en": "One address, one number, and people who take the time to answer.",
+    "de": "Eine Adresse, eine Nummer und Menschen, die sich Zeit für Sie nehmen.",
+    "it": "Un indirizzo, un numero e persone pronte a rispondere.",
+    "fr": "Une adresse, un numéro et des personnes qui prennent le temps de vous répondre."
   }
 }
