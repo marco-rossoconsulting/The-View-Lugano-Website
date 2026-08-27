@@ -6,7 +6,6 @@ import JsonLd from '../../components/JsonLd.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { find } from '../../lib/photos';
-import { SITE } from '../../lib/site';
 import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
@@ -35,7 +34,7 @@ const heroPhoto = find(press.hero.image);
       <div class="press-hero__copy fade-up">
         <p class="eyebrow">{press.hero.eyebrow[lang]}</p>
         <h1>{page.h1[lang]}</h1>
-        <p class="press-hero__lede">{page.intro[lang]}</p>
+        <p class="press-hero__lede"><em>{page.intro[lang]}</em></p>
       </div>
       <figure class="press-hero__media fade-up">
         <Pic
@@ -56,7 +55,7 @@ const heroPhoto = find(press.hero.image);
     <div class="container">
       <header class="press-awards__heading fade-up">
         <h2>{press.awards.title[lang]}</h2>
-        <p>{press.awards.intro[lang]}</p>
+        <p><em>{press.awards.intro[lang]}</em></p>
       </header>
 
       <ul class="press-awards__grid fade-up" aria-label={press.awards.title[lang]}>
@@ -81,7 +80,7 @@ const heroPhoto = find(press.hero.image);
       <article class="press-information__media fade-up">
         <h2>{press.media.title[lang]}</h2>
         <p>{press.media.body[lang]}</p>
-        <a class="btn" href={`mailto:${SITE.email}`}>{press.media.cta[lang]}</a>
+        <a class="btn" href={p(lang, 'contact')}>{press.media.cta[lang]}</a>
       </article>
       <article class="press-information__facts fade-up">
         <h2>{press.facts.title[lang]}</h2>
