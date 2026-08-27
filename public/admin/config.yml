@@ -248,7 +248,52 @@ collections:
                   - { name: title, label: Title, widget: object, fields: *loc }
                   - { name: body, label: Text, widget: object, fields: *loctext }
 
-  # ── 5. SUITES ──
+  # ── 5. PRESS & AWARDS ──
+  - name: press
+    label: 🏆 Press & Awards Page
+    files:
+      - name: press
+        label: Press & Awards Content
+        file: src/content/press/press.json
+        fields:
+          - name: hero
+            label: Hero Image
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: image, label: Image Key, widget: string, hint: 'Reference key from the photos library, for example hotel_041' }
+              - { name: alt, label: Accessible Image Description, widget: object, fields: *loc }
+              - { name: caption, label: Image Caption, widget: object, fields: *loc }
+          - name: awards
+            label: Recognition Gallery
+            widget: object
+            fields:
+              - { name: title, label: Section Title, widget: object, fields: *loc }
+              - { name: intro, label: Introductory Text, widget: object, fields: *loctext }
+              - name: items
+                label: Award Logos
+                widget: list
+                fields:
+                  - { name: id, label: ID, widget: string, hint: 'Keep the existing lowercase identifier for layout consistency.' }
+                  - { name: src, label: Image Path, widget: string, hint: 'Public image path, for example /images/awards/michelin-star.webp' }
+                  - { name: width, label: Intrinsic Width, widget: number, hint: 'Use the original image width in pixels.' }
+                  - { name: height, label: Intrinsic Height, widget: number, hint: 'Use the original image height in pixels.' }
+                  - { name: alt, label: Accessible Image Description, widget: object, fields: *loc }
+          - name: media
+            label: Media Contact
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: cta, label: Button Label, widget: object, fields: *loc }
+          - name: facts
+            label: Fact Sheet
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+
+  # ── 6. SUITES ──
   - name: suites
     label: 🛏️ Suites & Residence
     folder: src/content/suites
@@ -290,7 +335,7 @@ collections:
         widget: list
         fields: *loc
 
-  # ── 5. DINING ──
+  # ── 7. DINING ──
   - name: dining
     label: 🍽️ Dining venues
     folder: src/content/dining
@@ -321,7 +366,7 @@ collections:
         widget: list
         fields: *loc
 
-  # ── 6. SPA ──
+  # ── 8. SPA ──
   - name: spa
     label: 💆 Spa treatments
     folder: src/content/spa
@@ -341,7 +386,7 @@ collections:
         widget: object
         fields: *loctext
 
-  # ── 7. OFFERS ──
+  # ── 9. OFFERS ──
   - name: offers
     label: 🎁 Experiences & Offers
     folder: src/content/offers
@@ -377,7 +422,7 @@ collections:
             widget: object
             fields: *loc
 
-  # ── 8. JOURNAL ──
+  # ── 10. JOURNAL ──
   - name: journal
     label: 📝 Journal
     folder: src/content/journal
@@ -409,7 +454,7 @@ collections:
             widget: object
             fields: *loc
 
-  # ── 9. FAQ ──
+  # ── 11. FAQ ──
   - name: faq
     label: ❓ FAQ
     folder: src/content/faq
@@ -428,7 +473,7 @@ collections:
         widget: object
         fields: *loctext
 
-  # ── 10. LEGAL ──
+  # ── 12. LEGAL ──
   - name: legal
     label: ⚖️ Legal Pages
     folder: src/content/legal

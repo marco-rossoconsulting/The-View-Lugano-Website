@@ -1,10 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Pic from '../../components/Pic.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
-import { SITE } from '../../lib/site';
+import { find } from '../../lib/photos';
 import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
@@ -15,39 +16,76 @@ const lang = Astro.params.lang as Locale;
 if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
 
 const pageEntries = await getCollection('pages');
-const page = pageEntries.find((e) => e.data.slug === 'press')?.data;
-if (!page) throw new Error('Missing press CMS content');
+const page = pageEntries.find((entry) => entry.data.slug === 'press')?.data;
+const pressEntries = await getCollection('press');
+const press = pressEntries[0]?.data;
+
+if (!page) throw new Error('Missing press SEO content');
+if (!press) throw new Error('Missing press CMS content');
+
+const heroPhoto = find(press.hero.image);
 ---
 
 <Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="press">
   <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
-  <section class="section">
-    <div class="container container--narrow">
-      <h1 class="page-title">{page.h1[lang]}</h1>
-      <p class="page-intro">{page.intro[lang]}</p>
+  <section class="press-hero">
+    <div class="container press-hero__inner">
+      <div class="press-hero__copy fade-up">
+        <p class="eyebrow">{press.hero.eyebrow[lang]}</p>
+        <h1>{page.h1[lang]}</h1>
+        <p class="press-hero__lede"><em>{page.intro[lang]}</em></p>
+      </div>
+      <figure class="press-hero__media fade-up">
+        <Pic
+          src={heroPhoto.src}
+          alt={press.hero.alt[lang]}
+          width={1600}
+          height={1067}
+          loading="eager"
+          fetchpriority="high"
+          sizes="(max-width: 900px) 100vw, 48vw"
+        />
+        <figcaption>{press.hero.caption[lang]}</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="container container--narrow">
-      <ul class="awards-list">
-        {SITE.awards.map((a) => <li>{a.name}</li>)}
+  <section class="section section--tortora press-awards">
+    <div class="container">
+      <header class="press-awards__heading fade-up">
+        <h2>{press.awards.title[lang]}</h2>
+        <p><em>{press.awards.intro[lang]}</em></p>
+      </header>
+
+      <ul class="press-awards__grid fade-up" aria-label={press.awards.title[lang]}>
+        {press.awards.items.map((logo) => (
+          <li class={`press-awards__item press-awards__item--${logo.id}`}>
+            <img
+              src={logo.src}
+              alt={logo.alt[lang]}
+              width={logo.width}
+              height={logo.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </li>
+        ))}
       </ul>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container container--narrow press-grid">
-      <div>
-        <h2 class="section-title">{page.mediaTitle?.[lang]}</h2>
-        <p style="max-width: 56ch; margin-bottom: var(--space-2);">{page.mediaBody?.[lang]}</p>
-        <a class="btn" href={`mailto:${SITE.email}`}>Write to us</a>
-      </div>
-      <div>
-        <h2 class="section-title">{page.factsTitle?.[lang]}</h2>
-        <p style="max-width: 56ch;">{page.factsBody?.[lang]}</p>
-      </div>
+  <section class="section press-information">
+    <div class="container press-information__inner">
+      <article class="press-information__media fade-up">
+        <h2>{press.media.title[lang]}</h2>
+        <p>{press.media.body[lang]}</p>
+        <a class="btn" href={p(lang, 'contact')}>{press.media.cta[lang]}</a>
+      </article>
+      <article class="press-information__facts fade-up">
+        <h2>{press.facts.title[lang]}</h2>
+        <p>{press.facts.body[lang]}</p>
+      </article>
     </div>
   </section>
 
@@ -60,32 +98,219 @@ if (!page) throw new Error('Missing press CMS content');
 </Base>
 
 <style>
-  .awards-list {
+  .press-hero {
+    padding-block: clamp(3rem, 8vw, 8rem) var(--space-6);
+  }
+
+  .press-hero__inner,
+  .press-information__inner {
+    align-items: center;
+    display: grid;
+    gap: clamp(2rem, 6vw, 6rem);
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .press-hero__copy {
+    grid-column: 1 / span 5;
+    padding-block: var(--space-3);
+  }
+
+  .press-hero__copy h1 {
+    font-size: clamp(2.8rem, 6vw, 5.3rem);
+    max-width: 10ch;
+  }
+
+  .press-hero__lede {
+    font-size: clamp(1.08rem, 1.5vw, 1.32rem);
+    line-height: 1.72;
+    max-width: 37ch;
+  }
+
+  .press-hero__media {
+    grid-column: 7 / -1;
+    margin: 0;
+  }
+
+  .press-hero__media :global(picture),
+  .press-hero__media :global(img) {
+    display: block;
+    height: min(55vw, 45rem);
+    width: 100%;
+  }
+
+  .press-hero__media :global(img) {
+    object-fit: cover;
+  }
+
+  .press-hero__media figcaption {
+    color: var(--clay);
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    margin-top: 0.75rem;
+  }
+
+  .press-awards {
+    overflow: hidden;
+  }
+
+  .press-awards__heading {
+    display: grid;
+    gap: var(--space-2);
+    grid-template-columns: repeat(12, 1fr);
+    margin-bottom: clamp(2.75rem, 5vw, 5rem);
+  }
+
+  .press-awards__heading h2 {
+    grid-column: 1 / span 5;
+    margin: 0;
+    max-width: 12ch;
+  }
+
+  .press-awards__heading p {
+    grid-column: 7 / span 5;
+    margin: 0;
+    max-width: 36ch;
+  }
+
+  .press-awards__grid {
+    border-left: 1px solid var(--tortora-densa);
+    border-top: 1px solid var(--tortora-densa);
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0;
   }
-  .awards-list li {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
-    letter-spacing: 0.06em;
-    padding: 1rem 0;
+
+  .press-awards__item {
+    align-items: center;
     border-bottom: 1px solid var(--tortora-densa);
+    border-right: 1px solid var(--tortora-densa);
+    display: flex;
+    grid-column: span 4;
+    justify-content: center;
+    min-height: clamp(9.5rem, 15vw, 13rem);
+    padding: clamp(1.5rem, 3vw, 3rem);
+    transition: background-color 220ms ease, transform 220ms ease;
   }
-  .awards-list li:first-child { border-top: 1px solid var(--tortora-densa); }
-  .press-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
+
+  .press-awards__item--small-luxury-hotels,
+  .press-awards__item--serandipians {
+    grid-column: span 6;
   }
-  .section-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+
+  .press-awards__item--gault-millau,
+  .press-awards__item--travelife,
+  .press-awards__item--swisstainable,
+  .press-awards__item--okgo {
+    grid-column: span 3;
+  }
+
+  .press-awards__item img {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(11%) saturate(2427%) hue-rotate(359deg) brightness(91%) contrast(88%);
+    height: clamp(4.5rem, 7vw, 6.5rem);
+    max-width: min(100%, 13rem);
+    object-fit: contain;
+    opacity: 0.76;
+    transition: opacity 220ms ease, transform 220ms ease;
+    width: 100%;
+  }
+
+  .press-awards__item--swisstainable img {
+    filter: none;
+    opacity: 0.9;
+  }
+
+  .press-awards__item:hover {
+    background: color-mix(in srgb, var(--ground) 55%, transparent);
+  }
+
+  .press-awards__item:hover img {
+    opacity: 1;
+    transform: translateY(-0.2rem);
+  }
+
+  .press-information__media {
+    grid-column: 1 / span 5;
+  }
+
+  .press-information__facts {
+    border-left: 1px solid var(--tortora-densa);
+    grid-column: 7 / -1;
+    padding-left: clamp(1.5rem, 5vw, 5rem);
+  }
+
+  .press-information h2 {
+    font-size: clamp(1.65rem, 3vw, 2.6rem);
     margin-bottom: var(--space-2);
+    max-width: 12ch;
   }
-  @media (max-width: 820px) { .press-grid { grid-template-columns: 1fr; } }
+
+  .press-information p {
+    max-width: 53ch;
+  }
+
+  .press-information .btn {
+    margin-top: var(--space-2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .press-awards__item,
+    .press-awards__item img {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .press-hero__inner,
+    .press-information__inner {
+      display: block;
+    }
+
+    .press-hero__copy {
+      padding-block: 0 var(--space-4);
+    }
+
+    .press-hero__media :global(picture),
+    .press-hero__media :global(img) {
+      height: min(118vw, 40rem);
+    }
+
+    .press-awards__heading {
+      display: block;
+    }
+
+    .press-awards__heading h2 {
+      margin-bottom: var(--space-2);
+    }
+
+    .press-information__facts {
+      border-left: 0;
+      border-top: 1px solid var(--tortora-densa);
+      margin-top: var(--space-4);
+      padding: var(--space-4) 0 0;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .press-awards__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .press-awards__item,
+    .press-awards__item--small-luxury-hotels,
+    .press-awards__item--serandipians,
+    .press-awards__item--travelife,
+    .press-awards__item--swisstainable,
+    .press-awards__item--okgo {
+      border-bottom: 1px solid var(--tortora-densa);
+      border-right: 1px solid var(--tortora-densa);
+      grid-column: span 1;
+      min-height: 8.75rem;
+    }
+
+    .press-awards__item--serandipians {
+      grid-column: span 2;
+    }
+  }
 </style>
