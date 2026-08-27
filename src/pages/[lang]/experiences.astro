@@ -36,25 +36,32 @@ if (!page) throw new Error('Missing experiences CMS content');
   </section>
 
   <section class="section" style="padding-top:0;">
-    <div class="container offers">
+    <div class="container offers" aria-label={page.h1[lang]}>
       {offers.map((o, i) => (
-        <article class={`editorial fade-up${i % 2 ? ' editorial--flip' : ''}`}>
-          <div class="editorial__photo">
+        <article class="offer-card fade-up">
+          <div class="offer-card__photo">
             <Pic
               src={o.data.photo.src}
               alt={o.data.photo.alt[lang]}
               width={1600}
               height={1067}
-              sizes="(max-width: 900px) 100vw, 58vw"
+              sizes="(max-width: 720px) 100vw, (max-width: 1020px) 50vw, 33vw"
             />
           </div>
-          <div class="editorial__text">
+          <div class="offer-card__body">
             <h2 class="offer-name">{o.data.name[lang]}</h2>
-            {o.data.body[lang].map((par: string) => <p>{par}</p>)}
-            <ul class="facts">
+            <p class="offer-card__summary">{o.data.summary[lang]}</p>
+            <div class="offer-card__story">
+              {o.data.body[lang].map((par: string) => <p>{par}</p>)}
+            </div>
+            <ul class="offer-card__includes" aria-label={o.data.name[lang]}>
               {o.data.includes.map((inc) => <li>{inc[lang]}</li>)}
             </ul>
-            <a class="btn" href={p(lang, 'contact')}>{page.cta?.[lang]}</a>
+            <a
+              class="btn offer-card__cta"
+              href={p(lang, 'contact')}
+              aria-label={`${page.cta?.[lang] ?? ''} ${o.data.name[lang]}`.trim()}
+            >{page.cta?.[lang]}</a>
           </div>
         </article>
       ))}
@@ -78,28 +85,97 @@ if (!page) throw new Error('Missing experiences CMS content');
 </Base>
 
 <style>
-  .offers { display: grid; gap: var(--space-5); }
-  .editorial {
+  .offers {
     display: grid;
-    grid-template-columns: 7fr 4fr;
-    gap: clamp(1.5rem, 5vw, 4.5rem);
-    align-items: center;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2.2vw, 1.75rem);
   }
-  .editorial--flip { grid-template-columns: 4fr 7fr; }
-  .editorial--flip .editorial__photo { order: 2; }
-  .editorial--flip .editorial__text { order: 1; }
-  .editorial__photo :global(img) { width: 100%; height: auto; display: block; }
+  .offer-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-width: 0;
+    background: var(--white);
+    border: 1px solid var(--tortora-densa);
+    transition: transform 360ms cubic-bezier(0.22, 0.61, 0.36, 1), border-color 360ms ease, box-shadow 360ms ease;
+  }
+  .offer-card:hover,
+  .offer-card:focus-within {
+    transform: translateY(-0.5rem);
+    border-color: var(--clay);
+    box-shadow: 0 1.25rem 2.75rem color-mix(in srgb, var(--ink) 10%, transparent);
+  }
+  .offer-card__photo {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--tortora);
+  }
+  .offer-card__photo :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .offer-card__photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .offer-card:hover .offer-card__photo :global(img),
+  .offer-card:focus-within .offer-card__photo :global(img) {
+    transform: scale(1.035);
+  }
+  .offer-card__body {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.35rem, 2.6vw, 2.25rem);
+  }
   .offer-name {
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    margin-bottom: 0.75rem;
+  }
+  .offer-card__summary {
+    color: var(--clay);
+    font-size: 0.98rem;
+    line-height: 1.65;
     margin-bottom: var(--space-2);
   }
-  .editorial__text p { margin-bottom: 1rem; }
-  .editorial__text .facts { margin-block: var(--space-2); }
-  @media (max-width: 900px) {
-    .editorial, .editorial--flip { grid-template-columns: 1fr; }
-    .editorial--flip .editorial__photo { order: 1; }
-    .editorial--flip .editorial__text { order: 2; }
+  .offer-card__story {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+  .offer-card__story p { margin-bottom: 0.9rem; }
+  .offer-card__includes {
+    list-style: none;
+    display: grid;
+    gap: 0.65rem;
+    margin: auto 0 var(--space-3);
+    padding: var(--space-2) 0 0;
+    border-top: 1px solid var(--tortora-densa);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .offer-card__includes li {
+    padding-left: 0.85rem;
+    border-left: 1px solid var(--clay);
+  }
+  .offer-card__cta {
+    align-self: flex-start;
+    padding: 0.85rem 1.2rem;
+    margin-top: auto;
+  }
+  @media (max-width: 1020px) {
+    .offers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 720px) {
+    .offers { grid-template-columns: 1fr; }
+    .offer-card__body { padding: 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .offer-card,
+    .offer-card__photo :global(img) { transition: none; }
+    .offer-card:hover,
+    .offer-card:focus-within { transform: none; }
   }
 </style>
