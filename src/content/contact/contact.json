@@ -1,25 +1,4 @@
 {
-  "hero": {
-    "eyebrow": {
-      "en": "At your service",
-      "de": "Für Sie da",
-      "it": "Al vostro servizio",
-      "fr": "À votre écoute"
-    },
-    "image": "hotel_061",
-    "alt": {
-      "en": "A private terrace overlooking Lake Lugano",
-      "de": "Eine private Terrasse mit Blick über den Luganersee",
-      "it": "Una terrazza privata con vista sul lago di Lugano",
-      "fr": "Une terrasse privée avec vue sur le lac de Lugano"
-    },
-    "caption": {
-      "en": "THE VIEW Lugano, above Lake Lugano.",
-      "de": "THE VIEW Lugano, über dem Luganersee.",
-      "it": "THE VIEW Lugano, sopra il lago di Lugano.",
-      "fr": "THE VIEW Lugano, au-dessus du lac de Lugano."
-    }
-  },
   "reach": {
     "eyebrow": {
       "en": "Speak with us",
@@ -71,12 +50,6 @@
     }
   },
   "form": {
-    "eyebrow": {
-      "en": "By email",
-      "de": "Per E-Mail",
-      "it": "Via e-mail",
-      "fr": "Par e-mail"
-    },
     "title": {
       "en": "Send an enquiry",
       "de": "Senden Sie uns Ihre Anfrage",
@@ -192,12 +165,6 @@
     ]
   },
   "map": {
-    "eyebrow": {
-      "en": "Arrival",
-      "de": "Anreise",
-      "it": "Arrivo",
-      "fr": "Arrivée"
-    },
     "title": {
       "en": "Find your way here",
       "de": "Finden Sie den Weg zu uns",
@@ -215,26 +182,6 @@
       "de": "Route öffnen",
       "it": "Apri indicazioni",
       "fr": "Ouvrir l'itinéraire"
-    }
-  },
-  "reservations": {
-    "eyebrow": {
-      "en": "A stay at THE VIEW",
-      "de": "Ein Aufenthalt im THE VIEW",
-      "it": "Un soggiorno a THE VIEW",
-      "fr": "Un séjour à THE VIEW"
-    },
-    "title": {
-      "en": "Reserve directly",
-      "de": "Direkt reservieren",
-      "it": "Prenotate direttamente",
-      "fr": "Réservez en direct"
-    },
-    "body": {
-      "en": "Choose your dates below, or write to us if you would like a little guidance before you book.",
-      "de": "Wählen Sie unten Ihre Daten oder schreiben Sie uns, wenn Sie vor der Buchung eine persönliche Empfehlung wünschen.",
-      "it": "Scegliete le date qui sotto o scriveteci se desiderate un consiglio prima di prenotare.",
-      "fr": "Choisissez vos dates ci-dessous ou écrivez-nous si vous souhaitez un conseil avant de réserver."
     }
   },
   "trade": {

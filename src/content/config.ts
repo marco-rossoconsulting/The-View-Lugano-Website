@@ -228,12 +228,6 @@ const press = defineCollection({
 const contact = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/contact' }),
   schema: z.object({
-    hero: z.object({
-      eyebrow: localized,
-      image: z.string(),
-      alt: localized,
-      caption: localized,
-    }),
     reach: z.object({
       eyebrow: localized,
       title: localized,
@@ -245,7 +239,6 @@ const contact = defineCollection({
       whatsappMessage: localized,
     }),
     form: z.object({
-      eyebrow: localized,
       title: localized,
       body: localized,
       nameLabel: localized,
@@ -263,15 +256,9 @@ const contact = defineCollection({
       })).min(1),
     }),
     map: z.object({
-      eyebrow: localized,
       title: localized,
       body: localized,
       directions: localized,
-    }),
-    reservations: z.object({
-      eyebrow: localized,
-      title: localized,
-      body: localized,
     }),
     trade: z.object({
       title: localized,

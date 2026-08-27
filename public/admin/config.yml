@@ -301,14 +301,6 @@ collections:
         label: Contact Page Content
         file: src/content/contact/contact.json
         fields:
-          - name: hero
-            label: Hero Image
-            widget: object
-            fields:
-              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
-              - { name: image, label: Image Key, widget: string, hint: 'Reference key from the photos library, for example hotel_061' }
-              - { name: alt, label: Accessible Image Description, widget: object, fields: *loc }
-              - { name: caption, label: Image Caption, widget: object, fields: *loc }
           - name: reach
             label: Direct Contact
             widget: object
@@ -325,7 +317,6 @@ collections:
             label: Enquiry Form
             widget: object
             fields:
-              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
               - { name: title, label: Title, widget: object, fields: *loc }
               - { name: body, label: Introductory Text, widget: object, fields: *loctext }
               - { name: nameLabel, label: Name Label, widget: object, fields: *loc }
@@ -347,17 +338,9 @@ collections:
             label: Location Map
             widget: object
             fields:
-              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
               - { name: title, label: Title, widget: object, fields: *loc }
               - { name: body, label: Text, widget: object, fields: *loctext }
               - { name: directions, label: Directions Link Label, widget: object, fields: *loc }
-          - name: reservations
-            label: Reservations
-            widget: object
-            fields:
-              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
-              - { name: title, label: Title, widget: object, fields: *loc }
-              - { name: body, label: Text, widget: object, fields: *loctext }
           - name: trade
             label: Travel Trade
             widget: object
