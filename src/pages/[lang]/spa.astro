@@ -5,25 +5,33 @@ import JsonLd from '../../components/JsonLd.astro';
 import Hero from '../../components/Hero.astro';
 import EditorialSplit from '../../components/EditorialSplit.astro';
 import Pic from '../../components/Pic.astro';
+import SkewedCarousel from '../../components/SkewedCarousel.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd, spaJsonLd } from '../../lib/seo';
 import { SITE, egumaUrl } from '../../lib/site';
 import { getCollection } from 'astro:content';
+import type { ImageMetadata } from 'astro';
 
 import relaxLounge from '../../assets/images/spa/spa-relax-lounge-chairs.jpg';
-import saunaDetail from '../../assets/images/spa/spa-sauna-ritual-detail.jpg';
-import vitalityPool from '../../assets/images/spa/spa-vitality-pool-hydromassage.jpg';
-import treatmentRoom from '../../assets/images/spa/spa-treatment-room-detail.jpg';
-import massageTreatment from '../../assets/images/spa/spa-massage-treatment.jpg';
-import facialApplication from '../../assets/images/spa/spa-facial-treatment-application.jpg';
-import facialEye from '../../assets/images/spa/spa-facial-eye-treatment.jpg';
 import goldLeafFacial from '../../assets/images/spa/spa-gold-leaf-facial-treatment.jpg';
-import poolPalmView from '../../assets/images/spa/spa-indoor-pool-palm-view.jpg';
-import poolBarLounge from '../../assets/images/spa/spa-pool-bar-lounge.jpg';
-import poolDaylight from '../../assets/images/spa/spa-indoor-pool-daylight.jpg';
 import nightSpaIlluminated from '../../assets/images/spa/night-spa-illuminated-pool.jpg';
 import nightSpaCandlelit from '../../assets/images/spa/night-spa-candlelit-pool.jpg';
 import nightSpaBlueLight from '../../assets/images/spa/night-spa-blue-light-pool.jpg';
+
+// Carousel photography, 3:4 crops. Keys match `gallery.items[].key` in the
+// spa-experience entry, which carries the localised titles and alt text.
+import entranceCorridor from '../../assets/images/spa/spa-entrance-corridor.jpg';
+import relaxationLounge from '../../assets/images/spa/spa-relaxation-lounge.jpg';
+import himalayanSaltRoom from '../../assets/images/spa/spa-himalayan-salt-relaxation-room.jpg';
+import saltRoomLoungers from '../../assets/images/spa/spa-salt-room-loungers.jpg';
+import saunaCedarCabin from '../../assets/images/spa/spa-sauna-cedar-cabin.jpg';
+import wetAreaChromotherapy from '../../assets/images/spa/spa-wet-area-chromotherapy.jpg';
+import emotionalShower from '../../assets/images/spa/spa-emotional-shower.jpg';
+import hydrotherapyBath from '../../assets/images/spa/spa-hydrotherapy-bath.jpg';
+import treatmentRoomTable from '../../assets/images/spa/spa-treatment-room-massage-table.jpg';
+import treatmentRoomDetails from '../../assets/images/spa/spa-treatment-room-details.jpg';
+import indoorPool from '../../assets/images/spa/spa-indoor-pool.jpg';
+import vitalityPool from '../../assets/images/spa/spa-vitality-pool.jpg';
 
 export function getStaticPaths() {
   return localePaths();
@@ -60,6 +68,27 @@ const monthFeature =
   spaExp.treatmentOfMonth.months[0];
 const featuredTreatment = treatmentBySlug.get(monthFeature.treatmentSlug);
 
+const GALLERY_IMAGES: Record<string, ImageMetadata> = {
+  entranceCorridor,
+  relaxationLounge,
+  himalayanSaltRoom,
+  saltRoomLoungers,
+  saunaCedarCabin,
+  wetAreaChromotherapy,
+  emotionalShower,
+  hydrotherapyBath,
+  treatmentRoomTable,
+  treatmentRoomDetails,
+  indoorPool,
+  vitalityPool,
+};
+
+const galleryItems = spaExp.gallery.items.map((item) => {
+  const src = GALLERY_IMAGES[item.key];
+  if (!src) throw new Error(`Missing spa gallery image for key "${item.key}"`);
+  return { src, title: item.title[lang], alt: item.alt[lang] };
+});
+
 const alts: Record<string, Record<Locale, string>> = {
   relaxLounge: {
     en: 'Woven lounge chairs in the wet area, palm-frond shadows on the wall',
@@ -67,65 +96,11 @@ const alts: Record<string, Record<Locale, string>> = {
     it: 'Sedute intrecciate nella zona umida, ombre di foglie di palma sulla parete',
     fr: "Chaises longues tressées dans la zone humide, ombres de palmes sur le mur",
   },
-  saunaDetail: {
-    en: 'Wooden ladle and bucket beside the sauna stones',
-    de: 'Hölzerne Kelle und Eimer neben den Saunasteinen',
-    it: 'Mestolo e secchio in legno accanto alle pietre della sauna',
-    fr: "Louche et seau en bois près des pierres du sauna",
-  },
-  vitalityPool: {
-    en: 'A guest under the hydromassage jet in the Vitality pool',
-    de: 'Ein Gast unter dem Hydromassage-Strahl im Vitality-Pool',
-    it: 'Un ospite sotto il getto idromassaggio nella piscina Vitality',
-    fr: "Un hôte sous le jet d'hydromassage dans la piscine Vitality",
-  },
-  treatmentRoom: {
-    en: 'Treatment bed with candles and amenities against a palm-print wall',
-    de: 'Behandlungsliege mit Kerzen und Amenities vor einer Palmwand',
-    it: "Lettino da trattamento con candele e amenities su parete a motivo di palme",
-    fr: "Table de soin avec bougies et produits devant un mur à motif de palmes",
-  },
-  massageTreatment: {
-    en: 'A back massage in progress in a treatment room',
-    de: 'Eine Rückenmassage in einem Behandlungsraum',
-    it: 'Un massaggio alla schiena in corso in una cabina trattamenti',
-    fr: "Un massage du dos en cours dans une cabine de soin",
-  },
-  facialApplication: {
-    en: 'A therapist applying a facial treatment product',
-    de: 'Eine Therapeutin trägt ein Gesichtspflegeprodukt auf',
-    it: "Una terapista applica un prodotto per il trattamento viso",
-    fr: "Une thérapeute applique un produit de soin du visage",
-  },
-  facialEye: {
-    en: 'Gold eye patches during a La Vallée facial ritual',
-    de: 'Goldene Augenpads während eines La-Vallée-Gesichtsrituals',
-    it: 'Patch dorati per il contorno occhi durante un rituale viso La Vallée',
-    fr: "Patchs dorés pour les yeux pendant un rituel du visage La Vallée",
-  },
   goldLeafFacial: {
     en: '24-karat gold leaf applied during a facial treatment',
     de: '24-karätiges Blattgold während einer Gesichtsbehandlung',
     it: "Foglia d'oro a 24 carati applicata durante un trattamento viso",
     fr: "Feuille d'or 24 carats appliquée pendant un soin du visage",
-  },
-  poolPalmView: {
-    en: 'The indoor pool at rest, palm trees visible through the glass',
-    de: 'Der ruhige Innenpool, Palmen durch die Glasfront sichtbar',
-    it: 'La piscina interna a riposo, palme visibili oltre la vetrata',
-    fr: "La piscine intérieure au repos, palmiers visibles à travers la baie vitrée",
-  },
-  poolBarLounge: {
-    en: 'Poolside loungers and the spa bar beyond',
-    de: 'Liegen am Pool und die Spa-Bar im Hintergrund',
-    it: 'Lettini a bordo piscina e il bar della spa sullo sfondo',
-    fr: "Chaises longues au bord du bassin et le bar du spa en arrière-plan",
-  },
-  poolDaylight: {
-    en: 'The indoor pool by daylight, palm trees and lake hills through the windows',
-    de: 'Der Innenpool bei Tageslicht, Palmen und Seehügel durch die Fenster',
-    it: 'La piscina interna in piena luce, palme e colline del lago dalle vetrate',
-    fr: "La piscine intérieure en pleine lumière, palmiers et collines du lac par les baies vitrées",
   },
   nightSpaIlluminated: {
     en: 'The pool under violet and blue Night Spa lighting',
@@ -259,23 +234,17 @@ const contactUrl = p(lang, 'contact');
   <section class="section spa-gallery">
     <div class="container">
       <h2 class="section-title fade-up">{spaExp.gallery.title[lang]}</h2>
-      <div class="spa-gallery__grid">
-        {[
-          { img: saunaDetail, w: 1333, h: 2000, alt: alts.saunaDetail[lang] },
-          { img: vitalityPool, w: 2000, h: 1334, alt: alts.vitalityPool[lang] },
-          { img: treatmentRoom, w: 2000, h: 1333, alt: alts.treatmentRoom[lang] },
-          { img: massageTreatment, w: 2000, h: 1333, alt: alts.massageTreatment[lang] },
-          { img: facialApplication, w: 1334, h: 2000, alt: alts.facialApplication[lang] },
-          { img: facialEye, w: 2000, h: 1334, alt: alts.facialEye[lang] },
-          { img: poolPalmView, w: 2000, h: 1334, alt: alts.poolPalmView[lang] },
-          { img: poolBarLounge, w: 2000, h: 1500, alt: alts.poolBarLounge[lang] },
-          { img: poolDaylight, w: 2000, h: 1334, alt: alts.poolDaylight[lang] },
-        ].map((item) => (
-          <div class="spa-gallery__item fade-up">
-            <Pic src={item.img} alt={item.alt} width={item.w} height={item.h} sizes="(max-width: 720px) 50vw, 32vw" />
-          </div>
-        ))}
-      </div>
+      <p class="spa-gallery__intro fade-up">{spaExp.gallery.intro[lang]}</p>
+    </div>
+    <div class="fade-up">
+      <SkewedCarousel
+        items={galleryItems}
+        ariaLabel={spaExp.gallery.title[lang]}
+        prevLabel={spaExp.gallery.prevLabel[lang]}
+        nextLabel={spaExp.gallery.nextLabel[lang]}
+        goToLabel={spaExp.gallery.goToLabel[lang]}
+        initialIndex={2}
+      />
     </div>
   </section>
 
@@ -548,34 +517,11 @@ const contactUrl = p(lang, 'contact');
     margin: 0;
   }
 
-  /* Gallery */
-  .spa-gallery__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(0.4rem, 1vw, 0.75rem);
-  }
-  .spa-gallery__item {
-    overflow: hidden;
-  }
-  .spa-gallery__item :global(picture) {
-    display: block;
-  }
-  .spa-gallery__item :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    aspect-ratio: 3 / 4;
-    transition: transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .spa-gallery__item:hover :global(img) {
-      transform: scale(1.05);
-    }
-  }
-  @media (max-width: 720px) {
-    .spa-gallery__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  /* Gallery — the carousel owns its own layout; the section only sets the
+     copy above it and lets the cards run to the full page width. */
+  .spa-gallery__intro {
+    max-width: 58ch;
+    margin-bottom: var(--space-4);
   }
 
   /* Night spa */

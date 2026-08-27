@@ -402,7 +402,20 @@ const spaExperience = defineCollection({
       bookLabel: localized,
       giftLabel: localized,
     }),
-    gallery: z.object({ title: localized }),
+    gallery: z.object({
+      title: localized,
+      intro: localized,
+      prevLabel: localized,
+      nextLabel: localized,
+      // Rail button label; must contain the {title} placeholder.
+      goToLabel: localized,
+      items: z.array(z.object({
+        // Maps to an imported asset in the spa page's IMAGES record.
+        key: z.string(),
+        title: localized,
+        alt: localized,
+      })).min(1),
+    }),
     variantLabels: z.object({
       eyebrows: localized,
       aboveLip: localized,

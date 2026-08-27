@@ -405,7 +405,213 @@
       "de": "Einblicke ins Spa",
       "it": "Dentro la Spa",
       "fr": "À l'Intérieur du Spa"
-    }
+    },
+    "intro": {
+      "en": "A thousand square metres, room by room — from the arrival corridor to the salt walls, the wet zones and the water.",
+      "de": "Tausend Quadratmeter, Raum für Raum — vom Ankunftskorridor über die Salzwände und Nasszonen bis zum Wasser.",
+      "it": "Mille metri quadrati, stanza dopo stanza — dal corridoio d'ingresso alle pareti di sale, alle zone umide e all'acqua.",
+      "fr": "Mille mètres carrés, pièce après pièce — du couloir d'arrivée aux murs de sel, aux zones humides et à l'eau."
+    },
+    "prevLabel": {
+      "en": "Previous photograph",
+      "de": "Vorheriges Bild",
+      "it": "Fotografia precedente",
+      "fr": "Photographie précédente"
+    },
+    "nextLabel": {
+      "en": "Next photograph",
+      "de": "Nächstes Bild",
+      "it": "Fotografia successiva",
+      "fr": "Photographie suivante"
+    },
+    "goToLabel": {
+      "en": "Show {title}",
+      "de": "{title} anzeigen",
+      "it": "Mostra {title}",
+      "fr": "Afficher {title}"
+    },
+    "items": [
+      {
+        "key": "entranceCorridor",
+        "title": {
+          "en": "The arrival corridor",
+          "de": "Der Ankunftskorridor",
+          "it": "Il corridoio d'ingresso",
+          "fr": "Le couloir d'arrivée"
+        },
+        "alt": {
+          "en": "The spa's arrival corridor, a sculpted white Crion wall running its full length under a line of concealed light",
+          "de": "Der Ankunftskorridor des Spa mit einer skulptural geformten weissen Crion-Wand unter einer verdeckten Lichtlinie",
+          "it": "Il corridoio d'ingresso della spa, con una parete bianca scolpita in Crion illuminata da una linea di luce nascosta",
+          "fr": "Le couloir d'arrivée du spa, un mur blanc sculpté en Crion couru par une ligne de lumière dissimulée"
+        }
+      },
+      {
+        "key": "relaxationLounge",
+        "title": {
+          "en": "The waiting lounge",
+          "de": "Die Warte-Lounge",
+          "it": "La lounge d'attesa",
+          "fr": "Le salon d'attente"
+        },
+        "alt": {
+          "en": "The spa waiting lounge in white, with a low sofa, knitted poufs and a cluster of pendant lights",
+          "de": "Die Warte-Lounge des Spa in Weiss, mit niedrigem Sofa, gestrickten Poufs und einer Gruppe von Pendelleuchten",
+          "it": "La lounge d'attesa della spa in bianco, con divano basso, pouf in maglia e un grappolo di lampade a sospensione",
+          "fr": "Le salon d'attente du spa en blanc, avec canapé bas, poufs tricotés et une grappe de suspensions"
+        }
+      },
+      {
+        "key": "himalayanSaltRoom",
+        "title": {
+          "en": "The Himalayan salt room",
+          "de": "Der Himalaya-Salzraum",
+          "it": "La sala al sale himalayano",
+          "fr": "La salle au sel de l'Himalaya"
+        },
+        "alt": {
+          "en": "Heated loungers along a backlit Himalayan salt wall in the relaxation room",
+          "de": "Beheizte Liegen entlang einer hinterleuchteten Himalaya-Salzwand im Ruheraum",
+          "it": "Lettini riscaldati lungo una parete di sale himalayano retroilluminata nella sala relax",
+          "fr": "Des lits chauffants le long d'un mur de sel de l'Himalaya rétroéclairé dans la salle de repos"
+        }
+      },
+      {
+        "key": "saltRoomLoungers",
+        "title": {
+          "en": "The relaxation room",
+          "de": "Der Ruheraum",
+          "it": "La sala relax",
+          "fr": "La salle de repos"
+        },
+        "alt": {
+          "en": "Two guests in robes resting on contoured loungers beside the salt wall",
+          "de": "Zwei Gäste in Bademänteln ruhen auf geschwungenen Liegen neben der Salzwand",
+          "it": "Due ospiti in accappatoio riposano su lettini sagomati accanto alla parete di sale",
+          "fr": "Deux hôtes en peignoir se reposent sur des transats profilés près du mur de sel"
+        }
+      },
+      {
+        "key": "saunaCedarCabin",
+        "title": {
+          "en": "The sauna",
+          "de": "Die Sauna",
+          "it": "La sauna",
+          "fr": "Le sauna"
+        },
+        "alt": {
+          "en": "A wooden bucket and ladle resting beside the heater stones in the cedar-lined sauna",
+          "de": "Ein Holzkübel mit Kelle neben den Ofensteinen in der zedernverkleideten Sauna",
+          "it": "Un secchio di legno con mestolo accanto alle pietre della stufa nella sauna rivestita in cedro",
+          "fr": "Un seau et une louche en bois près des pierres du poêle dans le sauna lambrissé de cèdre"
+        }
+      },
+      {
+        "key": "wetAreaChromotherapy",
+        "title": {
+          "en": "The steam bath",
+          "de": "Das Dampfbad",
+          "it": "Il bagno turco",
+          "fr": "Le bain de vapeur"
+        },
+        "alt": {
+          "en": "The wet zone, its steam bath doors glowing under green and amber chromotherapy light",
+          "de": "Die Nasszone, deren Dampfbadtüren in grünem und bernsteinfarbenem Chromotherapielicht leuchten",
+          "it": "La zona umida, con le porte del bagno turco illuminate da luce cromoterapica verde e ambra",
+          "fr": "La zone humide, les portes du bain de vapeur éclairées d'une lumière chromothérapique verte et ambrée"
+        }
+      },
+      {
+        "key": "emotionalShower",
+        "title": {
+          "en": "The emotional shower",
+          "de": "Die Erlebnisdusche",
+          "it": "La doccia emozionale",
+          "fr": "La douche émotionnelle"
+        },
+        "alt": {
+          "en": "The ice fountain and emotional shower, lit green, at the end of the wet circuit",
+          "de": "Eisbrunnen und Erlebnisdusche in grünem Licht am Ende des Nassparcours",
+          "it": "La fontana di ghiaccio e la doccia emozionale, illuminate di verde, al termine del percorso umido",
+          "fr": "La fontaine de glace et la douche émotionnelle, éclairées en vert, au bout du parcours humide"
+        }
+      },
+      {
+        "key": "hydrotherapyBath",
+        "title": {
+          "en": "The hydrotherapy bath",
+          "de": "Das Hydrotherapiebad",
+          "it": "La vasca idroterapica",
+          "fr": "Le bain d'hydrothérapie"
+        },
+        "alt": {
+          "en": "Rolled towels and a small planter set on the rim of the hydrotherapy bath",
+          "de": "Gerollte Handtücher und ein kleiner Pflanztopf auf dem Rand des Hydrotherapiebads",
+          "it": "Asciugamani arrotolati e una piccola pianta sul bordo della vasca idroterapica",
+          "fr": "Des serviettes roulées et une petite jardinière posées sur le rebord du bain d'hydrothérapie"
+        }
+      },
+      {
+        "key": "treatmentRoomTable",
+        "title": {
+          "en": "The treatment room",
+          "de": "Der Behandlungsraum",
+          "it": "La cabina trattamenti",
+          "fr": "La cabine de soin"
+        },
+        "alt": {
+          "en": "A treatment room prepared for a massage, the table dressed and the salt lamp lit",
+          "de": "Ein für eine Massage vorbereiteter Behandlungsraum, die Liege bezogen und die Salzlampe an",
+          "it": "Una cabina trattamenti pronta per un massaggio, il lettino preparato e la lampada di sale accesa",
+          "fr": "Une cabine de soin préparée pour un massage, la table dressée et la lampe de sel allumée"
+        }
+      },
+      {
+        "key": "treatmentRoomDetails",
+        "title": {
+          "en": "Herbal compresses",
+          "de": "Kräuterstempel",
+          "it": "Pindas alle erbe",
+          "fr": "Compresses aux herbes"
+        },
+        "alt": {
+          "en": "Herbal compresses and folded linen laid out on the treatment table before a ritual",
+          "de": "Kräuterstempel und gefaltete Leinentücher auf der Behandlungsliege vor einem Ritual",
+          "it": "Pindas alle erbe e lino piegato disposti sul lettino prima di un rituale",
+          "fr": "Compresses aux herbes et linge plié disposés sur la table avant un rituel"
+        }
+      },
+      {
+        "key": "indoorPool",
+        "title": {
+          "en": "The indoor pool",
+          "de": "Der Innenpool",
+          "it": "La piscina interna",
+          "fr": "La piscine intérieure"
+        },
+        "alt": {
+          "en": "The indoor pool at rest, palms and the hills above Lugano filling the window",
+          "de": "Der ruhige Innenpool, Palmen und die Hügel über Lugano füllen das Fenster",
+          "it": "La piscina interna a riposo, con palme e le colline sopra Lugano a riempire la vetrata",
+          "fr": "La piscine intérieure au repos, palmiers et collines au-dessus de Lugano remplissant la baie vitrée"
+        }
+      },
+      {
+        "key": "vitalityPool",
+        "title": {
+          "en": "The Vitality pool",
+          "de": "Der Vitality-Pool",
+          "it": "La piscina Vitality",
+          "fr": "La piscine Vitality"
+        },
+        "alt": {
+          "en": "A guest under the cascade jet of the warm Vitality pool, the lake windows beyond",
+          "de": "Ein Gast unter dem Schwalldusche-Strahl des warmen Vitality-Pools, dahinter die Seefenster",
+          "it": "Un ospite sotto il getto a cascata della calda piscina Vitality, oltre le vetrate sul lago",
+          "fr": "Un hôte sous le jet en cascade de la piscine Vitality chauffée, les baies sur le lac au-delà"
+        }
+      }
+    ]
   },
   "variantLabels": {
     "eyebrows": {
