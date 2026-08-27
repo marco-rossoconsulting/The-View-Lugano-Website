@@ -1,0 +1,22 @@
+{
+  "order": 20,
+  "category": "bodyTreatments",
+  "name": {
+    "en": "Drain Pro",
+    "de": "Drain Pro",
+    "it": "Drain Pro",
+    "fr": "Drain Pro"
+  },
+  "summary": {
+    "en": "Manual drainage of the tissue that increases and improves venous return; it helps eliminate toxins and excess fluids from the lymphatic system, resulting in a sensation of lightness and well-being.",
+    "de": "Manuelle Gewebedrainage, die den venösen Rückfluss verbessert und fördert; sie hilft, Giftstoffe und überschüssige Flüssigkeit aus dem Lymphsystem zu entfernen, für ein Gefühl von Leichtigkeit und Wohlbefinden.",
+    "it": "Drenaggio manuale dei tessuti che aumenta e migliora il ritorno venoso; aiuta ad eliminare tossine e liquidi in eccesso dal sistema linfatico, per una sensazione di leggerezza e benessere.",
+    "fr": "Drainage manuel des tissus qui améliore et favorise le retour veineux ; il aide à éliminer les toxines et les liquides en excès du système lymphatique, pour une sensation de légèreté et de bien-être."
+  },
+  "variants": [
+    {
+      "duration": "50'",
+      "price": "CHF 180.-"
+    }
+  ]
+}

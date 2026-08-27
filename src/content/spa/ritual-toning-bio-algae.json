@@ -1,0 +1,22 @@
+{
+  "order": 2,
+  "category": "rituals",
+  "name": {
+    "en": "Toning Ritual — Bio Algae",
+    "de": "Straffungsritual — Bio-Algen",
+    "it": "Rituale Tonificante — Bio Algae",
+    "fr": "Rituel Tonifiant — Bio Algues"
+  },
+  "summary": {
+    "en": "An impact treatment created to redefine the silhouette and improve the texture of the skin. The products used are totally natural and organic (algae and integral sea salts) and work deeply to redesign the body's contours, activating its metabolism and promoting the elimination of excess fluids.",
+    "de": "Eine intensive Behandlung, die die Silhouette neu definiert und die Hautstruktur verbessert. Die verwendeten Produkte sind vollkommen natürlich und biologisch (Algen und vollwertige Meersalze) und wirken in der Tiefe, um die Körperkonturen neu zu zeichnen, den Stoffwechsel anzuregen und die Ausscheidung überschüssiger Flüssigkeit zu fördern.",
+    "it": "Trattamento urto creato per ridefinire la silhouette e migliorare la texture della pelle. I prodotti utilizzati sono totalmente naturali e biologici (alghe e sali marini integrali) e lavoreranno in profondità per ridisegnare i contorni del corpo, attivandone il metabolismo e favorendo l'eliminazione dei liquidi in eccesso.",
+    "fr": "Un soin intensif conçu pour redéfinir la silhouette et améliorer la texture de la peau. Les produits utilisés sont entièrement naturels et biologiques (algues et sels marins intégraux) et agissent en profondeur pour redessiner les contours du corps, activer le métabolisme et favoriser l'élimination des liquides en excès."
+  },
+  "variants": [
+    {
+      "duration": "100'",
+      "price": "CHF 310.-"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "order": 30,
+  "category": "faceRituals",
+  "name": {
+    "en": "Mens — Time Out",
+    "de": "Mens — Time Out",
+    "it": "Mens — Time Out",
+    "fr": "Mens — Time Out"
+  },
+  "summary": {
+    "en": "Tailored specifically to men's skin care needs, leaving the skin clean, restored, refreshed, soothed, hydrated, nourished and calm.",
+    "de": "Speziell auf die Hautbedürfnisse von Männern abgestimmt — für saubere, regenerierte, erfrischte, beruhigte, feuchtigkeitsgepflegte, genährte und entspannte Haut.",
+    "it": "Pensato specificamente per le esigenze della pelle maschile: pulita, rigenerata, rinfrescata, lenita, idratata, nutrita e distesa.",
+    "fr": "Spécialement conçu pour les besoins de la peau masculine, il laisse la peau propre, restaurée, rafraîchie, apaisée, hydratée, nourrie et détendue."
+  },
+  "variants": [
+    {
+      "duration": "60'",
+      "price": "CHF 200.-"
+    },
+    {
+      "duration": "90'",
+      "price": "CHF 300.-"
+    }
+  ]
+}

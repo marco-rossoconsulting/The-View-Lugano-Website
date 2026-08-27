@@ -68,6 +68,8 @@ export const SITE = {
       'https://widget.thefork.com/en/c3d07f7d-74f8-4ebf-84ab-704cd3e887f9/homepage/cca06037-40b6-4c31-a8ad-46adaf42b31b?utm_source=6a8ea2ad4d9378da9f244bbc--theview-lugano.netlify.app',
     egumaVouchers: 'https://shop.e-guma.ch/theviewlugano/{lang}/gift-vouchers',
     egumaEvents: 'https://shop.e-guma.ch/theviewlugano/{lang}/events',
+    egumaSpaVouchers: 'https://shop.e-guma.ch/theviewlugano/{lang}/gift-vouchers/c/the-view-spa-2219114',
+    spaBooking: 'https://www.secure-booker.com/viewlugano/MakeAppointment/Search.aspx',
   },
   awards: [
     { id: 'michelin-star', name: '1 Michelin Star — THE VIEW Fine Dining' },
@@ -83,10 +85,14 @@ export const SITE = {
   ],
 } as const;
 
-export function egumaUrl(kind: 'vouchers' | 'events', lang: string): string {
+export function egumaUrl(kind: 'vouchers' | 'events' | 'spaVouchers', lang: string): string {
   const map: Record<string, string> = { en: 'en', de: 'de', it: 'it', fr: 'fr' };
   const base =
-    kind === 'vouchers' ? SITE.integrations.egumaVouchers : SITE.integrations.egumaEvents;
+    kind === 'vouchers'
+      ? SITE.integrations.egumaVouchers
+      : kind === 'spaVouchers'
+        ? SITE.integrations.egumaSpaVouchers
+        : SITE.integrations.egumaEvents;
   return base.replace('{lang}', map[lang] ?? 'en');
 }
 

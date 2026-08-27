@@ -1,0 +1,22 @@
+{
+  "order": 3,
+  "category": "rituals",
+  "name": {
+    "en": "Nourishing Ritual — Chocolate",
+    "de": "Pflegeritual — Schokolade",
+    "it": "Rituale Nutriente — Chocolate",
+    "fr": "Rituel Nourrissant — Chocolat"
+  },
+  "summary": {
+    "en": "A very sweet treatment that awakens all the senses and leaves the skin pleasantly scented and nourished. The aromas released by the chocolate used (100% organic and Swiss) also contribute to the production of serotonin, the well-known molecule of happiness and well-being.",
+    "de": "Eine sehr süsse Behandlung, die alle Sinne weckt und die Haut angenehm duftend und genährt zurücklässt. Die Aromen der verwendeten Schokolade (100 % biologisch und aus der Schweiz) fördern zudem die Produktion von Serotonin, dem bekannten Molekül des Glücks und Wohlbefindens.",
+    "it": "Un trattamento dolcissimo che risveglierà tutti i sensi e lascerà la pelle piacevolmente profumata e nutrita. Gli aromi sprigionati dal cioccolato utilizzato (100% bio e svizzero) contribuiscono inoltre alla produzione di serotonina, nota molecola della felicità e del benessere.",
+    "fr": "Un soin très gourmand qui éveille tous les sens et laisse la peau agréablement parfumée et nourrie. Les arômes libérés par le chocolat utilisé (100 % biologique et suisse) contribuent également à la production de sérotonine, la fameuse molécule du bonheur et du bien-être."
+  },
+  "variants": [
+    {
+      "duration": "100'",
+      "price": "CHF 310.-"
+    }
+  ]
+}

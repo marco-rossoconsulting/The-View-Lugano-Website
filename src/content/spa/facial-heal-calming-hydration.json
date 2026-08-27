@@ -1,0 +1,26 @@
+{
+  "order": 28,
+  "category": "faceRituals",
+  "name": {
+    "en": "Heal — Ultra Calming Hydration",
+    "de": "Heal — Ultra Beruhigende Feuchtigkeit",
+    "it": "Heal — Idratazione Ultra Lenitiva",
+    "fr": "Heal — Hydratation Ultra Apaisante"
+  },
+  "summary": {
+    "en": "A perfect skin soother to heal and repair damaged skin, especially from sun and wind exposure.",
+    "de": "Ein perfekter Hautberuhiger, der geschädigte Haut heilt und repariert — besonders nach Sonnen- und Windeinwirkung.",
+    "it": "Un trattamento lenitivo perfetto per riparare la pelle danneggiata, in particolare da sole e vento.",
+    "fr": "Un soin apaisant parfait pour réparer une peau abîmée, notamment par le soleil et le vent."
+  },
+  "variants": [
+    {
+      "duration": "60'",
+      "price": "CHF 200.-"
+    },
+    {
+      "duration": "90'",
+      "price": "CHF 300.-"
+    }
+  ]
+}

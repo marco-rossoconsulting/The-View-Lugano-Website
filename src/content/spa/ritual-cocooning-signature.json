@@ -1,0 +1,22 @@
+{
+  "order": 5,
+  "category": "rituals",
+  "name": {
+    "en": "The Cocooning Signature Ritual",
+    "de": "Das Cocooning Signature Ritual",
+    "it": "The Cocooning Signature Ritual",
+    "fr": "Le Rituel Signature Cocooning"
+  },
+  "summary": {
+    "en": "A revitalising hydrotherapy session followed by a nourishing body treatment with a massage on the Jouvence dry flotation bed, designed for soothing body wrap treatments that allow the body to regenerate and relax. Once the wrap has been applied, the air cushion gently sinks and you rest weightlessly on the pleasantly heated water cushion. Floating calms and relaxes the body, improves blood circulation, and opens the pores of the skin: this enables the wraps to unleash their full effect.",
+    "de": "Eine revitalisierende Hydrotherapie-Sitzung, gefolgt von einer pflegenden Körperbehandlung mit Massage auf dem Jouvence-Trockenschwebebett, das für beruhigende Körperpackungen konzipiert ist und Körper und Geist regenerieren und entspannen lässt. Nach dem Auftragen der Packung sinkt das Luftkissen sanft ab, und Sie ruhen schwerelos auf dem angenehm warmen Wasserkissen. Das Schweben beruhigt und entspannt den Körper, verbessert die Durchblutung und öffnet die Hautporen — so entfalten die Packungen ihre volle Wirkung.",
+    "it": "Una rivitalizzante sessione di idroterapia seguita da un trattamento corpo nutriente con massaggio sul letto di flottazione a secco Jouvence, pensato per impacchi corpo lenitivi che permettono al corpo di rigenerarsi e rilassarsi. Una volta applicato l'impacco, il cuscino d'aria si abbassa dolcemente e ci si adagia senza peso sul cuscino d'acqua piacevolmente riscaldato. Il galleggiamento calma e rilassa il corpo, migliora la circolazione sanguigna e apre i pori della pelle: questo permette agli impacchi di sprigionare tutto il loro effetto.",
+    "fr": "Une séance d'hydrothérapie revitalisante suivie d'un soin corporel nourrissant avec massage sur le lit de flottaison sèche Jouvence, conçu pour des enveloppements corporels apaisants qui permettent au corps de se régénérer et de se détendre. Une fois l'enveloppement appliqué, le coussin d'air s'abaisse doucement et vous reposez en apesanteur sur le coussin d'eau agréablement chauffé. La flottaison calme et détend le corps, améliore la circulation sanguine et ouvre les pores de la peau : les enveloppements peuvent ainsi déployer tout leur effet."
+  },
+  "variants": [
+    {
+      "duration": "110'",
+      "price": "CHF 310.-"
+    }
+  ]
+}

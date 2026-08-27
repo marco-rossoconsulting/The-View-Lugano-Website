@@ -1,0 +1,26 @@
+{
+  "order": 24,
+  "category": "faceRituals",
+  "name": {
+    "en": "Supreme Anti-Aging — Stem Cell Repair",
+    "de": "Supreme Anti-Aging — Stammzell-Repair",
+    "it": "Supreme Anti-Aging — Rigenerazione con Cellule Staminali",
+    "fr": "Supreme Anti-Âge — Réparation aux Cellules Souches"
+  },
+  "summary": {
+    "en": "A perfect skin smoother to repair skin texture, lift, refine and restore.",
+    "de": "Ein perfekter Hautglätter zur Reparatur der Hautstruktur — strafft, verfeinert und erneuert.",
+    "it": "Un trattamento levigante perfetto per riparare la texture della pelle: solleva, affina e rigenera.",
+    "fr": "Un soin lissant parfait qui répare la texture de la peau, raffermit, affine et restaure."
+  },
+  "variants": [
+    {
+      "duration": "60'",
+      "price": "CHF 210.-"
+    },
+    {
+      "duration": "90'",
+      "price": "CHF 320.-"
+    }
+  ]
+}

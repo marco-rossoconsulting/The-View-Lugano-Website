@@ -1,0 +1,22 @@
+{
+  "order": 18,
+  "category": "bodyTreatments",
+  "name": {
+    "en": "Muscle Total Release",
+    "de": "Muscle Total Release",
+    "it": "Muscle Total Release",
+    "fr": "Muscle Total Release"
+  },
+  "summary": {
+    "en": "The powerful anti-inflammatory efficacy of ventilated clay is combined with a deep decontracting massage to give immediate relief and well-being from chronic pain and muscle or joint stiffness.",
+    "de": "Die stark entzündungshemmende Wirkung von ventilierter Tonerde wird mit einer tiefen, lockernden Massage kombiniert, die sofortige Linderung bei chronischen Schmerzen sowie Muskel- und Gelenksteifheit bringt.",
+    "it": "La potente efficacia antinfiammatoria dell'argilla ventilata si unisce ad un profondo massaggio decontratturante, per donare immediato sollievo e benessere da dolori cronici e rigidità muscolari ed articolari.",
+    "fr": "L'efficacité anti-inflammatoire puissante de l'argile ventilée est associée à un massage décontractant profond, apportant un soulagement immédiat des douleurs chroniques et des raideurs musculaires ou articulaires."
+  },
+  "variants": [
+    {
+      "duration": "80'",
+      "price": "CHF 250.-"
+    }
+  ]
+}

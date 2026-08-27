@@ -1,0 +1,26 @@
+{
+  "order": 7,
+  "category": "massages",
+  "name": {
+    "en": "Aroma Bliss",
+    "de": "Aroma Bliss",
+    "it": "Aroma Bliss",
+    "fr": "Aroma Bliss"
+  },
+  "summary": {
+    "en": "Relaxing, aromatherapic massage which, thanks to essential doTerra oils, encourages deep psychophysical relaxation.",
+    "de": "Entspannende Aromatherapie-Massage, die dank ätherischer doTERRA-Öle eine tiefe psychophysische Entspannung fördert.",
+    "it": "Massaggio rilassante e aromaterapico che, grazie agli oli essenziali doTerra, favorisce un profondo rilassamento psicofisico.",
+    "fr": "Massage aromathérapique relaxant qui, grâce aux huiles essentielles doTerra, favorise une profonde détente psychophysique."
+  },
+  "variants": [
+    {
+      "duration": "50'",
+      "price": "CHF 150.-"
+    },
+    {
+      "duration": "80'",
+      "price": "CHF 190.-"
+    }
+  ]
+}

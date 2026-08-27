@@ -1,0 +1,26 @@
+{
+  "order": 27,
+  "category": "faceRituals",
+  "name": {
+    "en": "Prevent — Vitality Radiance",
+    "de": "Prevent — Vitality Radiance",
+    "it": "Prevent — Vitality Radiance",
+    "fr": "Prevent — Vitality Radiance"
+  },
+  "summary": {
+    "en": "A perfect skin antioxidant boost to refresh, oxygenate, detoxify and prevent cellular damage.",
+    "de": "Ein perfekter Antioxidantien-Boost für die Haut — erfrischt, sauerstoffreich, entgiftend und schützt vor Zellschäden.",
+    "it": "Un boost antiossidante perfetto per rinfrescare, ossigenare, disintossicare e prevenire i danni cellulari.",
+    "fr": "Un boost antioxydant parfait pour rafraîchir, oxygéner, détoxifier et prévenir les dommages cellulaires."
+  },
+  "variants": [
+    {
+      "duration": "60'",
+      "price": "CHF 200.-"
+    },
+    {
+      "duration": "90'",
+      "price": "CHF 300.-"
+    }
+  ]
+}

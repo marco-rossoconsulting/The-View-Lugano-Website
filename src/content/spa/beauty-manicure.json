@@ -1,0 +1,26 @@
+{
+  "order": 32,
+  "category": "beauty",
+  "name": {
+    "en": "Manicure",
+    "de": "Maniküre",
+    "it": "Manicure",
+    "fr": "Manucure"
+  },
+  "summary": {
+    "en": "Hand care with a natural finish, or complete with polish.",
+    "de": "Handpflege mit natürlichem Finish oder komplett mit Lack.",
+    "it": "Cura delle mani con finish naturale o completa di smalto.",
+    "fr": "Soin des mains avec finition naturelle, ou complété par une pose de vernis."
+  },
+  "variants": [
+    {
+      "duration": "naturalFinish",
+      "price": "CHF 60.-"
+    },
+    {
+      "duration": "nailPolish",
+      "price": "CHF 90.-"
+    }
+  ]
+}

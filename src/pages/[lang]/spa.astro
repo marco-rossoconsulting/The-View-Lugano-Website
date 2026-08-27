@@ -1,13 +1,29 @@
 ---
 import Base from '../../layouts/Base.astro';
-import EditorialSplit from '../../components/EditorialSplit.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
+import Hero from '../../components/Hero.astro';
+import EditorialSplit from '../../components/EditorialSplit.astro';
+import Pic from '../../components/Pic.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
-import { breadcrumbJsonLd } from '../../lib/seo';
-import { SITE } from '../../lib/site';
-import { byCategory } from '../../lib/photos';
+import { breadcrumbJsonLd, spaJsonLd } from '../../lib/seo';
+import { SITE, egumaUrl } from '../../lib/site';
 import { getCollection } from 'astro:content';
+
+import relaxLounge from '../../assets/images/spa/spa-relax-lounge-chairs.jpg';
+import saunaDetail from '../../assets/images/spa/spa-sauna-ritual-detail.jpg';
+import vitalityPool from '../../assets/images/spa/spa-vitality-pool-hydromassage.jpg';
+import treatmentRoom from '../../assets/images/spa/spa-treatment-room-detail.jpg';
+import massageTreatment from '../../assets/images/spa/spa-massage-treatment.jpg';
+import facialApplication from '../../assets/images/spa/spa-facial-treatment-application.jpg';
+import facialEye from '../../assets/images/spa/spa-facial-eye-treatment.jpg';
+import goldLeafFacial from '../../assets/images/spa/spa-gold-leaf-facial-treatment.jpg';
+import poolPalmView from '../../assets/images/spa/spa-indoor-pool-palm-view.jpg';
+import poolBarLounge from '../../assets/images/spa/spa-pool-bar-lounge.jpg';
+import poolDaylight from '../../assets/images/spa/spa-indoor-pool-daylight.jpg';
+import nightSpaIlluminated from '../../assets/images/spa/night-spa-illuminated-pool.jpg';
+import nightSpaCandlelit from '../../assets/images/spa/night-spa-candlelit-pool.jpg';
+import nightSpaBlueLight from '../../assets/images/spa/night-spa-blue-light-pool.jpg';
 
 export function getStaticPaths() {
   return localePaths();
@@ -16,70 +32,302 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Locale;
 if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
 
-const [pageEntries, treatmentEntries] = await Promise.all([
+const [pageEntries, spaExpEntries, treatmentEntries] = await Promise.all([
   getCollection('pages'),
+  getCollection('spaExperience'),
   getCollection('spa'),
 ]);
 
 const page = pageEntries.find((e) => e.data.slug === 'spa-index')?.data;
-const treatments = treatmentEntries.sort((a, b) => a.data.order - b.data.order);
+const spaExp = spaExpEntries[0]?.data;
 if (!page) throw new Error('Missing spa-index CMS content');
+if (!spaExp) throw new Error('Missing spa-experience CMS content');
 
-const spaPhotos = byCategory('spa');
+const treatments = treatmentEntries
+  .map((e) => e.data)
+  .sort((a, b) => a.order - b.order);
+
+const treatmentBySlug = new Map(treatmentEntries.map((e) => [e.id.replace(/\.json$/, ''), e.data]));
+
+function localizedVariant(duration: string): string {
+  const labels = spaExp.variantLabels as unknown as Record<string, Record<Locale, string>>;
+  return labels[duration]?.[lang] ?? duration;
+}
+
+const currentMonth = new Date().getMonth() + 1;
+const monthFeature =
+  spaExp.treatmentOfMonth.months.find((m) => m.month === currentMonth) ??
+  spaExp.treatmentOfMonth.months[0];
+const featuredTreatment = treatmentBySlug.get(monthFeature.treatmentSlug);
+
+const alts: Record<string, Record<Locale, string>> = {
+  relaxLounge: {
+    en: 'Woven lounge chairs in the wet area, palm-frond shadows on the wall',
+    de: 'Geflochtene Liegen im Nassbereich, Schatten von Palmwedeln an der Wand',
+    it: 'Sedute intrecciate nella zona umida, ombre di foglie di palma sulla parete',
+    fr: "Chaises longues tressées dans la zone humide, ombres de palmes sur le mur",
+  },
+  saunaDetail: {
+    en: 'Wooden ladle and bucket beside the sauna stones',
+    de: 'Hölzerne Kelle und Eimer neben den Saunasteinen',
+    it: 'Mestolo e secchio in legno accanto alle pietre della sauna',
+    fr: "Louche et seau en bois près des pierres du sauna",
+  },
+  vitalityPool: {
+    en: 'A guest under the hydromassage jet in the Vitality pool',
+    de: 'Ein Gast unter dem Hydromassage-Strahl im Vitality-Pool',
+    it: 'Un ospite sotto il getto idromassaggio nella piscina Vitality',
+    fr: "Un hôte sous le jet d'hydromassage dans la piscine Vitality",
+  },
+  treatmentRoom: {
+    en: 'Treatment bed with candles and amenities against a palm-print wall',
+    de: 'Behandlungsliege mit Kerzen und Amenities vor einer Palmwand',
+    it: "Lettino da trattamento con candele e amenities su parete a motivo di palme",
+    fr: "Table de soin avec bougies et produits devant un mur à motif de palmes",
+  },
+  massageTreatment: {
+    en: 'A back massage in progress in a treatment room',
+    de: 'Eine Rückenmassage in einem Behandlungsraum',
+    it: 'Un massaggio alla schiena in corso in una cabina trattamenti',
+    fr: "Un massage du dos en cours dans une cabine de soin",
+  },
+  facialApplication: {
+    en: 'A therapist applying a facial treatment product',
+    de: 'Eine Therapeutin trägt ein Gesichtspflegeprodukt auf',
+    it: "Una terapista applica un prodotto per il trattamento viso",
+    fr: "Une thérapeute applique un produit de soin du visage",
+  },
+  facialEye: {
+    en: 'Gold eye patches during a La Vallée facial ritual',
+    de: 'Goldene Augenpads während eines La-Vallée-Gesichtsrituals',
+    it: 'Patch dorati per il contorno occhi durante un rituale viso La Vallée',
+    fr: "Patchs dorés pour les yeux pendant un rituel du visage La Vallée",
+  },
+  goldLeafFacial: {
+    en: '24-karat gold leaf applied during a facial treatment',
+    de: '24-karätiges Blattgold während einer Gesichtsbehandlung',
+    it: "Foglia d'oro a 24 carati applicata durante un trattamento viso",
+    fr: "Feuille d'or 24 carats appliquée pendant un soin du visage",
+  },
+  poolPalmView: {
+    en: 'The indoor pool at rest, palm trees visible through the glass',
+    de: 'Der ruhige Innenpool, Palmen durch die Glasfront sichtbar',
+    it: 'La piscina interna a riposo, palme visibili oltre la vetrata',
+    fr: "La piscine intérieure au repos, palmiers visibles à travers la baie vitrée",
+  },
+  poolBarLounge: {
+    en: 'Poolside loungers and the spa bar beyond',
+    de: 'Liegen am Pool und die Spa-Bar im Hintergrund',
+    it: 'Lettini a bordo piscina e il bar della spa sullo sfondo',
+    fr: "Chaises longues au bord du bassin et le bar du spa en arrière-plan",
+  },
+  poolDaylight: {
+    en: 'The indoor pool by daylight, palm trees and lake hills through the windows',
+    de: 'Der Innenpool bei Tageslicht, Palmen und Seehügel durch die Fenster',
+    it: 'La piscina interna in piena luce, palme e colline del lago dalle vetrate',
+    fr: "La piscine intérieure en pleine lumière, palmiers et collines du lac par les baies vitrées",
+  },
+  nightSpaIlluminated: {
+    en: 'The pool under violet and blue Night Spa lighting',
+    de: 'Der Pool unter violetter und blauer Night-Spa-Beleuchtung',
+    it: 'La piscina sotto le luci viola e blu del Night Spa',
+    fr: "La piscine sous l'éclairage violet et bleu du Night Spa",
+  },
+  nightSpaCandlelit: {
+    en: 'Candlelit loungers beside the pool at night',
+    de: 'Kerzenbeleuchtete Liegen am Pool bei Nacht',
+    it: 'Lettini illuminati da candele accanto alla piscina di notte',
+    fr: "Chaises longues à la bougie près de la piscine, la nuit",
+  },
+  nightSpaBlueLight: {
+    en: 'The pool ceiling lit in deep blue after dark',
+    de: 'Die Poolabdeckung in tiefem Blau beleuchtet nach Einbruch der Dunkelheit',
+    it: 'Il soffitto della piscina illuminato di blu intenso dopo il tramonto',
+    fr: "Le plafond de la piscine éclairé en bleu profond à la nuit tombée",
+  },
+};
+
+const spaBookingUrl = SITE.integrations.spaBooking;
+const spaGiftUrl = egumaUrl('spaVouchers', lang);
+const contactUrl = p(lang, 'contact');
 ---
 
-<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="spa" ogImage={spaPhotos[0].src}>
+<Base
+  {lang}
+  title={page.metaTitle[lang]}
+  description={page.metaDesc[lang]}
+  route="spa"
+  overlayHeader
+  ogImage="https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135345/hotel_012.jpg"
+  preloadImage="/images/spa-hero-video-poster.jpg"
+>
+  <Hero
+    src="/images/spa-hero-video-poster.jpg"
+    video="/spa-hero-video.mp4"
+    poster="/images/spa-hero-video-poster.jpg"
+    alt={spaExp.hero.alt[lang]}
+    line={page.h1[lang]}
+    tagline={spaExp.hero.tagline[lang]}
+    h1
+  />
+
   <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
-  <section class="section">
+  <section class="section spa-intro">
     <div class="container container--narrow">
-      <h1 class="page-title">{page.h1[lang]}</h1>
-      <p class="page-intro">{page.intro[lang]}</p>
-      <p class="page-note">{page.philosophy?.[lang]}</p>
+      <p class="page-intro fade-up">{page.intro[lang]}</p>
+      <p class="page-note fade-up">{spaExp.philosophy[lang]}</p>
+      <div class="spa-cta-row fade-up">
+        <a class="btn btn--solid" href={spaBookingUrl} target="_blank" rel="noopener noreferrer">
+          {spaExp.booking.bookLabel[lang]}
+        </a>
+        <a class="btn" href={spaGiftUrl} target="_blank" rel="noopener noreferrer">
+          {spaExp.booking.giftLabel[lang]}
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
+  {featuredTreatment && (
+    <section class="section section--ink spa-feature">
+      <div class="container spa-feature__inner fade-up">
+        <div class="spa-feature__photo">
+          <Pic
+            src={goldLeafFacial}
+            alt={alts.goldLeafFacial[lang]}
+            width={2000}
+            height={1334}
+            sizes="(max-width: 900px) 100vw, 45vw"
+          />
+        </div>
+        <div class="spa-feature__copy">
+          <p class="eyebrow">{spaExp.treatmentOfMonth.eyebrow[lang]}</p>
+          <h2>{featuredTreatment.name[lang]}</h2>
+          <p class="spa-feature__note">{monthFeature.note[lang]}</p>
+          <p>{featuredTreatment.summary[lang]}</p>
+          <p class="spa-feature__price">
+            {featuredTreatment.variants.map((v) => `${localizedVariant(v.duration)} · ${v.price}`).join(' / ')}
+          </p>
+          <a class="btn btn--light" href={spaBookingUrl} target="_blank" rel="noopener noreferrer">
+            {spaExp.treatmentOfMonth.ctaLabel[lang]}
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--tortora spa-menu">
+    <div class="container container--narrow">
+      <h2 class="section-title fade-up">{spaExp.treatments.title[lang]}</h2>
+      <p class="spa-menu__intro fade-up">{spaExp.treatments.intro[lang]}</p>
+
+      <div class="spa-categories">
+        {spaExp.treatments.categories.map((cat, i) => {
+          const catTreatments = treatments.filter((t) => t.category === cat.id);
+          return (
+            <details class="spa-category fade-up" open={i === 0}>
+              <summary class="spa-category__summary">
+                <span>{cat.title[lang]}</span>
+                <span class="spa-category__count">{catTreatments.length}</span>
+              </summary>
+              <div class="spa-category__body">
+                <p class="spa-category__intro">{cat.intro[lang]}</p>
+                {cat.note && <p class="spa-category__note">{cat.note[lang]}</p>}
+                <ul class="treatments">
+                  {catTreatments.map((tr) => (
+                    <li class="treatment">
+                      <div class="treatment__head">
+                        <h3>{tr.name[lang]}</h3>
+                        <span class="treatment__price">
+                          {tr.variants.map((v) => `${localizedVariant(v.duration)} · ${v.price}`).join(' / ')}
+                        </span>
+                      </div>
+                      <p>{tr.summary[lang]}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          );
+        })}
+      </div>
+
+      <a class="btn" href={spaBookingUrl} target="_blank" rel="noopener noreferrer">
+        {spaExp.treatments.bookLabel[lang]}
+      </a>
+    </div>
+  </section>
+
+  <section class="section spa-gallery">
     <div class="container">
-      <EditorialSplit
-        src={spaPhotos[0].src}
-        alt={spaPhotos[0].alt[lang]}
-        eyebrow={page.hoursTitle?.[lang]}
-        title={`Open daily ${SITE.spa.hours}`}
-      >
-        <p>{page.hoursBody?.[lang]}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section section--tortora">
-    <div class="container container--narrow">
-      <h2 class="section-title">{page.treatmentsTitle?.[lang]}</h2>
-      <p style="margin-bottom: var(--space-3); max-width: 62ch;">{page.treatmentsIntro?.[lang]}</p>
-      <ul class="treatments">
-        {treatments.map((tr) => (
-          <li class="treatment fade-up">
-            <div class="treatment__head">
-              <h3>{tr.data.name[lang]}</h3>
-              <span class="treatment__duration">{tr.data.duration}</span>
-            </div>
-            <p>{tr.data.summary[lang]}</p>
-          </li>
+      <h2 class="section-title fade-up">{spaExp.gallery.title[lang]}</h2>
+      <div class="spa-gallery__grid">
+        {[
+          { img: saunaDetail, w: 1333, h: 2000, alt: alts.saunaDetail[lang] },
+          { img: vitalityPool, w: 2000, h: 1334, alt: alts.vitalityPool[lang] },
+          { img: treatmentRoom, w: 2000, h: 1333, alt: alts.treatmentRoom[lang] },
+          { img: massageTreatment, w: 2000, h: 1333, alt: alts.massageTreatment[lang] },
+          { img: facialApplication, w: 1334, h: 2000, alt: alts.facialApplication[lang] },
+          { img: facialEye, w: 2000, h: 1334, alt: alts.facialEye[lang] },
+          { img: poolPalmView, w: 2000, h: 1334, alt: alts.poolPalmView[lang] },
+          { img: poolBarLounge, w: 2000, h: 1500, alt: alts.poolBarLounge[lang] },
+          { img: poolDaylight, w: 2000, h: 1334, alt: alts.poolDaylight[lang] },
+        ].map((item) => (
+          <div class="spa-gallery__item fade-up">
+            <Pic src={item.img} alt={item.alt} width={item.w} height={item.h} sizes="(max-width: 720px) 50vw, 32vw" />
+          </div>
         ))}
-      </ul>
-      <a class="btn" href={p(lang, 'contact')}>{page.bookTreatment?.[lang]}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink spa-night">
+    <div class="container">
+      <p class="eyebrow fade-up">{spaExp.nightSpa.eyebrow[lang]}</p>
+      <h2 class="fade-up">{spaExp.nightSpa.title[lang]}</h2>
+      <p class="spa-night__body fade-up">{spaExp.nightSpa.body[lang]}</p>
+      <p class="spa-night__access fade-up">{spaExp.nightSpa.accessNote[lang]}</p>
+      <div class="spa-night__grid fade-up">
+        <div class="spa-night__main">
+          <Pic src={nightSpaIlluminated} alt={alts.nightSpaIlluminated[lang]} width={2000} height={1500} sizes="(max-width: 900px) 100vw, 62vw" />
+        </div>
+        <div class="spa-night__side">
+          <Pic src={nightSpaCandlelit} alt={alts.nightSpaCandlelit[lang]} width={2000} height={1500} sizes="(max-width: 900px) 50vw, 30vw" />
+          <Pic src={nightSpaBlueLight} alt={alts.nightSpaBlueLight[lang]} width={2000} height={1500} sizes="(max-width: 900px) 50vw, 30vw" />
+        </div>
+      </div>
+      <a class="btn btn--light" href={contactUrl}>{spaExp.nightSpa.ctaLabel[lang]}</a>
+    </div>
+  </section>
+
+  <section class="section spa-access">
+    <div class="container container--narrow">
+      <h2 class="section-title fade-up">{spaExp.salesCategories.title[lang]}</h2>
+      <p class="spa-access__intro fade-up">{spaExp.salesCategories.intro[lang]}</p>
+      <div class="spa-access__grid">
+        {spaExp.salesCategories.items.map((item) => (
+          <article class="spa-access__card fade-up">
+            <h3>{item.title[lang]}</h3>
+            <p>{item.body[lang]}</p>
+          </article>
+        ))}
+      </div>
+      <a class="btn" href={contactUrl}>{spaExp.salesCategories.ctaLabel[lang]}</a>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <EditorialSplit
-        src={spaPhotos.length > 1 ? spaPhotos[1].src : spaPhotos[0].src}
-        alt={spaPhotos.length > 1 ? spaPhotos[1].alt[lang] : spaPhotos[0].alt[lang]}
-        title={page.fitnessTitle?.[lang]}
-        flip
+        src={relaxLounge}
+        alt={alts.relaxLounge[lang]}
+        eyebrow={spaExp.fitness.title[lang]}
+        title={spaExp.hours.title[lang]}
+        imageWidth={2000}
+        imageHeight={1333}
       >
-        <p>{page.fitnessBody?.[lang]}</p>
+        <p>{spaExp.hours.body[lang]}</p>
+        <p>{spaExp.fitness.body[lang]}</p>
       </EditorialSplit>
     </div>
   </section>
@@ -90,6 +338,7 @@ const spaPhotos = byCategory('spa');
       { name: page.h1[lang], url: p(lang, 'spa') },
     ])}
   />
+  <JsonLd data={spaJsonLd(lang, 'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135345/hotel_012.jpg')} />
 </Base>
 
 <style>
@@ -99,9 +348,124 @@ const spaPhotos = byCategory('spa');
     font-size: clamp(1.45rem, 2.6vw, 2.1rem);
     margin-bottom: var(--space-2);
   }
+
+  .spa-intro {
+    padding-bottom: var(--space-4);
+  }
+  .page-intro {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    line-height: 1.7;
+    max-width: 52ch;
+  }
+  .page-note {
+    color: var(--clay);
+    max-width: 56ch;
+  }
+  .spa-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: var(--space-3);
+  }
+
+  /* Treatment of the month */
+  .spa-feature__inner {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .spa-feature__copy h2 {
+    color: var(--ground);
+    margin-bottom: 0.6rem;
+  }
+  .spa-feature__note {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--grigio);
+    margin-bottom: var(--space-2);
+  }
+  .spa-feature__copy p {
+    color: var(--tortora);
+    max-width: 48ch;
+  }
+  .spa-feature__price {
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+    color: var(--argento);
+    margin-bottom: var(--space-3);
+  }
+  @media (max-width: 900px) {
+    .spa-feature__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Treatment menu accordion */
+  .spa-menu__intro {
+    max-width: 58ch;
+    margin-bottom: var(--space-3);
+  }
+  .spa-categories {
+    display: grid;
+    gap: 0;
+    margin-bottom: var(--space-3);
+    border-top: 1px solid var(--tortora-densa);
+  }
+  .spa-category {
+    border-bottom: 1px solid var(--tortora-densa);
+  }
+  .spa-category__summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.2rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    letter-spacing: 0.02em;
+  }
+  .spa-category__summary::-webkit-details-marker {
+    display: none;
+  }
+  .spa-category__summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--clay);
+    flex-shrink: 0;
+    order: -1;
+    margin-right: 0.5rem;
+  }
+  .spa-category[open] .spa-category__summary::after {
+    content: '–';
+  }
+  .spa-category__count {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--clay);
+    margin-right: auto;
+    margin-left: 0.75rem;
+  }
+  .spa-category__body {
+    padding-bottom: var(--space-3);
+  }
+  .spa-category__intro {
+    max-width: 58ch;
+    margin-bottom: 0.5rem;
+  }
+  .spa-category__note {
+    max-width: 58ch;
+    color: var(--clay);
+    font-size: 0.92rem;
+    margin-bottom: var(--space-2);
+  }
   .treatments {
     list-style: none;
-    margin: 0 0 var(--space-3);
+    margin: 0;
     padding: 0;
     display: grid;
     gap: var(--space-3);
@@ -114,22 +478,121 @@ const spaPhotos = byCategory('spa');
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
     margin-bottom: 0.4rem;
   }
   .treatment__head h3 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: 1.1rem;
-    letter-spacing: 0.04em;
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+    margin: 0;
   }
-  .treatment__duration {
+  .treatment__price {
     font-family: var(--font-display);
     font-size: 0.78rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--clay);
     white-space: nowrap;
   }
-  .treatment p { max-width: 60ch; }
+  .treatment p {
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  /* Gallery */
+  .spa-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.4rem, 1vw, 0.75rem);
+  }
+  .spa-gallery__item {
+    overflow: hidden;
+  }
+  .spa-gallery__item :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    transition: transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .spa-gallery__item:hover :global(img) {
+      transform: scale(1.05);
+    }
+  }
+  @media (max-width: 720px) {
+    .spa-gallery__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Night spa */
+  .spa-night__body {
+    max-width: 62ch;
+    color: var(--tortora);
+  }
+  .spa-night__access {
+    max-width: 62ch;
+    color: var(--grigio);
+    font-size: 0.92rem;
+    margin-bottom: var(--space-3);
+  }
+  .spa-night__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: clamp(0.5rem, 1.2vw, 0.9rem);
+    margin-bottom: var(--space-3);
+  }
+  .spa-night__side {
+    display: grid;
+    gap: clamp(0.5rem, 1.2vw, 0.9rem);
+  }
+  .spa-night__main :global(img),
+  .spa-night__side :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 720px) {
+    .spa-night__grid {
+      grid-template-columns: 1fr;
+    }
+    .spa-night__side {
+      grid-auto-flow: column;
+    }
+  }
+
+  /* Access & membership */
+  .spa-access__intro {
+    max-width: 58ch;
+    margin-bottom: var(--space-3);
+  }
+  .spa-access__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+  .spa-access__card {
+    border-top: 1px solid var(--tortora-densa);
+    padding-top: var(--space-2);
+  }
+  .spa-access__card h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+  .spa-access__card p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 720px) {
+    .spa-access__grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

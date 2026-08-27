@@ -1,0 +1,26 @@
+{
+  "order": 11,
+  "category": "massages",
+  "name": {
+    "en": "Hot Salt Relaxing Massage",
+    "de": "Hot Salt Relaxing Massage",
+    "it": "Hot Salt Relaxing Massage",
+    "fr": "Massage Relaxant aux Pierres de Sel Chaud"
+  },
+  "summary": {
+    "en": "Body massage using hot pink salt bricks. The friction of the salt on the skin stimulates lymphatic circulation, while the sodium particles absorb excess water, counteracting fluid retention. The salt also stimulates micro-exfoliation, resulting in smoother, oxygenated and compact skin.",
+    "de": "Körpermassage mit warmen rosa Salzsteinen. Die Reibung des Salzes auf der Haut regt die Lymphzirkulation an, während die Natriumpartikel überschüssiges Wasser binden und so Wassereinlagerungen entgegenwirken. Das Salz bewirkt zudem eine Mikro-Peelingwirkung für glattere, sauerstoffreichere und straffere Haut.",
+    "it": "Massaggio corpo che utilizza mattoncini di sale rosa caldi. La frizione del sale sulla pelle stimola la circolazione linfatica, mentre le particelle di sodio assorbono l'acqua in eccesso contrastando la ritenzione idrica. Infine il sale stimola una micro-esfoliazione della pelle, per un risultato più liscio, ossigenato e compatto.",
+    "fr": "Massage corporel aux briques de sel rose chaud. La friction du sel sur la peau stimule la circulation lymphatique, tandis que les particules de sodium absorbent l'excès d'eau et luttent contre la rétention hydrique. Le sel stimule aussi une micro-exfoliation, pour une peau plus lisse, oxygénée et raffermie."
+  },
+  "variants": [
+    {
+      "duration": "50'",
+      "price": "CHF 170.-"
+    },
+    {
+      "duration": "80'",
+      "price": "CHF 210.-"
+    }
+  ]
+}

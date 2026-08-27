@@ -1,0 +1,22 @@
+{
+  "order": 16,
+  "category": "bodyTreatments",
+  "name": {
+    "en": "Celestial Connection — Time for Two",
+    "de": "Celestial Connection — Zeit zu zweit",
+    "it": "Celestial Connection — Time for Two",
+    "fr": "Celestial Connection — Un Temps à Deux"
+  },
+  "summary": {
+    "en": "Created to make time together a truly extraordinary and memorable experience. Beginning with a luxurious 'bacial' on the back — deep cleansing, exfoliation and a pink clay remineralising mask to soften and nourish this hard-to-reach area — before floating away as your muscles are eased with a 60-minute relaxing massage.",
+    "de": "Konzipiert, um gemeinsame Zeit zu einem wahrhaft aussergewöhnlichen und unvergesslichen Erlebnis zu machen. Es beginnt mit einem luxuriösen Rücken-'Bacial' — Tiefenreinigung, Peeling und einer remineralisierenden Maske aus rosa Tonerde, die diese schwer erreichbare Zone pflegt und nährt — bevor eine 60-minütige Entspannungsmassage die Muskeln löst und Sie schwerelos werden lässt.",
+    "it": "Pensato per rendere il tempo trascorso insieme un'esperienza davvero straordinaria e memorabile. Si inizia con un lussuoso 'bacial' sulla schiena — detersione profonda, esfoliazione e maschera rimineralizzante all'argilla rosa per ammorbidire e nutrire quest'area difficile da raggiungere — per poi lasciarsi andare con un massaggio rilassante di 60 minuti che scioglie ogni tensione muscolare.",
+    "fr": "Conçu pour faire du temps partagé une expérience véritablement extraordinaire et mémorable. Il débute par un luxueux 'bacial' du dos — nettoyage en profondeur, exfoliation et masque reminéralisant à l'argile rose pour adoucir et nourrir cette zone difficile d'accès — avant de vous laisser flotter grâce à un massage relaxant de 60 minutes qui dénoue les muscles."
+  },
+  "variants": [
+    {
+      "duration": "90'",
+      "price": "CHF 440.- per couple"
+    }
+  ]
+}

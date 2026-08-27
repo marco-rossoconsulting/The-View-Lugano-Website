@@ -1,0 +1,22 @@
+{
+  "order": 12,
+  "category": "massages",
+  "name": {
+    "en": "Serendipity Massage",
+    "de": "Serendipity Massage",
+    "it": "Serendipity Massage",
+    "fr": "Massage Serendipity"
+  },
+  "summary": {
+    "en": "Back-of-body and face massage using aromatic massage oil and Le Vallée face cream.",
+    "de": "Rücken- und Gesichtsmassage mit aromatischem Massageöl und La-Vallée-Gesichtscreme.",
+    "it": "Massaggio alla schiena e al viso con olio da massaggio aromatico e crema viso Le Vallée.",
+    "fr": "Massage du dos et du visage à l'huile de massage aromatique et à la crème visage La Vallée."
+  },
+  "variants": [
+    {
+      "duration": "50'",
+      "price": "CHF 180.-"
+    }
+  ]
+}

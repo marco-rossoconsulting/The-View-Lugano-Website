@@ -1,0 +1,22 @@
+{
+  "order": 14,
+  "category": "bodyTreatments",
+  "name": {
+    "en": "Flow & Glow Perfection",
+    "de": "Flow & Glow Perfection",
+    "it": "Flow & Glow Perfection",
+    "fr": "Flow & Glow Perfection"
+  },
+  "summary": {
+    "en": "Smooth, replenish and rejuvenate the skin of the body and face. A renewing full-body exfoliation and hydrating pink clay body mask, a nourishing body balm and a 30-minute caviar collagen facial to plump and renew your skin will leave you looking and feeling radiant from head to toe.",
+    "de": "Glättet, revitalisiert und verjüngt die Haut von Körper und Gesicht. Ein erneuerndes Ganzkörperpeeling, eine feuchtigkeitsspendende Körpermaske aus rosa Tonerde, ein nährender Körperbalsam und eine 30-minütige Kaviar-Kollagen-Gesichtsbehandlung lassen Sie von Kopf bis Fuss strahlen.",
+    "it": "Leviga, rimpolpa e rigenera la pelle del corpo e del viso. Un'esfoliazione rinnovante su tutto il corpo, una maschera corpo idratante all'argilla rosa, un balsamo corpo nutriente e un trattamento viso di 30 minuti al collagene di caviale per rimpolpare e rinnovare la pelle vi lasceranno radiosi dalla testa ai piedi.",
+    "fr": "Lisse, repulpe et régénère la peau du corps et du visage. Une exfoliation corporelle intégrale renouvelante, un masque corps hydratant à l'argile rose, un baume corporel nourrissant et un soin visage de 30 minutes au collagène de caviar pour repulper et renouveler la peau vous laisseront rayonnants de la tête aux pieds."
+  },
+  "variants": [
+    {
+      "duration": "120'",
+      "price": "CHF 280.-"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "order": 13,
+  "category": "massages",
+  "name": {
+    "en": "Pop Up Massage",
+    "de": "Pop Up Massage",
+    "it": "Pop Up Massage",
+    "fr": "Massage Pop Up"
+  },
+  "summary": {
+    "en": "Partial body massage dedicated to one or two specific areas of the body, such as the back, legs, feet, scalp and/or face.",
+    "de": "Teilkörpermassage, die sich auf ein oder zwei bestimmte Körperbereiche konzentriert, etwa Rücken, Beine, Füsse, Kopfhaut und/oder Gesicht.",
+    "it": "Massaggio parziale del corpo dedicato a una o due specifiche parti del corpo, che sia la schiena, le gambe, i piedi, il cuoio capelluto e/o il viso.",
+    "fr": "Massage partiel ciblant une ou deux zones spécifiques du corps, comme le dos, les jambes, les pieds, le cuir chevelu et/ou le visage."
+  },
+  "variants": [
+    {
+      "duration": "25'",
+      "price": "CHF 90.-"
+    }
+  ]
+}

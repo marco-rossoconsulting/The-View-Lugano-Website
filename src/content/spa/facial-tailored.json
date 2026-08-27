@@ -1,0 +1,26 @@
+{
+  "order": 23,
+  "category": "faceRituals",
+  "name": {
+    "en": "Tailored Facial",
+    "de": "Massgeschneiderte Gesichtsbehandlung",
+    "it": "Trattamento Viso su Misura",
+    "fr": "Soin du Visage Sur Mesure"
+  },
+  "summary": {
+    "en": "After a thorough analysis of the skin, the therapist will recommend the treatment chosen to meet your skin's specific needs in that particular moment, selected from the rituals below.",
+    "de": "Nach einer gründlichen Hautanalyse empfiehlt Ihnen die Therapeutin die Behandlung, die den aktuellen Bedürfnissen Ihrer Haut am besten entspricht — ausgewählt aus den folgenden Ritualen.",
+    "it": "Dopo un'analisi della pelle, la terapista consiglierà il trattamento più adatto a soddisfare le specifiche necessità della pelle in quel determinato momento, scegliendo tra i rituali seguenti.",
+    "fr": "Après une analyse approfondie de la peau, la thérapeute vous recommandera le soin le mieux adapté aux besoins spécifiques de votre peau à cet instant précis, sélectionné parmi les rituels suivants."
+  },
+  "variants": [
+    {
+      "duration": "60'",
+      "price": "CHF 210.-"
+    },
+    {
+      "duration": "90'",
+      "price": "CHF 320.-"
+    }
+  ]
+}

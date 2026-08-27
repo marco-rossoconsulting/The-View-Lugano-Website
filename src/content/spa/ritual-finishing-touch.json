@@ -1,0 +1,22 @@
+{
+  "order": 6,
+  "category": "rituals",
+  "name": {
+    "en": "To Conclude",
+    "de": "Abschliessende Verwöhnung",
+    "it": "Per Concludere",
+    "fr": "Touche Finale"
+  },
+  "summary": {
+    "en": "All rituals can be completed with a small tailor-made facial treatment.",
+    "de": "Alle Rituale können mit einer kleinen, massgeschneiderten Gesichtsbehandlung abgerundet werden.",
+    "it": "Tutti i rituali possono essere completati con un mini trattamento viso tailor made.",
+    "fr": "Tous les rituels peuvent être complétés par un petit soin du visage sur mesure."
+  },
+  "variants": [
+    {
+      "duration": "20'",
+      "price": "CHF 40.-"
+    }
+  ]
+}

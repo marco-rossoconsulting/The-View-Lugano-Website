@@ -1,0 +1,22 @@
+{
+  "order": 21,
+  "category": "bodyTreatments",
+  "name": {
+    "en": "Pink Scrub",
+    "de": "Pink Scrub",
+    "it": "Pink Scrub",
+    "fr": "Gommage Rose"
+  },
+  "summary": {
+    "en": "Deep exfoliation with pink Himalayan salt that revitalises and gives the skin softness. Perfect as a single treatment or before a massage.",
+    "de": "Tiefenpeeling mit rosa Himalayasalz, das die Haut revitalisiert und weich macht. Perfekt als eigenständige Behandlung oder vor einer Massage.",
+    "it": "L'esfoliazione profonda con sale rosa dell'Himalaya rivitalizza e dona morbidezza alla pelle. Perfetto come trattamento unico o prima di un massaggio.",
+    "fr": "Exfoliation profonde au sel rose de l'Himalaya qui revitalise et adoucit la peau. Idéal en soin unique ou en préparation à un massage."
+  },
+  "variants": [
+    {
+      "duration": "25'",
+      "price": "CHF 55.-"
+    }
+  ]
+}
