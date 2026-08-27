@@ -173,7 +173,7 @@ const heroPhoto = find(press.hero.image);
   }
 
   .press-awards__grid {
-    border-bottom: 1px solid var(--tortora-densa);
+    border-left: 1px solid var(--tortora-densa);
     border-top: 1px solid var(--tortora-densa);
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -185,7 +185,7 @@ const heroPhoto = find(press.hero.image);
   .press-awards__item {
     align-items: center;
     border-bottom: 1px solid var(--tortora-densa);
-    border-left: 1px solid var(--tortora-densa);
+    border-right: 1px solid var(--tortora-densa);
     display: flex;
     grid-column: span 4;
     justify-content: center;
@@ -194,26 +194,9 @@ const heroPhoto = find(press.hero.image);
     transition: background-color 220ms ease, transform 220ms ease;
   }
 
-  .press-awards__item:nth-child(-n + 3) {
-    border-bottom: 0;
-  }
-
   .press-awards__item--small-luxury-hotels,
   .press-awards__item--serandipians {
     grid-column: span 6;
-  }
-
-  .press-awards__item--small-luxury-hotels,
-  .press-awards__item--gault-millau {
-    border-left: 0;
-  }
-
-  .press-awards__item--small-luxury-hotels,
-  .press-awards__item--serandipians,
-  .press-awards__item--travelife,
-  .press-awards__item--swisstainable,
-  .press-awards__item--okgo {
-    border-bottom: 0;
   }
 
   .press-awards__item--gault-millau,
@@ -321,22 +304,13 @@ const heroPhoto = find(press.hero.image);
     .press-awards__item--swisstainable,
     .press-awards__item--okgo {
       border-bottom: 1px solid var(--tortora-densa);
-      border-left: 1px solid var(--tortora-densa);
+      border-right: 1px solid var(--tortora-densa);
       grid-column: span 1;
       min-height: 8.75rem;
     }
 
-    .press-awards__item:nth-child(odd) {
-      border-left: 0;
-    }
-
     .press-awards__item--serandipians {
-      border-left: 0;
       grid-column: span 2;
-    }
-
-    .press-awards__item:last-child {
-      border-bottom: 0;
     }
   }
 </style>
