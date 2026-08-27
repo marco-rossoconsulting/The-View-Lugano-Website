@@ -3,9 +3,9 @@ import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
+import { dict, localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
-import { egumaUrl } from '../../lib/site';
+import { simpleBookingUrl } from '../../lib/site';
 import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
@@ -14,6 +14,7 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Locale;
 if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+const t = dict(lang);
 
 const [pageEntries, offerEntries] = await Promise.all([
   getCollection('pages'),
@@ -37,42 +38,46 @@ if (!page) throw new Error('Missing experiences CMS content');
 
   <section class="section" style="padding-top:0;">
     <div class="container offers" aria-label={page.h1[lang]}>
-      {offers.map((o, i) => (
-        <article class="offer-card fade-up">
-          <div class="offer-card__photo">
-            <Pic
-              src={o.data.photo.src}
-              alt={o.data.photo.alt[lang]}
-              width={1600}
-              height={1067}
-              sizes="(max-width: 720px) 100vw, (max-width: 1020px) 50vw, 33vw"
-            />
-          </div>
-          <div class="offer-card__body">
-            <h2 class="offer-name">{o.data.name[lang]}</h2>
-            <p class="offer-card__summary">{o.data.summary[lang]}</p>
-            <div class="offer-card__story">
-              {o.data.body[lang].map((par: string) => <p>{par}</p>)}
+      {offers.map((o) => {
+        const bookingHref = o.data.bookingUrl?.[lang] ?? simpleBookingUrl(lang);
+        return (
+          <article class="offer-card fade-up">
+            <div class="offer-card__photo">
+              <Pic
+                src={o.data.photo.src}
+                alt={o.data.photo.alt[lang]}
+                width={1600}
+                height={1067}
+                sizes="(max-width: 720px) 100vw, (max-width: 1020px) 50vw, 33vw"
+              />
             </div>
-            <ul class="offer-card__includes" aria-label={o.data.name[lang]}>
-              {o.data.includes.map((inc) => <li>{inc[lang]}</li>)}
-            </ul>
-            <a
-              class="btn offer-card__cta"
-              href={p(lang, 'contact')}
-              aria-label={`${page.cta?.[lang] ?? ''} ${o.data.name[lang]}`.trim()}
-            >{page.cta?.[lang]}</a>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="section section--tortora">
-    <div class="container container--narrow">
-      <h2 class="offer-name">{page.voucherTitle?.[lang]}</h2>
-      <p style="max-width: 60ch; margin-bottom: var(--space-2);">{page.voucherBody?.[lang]}</p>
-      <a class="btn" href={egumaUrl('vouchers', lang)} rel="noopener">Vouchers</a>
+            <div class="offer-card__body">
+              <h2 class="offer-name">{o.data.name[lang]}</h2>
+              <p class="offer-card__summary">{o.data.summary[lang]}</p>
+              <details class="offer-card__details">
+                <summary class="offer-card__toggle">
+                  <span class="offer-card__toggle-open">{t.common.seeDetails}</span>
+                  <span class="offer-card__toggle-close">{t.common.hideDetails}</span>
+                </summary>
+                <div class="offer-card__detail">
+                  <div class="offer-card__story">
+                    {o.data.body[lang].map((par: string) => <p>{par}</p>)}
+                  </div>
+                  <ul class="offer-card__includes" aria-label={o.data.name[lang]}>
+                    {o.data.includes.map((inc) => <li>{inc[lang]}</li>)}
+                  </ul>
+                </div>
+              </details>
+              <a
+                class="btn offer-card__cta"
+                href={bookingHref}
+                rel="noopener"
+                aria-label={`${t.common.reserve} ${o.data.name[lang]}`}
+              >{t.common.reserve}</a>
+            </div>
+          </article>
+        );
+      })}
     </div>
   </section>
 
@@ -89,6 +94,7 @@ if (!page) throw new Error('Missing experiences CMS content');
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: clamp(1rem, 2.2vw, 1.75rem);
+    align-items: start;
   }
   .offer-card {
     display: grid;
@@ -127,6 +133,7 @@ if (!page) throw new Error('Missing experiences CMS content');
   .offer-card__body {
     display: flex;
     flex-direction: column;
+    min-height: 22rem;
     padding: clamp(1.35rem, 2.6vw, 2.25rem);
   }
   .offer-name {
@@ -141,6 +148,43 @@ if (!page) throw new Error('Missing experiences CMS content');
     line-height: 1.65;
     margin-bottom: var(--space-2);
   }
+  .offer-card__details {
+    margin-top: auto;
+  }
+  .offer-card__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--tortora-densa);
+    color: var(--ink);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    list-style: none;
+    text-transform: uppercase;
+    transition: background-color 240ms ease, border-color 240ms ease, color 240ms ease;
+  }
+  .offer-card__toggle::-webkit-details-marker { display: none; }
+  .offer-card__toggle::after {
+    content: '+';
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 240ms ease;
+  }
+  .offer-card__details[open] .offer-card__toggle {
+    background: var(--tortora);
+    border-color: var(--clay);
+  }
+  .offer-card__details[open] .offer-card__toggle::after { transform: rotate(45deg); }
+  .offer-card__toggle-close { display: none; }
+  .offer-card__details[open] .offer-card__toggle-open { display: none; }
+  .offer-card__details[open] .offer-card__toggle-close { display: inline; }
+  .offer-card__detail { padding-top: var(--space-2); }
   .offer-card__story {
     font-size: 0.92rem;
     line-height: 1.7;
@@ -150,7 +194,7 @@ if (!page) throw new Error('Missing experiences CMS content');
     list-style: none;
     display: grid;
     gap: 0.65rem;
-    margin: auto 0 var(--space-3);
+    margin: var(--space-2) 0 0;
     padding: var(--space-2) 0 0;
     border-top: 1px solid var(--tortora-densa);
     font-size: 0.88rem;
@@ -163,19 +207,39 @@ if (!page) throw new Error('Missing experiences CMS content');
   .offer-card__cta {
     align-self: flex-start;
     padding: 0.85rem 1.2rem;
-    margin-top: auto;
+    margin-top: 1rem;
   }
   @media (max-width: 1020px) {
     .offers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 720px) {
     .offers { grid-template-columns: 1fr; }
-    .offer-card__body { padding: 1.5rem; }
+    .offer-card__body {
+      min-height: 0;
+      padding: 1.5rem;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .offer-card,
-    .offer-card__photo :global(img) { transition: none; }
+    .offer-card__photo :global(img),
+    .offer-card__toggle,
+    .offer-card__toggle::after { transition: none; }
     .offer-card:hover,
     .offer-card:focus-within { transform: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .offer-card__details[open] .offer-card__detail {
+      animation: offer-card-details-in 260ms ease-out both;
+    }
+  }
+  @keyframes offer-card-details-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.35rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 </style>

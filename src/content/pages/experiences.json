@@ -25,21 +25,9 @@
     "fr": "Quelques propositions, composées plutôt qu'assemblées. Chacune existe parce que les hôtes n'ont cessé de la demander."
   },
   "cta": {
-    "en": "Enquire",
-    "de": "Anfragen",
-    "it": "Richiedi",
-    "fr": "Demander"
-  },
-  "voucherTitle": {
-    "en": "A stay, as a gift",
-    "de": "Ein Aufenthalt, als Geschenk",
-    "it": "Un soggiorno, in regalo",
-    "fr": "Un séjour, en cadeau"
-  },
-  "voucherBody": {
-    "en": "Vouchers for stays, the restaurant and the spa can be purchased directly online.",
-    "de": "Gutscheine für Aufenthalte, Restaurant und Spa sind direkt online erhältlich.",
-    "it": "I voucher per soggiorni, ristorante e spa si acquistano direttamente online.",
-    "fr": "Les bons cadeaux pour séjours, restaurant et spa s'achètent directement en ligne."
+    "en": "Reserve",
+    "de": "Reservieren",
+    "it": "Prenota",
+    "fr": "Réserver"
   }
 }

@@ -19,6 +19,13 @@ const localizedArray = z.object({
   fr: z.array(z.string()),
 });
 
+const localizedUrl = z.object({
+  en: z.string().url(),
+  de: z.string().url(),
+  it: z.string().url(),
+  fr: z.string().url(),
+});
+
 const photoRef = z.object({
   src: z.string().url(),
   alt: localized, // required per-locale alt text
@@ -446,6 +453,7 @@ const offers = defineCollection({
     body: z.object({ en: z.array(z.string()), de: z.array(z.string()), it: z.array(z.string()), fr: z.array(z.string()) }),
     includes: z.array(localized).min(2),
     photo: photoRef,
+    bookingUrl: localizedUrl.optional(),
   }),
 });
 
