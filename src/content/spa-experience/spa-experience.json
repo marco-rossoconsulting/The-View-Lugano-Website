@@ -14,10 +14,10 @@
     }
   },
   "philosophy": {
-    "en": "This is not a spa that argues by size. It is small on purpose and quiet by design — and that quiet is held for everyone in it, whether you are staying in the house, arriving for the day, or coming as a member.",
-    "de": "Dieses Spa argumentiert nicht mit Grösse. Es ist mit Absicht klein und mit System ruhig – und diese Ruhe gilt allen, die hier sind: Hausgästen, Tagesgästen und Mitgliedern.",
-    "it": "Questa non è una spa che argomenta con le dimensioni. È piccola di proposito e silenziosa per disegno — e quella quiete vale per tutti: ospiti della casa, visitatori di giornata e membri.",
-    "fr": "Ce spa ne plaide pas par la taille. Il est petit à dessein et silencieux par conception — et ce calme vaut pour tous : hôtes de la maison, visiteurs à la journée et membres."
+    "en": "Quiet is the point here. Treatments are unhurried, the rooms stay calm, and there is space to swim without waiting — whether you are staying in the house, arriving for the day, or coming as a member.",
+    "de": "Ruhe ist hier das Prinzip. Behandlungen ohne Eile, Räume, die still bleiben, und Platz zum Schwimmen, ohne zu warten – ob Sie im Haus wohnen, für einen Tag kommen oder Mitglied sind.",
+    "it": "La quiete è il punto. Trattamenti senza fretta, ambienti che restano silenziosi e spazio per nuotare senza attendere — che siate ospiti della casa, visitatori di giornata o membri.",
+    "fr": "Le calme est le propos. Des soins sans hâte, des espaces qui restent silencieux et de la place pour nager sans attendre — que vous séjourniez dans la maison, veniez pour la journée ou soyez membre."
   },
   "treatments": {
     "title": {
@@ -407,10 +407,10 @@
       "fr": "À l'Intérieur du Spa"
     },
     "intro": {
-      "en": "A thousand square metres, room by room — from the arrival corridor to the salt walls, the wet zones and the water.",
-      "de": "Tausend Quadratmeter, Raum für Raum — vom Ankunftskorridor über die Salzwände und Nasszonen bis zum Wasser.",
-      "it": "Mille metri quadrati, stanza dopo stanza — dal corridoio d'ingresso alle pareti di sale, alle zone umide e all'acqua.",
-      "fr": "Mille mètres carrés, pièce après pièce — du couloir d'arrivée aux murs de sel, aux zones humides et à l'eau."
+      "en": "Room by room — from the arrival corridor to the salt walls, the wet zones and the water.",
+      "de": "Raum für Raum – vom Ankunftskorridor über die Salzwände und Nasszonen bis zum Wasser.",
+      "it": "Stanza dopo stanza — dal corridoio d'ingresso alle pareti di sale, alle zone umide e all'acqua.",
+      "fr": "Pièce après pièce — du couloir d'arrivée aux murs de sel, aux zones humides et à l'eau."
     },
     "prevLabel": {
       "en": "Previous photograph",
