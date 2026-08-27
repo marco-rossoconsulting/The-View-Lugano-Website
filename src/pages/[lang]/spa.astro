@@ -188,38 +188,36 @@ const contactUrl = p(lang, 'contact');
     </div>
   </section>
 
-  {featuredTreatment && (
-    <section class="section section--ink spa-feature">
-      <div class="container spa-feature__inner fade-up">
-        <div class="spa-feature__photo">
-          <Pic
-            src={goldLeafFacial}
-            alt={alts.goldLeafFacial[lang]}
-            width={2000}
-            height={1334}
-            sizes="(max-width: 900px) 100vw, 45vw"
-          />
-        </div>
-        <div class="spa-feature__copy">
-          <p class="eyebrow">{spaExp.treatmentOfMonth.eyebrow[lang]}</p>
-          <h2>{featuredTreatment.name[lang]}</h2>
-          <p class="spa-feature__note">{monthFeature.note[lang]}</p>
-          <p>{featuredTreatment.summary[lang]}</p>
-          <p class="spa-feature__price">
-            {featuredTreatment.variants.map((v) => `${localizedVariant(v.duration)} · ${v.price}`).join(' / ')}
-          </p>
-          <a class="btn btn--light" href={spaBookingUrl} target="_blank" rel="noopener noreferrer">
-            {spaExp.treatmentOfMonth.ctaLabel[lang]}
-          </a>
-        </div>
-      </div>
-    </section>
-  )}
-
   <section class="section section--tortora spa-menu">
     <div class="container container--narrow">
       <h2 class="section-title fade-up">{spaExp.treatments.title[lang]}</h2>
       <p class="spa-menu__intro fade-up">{spaExp.treatments.intro[lang]}</p>
+
+      {featuredTreatment && (
+        <aside class="spa-highlight fade-up">
+          <div class="spa-highlight__photo">
+            <Pic
+              src={goldLeafFacial}
+              alt={alts.goldLeafFacial[lang]}
+              width={2000}
+              height={1334}
+              widths={[320, 480, 640]}
+              sizes="(max-width: 640px) 100vw, 13rem"
+            />
+          </div>
+          <div class="spa-highlight__copy">
+            <p class="eyebrow">{spaExp.treatmentOfMonth.eyebrow[lang]}</p>
+            <h3>{featuredTreatment.name[lang]}</h3>
+            <p class="spa-highlight__note">{monthFeature.note[lang]}</p>
+            <p class="spa-highlight__price">
+              {featuredTreatment.variants.map((v) => `${localizedVariant(v.duration)} · ${v.price}`).join(' / ')}
+            </p>
+            <a class="text-link" href={spaBookingUrl} target="_blank" rel="noopener noreferrer">
+              {spaExp.treatmentOfMonth.ctaLabel[lang]}
+            </a>
+          </div>
+        </aside>
+      )}
 
       <div class="spa-categories">
         {spaExp.treatments.categories.map((cat, i) => {
@@ -368,36 +366,84 @@ const contactUrl = p(lang, 'contact');
     margin-top: var(--space-3);
   }
 
-  /* Treatment of the month */
-  .spa-feature__inner {
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: clamp(1.5rem, 5vw, 4.5rem);
+  /* Treatment of the month — a quiet lead-in to the menu, not a section of
+     its own. The full description lives in the accordion below. */
+  .spa-highlight {
+    display: flex;
+    gap: clamp(1rem, 3vw, 1.75rem);
     align-items: center;
+    margin-bottom: var(--space-4);
+    padding: clamp(0.9rem, 2vw, 1.25rem);
+    background: var(--ground);
+    border: 1px solid var(--tortora-densa);
   }
-  .spa-feature__copy h2 {
-    color: var(--ground);
-    margin-bottom: 0.6rem;
+  .spa-highlight__photo {
+    flex: 0 0 auto;
+    width: clamp(5.5rem, 16vw, 9rem);
   }
-  .spa-feature__note {
+  .spa-highlight__photo :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+  .spa-highlight__copy {
+    min-width: 0;
+  }
+  .spa-highlight__copy .eyebrow {
+    margin-bottom: 0.35rem;
+  }
+  .spa-highlight__copy h3 {
     font-family: var(--font-display);
-    font-style: italic;
-    color: var(--grigio);
-    margin-bottom: var(--space-2);
+    font-weight: 400;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    letter-spacing: 0.02em;
+    margin: 0 0 0.3rem;
   }
-  .spa-feature__copy p {
-    color: var(--tortora);
-    max-width: 48ch;
+  .spa-highlight__note {
+    color: var(--clay);
+    font-size: 0.95rem;
+    margin: 0 0 0.3rem;
+    max-width: 46ch;
   }
-  .spa-feature__price {
+  .spa-highlight__price {
     font-family: var(--font-display);
-    letter-spacing: 0.06em;
-    color: var(--argento);
-    margin-bottom: var(--space-3);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin: 0 0 0.7rem;
   }
-  @media (max-width: 900px) {
-    .spa-feature__inner {
-      grid-template-columns: 1fr;
+  .text-link {
+    display: inline-block;
+    border-bottom: 1px solid var(--clay);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: border-color 220ms ease, color 220ms ease;
+  }
+  .text-link:hover,
+  .text-link:focus-visible {
+    border-color: var(--ink);
+    color: var(--clay);
+  }
+  @media (max-width: 560px) {
+    .spa-highlight {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .spa-highlight__photo {
+      width: 100%;
+    }
+    .spa-highlight__photo :global(img) {
+      aspect-ratio: 16 / 9;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .text-link {
+      transition: none;
     }
   }
 
@@ -511,6 +557,9 @@ const contactUrl = p(lang, 'contact');
   .spa-gallery__item {
     overflow: hidden;
   }
+  .spa-gallery__item :global(picture) {
+    display: block;
+  }
   .spa-gallery__item :global(img) {
     width: 100%;
     height: 100%;
@@ -540,18 +589,37 @@ const contactUrl = p(lang, 'contact');
     font-size: 0.92rem;
     margin-bottom: var(--space-3);
   }
+  /* The grid's own aspect ratio makes the row height definite, so the tall
+     image and the stacked pair resolve against it and stay flush. Without
+     it the row would be sized by content and the columns would mismatch. */
   .spa-night__grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    grid-auto-rows: 1fr;
+    aspect-ratio: 16 / 7;
     gap: clamp(0.5rem, 1.2vw, 0.9rem);
     margin-bottom: var(--space-3);
   }
   .spa-night__side {
     display: grid;
+    grid-template-rows: 1fr 1fr;
     gap: clamp(0.5rem, 1.2vw, 0.9rem);
+    min-height: 0;
+  }
+  .spa-night__main,
+  .spa-night__side > * {
+    min-height: 0;
+    overflow: hidden;
+  }
+  .spa-night__main :global(picture),
+  .spa-night__side :global(picture) {
+    display: block;
+    height: 100%;
+    min-height: 0;
   }
   .spa-night__main :global(img),
   .spa-night__side :global(img) {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -559,9 +627,20 @@ const contactUrl = p(lang, 'contact');
   @media (max-width: 720px) {
     .spa-night__grid {
       grid-template-columns: 1fr;
+      aspect-ratio: auto;
+    }
+    .spa-night__main :global(img) {
+      height: auto;
+      aspect-ratio: 3 / 2;
     }
     .spa-night__side {
+      grid-template-rows: none;
       grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
+    .spa-night__side :global(img) {
+      height: auto;
+      aspect-ratio: 1 / 1;
     }
   }
 
