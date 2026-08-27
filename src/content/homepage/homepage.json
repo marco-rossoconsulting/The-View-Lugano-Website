@@ -225,15 +225,15 @@
     },
     "items": [
       {
-        "id": "explore",
-        "title": { "en": "Explore", "de": "Entdecken", "it": "Esplorare", "fr": "Explorer" },
+        "id": "taste",
+        "title": { "en": "Taste", "de": "Kosten", "it": "Assaporare", "fr": "Déguster" },
         "body": {
-          "en": "Electric cars and bikes to explore the city, on your own time.",
-          "de": "Elektrische Autos und E-Bikes, um die Stadt in Ihrem eigenen Tempo zu entdecken.",
-          "it": "Smart elettriche ed e-bike per esplorare la città secondo i vostri ritmi.",
-          "fr": "Des voitures électriques et des vélos électriques pour explorer la ville à votre rythme."
+          "en": "One Michelin star downstairs, and the same kitchen for bistrot on the terrace.",
+          "de": "Ein Michelin-Stern im Haus und dieselbe Küche für das Bistrot auf der Terrasse.",
+          "it": "Una stella Michelin al piano di sotto e la stessa cucina per il bistrot in terrazza.",
+          "fr": "Une étoile Michelin à l’étage du dessous, et la même cuisine pour le bistrot en terrasse."
         },
-        "image": "smart-2"
+        "image": "fine-dining-restaurant.jpg"
       },
       {
         "id": "relax",
@@ -247,15 +247,15 @@
         "image": "spa_011"
       },
       {
-        "id": "taste",
-        "title": { "en": "Taste", "de": "Kosten", "it": "Assaporare", "fr": "Déguster" },
+        "id": "explore",
+        "title": { "en": "Explore", "de": "Entdecken", "it": "Esplorare", "fr": "Explorer" },
         "body": {
-          "en": "One Michelin star downstairs, and the same kitchen for bistrot on the terrace.",
-          "de": "Ein Michelin-Stern im Haus und dieselbe Küche für das Bistrot auf der Terrasse.",
-          "it": "Una stella Michelin al piano di sotto e la stessa cucina per il bistrot in terrazza.",
-          "fr": "Une étoile Michelin à l’étage du dessous, et la même cuisine pour le bistrot en terrasse."
+          "en": "Electric cars and bikes to explore the city, on your own time.",
+          "de": "Elektrische Autos und E-Bikes, um die Stadt in Ihrem eigenen Tempo zu entdecken.",
+          "it": "Smart elettriche ed e-bike per esplorare la città secondo i vostri ritmi.",
+          "fr": "Des voitures électriques et des vélos électriques pour explorer la ville à votre rythme."
         },
-        "image": "fine-dining-restaurant.jpg"
+        "image": "smart-2"
       },
       {
         "id": "move",
