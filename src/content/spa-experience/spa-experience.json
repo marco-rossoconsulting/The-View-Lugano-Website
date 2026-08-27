@@ -14,10 +14,10 @@
     }
   },
   "philosophy": {
-    "en": "This is not a spa that argues by size. It is small on purpose and quiet by design: residents of the house come first, and access from outside is deliberately limited so that it stays that way.",
-    "de": "Dieses Spa argumentiert nicht mit Grösse. Es ist mit Absicht klein und mit System ruhig: Gäste des Hauses kommen zuerst, und der Zugang von aussen bleibt bewusst begrenzt, damit das so bleibt.",
-    "it": "Questa non è una spa che argomenta con le dimensioni. È piccola di proposito e silenziosa per disegno: prima gli ospiti della casa, e l'accesso dall'esterno resta volutamente limitato perché rimanga così.",
-    "fr": "Ce spa ne plaide pas par la taille. Il est petit à dessein et silencieux par conception : les hôtes de la maison d'abord, et l'accès extérieur reste volontairement limité pour que cela dure."
+    "en": "This is not a spa that argues by size. It is small on purpose and quiet by design — and that quiet is held for everyone in it, whether you are staying in the house, arriving for the day, or coming as a member.",
+    "de": "Dieses Spa argumentiert nicht mit Grösse. Es ist mit Absicht klein und mit System ruhig – und diese Ruhe gilt allen, die hier sind: Hausgästen, Tagesgästen und Mitgliedern.",
+    "it": "Questa non è una spa che argomenta con le dimensioni. È piccola di proposito e silenziosa per disegno — e quella quiete vale per tutti: ospiti della casa, visitatori di giornata e membri.",
+    "fr": "Ce spa ne plaide pas par la taille. Il est petit à dessein et silencieux par conception — et ce calme vaut pour tous : hôtes de la maison, visiteurs à la journée et membres."
   },
   "treatments": {
     "title": {
@@ -278,10 +278,10 @@
       "fr": "Une fois le soleil couché, la piscine change de registre : les lumières passent du bleu au violet, l'eau reste chaude et le lac devient un miroir sombre derrière le verre. Le Night Spa est ouvert aux hôtes de la maison comme aux visiteurs extérieurs, sur réservation."
     },
     "accessNote": {
-      "en": "Reserved for house guests and outside guests by advance booking; numbers are kept deliberately small.",
-      "de": "Für Hausgäste und externe Gäste mit Voranmeldung reserviert; die Teilnehmerzahl wird bewusst klein gehalten.",
-      "it": "Riservato agli ospiti della casa e agli ospiti esterni su prenotazione anticipata; i numeri restano volutamente contenuti.",
-      "fr": "Réservé aux hôtes de la maison et aux visiteurs extérieurs sur réservation préalable ; les effectifs restent volontairement restreints."
+      "en": "Open to house guests and visitors alike; we recommend booking ahead, as the evening is kept intentionally intimate.",
+      "de": "Offen für Hausgäste und Besucher gleichermassen; eine frühzeitige Reservierung empfiehlt sich, da der Abend bewusst intim gehalten wird.",
+      "it": "Aperto agli ospiti della casa e ai visitatori; consigliamo di prenotare in anticipo, perché la serata resta volutamente intima.",
+      "fr": "Ouvert aux hôtes de la maison comme aux visiteurs ; nous recommandons de réserver, la soirée étant volontairement intime."
     },
     "ctaLabel": {
       "en": "Enquire about Night Spa",
@@ -298,10 +298,10 @@
       "fr": "Accès & Abonnements"
     },
     "intro": {
-      "en": "House guests have priority at all times. A limited number of the following are available on request.",
-      "de": "Hausgäste haben jederzeit Vorrang. Eine begrenzte Anzahl der folgenden Optionen ist auf Anfrage erhältlich.",
-      "it": "Gli ospiti della casa hanno sempre la precedenza. Un numero limitato delle seguenti opzioni è disponibile su richiesta.",
-      "fr": "Les hôtes de la maison ont priorité à tout moment. Un nombre limité des options suivantes est disponible sur demande."
+      "en": "You do not need to be staying with us. Day entries, memberships and Night Spa evenings are open to visitors and to those who live nearby — we ask only that you book ahead.",
+      "de": "Sie müssen nicht bei uns wohnen. Tageseintritte, Mitgliedschaften und Night-Spa-Abende stehen Besuchern und Menschen aus der Umgebung offen – wir bitten lediglich um eine Reservierung.",
+      "it": "Non è necessario soggiornare da noi. Ingressi giornalieri, membership e serate Night Spa sono aperti ai visitatori e a chi vive nei dintorni: chiediamo soltanto di prenotare in anticipo.",
+      "fr": "Il n'est pas nécessaire de séjourner chez nous. Entrées à la journée, abonnements et soirées Night Spa sont ouverts aux visiteurs comme aux habitants des environs — nous demandons simplement de réserver."
     },
     "ctaLabel": {
       "en": "Enquire",
@@ -319,10 +319,10 @@
           "fr": "Entrée à la Journée"
         },
         "body": {
-          "en": "A single day of access to the pool, wet zones and relaxation room, for guests staying elsewhere in Lugano.",
-          "de": "Ein Tag Zugang zu Pool, Nasszonen und Ruheraum, für Gäste, die anderswo in Lugano wohnen.",
-          "it": "Un giorno di accesso a piscina, zone umide e sala relax, per chi soggiorna altrove a Lugano.",
-          "fr": "Un jour d'accès à la piscine, aux zones humides et à la salle de repos, pour les hôtes séjournant ailleurs à Lugano."
+          "en": "A full day with the pool, the wet zones and the relaxation room — open to visitors staying elsewhere and to anyone living nearby.",
+          "de": "Ein ganzer Tag mit Pool, Nasszonen und Ruheraum – offen für Gäste, die anderswo wohnen, und für alle aus der Umgebung.",
+          "it": "Una giornata intera con piscina, zone umide e sala relax — aperta a chi soggiorna altrove e a chi vive nei dintorni.",
+          "fr": "Une journée entière avec la piscine, les zones humides et la salle de repos — ouverte aux visiteurs logés ailleurs comme aux habitants des environs."
         }
       },
       {
@@ -334,10 +334,10 @@
           "fr": "Abonnements"
         },
         "body": {
-          "en": "Monthly and annual memberships, and entry packages for occasional use — for those who return to the lake often.",
-          "de": "Monatliche und jährliche Mitgliedschaften sowie Eintrittspakete für gelegentliche Nutzung — für alle, die oft an den See zurückkehren.",
-          "it": "Membership mensili e annuali, oltre a pacchetti di ingressi per un uso occasionale — per chi torna spesso sul lago.",
-          "fr": "Abonnements mensuels et annuels, ainsi que des forfaits d'entrées pour un usage occasionnel — pour ceux qui reviennent souvent au bord du lac."
+          "en": "Monthly and annual memberships, and entry packages for occasional use — for anyone who returns to the lake often, resident or visitor.",
+          "de": "Monats- und Jahresmitgliedschaften sowie Eintrittspakete für gelegentliche Nutzung – für alle, die oft an den See zurückkehren, ob aus der Region oder auf Reisen.",
+          "it": "Membership mensili e annuali e pacchetti di ingressi per un uso occasionale — per chi torna spesso sul lago, che viva qui o sia di passaggio.",
+          "fr": "Abonnements mensuels et annuels et forfaits d'entrées pour un usage occasionnel — pour celles et ceux qui reviennent souvent au bord du lac, résidents ou visiteurs."
         }
       },
       {
@@ -349,10 +349,10 @@
           "fr": "Accès Night Spa"
         },
         "body": {
-          "en": "Evening access to the pool under its after-dark lighting, sold separately from daytime entry.",
-          "de": "Abendlicher Zugang zum Pool unter der nächtlichen Beleuchtung, separat vom Tageseintritt erhältlich.",
-          "it": "Accesso serale alla piscina con l'illuminazione notturna, venduto separatamente dall'ingresso diurno.",
-          "fr": "Accès en soirée à la piscine sous son éclairage nocturne, vendu séparément de l'entrée de jour."
+          "en": "Evening access to the pool under its after-dark lighting, open to visitors and sold separately from daytime entry.",
+          "de": "Abendlicher Zugang zum Pool unter der nächtlichen Beleuchtung, offen für Besucher und separat vom Tageseintritt erhältlich.",
+          "it": "Accesso serale alla piscina con l'illuminazione notturna, aperto ai visitatori e venduto separatamente dall'ingresso diurno.",
+          "fr": "Accès en soirée à la piscine sous son éclairage nocturne, ouvert aux visiteurs et vendu séparément de l'entrée de jour."
         }
       }
     ]
@@ -365,10 +365,10 @@
       "fr": "Horaires & Accès"
     },
     "body": {
-      "en": "Open daily from 09:00 to 20:30. Treatments are available daily from 10:00 to 19:00. House guests have priority at all times; a limited number of day entries and memberships are available on request.",
-      "de": "Täglich von 09:00 bis 20:30 geöffnet. Behandlungen sind täglich von 10:00 bis 19:00 verfügbar. Hausgäste haben jederzeit Vorrang; eine begrenzte Zahl von Tageseintritten und Mitgliedschaften ist auf Anfrage möglich.",
-      "it": "Aperta tutti i giorni dalle 9.00 alle 20.30. I trattamenti sono disponibili tutti i giorni dalle 10.00 alle 19.00. Gli ospiti della casa hanno sempre la precedenza; un numero limitato di ingressi giornalieri e membership è disponibile su richiesta.",
-      "fr": "Ouvert tous les jours de 9h00 à 20h30. Les soins sont disponibles tous les jours de 10h00 à 19h00. Les hôtes de la maison ont priorité à tout moment ; un nombre limité d'entrées à la journée et d'abonnements est possible sur demande."
+      "en": "Open daily from 09:00 to 20:30; treatments from 10:00 to 19:00. House guests, day visitors and members are all welcome — booking ahead is the surest way to have the hour you want.",
+      "de": "Täglich von 09:00 bis 20:30 geöffnet, Behandlungen von 10:00 bis 19:00. Hausgäste, Tagesgäste und Mitglieder sind gleichermassen willkommen – mit einer Reservierung sichern Sie sich die gewünschte Zeit.",
+      "it": "Aperta tutti i giorni dalle 9.00 alle 20.30; trattamenti dalle 10.00 alle 19.00. Ospiti della casa, visitatori di giornata e membri sono tutti benvenuti: prenotare in anticipo è il modo migliore per avere l'orario desiderato.",
+      "fr": "Ouvert tous les jours de 9h00 à 20h30 ; soins de 10h00 à 19h00. Hôtes de la maison, visiteurs à la journée et membres sont tous les bienvenus — réserver à l'avance reste le meilleur moyen d'obtenir l'horaire souhaité."
     }
   },
   "fitness": {
