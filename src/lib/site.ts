@@ -23,7 +23,7 @@ export const SITE = {
     country: 'CH',
     countryName: 'Switzerland',
   },
-  geo: { lat: 45.98586, lng: 8.94437 },
+  geo: { lat: 45.9868066, lng: 8.9506256 },
   phone: '+41 91 210 0000',
   phoneHref: '+41912100000',
   whatsapp: '+41786300320',

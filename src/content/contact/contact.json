@@ -1,0 +1,229 @@
+{
+  "reach": {
+    "eyebrow": {
+      "en": "Speak with us",
+      "de": "Sprechen Sie mit uns",
+      "it": "Parlate con noi",
+      "fr": "Parlez-nous"
+    },
+    "title": {
+      "en": "Choose the way that feels easiest",
+      "de": "Wählen Sie den Weg, der für Sie am einfachsten ist",
+      "it": "Scegliete il modo più semplice per voi",
+      "fr": "Choisissez le moyen qui vous convient"
+    },
+    "body": {
+      "en": "For a stay, a table, a treatment or a detail before you travel, our team is close by.",
+      "de": "Für einen Aufenthalt, einen Tisch, eine Behandlung oder ein Detail vor Ihrer Reise ist unser Team für Sie da.",
+      "it": "Per un soggiorno, un tavolo, un trattamento o un dettaglio prima del viaggio, il nostro team è a vostra disposizione.",
+      "fr": "Pour un séjour, une table, un soin ou un détail avant votre voyage, notre équipe est à vos côtés."
+    },
+    "addressLabel": {
+      "en": "Visit",
+      "de": "Besuchen Sie uns",
+      "it": "Venite a trovarci",
+      "fr": "Nous rejoindre"
+    },
+    "phoneLabel": {
+      "en": "Call",
+      "de": "Anrufen",
+      "it": "Chiamateci",
+      "fr": "Appelez-nous"
+    },
+    "whatsappLabel": {
+      "en": "Message on WhatsApp",
+      "de": "Nachricht per WhatsApp",
+      "it": "Messaggio su WhatsApp",
+      "fr": "Message sur WhatsApp"
+    },
+    "emailLabel": {
+      "en": "Write by email",
+      "de": "E-Mail schreiben",
+      "it": "Scrivete un'e-mail",
+      "fr": "Écrivez par e-mail"
+    },
+    "salesEmailLabel": {
+      "en": "Sales",
+      "de": "Verkauf",
+      "it": "Vendite",
+      "fr": "Ventes"
+    },
+    "salesEmail": "sales@theviewlugano.ch",
+    "whatsappMessage": {
+      "en": "Hello, I would like to enquire about THE VIEW Lugano.",
+      "de": "Guten Tag, ich möchte mich über THE VIEW Lugano erkundigen.",
+      "it": "Buongiorno, vorrei ricevere informazioni su THE VIEW Lugano.",
+      "fr": "Bonjour, je souhaite obtenir des informations sur THE VIEW Lugano."
+    }
+  },
+  "form": {
+    "title": {
+      "en": "Send an enquiry",
+      "de": "Senden Sie uns Ihre Anfrage",
+      "it": "Inviateci una richiesta",
+      "fr": "Envoyez-nous votre demande"
+    },
+    "body": {
+      "en": "Tell us what you are planning and our team will come back to you.",
+      "de": "Teilen Sie uns mit, was Sie planen. Unser Team meldet sich bei Ihnen.",
+      "it": "Raccontateci cosa state programmando. Il nostro team vi ricontatterà.",
+      "fr": "Dites-nous ce que vous préparez. Notre équipe vous répondra."
+    },
+    "nameLabel": {
+      "en": "Name",
+      "de": "Name",
+      "it": "Nome",
+      "fr": "Nom"
+    },
+    "emailLabel": {
+      "en": "Email address",
+      "de": "E-Mail-Adresse",
+      "it": "Indirizzo e-mail",
+      "fr": "Adresse e-mail"
+    },
+    "topicLabel": {
+      "en": "How can we help?",
+      "de": "Wobei dürfen wir helfen?",
+      "it": "Come possiamo aiutarvi?",
+      "fr": "Comment pouvons-nous vous aider ?"
+    },
+    "topicPlaceholder": {
+      "en": "Choose a topic",
+      "de": "Thema auswählen",
+      "it": "Scegliete un argomento",
+      "fr": "Choisissez un sujet"
+    },
+    "messageLabel": {
+      "en": "Your message",
+      "de": "Ihre Nachricht",
+      "it": "Il vostro messaggio",
+      "fr": "Votre message"
+    },
+    "submit": {
+      "en": "Send enquiry",
+      "de": "Anfrage senden",
+      "it": "Invia richiesta",
+      "fr": "Envoyer la demande"
+    },
+    "privacy": {
+      "en": "By sending this form, you agree that we may use your details to answer your request.",
+      "de": "Mit dem Absenden erlauben Sie uns, Ihre Angaben zur Beantwortung Ihrer Anfrage zu verwenden.",
+      "it": "Inviando questo modulo, acconsentite all'uso dei vostri dati per rispondere alla richiesta.",
+      "fr": "En envoyant ce formulaire, vous acceptez que nous utilisions vos coordonnées pour répondre à votre demande."
+    },
+    "success": {
+      "en": "Thank you. Your enquiry has been sent and our team will be in touch.",
+      "de": "Vielen Dank. Ihre Anfrage wurde versendet. Unser Team meldet sich bei Ihnen.",
+      "it": "Grazie. La vostra richiesta è stata inviata e il nostro team vi ricontatterà.",
+      "fr": "Merci. Votre demande a été envoyée et notre équipe vous répondra."
+    },
+    "error": {
+      "en": "We could not send your enquiry just now. Please try again or contact us by phone or email.",
+      "de": "Ihre Anfrage konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch oder per E-Mail.",
+      "it": "Non siamo riusciti a inviare la vostra richiesta. Riprovate o contattateci per telefono o e-mail.",
+      "fr": "Nous n'avons pas pu envoyer votre demande. Veuillez réessayer ou nous contacter par téléphone ou e-mail."
+    },
+    "topics": [
+      {
+        "value": "stay",
+        "label": {
+          "en": "A stay",
+          "de": "Ein Aufenthalt",
+          "it": "Un soggiorno",
+          "fr": "Un séjour"
+        }
+      },
+      {
+        "value": "dining",
+        "label": {
+          "en": "Fine Dining",
+          "de": "Fine Dining",
+          "it": "Fine Dining",
+          "fr": "Fine Dining"
+        }
+      },
+      {
+        "value": "spa",
+        "label": {
+          "en": "The Spa",
+          "de": "Das Spa",
+          "it": "La Spa",
+          "fr": "Le Spa"
+        }
+      },
+      {
+        "value": "event",
+        "label": {
+          "en": "Event or private occasion",
+          "de": "Anlass oder Privatveranstaltung",
+          "it": "Evento o occasione privata",
+          "fr": "Événement ou occasion privée"
+        }
+      },
+      {
+        "value": "other",
+        "label": {
+          "en": "Something else",
+          "de": "Etwas anderes",
+          "it": "Altro",
+          "fr": "Autre sujet"
+        }
+      }
+    ]
+  },
+  "map": {
+    "title": {
+      "en": "Find your way here",
+      "de": "Finden Sie den Weg zu uns",
+      "it": "Trovate la strada per arrivare",
+      "fr": "Trouvez votre chemin jusqu'à nous"
+    },
+    "body": {
+      "en": "Above the lake in Paradiso, a few minutes from Lugano's centre and station.",
+      "de": "Über dem See in Paradiso, wenige Minuten vom Zentrum und Bahnhof Lugano entfernt.",
+      "it": "Sopra il lago a Paradiso, a pochi minuti dal centro e dalla stazione di Lugano.",
+      "fr": "Au-dessus du lac à Paradiso, à quelques minutes du centre et de la gare de Lugano."
+    },
+    "directions": {
+      "en": "Open directions",
+      "de": "Route öffnen",
+      "it": "Apri indicazioni",
+      "fr": "Ouvrir l'itinéraire"
+    }
+  },
+  "trade": {
+    "title": {
+      "en": "Travel trade and advisors",
+      "de": "Travel Trade und Advisors",
+      "it": "Travel trade e advisor",
+      "fr": "Travel trade et advisors"
+    },
+    "body": {
+      "en": "We work with Serandipians, Virtuoso and SLH advisors, and with corporate bookers who value discretion. For rates, contracting and the fact sheet, contact our sales office.",
+      "de": "Wir arbeiten mit Serandipians-, Virtuoso- und SLH-Advisors sowie mit Corporate-Buchern, die Diskretion schätzen. Für Raten, Verträge und das Fact Sheet kontaktieren Sie unser Sales Office.",
+      "it": "Lavoriamo con advisor Serandipians, Virtuoso e SLH e con booker corporate che apprezzano la discrezione. Per tariffe, contratti e fact sheet, contattate il nostro ufficio vendite.",
+      "fr": "Nous travaillons avec les advisors Serandipians, Virtuoso et SLH, ainsi qu'avec des acheteurs corporate attachés à la discrétion. Pour les tarifs, les contrats et la fiche technique, contactez notre bureau des ventes."
+    },
+    "gdsNote": {
+      "en": "For advisors and trade partners. GDS codes:",
+      "de": "Für Advisors und Travel-Trade-Partner. GDS-Codes:",
+      "it": "Per advisor e partner travel trade. Codici GDS:",
+      "fr": "Pour les advisors et partenaires travel trade. Codes GDS :"
+    }
+  },
+  "careers": {
+    "title": {
+      "en": "Working here",
+      "de": "Bei uns arbeiten",
+      "it": "Lavorare qui",
+      "fr": "Travailler ici"
+    },
+    "body": {
+      "en": "The house hires slowly and keeps people long. Every speculative application is read.",
+      "de": "Das Haus stellt langsam ein und hält Menschen lange. Jede Initiativbewerbung wird gelesen.",
+      "it": "La casa assume lentamente e tiene a lungo le persone. Ogni candidatura spontanea viene letta.",
+      "fr": "La maison recrute lentement et garde ses collaborateurs longtemps. Chaque candidature spontanée est lue."
+    },
+    "email": "careers@theviewlugano.ch"
+  }
+}

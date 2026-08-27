@@ -222,6 +222,59 @@ const press = defineCollection({
   }),
 });
 
+// Contact has its own singleton so the guest-facing page, its visual asset,
+// form labels and operational copy remain straightforward to update in
+// SveltiaCMS. The shared pages entry continues to own title and meta data.
+const contact = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/contact' }),
+  schema: z.object({
+    reach: z.object({
+      eyebrow: localized,
+      title: localized,
+      body: localized,
+      addressLabel: localized,
+      phoneLabel: localized,
+      whatsappLabel: localized,
+      emailLabel: localized,
+      salesEmailLabel: localized,
+      salesEmail: z.string().email(),
+      whatsappMessage: localized,
+    }),
+    form: z.object({
+      title: localized,
+      body: localized,
+      nameLabel: localized,
+      emailLabel: localized,
+      topicLabel: localized,
+      topicPlaceholder: localized,
+      messageLabel: localized,
+      submit: localized,
+      privacy: localized,
+      success: localized,
+      error: localized,
+      topics: z.array(z.object({
+        value: z.string().min(1),
+        label: localized,
+      })).min(1),
+    }),
+    map: z.object({
+      title: localized,
+      body: localized,
+      directions: localized,
+    }),
+    trade: z.object({
+      title: localized,
+      body: localized,
+      gdsNote: localized,
+    }),
+    careers: z.object({
+      title: localized,
+      body: localized,
+      email: z.string().email(),
+    }),
+  }),
+});
+
 const faq = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/faq' }),
   schema: z.object({
@@ -313,4 +366,4 @@ const journal = defineCollection({
   }),
 });
 
-export const collections = { homepage, pages, sustainability, press, faq, legal, settings, suites, dining, spa, offers, journal };
+export const collections = { homepage, pages, sustainability, press, contact, faq, legal, settings, suites, dining, spa, offers, journal };
