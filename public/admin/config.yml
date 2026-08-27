@@ -312,6 +312,8 @@ collections:
               - { name: phoneLabel, label: Phone Label, widget: object, fields: *loc }
               - { name: whatsappLabel, label: WhatsApp Label, widget: object, fields: *loc }
               - { name: emailLabel, label: Email Label, widget: object, fields: *loc }
+              - { name: salesEmailLabel, label: Sales Email Label, widget: object, fields: *loc }
+              - { name: salesEmail, label: Sales Email Address, widget: string, hint: 'Shown in the direct contact panel and for travel trade.' }
               - { name: whatsappMessage, label: WhatsApp Prefilled Message, widget: object, fields: *loctext }
           - name: form
             label: Enquiry Form
@@ -348,14 +350,13 @@ collections:
               - { name: title, label: Title, widget: object, fields: *loc }
               - { name: body, label: Text, widget: object, fields: *loctext }
               - { name: gdsNote, label: GDS Note, widget: object, fields: *loctext }
-              - { name: cta, label: Contact Button, widget: object, fields: *loc }
           - name: careers
             label: Careers
             widget: object
             fields:
               - { name: title, label: Title, widget: object, fields: *loc }
               - { name: body, label: Text, widget: object, fields: *loctext }
-              - { name: cta, label: Contact Button, widget: object, fields: *loc }
+              - { name: email, label: Careers Email Address, widget: string, hint: 'Shown beneath the careers details.' }
 
   # ── 7. SUITES ──
   - name: suites

@@ -236,6 +236,8 @@ const contact = defineCollection({
       phoneLabel: localized,
       whatsappLabel: localized,
       emailLabel: localized,
+      salesEmailLabel: localized,
+      salesEmail: z.string().email(),
       whatsappMessage: localized,
     }),
     form: z.object({
@@ -264,12 +266,11 @@ const contact = defineCollection({
       title: localized,
       body: localized,
       gdsNote: localized,
-      cta: localized,
     }),
     careers: z.object({
       title: localized,
       body: localized,
-      cta: localized,
+      email: z.string().email(),
     }),
   }),
 });

@@ -42,6 +42,13 @@
       "it": "Scrivete un'e-mail",
       "fr": "Écrivez par e-mail"
     },
+    "salesEmailLabel": {
+      "en": "Sales",
+      "de": "Verkauf",
+      "it": "Vendite",
+      "fr": "Ventes"
+    },
+    "salesEmail": "sales@theviewlugano.ch",
     "whatsappMessage": {
       "en": "Hello, I would like to enquire about THE VIEW Lugano.",
       "de": "Guten Tag, ich möchte mich über THE VIEW Lugano erkundigen.",
@@ -202,12 +209,6 @@
       "de": "Für Advisors und Travel-Trade-Partner. GDS-Codes:",
       "it": "Per advisor e partner travel trade. Codici GDS:",
       "fr": "Pour les advisors et partenaires travel trade. Codes GDS :"
-    },
-    "cta": {
-      "en": "Contact sales",
-      "de": "Sales kontaktieren",
-      "it": "Contatta le vendite",
-      "fr": "Contacter les ventes"
     }
   },
   "careers": {
@@ -223,11 +224,6 @@
       "it": "La casa assume lentamente e tiene a lungo le persone. Ogni candidatura spontanea viene letta.",
       "fr": "La maison recrute lentement et garde ses collaborateurs longtemps. Chaque candidature spontanée est lue."
     },
-    "cta": {
-      "en": "Write to us",
-      "de": "Schreiben Sie uns",
-      "it": "Scriveteci",
-      "fr": "Nous écrire"
-    }
+    "email": "careers@theviewlugano.ch"
   }
 }
