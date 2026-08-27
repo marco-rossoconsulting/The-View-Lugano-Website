@@ -337,9 +337,103 @@ const spa = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/spa' }),
   schema: z.object({
     order: z.number(),
+    category: z.enum(['rituals', 'massages', 'bodyTreatments', 'faceRituals', 'beauty']),
     name: localized,
-    duration: z.string(), // e.g. "50 min"
     summary: localized,
+    // Each treatment can have one or more duration/price variants
+    // (e.g. 50' CHF 150.- / 80' CHF 190.-, or a flat per-item price list).
+    variants: z.array(z.object({ duration: z.string(), price: z.string() })).min(1),
+  }),
+});
+
+// The SPA landing page is its own singleton for the same reason contact and
+// press are: a structured, page-specific content model (hero, treatment
+// categories, a rotating "treatment of the month", night spa, sales
+// categories) that would otherwise bloat the shared pages bag. SEO essentials
+// (metaTitle, metaDesc, h1, intro) stay on the pages/spa-index entry.
+const spaExperience = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/spa-experience' }),
+  schema: z.object({
+    hero: z.object({
+      tagline: localized,
+      alt: localized,
+    }),
+    philosophy: localized,
+    treatments: z.object({
+      title: localized,
+      intro: localized,
+      bookLabel: localized,
+      categories: z.array(z.object({
+        id: z.enum(['rituals', 'massages', 'bodyTreatments', 'faceRituals', 'beauty']),
+        title: localized,
+        intro: localized,
+        note: localized.optional(),
+      })).min(1),
+    }),
+    treatmentOfMonth: z.object({
+      eyebrow: localized,
+      ctaLabel: localized,
+      months: z.array(z.object({
+        month: z.number().min(1).max(12),
+        treatmentSlug: z.string(),
+        note: localized,
+      })).min(12),
+    }),
+    nightSpa: z.object({
+      eyebrow: localized,
+      title: localized,
+      body: localized,
+      accessNote: localized,
+      ctaLabel: localized,
+    }),
+    salesCategories: z.object({
+      title: localized,
+      intro: localized,
+      ctaLabel: localized,
+      items: z.array(z.object({
+        id: z.string(),
+        title: localized,
+        body: localized,
+      })).min(1),
+    }),
+    // Rendered as one line beside the booking buttons; the times themselves
+    // come from SITE.spa so they stay single-source.
+    hours: z.object({ openLabel: localized, treatmentsLabel: localized }),
+    // Not rendered on this page — retained, translated, for the planned
+    // Gym & Fitness page.
+    fitness: z.object({ title: localized, body: localized }),
+    booking: z.object({
+      bookLabel: localized,
+      giftLabel: localized,
+    }),
+    gallery: z.object({
+      title: localized,
+      intro: localized,
+      prevLabel: localized,
+      nextLabel: localized,
+      // Rail button label; must contain the {title} placeholder.
+      goToLabel: localized,
+      items: z.array(z.object({
+        // Maps to an imported asset in the spa page's IMAGES record.
+        key: z.string(),
+        title: localized,
+        alt: localized,
+      })).min(1),
+    }),
+    variantLabels: z.object({
+      eyebrows: localized,
+      aboveLip: localized,
+      face: localized,
+      armpits: localized,
+      arms: localized,
+      chest: localized,
+      back: localized,
+      bikini: localized,
+      halfLeg: localized,
+      fullLeg: localized,
+      naturalFinish: localized,
+      nailPolish: localized,
+    }),
   }),
 });
 
@@ -366,4 +460,4 @@ const journal = defineCollection({
   }),
 });
 
-export const collections = { homepage, pages, sustainability, press, contact, faq, legal, settings, suites, dining, spa, offers, journal };
+export const collections = { homepage, pages, sustainability, press, contact, faq, legal, settings, suites, dining, spa, spaExperience, offers, journal };

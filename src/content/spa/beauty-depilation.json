@@ -1,0 +1,58 @@
+{
+  "order": 34,
+  "category": "beauty",
+  "name": {
+    "en": "Depilation",
+    "de": "Haarentfernung",
+    "it": "Depilazione",
+    "fr": "Épilation"
+  },
+  "summary": {
+    "en": "Precise waxing for face and body, priced by area.",
+    "de": "Präzise Haarentfernung für Gesicht und Körper, je nach Bereich.",
+    "it": "Depilazione precisa per viso e corpo, a seconda della zona.",
+    "fr": "Épilation précise du visage et du corps, tarifée par zone."
+  },
+  "variants": [
+    {
+      "duration": "eyebrows",
+      "price": "CHF 20.-"
+    },
+    {
+      "duration": "aboveLip",
+      "price": "CHF 15.-"
+    },
+    {
+      "duration": "face",
+      "price": "CHF 20.-"
+    },
+    {
+      "duration": "armpits",
+      "price": "CHF 20.-"
+    },
+    {
+      "duration": "arms",
+      "price": "CHF 30.-"
+    },
+    {
+      "duration": "chest",
+      "price": "CHF 50.-"
+    },
+    {
+      "duration": "back",
+      "price": "CHF 50.-"
+    },
+    {
+      "duration": "bikini",
+      "price": "CHF 30.-"
+    },
+    {
+      "duration": "halfLeg",
+      "price": "CHF 60.-"
+    },
+    {
+      "duration": "fullLeg",
+      "price": "CHF 80.-"
+    }
+  ]
+}

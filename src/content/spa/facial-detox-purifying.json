@@ -1,0 +1,26 @@
+{
+  "order": 29,
+  "category": "faceRituals",
+  "name": {
+    "en": "Detox — Profound Purifying",
+    "de": "Detox — Tiefenreinigung",
+    "it": "Detox — Purificante Profondo",
+    "fr": "Détox — Purification Profonde"
+  },
+  "summary": {
+    "en": "A perfect skin detoxifier to gently clean, calm and refresh.",
+    "de": "Ein perfekter Haut-Detox, der sanft reinigt, beruhigt und erfrischt.",
+    "it": "Un trattamento detossinante perfetto per pulire, calmare e rinfrescare delicatamente.",
+    "fr": "Un soin détoxifiant parfait qui nettoie, apaise et rafraîchit tout en douceur."
+  },
+  "variants": [
+    {
+      "duration": "60'",
+      "price": "CHF 200.-"
+    },
+    {
+      "duration": "90'",
+      "price": "CHF 300.-"
+    }
+  ]
+}

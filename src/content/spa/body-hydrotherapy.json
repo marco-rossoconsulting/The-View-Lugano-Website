@@ -1,0 +1,22 @@
+{
+  "order": 22,
+  "category": "bodyTreatments",
+  "name": {
+    "en": "Hydrotherapy",
+    "de": "Hydrotherapie",
+    "it": "Idroterapia",
+    "fr": "Hydrothérapie"
+  },
+  "summary": {
+    "en": "Benefit from the most advanced hydro-massage techniques combined with the relaxing properties of essential oils from natural extracts. The varying pressure of the water, together with phytotherapeutic elements, acts on the vasodilation and vasoconstriction of the capillaries, toning the tissues.",
+    "de": "Profitieren Sie von modernsten Hydromassage-Techniken in Kombination mit den entspannenden Eigenschaften ätherischer Öle aus natürlichen Extrakten. Der wechselnde Wasserdruck wirkt zusammen mit phytotherapeutischen Elementen auf die Gefässerweiterung und -verengung der Kapillaren und strafft das Gewebe.",
+    "it": "L'efficacia della più avanzata tecnica di idromassaggio si combina alle proprietà distensive di oli essenziali da estratti naturali. Le variazioni di pressione dell'acqua, insieme all'azione di elementi fitoterapici, agiscono sulla vasodilatazione e vasocostrizione dei capillari, tonificando i tessuti.",
+    "fr": "Profitez des techniques d'hydromassage les plus avancées, associées aux propriétés relaxantes d'huiles essentielles issues d'extraits naturels. La pression variable de l'eau, combinée à des éléments phytothérapeutiques, agit sur la vasodilatation et la vasoconstriction des capillaires, tonifiant les tissus."
+  },
+  "variants": [
+    {
+      "duration": "25'",
+      "price": "CHF 45.-"
+    }
+  ]
+}

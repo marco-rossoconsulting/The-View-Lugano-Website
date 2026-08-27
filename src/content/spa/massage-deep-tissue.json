@@ -1,0 +1,26 @@
+{
+  "order": 8,
+  "category": "massages",
+  "name": {
+    "en": "Deep Tissue",
+    "de": "Deep Tissue",
+    "it": "Deep Tissue",
+    "fr": "Deep Tissue"
+  },
+  "summary": {
+    "en": "Deep, soothing and decontracting body massage that helps release tense muscles. Ideal before or after a workout or to alleviate pains caused by incorrect posture.",
+    "de": "Tiefenwirksame, beruhigende und lockernde Körpermassage, die verspannte Muskeln löst. Ideal vor oder nach dem Training oder zur Linderung von Schmerzen durch falsche Haltung.",
+    "it": "Profondo massaggio distensivo e decontratturante che aiuta ad attenuare le tensioni muscolari. Ideale prima o dopo l'allenamento fisico o per alleviare i dolori causati da una postura scorretta.",
+    "fr": "Massage corporel profond, apaisant et décontractant qui aide à relâcher les muscles tendus. Idéal avant ou après le sport, ou pour soulager les douleurs dues à une mauvaise posture."
+  },
+  "variants": [
+    {
+      "duration": "50'",
+      "price": "CHF 170.-"
+    },
+    {
+      "duration": "80'",
+      "price": "CHF 210.-"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "order": 25,
+  "category": "faceRituals",
+  "name": {
+    "en": "Boost — Caviar Collagen",
+    "de": "Boost — Kaviar-Kollagen",
+    "it": "Boost — Collagene di Caviale",
+    "fr": "Boost — Collagène de Caviar"
+  },
+  "summary": {
+    "en": "A perfect skin lifter to stimulate volume, fill contours and firm.",
+    "de": "Ein perfekter Skin-Lifter, der Volumen aufbaut, Konturen auffüllt und strafft.",
+    "it": "Un trattamento liftante perfetto per stimolare volume, ridefinire i contorni e rassodare.",
+    "fr": "Un soin liftant parfait qui stimule le volume, comble les contours et raffermit."
+  },
+  "variants": [
+    {
+      "duration": "60'",
+      "price": "CHF 210.-"
+    },
+    {
+      "duration": "90'",
+      "price": "CHF 320.-"
+    }
+  ]
+}

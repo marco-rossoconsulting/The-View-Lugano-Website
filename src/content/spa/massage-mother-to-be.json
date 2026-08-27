@@ -1,0 +1,22 @@
+{
+  "order": 9,
+  "category": "massages",
+  "name": {
+    "en": "Mother To Be",
+    "de": "Mother To Be",
+    "it": "Mother To Be",
+    "fr": "Mother To Be"
+  },
+  "summary": {
+    "en": "Careful and enveloping movements that focus on the back, legs and face with moisturising creams and neutral oils.",
+    "de": "Sanfte, umhüllende Bewegungen, die sich auf Rücken, Beine und Gesicht konzentrieren, mit feuchtigkeitsspendenden Cremes und neutralen Ölen.",
+    "it": "Carezze e movimenti avvolgenti che si focalizzano su schiena, gambe e viso, con la morbidezza di creme e oli neutri.",
+    "fr": "Mouvements délicats et enveloppants centrés sur le dos, les jambes et le visage, avec des crèmes hydratantes et des huiles neutres."
+  },
+  "variants": [
+    {
+      "duration": "50'",
+      "price": "CHF 170.-"
+    }
+  ]
+}

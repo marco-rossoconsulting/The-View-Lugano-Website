@@ -1,0 +1,22 @@
+{
+  "order": 1,
+  "category": "rituals",
+  "name": {
+    "en": "Purification Ritual — Savonnage",
+    "de": "Reinigungsritual — Savonnage",
+    "it": "Rituale Purificante — Savonnage",
+    "fr": "Rituel Purifiant — Savonnage"
+  },
+  "summary": {
+    "en": "Inspired by ancient oriental traditions, the Savonnage ritual is a purification treatment for body and mind. The wide and enveloping movements that characterise this ritual will put you into a state of total relaxation, resulting in pleasantly fresh, soft and hydrated skin thanks to deep exfoliation with the Kessa glove and the renowned Moroccan black soap.",
+    "de": "Inspiriert von alten orientalischen Traditionen ist das Savonnage-Ritual eine Reinigungsbehandlung für Körper und Geist. Die weiten, umhüllenden Bewegungen versetzen Sie in einen Zustand vollkommener Entspannung und hinterlassen dank Tiefenpeeling mit dem Kessa-Handschuh und der berühmten schwarzen marokkanischen Seife angenehm frische, weiche und feuchtigkeitsgepflegte Haut.",
+    "it": "Ispirato alle antiche tradizioni orientali, il rituale Savonnage è un trattamento di purificazione del corpo e della mente. Gli ampi e avvolgenti movimenti che caratterizzano questo rituale vi porteranno in uno stato di totale relax, regalando una pelle piacevolmente fresca, morbida ed idratata grazie all'esfoliazione profonda con guanto Kessa e l'utilizzo del rinomato sapone nero marocchino.",
+    "fr": "Inspiré des anciennes traditions orientales, le rituel Savonnage est un soin purifiant pour le corps et l'esprit. Les mouvements amples et enveloppants qui le caractérisent vous plongent dans un état de détente totale, laissant une peau agréablement fraîche, douce et hydratée grâce à l'exfoliation profonde au gant de Kessa et au réputé savon noir marocain."
+  },
+  "variants": [
+    {
+      "duration": "100'",
+      "price": "CHF 310.-"
+    }
+  ]
+}

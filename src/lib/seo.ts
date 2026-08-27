@@ -123,6 +123,46 @@ export function howToArriveJsonLd(lang: Locale) {
   };
 }
 
+export function spaJsonLd(lang: Locale, image: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'DaySpa',
+    '@id': `${SITE.url}/#spa`,
+    name: `${SITE.name} Spa`,
+    url: `${SITE.url}/${lang}/spa/`,
+    inLanguage: LD_LANG[lang],
+    telephone: SITE.phone,
+    email: SITE.email,
+    priceRange: 'CHF CHF CHF',
+    image,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.address.street,
+      postalCode: SITE.address.postalCode,
+      addressLocality: SITE.address.locality,
+      addressRegion: SITE.address.region,
+      addressCountry: SITE.address.country,
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
+    containedInPlace: { '@id': `${SITE.url}/#hotel` },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: SITE.spa.opens,
+        closes: SITE.spa.closes,
+      },
+    ],
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: 'Indoor pool', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Night Spa', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Sauna & steam bath', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Himalayan salt relaxation room', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Fitness studio', value: true },
+    ],
+  };
+}
+
 export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',

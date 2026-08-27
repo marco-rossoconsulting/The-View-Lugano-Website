@@ -1,0 +1,26 @@
+{
+  "order": 26,
+  "category": "faceRituals",
+  "name": {
+    "en": "Glow — Brightening & Unifying",
+    "de": "Glow — Aufhellend & Ausgleichend",
+    "it": "Glow — Illuminante e Uniformante",
+    "fr": "Glow — Éclat et Unification"
+  },
+  "summary": {
+    "en": "A perfect skin brightener to create luminous, calm and toned skin.",
+    "de": "Ein perfekter Hautaufheller für strahlende, beruhigte und straffe Haut.",
+    "it": "Un trattamento illuminante perfetto per una pelle luminosa, distesa e tonica.",
+    "fr": "Un soin illuminateur parfait pour une peau lumineuse, apaisée et tonifiée."
+  },
+  "variants": [
+    {
+      "duration": "60'",
+      "price": "CHF 200.-"
+    },
+    {
+      "duration": "90'",
+      "price": "CHF 300.-"
+    }
+  ]
+}

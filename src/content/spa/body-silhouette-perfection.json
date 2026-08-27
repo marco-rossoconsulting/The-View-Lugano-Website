@@ -1,0 +1,22 @@
+{
+  "order": 19,
+  "category": "bodyTreatments",
+  "name": {
+    "en": "Silhouette Perfection",
+    "de": "Silhouette Perfection",
+    "it": "Silhouette Perfection",
+    "fr": "Silhouette Perfection"
+  },
+  "summary": {
+    "en": "A toning massage: the shaping and contouring manoeuvres, together with specific products, improve metabolism in areas prone to adiposity and cellulite, stimulating deep purification for an effective anti-cellulite, slimming and toning action.",
+    "de": "Eine straffende Massage: Formende und konturierende Griffe in Kombination mit gezielten Produkten verbessern den Stoffwechsel in Problemzonen mit Fettansammlungen und Cellulite und regen eine tiefe Reinigung für eine wirksame Anti-Cellulite-, Straffungs- und Formwirkung an.",
+    "it": "Massaggio rassodante: le manovre rimodellanti e l'utilizzo di prodotti specifici migliorano il metabolismo nelle aree soggette ad adiposità e cellulite, stimolando una profonda depurazione per un'efficace azione anti-cellulite, snellente e tonificante.",
+    "fr": "Un massage tonifiant : des gestes sculptants et modelants, associés à des produits ciblés, améliorent le métabolisme dans les zones sujettes à l'adiposité et à la cellulite, stimulant une purification profonde pour une action anti-cellulite, amincissante et tonifiante efficace."
+  },
+  "variants": [
+    {
+      "duration": "80'",
+      "price": "CHF 240.-"
+    }
+  ]
+}

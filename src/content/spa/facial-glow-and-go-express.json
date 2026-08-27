@@ -1,0 +1,22 @@
+{
+  "order": 31,
+  "category": "faceRituals",
+  "name": {
+    "en": "Glow & Go — Express Facial",
+    "de": "Glow & Go — Express-Gesichtsbehandlung",
+    "it": "Glow & Go — Trattamento Viso Express",
+    "fr": "Glow & Go — Soin Visage Express"
+  },
+  "summary": {
+    "en": "A tight-for-time illuminating facial, tailored to your skin's requirements.",
+    "de": "Ein strahlungsspendendes Express-Gesichtstreatment für wenig Zeit, abgestimmt auf die Bedürfnisse Ihrer Haut.",
+    "it": "Un trattamento viso illuminante rapido, pensato per chi ha poco tempo, su misura per le esigenze della pelle.",
+    "fr": "Un soin du visage illuminateur express, adapté aux besoins de votre peau, pour les emplois du temps serrés."
+  },
+  "variants": [
+    {
+      "duration": "30'",
+      "price": "CHF 130.-"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "order": 10,
+  "category": "massages",
+  "name": {
+    "en": "Hot Candle Massage",
+    "de": "Hot Candle Massage",
+    "it": "Hot Candle Massage",
+    "fr": "Massage à la Bougie Chaude"
+  },
+  "summary": {
+    "en": "Massage performed with warm candle wax made of pure, prime shea butter, which gives the skin perfect softness and hydration. A relaxing massage with soft, slow and embracing manoeuvres.",
+    "de": "Massage mit warmem Kerzenwachs aus reiner, erstklassiger Sheabutter, die der Haut vollkommene Geschmeidigkeit und Feuchtigkeit verleiht. Eine entspannende Massage mit sanften, langsamen, umhüllenden Griffen.",
+    "it": "Massaggio con cera calda a base di puro e pregiato burro di karité, che dona alla pelle morbidezza e idratazione: un massaggio rilassante dalle manovre dolci, lente e avvolgenti.",
+    "fr": "Massage réalisé avec de la cire de bougie chaude au beurre de karité pur et de première qualité, qui offre à la peau douceur et hydratation parfaites. Un massage relaxant aux gestes doux, lents et enveloppants."
+  },
+  "variants": [
+    {
+      "duration": "50'",
+      "price": "CHF 170.-"
+    },
+    {
+      "duration": "80'",
+      "price": "CHF 210.-"
+    }
+  ]
+}

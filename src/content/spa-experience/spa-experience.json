@@ -1,0 +1,690 @@
+{
+  "hero": {
+    "tagline": {
+      "en": "Wellness above Lake Lugano",
+      "de": "Wellness über dem Luganersee",
+      "it": "Benessere sopra il Lago di Lugano",
+      "fr": "Bien-être au-dessus du lac de Lugano"
+    },
+    "alt": {
+      "en": "Steam rising over the indoor pool at THE VIEW Spa, glass wall open to Lake Lugano",
+      "de": "Dampf über dem Innenpool des THE VIEW Spa, Glasfront zum Luganersee",
+      "it": "Vapore sopra la piscina interna della THE VIEW Spa, parete a vetri sul Lago di Lugano",
+      "fr": "Vapeur au-dessus de la piscine intérieure du THE VIEW Spa, paroi vitrée sur le lac de Lugano"
+    }
+  },
+  "philosophy": {
+    "en": "Quiet is the point here. Treatments are unhurried, the rooms stay calm, and there is space to swim without waiting — whether you are staying in the house, arriving for the day, or coming as a member.",
+    "de": "Ruhe ist hier das Prinzip. Behandlungen ohne Eile, Räume, die still bleiben, und Platz zum Schwimmen, ohne zu warten – ob Sie im Haus wohnen, für einen Tag kommen oder Mitglied sind.",
+    "it": "La quiete è il punto. Trattamenti senza fretta, ambienti che restano silenziosi e spazio per nuotare senza attendere — che siate ospiti della casa, visitatori di giornata o membri.",
+    "fr": "Le calme est le propos. Des soins sans hâte, des espaces qui restent silencieux et de la place pour nager sans attendre — que vous séjourniez dans la maison, veniez pour la journée ou soyez membre."
+  },
+  "treatments": {
+    "title": {
+      "en": "Treatments",
+      "de": "Behandlungen",
+      "it": "Trattamenti",
+      "fr": "Soins"
+    },
+    "intro": {
+      "en": "Treatments are booked by the hour, prepared for one person at a time — from body rituals to La Vallée's Swiss facials.",
+      "de": "Behandlungen werden stundenweise gebucht und für jeweils eine Person vorbereitet — von Körperritualen bis zu den Schweizer Gesichtsbehandlungen von La Vallée.",
+      "it": "I trattamenti si prenotano a ore e si preparano per una persona alla volta — dai rituali corpo ai trattamenti viso svizzeri di La Vallée.",
+      "fr": "Les soins se réservent à l'heure et se préparent pour une personne à la fois — des rituels du corps aux soins du visage suisses de La Vallée."
+    },
+    "bookLabel": {
+      "en": "Book a Treatment",
+      "de": "Behandlung buchen",
+      "it": "Prenota un Trattamento",
+      "fr": "Réserver un Soin"
+    },
+    "categories": [
+      {
+        "id": "rituals",
+        "title": {
+          "en": "Body Rituals",
+          "de": "Körperrituale",
+          "it": "Rituali Corpo",
+          "fr": "Rituels du Corps"
+        },
+        "intro": {
+          "en": "Exclusive wellbeing experiences created by The View Spa with the fabulous shower/bed Vichy Prestige.",
+          "de": "Exklusive Wellness-Erlebnisse von The View Spa mit dem fabelhaften Vichy-Prestige-Duschbett.",
+          "it": "Esperienze esclusive di benessere create da The View Spa con il favoloso lettino/doccia Vichy Prestige.",
+          "fr": "Des expériences de bien-être exclusives créées par The View Spa avec la fabuleuse douche/lit Vichy Prestige."
+        },
+        "note": {
+          "en": "Every ritual includes a body scrub, a compress selected to your needs, a hydrotherapy massage in hot water with essential oils, and a closing massage with lotions and oils.",
+          "de": "Jedes Ritual umfasst ein Körperpeeling, einen individuell gewählten Wickel, eine Hydrotherapie-Massage in warmem Wasser mit ätherischen Ölen und eine abschliessende Massage mit Lotionen und Ölen.",
+          "it": "Ogni rituale include uno scrub corpo, un impacco selezionato in base alle esigenze, un massaggio idroterapico in acqua calda con oli essenziali e un massaggio conclusivo con creme e oli.",
+          "fr": "Chaque rituel comprend un gommage corporel, un enveloppement choisi selon vos besoins, un massage hydrothérapique en eau chaude aux huiles essentielles et un massage final aux lotions et huiles."
+        }
+      },
+      {
+        "id": "massages",
+        "title": {
+          "en": "Body Treatments & Massages",
+          "de": "Körperbehandlungen & Massagen",
+          "it": "Trattamenti Corpo e Massaggi",
+          "fr": "Soins du Corps et Massages"
+        },
+        "intro": {
+          "en": "Relaxing, decontracting, draining or slimming: each massage targets a specific need and is personalised according to individual requirements.",
+          "de": "Entspannend, lockernd, entstauend oder straffend: Jede Massage ist auf ein bestimmtes Bedürfnis ausgerichtet und wird individuell auf Sie abgestimmt.",
+          "it": "Rilassante, decontratturante, drenante oppure snellante: ogni massaggio è mirato ad un'esigenza specifica e viene personalizzato in base alle singole necessità.",
+          "fr": "Relaxant, décontractant, drainant ou amincissant : chaque massage cible un besoin précis et est personnalisé selon vos exigences individuelles."
+        }
+      },
+      {
+        "id": "bodyTreatments",
+        "title": {
+          "en": "Body Treatments",
+          "de": "Körperbehandlungen",
+          "it": "Trattamenti Corpo",
+          "fr": "Soins du Corps"
+        },
+        "intro": {
+          "en": "Signature protocols that pair touch with marine minerals, clay and collagen — each one built around a specific outcome, for one or for two.",
+          "de": "Signature-Behandlungen, die Berührung mit Meeresmineralien, Tonerde und Kollagen verbinden — jede auf ein bestimmtes Ergebnis ausgerichtet, für eine Person oder für zwei.",
+          "it": "Protocolli signature che uniscono il tocco a minerali marini, argilla e collagene: ogni trattamento è costruito attorno a un obiettivo preciso, per una persona o per due.",
+          "fr": "Des protocoles signature qui associent le toucher aux minéraux marins, à l'argile et au collagène — chacun conçu autour d'un objectif précis, pour une personne ou pour deux."
+        }
+      },
+      {
+        "id": "faceRituals",
+        "title": {
+          "en": "La Vallée Face Rituals",
+          "de": "La Vallée Gesichtsrituale",
+          "it": "La Vallée — Rituali Viso",
+          "fr": "Rituels du Visage La Vallée"
+        },
+        "intro": {
+          "en": "La Vallée's rejuvenating facial rituals are influenced by Swiss nature, where glacial water enriches the soil and lets plants flourish like no other. Every ritual begins with a complete skin analysis, then brings exceptional products together with advanced technique to rejuvenate and transform the skin.",
+          "de": "Die regenerierenden Gesichtsrituale von La Vallée sind von der Schweizer Natur inspiriert, wo Gletscherwasser den Boden nährt und Pflanzen wie nirgendwo sonst gedeihen lässt. Jedes Ritual beginnt mit einer vollständigen Hautanalyse und vereint aussergewöhnliche Produkte mit fortschrittlicher Technik, um die Haut zu regenerieren und zu verwandeln.",
+          "it": "I rituali viso rigeneranti di La Vallée traggono ispirazione dalla natura svizzera, dove l'acqua glaciale arricchisce il suolo e permette alle piante di fiorire come in nessun altro luogo. Ogni rituale inizia con un'analisi completa della pelle e unisce prodotti d'eccezione a tecniche avanzate per rigenerare e trasformare la pelle.",
+          "fr": "Les rituels du visage régénérants de La Vallée s'inspirent de la nature suisse, où l'eau glaciaire enrichit le sol et permet aux plantes de s'épanouir comme nulle part ailleurs. Chaque rituel débute par une analyse complète de la peau et associe des produits d'exception à une technique avancée pour régénérer et transformer la peau."
+        }
+      },
+      {
+        "id": "beauty",
+        "title": {
+          "en": "Beauty",
+          "de": "Beauty",
+          "it": "Estetica",
+          "fr": "Beauté"
+        },
+        "intro": {
+          "en": "Final touches for a complete body care.",
+          "de": "Der letzte Schliff für eine umfassende Körperpflege.",
+          "it": "Tocchi finali per una cura del corpo totale.",
+          "fr": "La touche finale pour un soin du corps complet."
+        }
+      }
+    ]
+  },
+  "treatmentOfMonth": {
+    "eyebrow": {
+      "en": "Treatment of the Month",
+      "de": "Behandlung des Monats",
+      "it": "Trattamento del Mese",
+      "fr": "Soin du Mois"
+    },
+    "ctaLabel": {
+      "en": "Book this treatment",
+      "de": "Diese Behandlung buchen",
+      "it": "Prenota questo trattamento",
+      "fr": "Réserver ce soin"
+    },
+    "months": [
+      {
+        "month": 1,
+        "treatmentSlug": "facial-detox-purifying",
+        "note": {
+          "en": "A clean start for the new year.",
+          "de": "Ein klarer Start ins neue Jahr.",
+          "it": "Un inizio pulito per il nuovo anno.",
+          "fr": "Un nouveau départ, en toute clarté."
+        }
+      },
+      {
+        "month": 2,
+        "treatmentSlug": "body-celestial-connection",
+        "note": {
+          "en": "For two, close to the water.",
+          "de": "Zu zweit, nah am Wasser.",
+          "it": "In due, vicino all'acqua.",
+          "fr": "À deux, tout près de l'eau."
+        }
+      },
+      {
+        "month": 3,
+        "treatmentSlug": "ritual-toning-bio-algae",
+        "note": {
+          "en": "Spring renewal, from the inside out.",
+          "de": "Frühlingserneuerung, von innen nach aussen.",
+          "it": "Rinnovamento di primavera, dall'interno.",
+          "fr": "Renouveau printanier, de l'intérieur."
+        }
+      },
+      {
+        "month": 4,
+        "treatmentSlug": "body-drain-pro",
+        "note": {
+          "en": "Lightness, after the long winter.",
+          "de": "Leichtigkeit nach dem langen Winter.",
+          "it": "Leggerezza, dopo il lungo inverno.",
+          "fr": "Légèreté, après le long hiver."
+        }
+      },
+      {
+        "month": 5,
+        "treatmentSlug": "massage-aroma-bliss",
+        "note": {
+          "en": "The lake terraces open again.",
+          "de": "Die Seeterrassen öffnen wieder.",
+          "it": "Le terrazze sul lago riaprono.",
+          "fr": "Les terrasses sur le lac rouvrent."
+        }
+      },
+      {
+        "month": 6,
+        "treatmentSlug": "facial-glow-brightening",
+        "note": {
+          "en": "Skin ready for long evenings outside.",
+          "de": "Haut bereit für lange Abende im Freien.",
+          "it": "Pelle pronta per le lunghe sere all'aperto.",
+          "fr": "Une peau prête pour les longues soirées en plein air."
+        }
+      },
+      {
+        "month": 7,
+        "treatmentSlug": "body-pink-scrub",
+        "note": {
+          "en": "Something short, before the terrace.",
+          "de": "Etwas Kurzes, vor der Terrasse.",
+          "it": "Qualcosa di breve, prima della terrazza.",
+          "fr": "Un moment bref, avant la terrasse."
+        }
+      },
+      {
+        "month": 8,
+        "treatmentSlug": "body-deep-sea-tranquility",
+        "note": {
+          "en": "The height of summer, slowed down.",
+          "de": "Der Hochsommer, entschleunigt.",
+          "it": "Il cuore dell'estate, rallentato.",
+          "fr": "Le cœur de l'été, ralenti."
+        }
+      },
+      {
+        "month": 9,
+        "treatmentSlug": "ritual-antioxidant-wine-therapy",
+        "note": {
+          "en": "Grape harvest on the skin, not just in the glass.",
+          "de": "Weinlese für die Haut, nicht nur im Glas.",
+          "it": "La vendemmia sulla pelle, non solo nel bicchiere.",
+          "fr": "Les vendanges sur la peau, pas seulement dans le verre."
+        }
+      },
+      {
+        "month": 10,
+        "treatmentSlug": "body-muscle-total-release",
+        "note": {
+          "en": "As the light turns amber.",
+          "de": "Wenn das Licht bernsteinfarben wird.",
+          "it": "Quando la luce si fa ambrata.",
+          "fr": "Quand la lumière devient ambrée."
+        }
+      },
+      {
+        "month": 11,
+        "treatmentSlug": "facial-heal-calming-hydration",
+        "note": {
+          "en": "For skin that has met the first cold.",
+          "de": "Für Haut, die der ersten Kälte begegnet ist.",
+          "it": "Per una pelle che ha incontrato il primo freddo.",
+          "fr": "Pour une peau qui a affronté le premier froid."
+        }
+      },
+      {
+        "month": 12,
+        "treatmentSlug": "ritual-nourishing-chocolate",
+        "note": {
+          "en": "A December indulgence, from a Swiss valley.",
+          "de": "Eine Dezember-Verwöhnung aus einem Schweizer Tal.",
+          "it": "Un piccolo peccato di dicembre, da una valle svizzera.",
+          "fr": "Un plaisir de décembre, venu d'une vallée suisse."
+        }
+      }
+    ]
+  },
+  "nightSpa": {
+    "eyebrow": {
+      "en": "After Dark",
+      "de": "Nach Einbruch der Dunkelheit",
+      "it": "Dopo il Tramonto",
+      "fr": "À la Nuit Tombée"
+    },
+    "title": {
+      "en": "Night Spa",
+      "de": "Night Spa",
+      "it": "Night Spa",
+      "fr": "Night Spa"
+    },
+    "body": {
+      "en": "Once the sun is down, the pool changes register: the lights shift through blue and violet, the water stays warm, and the lake becomes a dark mirror behind the glass. Night Spa is open to house guests and to outside guests alike, by reservation.",
+      "de": "Sobald die Sonne untergeht, wechselt der Pool die Stimmung: Das Licht changiert zwischen Blau und Violett, das Wasser bleibt warm, und der See wird hinter dem Glas zu einem dunklen Spiegel. Der Night Spa steht Hausgästen wie externen Gästen gleichermassen offen, nach Reservierung.",
+      "it": "Al calare del sole la piscina cambia registro: le luci virano tra il blu e il viola, l'acqua resta calda e il lago diventa uno specchio scuro oltre il vetro. Il Night Spa è aperto sia agli ospiti della casa sia agli ospiti esterni, su prenotazione.",
+      "fr": "Une fois le soleil couché, la piscine change de registre : les lumières passent du bleu au violet, l'eau reste chaude et le lac devient un miroir sombre derrière le verre. Le Night Spa est ouvert aux hôtes de la maison comme aux visiteurs extérieurs, sur réservation."
+    },
+    "accessNote": {
+      "en": "Open to house guests and visitors alike; we recommend booking ahead, as the evening is kept intentionally intimate.",
+      "de": "Offen für Hausgäste und Besucher gleichermassen; eine frühzeitige Reservierung empfiehlt sich, da der Abend bewusst intim gehalten wird.",
+      "it": "Aperto agli ospiti della casa e ai visitatori; consigliamo di prenotare in anticipo, perché la serata resta volutamente intima.",
+      "fr": "Ouvert aux hôtes de la maison comme aux visiteurs ; nous recommandons de réserver, la soirée étant volontairement intime."
+    },
+    "ctaLabel": {
+      "en": "Enquire about Night Spa",
+      "de": "Night Spa anfragen",
+      "it": "Richiedi Informazioni sul Night Spa",
+      "fr": "Se Renseigner sur le Night Spa"
+    }
+  },
+  "salesCategories": {
+    "title": {
+      "en": "Access & Membership",
+      "de": "Zugang & Mitgliedschaft",
+      "it": "Accesso & Membership",
+      "fr": "Accès & Abonnements"
+    },
+    "intro": {
+      "en": "You do not need to be staying with us. Day entries, memberships and Night Spa evenings are open to visitors and to those who live nearby — we ask only that you book ahead.",
+      "de": "Sie müssen nicht bei uns wohnen. Tageseintritte, Mitgliedschaften und Night-Spa-Abende stehen Besuchern und Menschen aus der Umgebung offen – wir bitten lediglich um eine Reservierung.",
+      "it": "Non è necessario soggiornare da noi. Ingressi giornalieri, membership e serate Night Spa sono aperti ai visitatori e a chi vive nei dintorni: chiediamo soltanto di prenotare in anticipo.",
+      "fr": "Il n'est pas nécessaire de séjourner chez nous. Entrées à la journée, abonnements et soirées Night Spa sont ouverts aux visiteurs comme aux habitants des environs — nous demandons simplement de réserver."
+    },
+    "ctaLabel": {
+      "en": "Enquire",
+      "de": "Anfragen",
+      "it": "Richiedi Informazioni",
+      "fr": "Se Renseigner"
+    },
+    "items": [
+      {
+        "id": "day-entry",
+        "title": {
+          "en": "Day Entry",
+          "de": "Tageseintritt",
+          "it": "Ingresso Giornaliero",
+          "fr": "Entrée à la Journée"
+        },
+        "body": {
+          "en": "A full day with the pool, the wet zones and the relaxation room — open to visitors staying elsewhere and to anyone living nearby.",
+          "de": "Ein ganzer Tag mit Pool, Nasszonen und Ruheraum – offen für Gäste, die anderswo wohnen, und für alle aus der Umgebung.",
+          "it": "Una giornata intera con piscina, zone umide e sala relax — aperta a chi soggiorna altrove e a chi vive nei dintorni.",
+          "fr": "Une journée entière avec la piscine, les zones humides et la salle de repos — ouverte aux visiteurs logés ailleurs comme aux habitants des environs."
+        }
+      },
+      {
+        "id": "membership",
+        "title": {
+          "en": "Memberships",
+          "de": "Mitgliedschaften",
+          "it": "Membership",
+          "fr": "Abonnements"
+        },
+        "body": {
+          "en": "Monthly and annual memberships, and entry packages for occasional use — for anyone who returns to the lake often, resident or visitor.",
+          "de": "Monats- und Jahresmitgliedschaften sowie Eintrittspakete für gelegentliche Nutzung – für alle, die oft an den See zurückkehren, ob aus der Region oder auf Reisen.",
+          "it": "Membership mensili e annuali e pacchetti di ingressi per un uso occasionale — per chi torna spesso sul lago, che viva qui o sia di passaggio.",
+          "fr": "Abonnements mensuels et annuels et forfaits d'entrées pour un usage occasionnel — pour celles et ceux qui reviennent souvent au bord du lac, résidents ou visiteurs."
+        }
+      },
+      {
+        "id": "night-spa-access",
+        "title": {
+          "en": "Night Spa Access",
+          "de": "Night-Spa-Zugang",
+          "it": "Accesso Night Spa",
+          "fr": "Accès Night Spa"
+        },
+        "body": {
+          "en": "Evening access to the pool under its after-dark lighting, open to visitors and sold separately from daytime entry.",
+          "de": "Abendlicher Zugang zum Pool unter der nächtlichen Beleuchtung, offen für Besucher und separat vom Tageseintritt erhältlich.",
+          "it": "Accesso serale alla piscina con l'illuminazione notturna, aperto ai visitatori e venduto separatamente dall'ingresso diurno.",
+          "fr": "Accès en soirée à la piscine sous son éclairage nocturne, ouvert aux visiteurs et vendu séparément de l'entrée de jour."
+        }
+      }
+    ]
+  },
+  "hours": {
+    "openLabel": {
+      "en": "Open daily",
+      "de": "Täglich geöffnet",
+      "it": "Aperta tutti i giorni",
+      "fr": "Ouvert tous les jours"
+    },
+    "treatmentsLabel": {
+      "en": "Treatments",
+      "de": "Behandlungen",
+      "it": "Trattamenti",
+      "fr": "Soins"
+    }
+  },
+  "fitness": {
+    "title": {
+      "en": "Fitness & Personal Training",
+      "de": "Fitness & Personal Training",
+      "it": "Fitness & Personal Training",
+      "fr": "Fitness & Personal Training"
+    },
+    "body": {
+      "en": "The fitness room faces the lake — the only wall worth running toward, equipped with Technogym machines. Personal training sessions can be arranged through your Ambassador.",
+      "de": "Der Fitnessraum blickt auf den See — die einzige Wand, auf die zuzulaufen sich lohnt, ausgestattet mit Technogym-Geräten. Personal-Training-Einheiten organisiert Ihr Ambassador.",
+      "it": "La sala fitness guarda il lago — l'unica parete verso cui valga la pena correre, attrezzata con macchinari Technogym. Le sessioni di personal training si organizzano tramite il vostro Ambassador.",
+      "fr": "La salle de fitness regarde le lac — le seul mur vers lequel courir en vaille la peine, équipée de machines Technogym. Les séances de personal training s'organisent avec votre Ambassador."
+    }
+  },
+  "booking": {
+    "bookLabel": {
+      "en": "Book a Treatment",
+      "de": "Behandlung buchen",
+      "it": "Prenota un Trattamento",
+      "fr": "Réserver un Soin"
+    },
+    "giftLabel": {
+      "en": "Gift THE VIEW Spa",
+      "de": "THE VIEW Spa verschenken",
+      "it": "Regala THE VIEW Spa",
+      "fr": "Offrir THE VIEW Spa"
+    }
+  },
+  "gallery": {
+    "title": {
+      "en": "Inside the Spa",
+      "de": "Einblicke ins Spa",
+      "it": "Dentro la Spa",
+      "fr": "À l'Intérieur du Spa"
+    },
+    "intro": {
+      "en": "Room by room — from the arrival corridor to the salt walls, the wet zones and the water.",
+      "de": "Raum für Raum – vom Ankunftskorridor über die Salzwände und Nasszonen bis zum Wasser.",
+      "it": "Stanza dopo stanza — dal corridoio d'ingresso alle pareti di sale, alle zone umide e all'acqua.",
+      "fr": "Pièce après pièce — du couloir d'arrivée aux murs de sel, aux zones humides et à l'eau."
+    },
+    "prevLabel": {
+      "en": "Previous photograph",
+      "de": "Vorheriges Bild",
+      "it": "Fotografia precedente",
+      "fr": "Photographie précédente"
+    },
+    "nextLabel": {
+      "en": "Next photograph",
+      "de": "Nächstes Bild",
+      "it": "Fotografia successiva",
+      "fr": "Photographie suivante"
+    },
+    "goToLabel": {
+      "en": "Show {title}",
+      "de": "{title} anzeigen",
+      "it": "Mostra {title}",
+      "fr": "Afficher {title}"
+    },
+    "items": [
+      {
+        "key": "entranceCorridor",
+        "title": {
+          "en": "The arrival corridor",
+          "de": "Der Ankunftskorridor",
+          "it": "Il corridoio d'ingresso",
+          "fr": "Le couloir d'arrivée"
+        },
+        "alt": {
+          "en": "The spa's arrival corridor, a sculpted white Crion wall running its full length under a line of concealed light",
+          "de": "Der Ankunftskorridor des Spa mit einer skulptural geformten weissen Crion-Wand unter einer verdeckten Lichtlinie",
+          "it": "Il corridoio d'ingresso della spa, con una parete bianca scolpita in Crion illuminata da una linea di luce nascosta",
+          "fr": "Le couloir d'arrivée du spa, un mur blanc sculpté en Crion couru par une ligne de lumière dissimulée"
+        }
+      },
+      {
+        "key": "relaxationLounge",
+        "title": {
+          "en": "The waiting lounge",
+          "de": "Die Warte-Lounge",
+          "it": "La lounge d'attesa",
+          "fr": "Le salon d'attente"
+        },
+        "alt": {
+          "en": "The spa waiting lounge in white, with a low sofa, knitted poufs and a cluster of pendant lights",
+          "de": "Die Warte-Lounge des Spa in Weiss, mit niedrigem Sofa, gestrickten Poufs und einer Gruppe von Pendelleuchten",
+          "it": "La lounge d'attesa della spa in bianco, con divano basso, pouf in maglia e un grappolo di lampade a sospensione",
+          "fr": "Le salon d'attente du spa en blanc, avec canapé bas, poufs tricotés et une grappe de suspensions"
+        }
+      },
+      {
+        "key": "himalayanSaltRoom",
+        "title": {
+          "en": "The Himalayan salt room",
+          "de": "Der Himalaya-Salzraum",
+          "it": "La sala al sale himalayano",
+          "fr": "La salle au sel de l'Himalaya"
+        },
+        "alt": {
+          "en": "Heated loungers along a backlit Himalayan salt wall in the relaxation room",
+          "de": "Beheizte Liegen entlang einer hinterleuchteten Himalaya-Salzwand im Ruheraum",
+          "it": "Lettini riscaldati lungo una parete di sale himalayano retroilluminata nella sala relax",
+          "fr": "Des lits chauffants le long d'un mur de sel de l'Himalaya rétroéclairé dans la salle de repos"
+        }
+      },
+      {
+        "key": "saltRoomLoungers",
+        "title": {
+          "en": "The relaxation room",
+          "de": "Der Ruheraum",
+          "it": "La sala relax",
+          "fr": "La salle de repos"
+        },
+        "alt": {
+          "en": "Two guests in robes resting on contoured loungers beside the salt wall",
+          "de": "Zwei Gäste in Bademänteln ruhen auf geschwungenen Liegen neben der Salzwand",
+          "it": "Due ospiti in accappatoio riposano su lettini sagomati accanto alla parete di sale",
+          "fr": "Deux hôtes en peignoir se reposent sur des transats profilés près du mur de sel"
+        }
+      },
+      {
+        "key": "saunaCedarCabin",
+        "title": {
+          "en": "The sauna",
+          "de": "Die Sauna",
+          "it": "La sauna",
+          "fr": "Le sauna"
+        },
+        "alt": {
+          "en": "A wooden bucket and ladle resting beside the heater stones in the cedar-lined sauna",
+          "de": "Ein Holzkübel mit Kelle neben den Ofensteinen in der zedernverkleideten Sauna",
+          "it": "Un secchio di legno con mestolo accanto alle pietre della stufa nella sauna rivestita in cedro",
+          "fr": "Un seau et une louche en bois près des pierres du poêle dans le sauna lambrissé de cèdre"
+        }
+      },
+      {
+        "key": "wetAreaChromotherapy",
+        "title": {
+          "en": "The steam bath",
+          "de": "Das Dampfbad",
+          "it": "Il bagno turco",
+          "fr": "Le bain de vapeur"
+        },
+        "alt": {
+          "en": "The wet zone, its steam bath doors glowing under green and amber chromotherapy light",
+          "de": "Die Nasszone, deren Dampfbadtüren in grünem und bernsteinfarbenem Chromotherapielicht leuchten",
+          "it": "La zona umida, con le porte del bagno turco illuminate da luce cromoterapica verde e ambra",
+          "fr": "La zone humide, les portes du bain de vapeur éclairées d'une lumière chromothérapique verte et ambrée"
+        }
+      },
+      {
+        "key": "emotionalShower",
+        "title": {
+          "en": "The emotional shower",
+          "de": "Die Erlebnisdusche",
+          "it": "La doccia emozionale",
+          "fr": "La douche émotionnelle"
+        },
+        "alt": {
+          "en": "The ice fountain and emotional shower, lit green, at the end of the wet circuit",
+          "de": "Eisbrunnen und Erlebnisdusche in grünem Licht am Ende des Nassparcours",
+          "it": "La fontana di ghiaccio e la doccia emozionale, illuminate di verde, al termine del percorso umido",
+          "fr": "La fontaine de glace et la douche émotionnelle, éclairées en vert, au bout du parcours humide"
+        }
+      },
+      {
+        "key": "hydrotherapyBath",
+        "title": {
+          "en": "The hydrotherapy bath",
+          "de": "Das Hydrotherapiebad",
+          "it": "La vasca idroterapica",
+          "fr": "Le bain d'hydrothérapie"
+        },
+        "alt": {
+          "en": "Rolled towels and a small planter set on the rim of the hydrotherapy bath",
+          "de": "Gerollte Handtücher und ein kleiner Pflanztopf auf dem Rand des Hydrotherapiebads",
+          "it": "Asciugamani arrotolati e una piccola pianta sul bordo della vasca idroterapica",
+          "fr": "Des serviettes roulées et une petite jardinière posées sur le rebord du bain d'hydrothérapie"
+        }
+      },
+      {
+        "key": "treatmentRoomTable",
+        "title": {
+          "en": "The treatment room",
+          "de": "Der Behandlungsraum",
+          "it": "La cabina trattamenti",
+          "fr": "La cabine de soin"
+        },
+        "alt": {
+          "en": "A treatment room prepared for a massage, the table dressed and the salt lamp lit",
+          "de": "Ein für eine Massage vorbereiteter Behandlungsraum, die Liege bezogen und die Salzlampe an",
+          "it": "Una cabina trattamenti pronta per un massaggio, il lettino preparato e la lampada di sale accesa",
+          "fr": "Une cabine de soin préparée pour un massage, la table dressée et la lampe de sel allumée"
+        }
+      },
+      {
+        "key": "treatmentRoomDetails",
+        "title": {
+          "en": "Herbal compresses",
+          "de": "Kräuterstempel",
+          "it": "Pindas alle erbe",
+          "fr": "Compresses aux herbes"
+        },
+        "alt": {
+          "en": "Herbal compresses and folded linen laid out on the treatment table before a ritual",
+          "de": "Kräuterstempel und gefaltete Leinentücher auf der Behandlungsliege vor einem Ritual",
+          "it": "Pindas alle erbe e lino piegato disposti sul lettino prima di un rituale",
+          "fr": "Compresses aux herbes et linge plié disposés sur la table avant un rituel"
+        }
+      },
+      {
+        "key": "indoorPool",
+        "title": {
+          "en": "The indoor pool",
+          "de": "Der Innenpool",
+          "it": "La piscina interna",
+          "fr": "La piscine intérieure"
+        },
+        "alt": {
+          "en": "The indoor pool at rest, palms and the hills above Lugano filling the window",
+          "de": "Der ruhige Innenpool, Palmen und die Hügel über Lugano füllen das Fenster",
+          "it": "La piscina interna a riposo, con palme e le colline sopra Lugano a riempire la vetrata",
+          "fr": "La piscine intérieure au repos, palmiers et collines au-dessus de Lugano remplissant la baie vitrée"
+        }
+      },
+      {
+        "key": "vitalityPool",
+        "title": {
+          "en": "The Vitality pool",
+          "de": "Der Vitality-Pool",
+          "it": "La piscina Vitality",
+          "fr": "La piscine Vitality"
+        },
+        "alt": {
+          "en": "A guest under the cascade jet of the warm Vitality pool, the lake windows beyond",
+          "de": "Ein Gast unter dem Schwalldusche-Strahl des warmen Vitality-Pools, dahinter die Seefenster",
+          "it": "Un ospite sotto il getto a cascata della calda piscina Vitality, oltre le vetrate sul lago",
+          "fr": "Un hôte sous le jet en cascade de la piscine Vitality chauffée, les baies sur le lac au-delà"
+        }
+      }
+    ]
+  },
+  "variantLabels": {
+    "eyebrows": {
+      "en": "Eyebrows",
+      "de": "Augenbrauen",
+      "it": "Sopracciglia",
+      "fr": "Sourcils"
+    },
+    "aboveLip": {
+      "en": "Above lip",
+      "de": "Oberlippe",
+      "it": "Labbro superiore",
+      "fr": "Lèvre supérieure"
+    },
+    "face": {
+      "en": "Face",
+      "de": "Gesicht",
+      "it": "Viso",
+      "fr": "Visage"
+    },
+    "armpits": {
+      "en": "Armpits",
+      "de": "Achseln",
+      "it": "Ascelle",
+      "fr": "Aisselles"
+    },
+    "arms": {
+      "en": "Arms",
+      "de": "Arme",
+      "it": "Braccia",
+      "fr": "Bras"
+    },
+    "chest": {
+      "en": "Chest",
+      "de": "Brust",
+      "it": "Torace",
+      "fr": "Torse"
+    },
+    "back": {
+      "en": "Back",
+      "de": "Rücken",
+      "it": "Schiena",
+      "fr": "Dos"
+    },
+    "bikini": {
+      "en": "Bikini",
+      "de": "Bikinizone",
+      "it": "Bikini",
+      "fr": "Maillot"
+    },
+    "halfLeg": {
+      "en": "Half leg",
+      "de": "Halbes Bein",
+      "it": "Mezza gamba",
+      "fr": "Demi-jambe"
+    },
+    "fullLeg": {
+      "en": "Full leg",
+      "de": "Ganzes Bein",
+      "it": "Gamba intera",
+      "fr": "Jambe entière"
+    },
+    "naturalFinish": {
+      "en": "Natural finish",
+      "de": "Natürliches Finish",
+      "it": "Finish naturale",
+      "fr": "Finition naturelle"
+    },
+    "nailPolish": {
+      "en": "Nail polish",
+      "de": "Nagellack",
+      "it": "Smalto",
+      "fr": "Vernis"
+    }
+  }
+}

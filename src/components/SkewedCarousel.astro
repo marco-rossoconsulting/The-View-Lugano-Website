@@ -1,0 +1,499 @@
+---
+// A skewed marquee of cards that tilts and scales around the focused slide.
+// Adapted from the React Bits Pro "Skewed Carousel" pattern to this project's
+// constraints: no client framework, no Tailwind, no animation library — plain
+// CSS transforms driven by a small progressive-enhancement script, using the
+// site's own tokens (square corners, Jost display type, clay/argento accents).
+// The rotation is deliberately gentler than the reference default (60°) so the
+// motion reads as composed rather than playful.
+import Pic from './Pic.astro';
+import type { ImageMetadata } from 'astro';
+
+export interface SkewedCarouselItem {
+  src: ImageMetadata;
+  title: string;
+  alt: string;
+}
+
+interface Props {
+  items: SkewedCarouselItem[];
+  /** Accessible name for the carousel as a whole */
+  ariaLabel: string;
+  prevLabel: string;
+  nextLabel: string;
+  /** Localised template for the rail buttons, containing `{title}` */
+  goToLabel: string;
+  initialIndex?: number;
+  /** Degrees each card turns per step away from the focused one */
+  rotation?: number;
+  /**
+   * Ceiling on that turn. Without it the second card out lands on exactly 90°,
+   * where it is edge-on and occupies no width at all — leaving a hole in the
+   * strip. Held under 90° every card keeps a visible face.
+   */
+  maxRotation?: number;
+  /** Scale applied to the first unfocused card on either side */
+  inactiveScale?: number;
+  perspective?: number;
+}
+
+const {
+  items,
+  ariaLabel,
+  prevLabel,
+  nextLabel,
+  goToLabel,
+  initialIndex = 0,
+  rotation = 45,
+  maxRotation = 58,
+  inactiveScale = 0.86,
+  perspective = 900,
+} = Astro.props;
+
+const start = Math.min(Math.max(initialIndex, 0), items.length - 1);
+---
+
+<div
+  class="skew"
+  data-skew
+  data-start={start}
+  data-rotation={rotation}
+  data-max-rotation={maxRotation}
+  data-scale={inactiveScale}
+  role="group"
+  aria-roledescription="carousel"
+  aria-label={ariaLabel}
+  tabindex="0"
+  style={`--skew-persp:${perspective}px`}
+>
+  <div class="skew__viewport">
+    <div class="skew__strip" data-skew-strip>
+      {items.map((item, index) => (
+        <div class="skew__cell" data-skew-cell>
+          <div class="skew__card" data-skew-card>
+            <button
+              type="button"
+              class="skew__pick"
+              data-skew-go={index}
+              data-title={item.title}
+              tabindex={index === start ? 0 : -1}
+              aria-current={index === start ? 'true' : 'false'}
+            >
+              <span class="visually-hidden">{item.title}</span>
+              <Pic
+                src={item.src}
+                alt={item.alt}
+                width={1200}
+                height={1600}
+                widths={[240, 320, 420, 560, 720]}
+                sizes="(max-width: 720px) 62vw, 19rem"
+                class="skew__img"
+              />
+              <span class="skew__scrim" aria-hidden="true"></span>
+              <span class="skew__caption" aria-hidden="true">{item.title}</span>
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="skew__controls">
+    <button type="button" class="skew__arrow" data-skew-prev aria-label={prevLabel}>
+      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false">
+        <path d="M15 4 7 12l8 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
+      </svg>
+    </button>
+
+    <div class="skew__rail">
+      {items.map((item, index) => (
+        <button
+          type="button"
+          class="skew__seg"
+          data-skew-dot={index}
+          aria-label={goToLabel.replace('{title}', item.title)}
+          aria-current={index === start ? 'true' : 'false'}
+        ></button>
+      ))}
+    </div>
+
+    <button type="button" class="skew__arrow" data-skew-next aria-label={nextLabel}>
+      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false">
+        <path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
+      </svg>
+    </button>
+  </div>
+
+  <p class="visually-hidden" aria-live="polite" data-skew-status></p>
+</div>
+
+<style>
+  .skew {
+    --skew-card: clamp(12.5rem, 23vw, 19rem);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    outline: none;
+  }
+  .skew:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 4px;
+  }
+
+  /* Before the script runs (and if it never does) the cards stay a plain
+     horizontally scrollable row, so the photography is always reachable. */
+  .skew__viewport {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .skew__strip {
+    display: flex;
+    gap: 0.5rem;
+    width: max-content;
+    padding-inline: clamp(1.25rem, 6vw, 5rem);
+  }
+  .skew__cell {
+    flex: 0 0 var(--skew-card);
+    width: var(--skew-card);
+    scroll-snap-align: center;
+  }
+  .skew__card {
+    width: 100%;
+  }
+  .skew__controls {
+    display: none;
+  }
+
+  /* --- enhanced --- */
+  .skew.is-ready .skew__viewport {
+    width: var(--skew-card);
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+  .skew.is-ready .skew__strip {
+    gap: 0;
+    padding-inline: 0;
+    touch-action: pan-y;
+    transition: transform 720ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+  }
+  .skew.is-ready .skew__cell {
+    perspective: var(--skew-persp, 900px);
+    scroll-snap-align: none;
+  }
+  .skew.is-ready .skew__card {
+    transform: rotateY(var(--r, 0deg)) scale(var(--s, 1));
+    transition: transform 820ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+  }
+  .skew.is-ready .skew__controls {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+    margin-top: clamp(1.75rem, 4vw, 2.75rem);
+  }
+  .skew.is-dragging .skew__strip,
+  .skew.is-dragging .skew__card {
+    transition: none;
+  }
+
+  .skew__pick {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: var(--ink);
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .skew__pick:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 3px;
+  }
+  .skew :global(.skew__img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  .skew__scrim {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgb(51 41 26 / 0.82), rgb(51 41 26 / 0.25) 55%, transparent);
+    opacity: 1;
+    transition: opacity 620ms ease;
+    pointer-events: none;
+  }
+  .skew__caption {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 0 1rem 0.95rem;
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    text-align: left;
+    text-shadow: 0 1px 12px rgb(0 0 0 / 0.45);
+    transition: opacity 620ms ease, transform 720ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    pointer-events: none;
+  }
+  /* Only the focused card carries its caption once enhanced. */
+  .skew.is-ready .skew__cell:not([data-focused]) .skew__scrim {
+    opacity: 0;
+  }
+  .skew.is-ready .skew__cell:not([data-focused]) .skew__caption {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+
+  .skew__arrow {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 1px solid var(--tortora-densa);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 260ms ease, color 260ms ease, background-color 260ms ease;
+  }
+  .skew__arrow:hover:not(:disabled) {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--ground);
+  }
+  .skew__arrow:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  /* Comfortable tap target on touch devices, where the arrows are the
+     primary control alongside swiping. */
+  @media (pointer: coarse) {
+    .skew__arrow {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+  }
+
+  .skew__rail {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: min(15rem, 52vw);
+  }
+  .skew__seg {
+    position: relative;
+    flex: 1;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    background: var(--tortora-densa);
+    cursor: pointer;
+    transition: background-color 320ms ease;
+  }
+  /* Widen the hit target without changing the hairline. */
+  .skew__seg::before {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: -0.7rem;
+    bottom: -0.7rem;
+  }
+  .skew__seg:hover {
+    background: var(--clay);
+  }
+  .skew__seg[aria-current='true'] {
+    background: var(--ink);
+    height: 2px;
+  }
+
+  .section--ink .skew__arrow {
+    border-color: color-mix(in srgb, var(--grigio) 45%, transparent);
+    color: var(--tortora);
+  }
+  .section--ink .skew__arrow:hover:not(:disabled) {
+    background: var(--tortora);
+    border-color: var(--tortora);
+    color: var(--ink);
+  }
+  .section--ink .skew__seg {
+    background: color-mix(in srgb, var(--grigio) 40%, transparent);
+  }
+  .section--ink .skew__seg[aria-current='true'] {
+    background: var(--tortora);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skew.is-ready .skew__strip,
+    .skew.is-ready .skew__card,
+    .skew__scrim,
+    .skew__caption,
+    .skew__arrow,
+    .skew__seg {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  type Root = HTMLElement;
+
+  const setup = (root: Root) => {
+    const strip = root.querySelector<HTMLElement>('[data-skew-strip]');
+    const cells = Array.from(root.querySelectorAll<HTMLElement>('[data-skew-cell]'));
+    const picks = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-skew-go]'));
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-skew-dot]'));
+    const prev = root.querySelector<HTMLButtonElement>('[data-skew-prev]');
+    const next = root.querySelector<HTMLButtonElement>('[data-skew-next]');
+    const status = root.querySelector<HTMLElement>('[data-skew-status]');
+    if (!strip || cells.length === 0) return;
+
+    const rotation = Number(root.dataset.rotation ?? 45);
+    const maxRotation = Number(root.dataset.maxRotation ?? 58);
+    const inactiveScale = Number(root.dataset.scale ?? 0.86);
+    const count = cells.length;
+
+    let index = Number(root.dataset.start ?? 0);
+    let cardWidth = cells[0].getBoundingClientRect().width;
+
+    const clamp = (value: number) => Math.min(Math.max(value, 0), count - 1);
+
+    const render = () => {
+      strip.style.transform = `translate3d(${-index * cardWidth}px, 0, 0)`;
+
+      cells.forEach((cell, i) => {
+        const offset = i - index;
+        const card = cell.querySelector<HTMLElement>('[data-skew-card]');
+        if (card) {
+          const depth = Math.abs(offset);
+          // Capped so a card never turns fully edge-on and vanishes, and
+          // shrunk a little further with each step so depth still reads.
+          const turn = Math.sign(offset) * Math.min(depth * rotation, maxRotation);
+          const scale = depth === 0 ? 1 : Math.max(inactiveScale - (depth - 1) * 0.04, 0.7);
+          card.style.setProperty('--r', `${-turn}deg`);
+          card.style.setProperty('--s', `${scale}`);
+        }
+        cell.toggleAttribute('data-focused', i === index);
+      });
+
+      picks.forEach((pick, i) => {
+        pick.tabIndex = i === index ? 0 : -1;
+        pick.setAttribute('aria-current', i === index ? 'true' : 'false');
+      });
+
+      dots.forEach((dot, i) => dot.setAttribute('aria-current', i === index ? 'true' : 'false'));
+
+      if (prev) prev.disabled = index === 0;
+      if (next) next.disabled = index === count - 1;
+      if (status) status.textContent = picks[index]?.dataset.title ?? '';
+    };
+
+    const go = (to: number) => {
+      const target = clamp(to);
+      if (target === index) return;
+      index = target;
+      render();
+    };
+
+    // Measure once enhanced so the one-card viewport width is in effect.
+    // getBoundingClientRect forces the pending layout, so this is accurate
+    // immediately — deliberately not deferred to requestAnimationFrame, which
+    // never fires while the document is hidden and would leave a page opened
+    // in a background tab showing untransformed cards until it was focused.
+    root.classList.add('is-ready');
+    cardWidth = cells[0].getBoundingClientRect().width;
+    render();
+
+    // Re-measure once webfonts and images have settled.
+    window.addEventListener(
+      'load',
+      () => {
+        const width = cells[0].getBoundingClientRect().width;
+        if (!width) return;
+        cardWidth = width;
+        render();
+      },
+      { once: true },
+    );
+
+    prev?.addEventListener('click', () => go(index - 1));
+    next?.addEventListener('click', () => go(index + 1));
+    picks.forEach((pick, i) => pick.addEventListener('click', () => go(i)));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => go(i)));
+
+    root.addEventListener('keydown', (event: KeyboardEvent) => {
+      const delta = event.key === 'ArrowLeft' ? -1 : event.key === 'ArrowRight' ? 1 : 0;
+      if (!delta) return;
+      event.preventDefault();
+      go(index + delta);
+    });
+
+    // Drag / swipe
+    let pointerId: number | null = null;
+    let startX = 0;
+    let dx = 0;
+
+    strip.addEventListener('pointerdown', (event: PointerEvent) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      dx = 0;
+      root.classList.add('is-dragging');
+    });
+
+    strip.addEventListener('pointermove', (event: PointerEvent) => {
+      if (pointerId !== event.pointerId) return;
+      dx = event.clientX - startX;
+      strip.style.transform = `translate3d(${-index * cardWidth + dx}px, 0, 0)`;
+    });
+
+    const release = (event: PointerEvent) => {
+      if (pointerId !== event.pointerId) return;
+      pointerId = null;
+      root.classList.remove('is-dragging');
+      const threshold = Math.min(cardWidth * 0.22, 70);
+      if (Math.abs(dx) > threshold) go(index + (dx < 0 ? 1 : -1));
+      else render();
+      dx = 0;
+    };
+
+    strip.addEventListener('pointerup', release);
+    strip.addEventListener('pointercancel', release);
+
+    // Suppress the click that follows a real drag.
+    picks.forEach((pick) =>
+      pick.addEventListener('click', (event) => {
+        if (Math.abs(dx) > 6) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true),
+    );
+
+    const observer = new ResizeObserver(() => {
+      const width = cells[0].getBoundingClientRect().width;
+      if (!width || Math.abs(width - cardWidth) < 0.5) return;
+      cardWidth = width;
+      render();
+    });
+    observer.observe(root);
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-skew]').forEach(setup);
+</script>

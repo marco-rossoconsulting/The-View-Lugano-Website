@@ -1,0 +1,26 @@
+{
+  "order": 33,
+  "category": "beauty",
+  "name": {
+    "en": "Pedicure",
+    "de": "Pediküre",
+    "it": "Pedicure",
+    "fr": "Pédicure"
+  },
+  "summary": {
+    "en": "Foot care with a natural finish, or complete with polish.",
+    "de": "Fusspflege mit natürlichem Finish oder komplett mit Lack.",
+    "it": "Cura dei piedi con finish naturale o completa di smalto.",
+    "fr": "Soin des pieds avec finition naturelle, ou complété par une pose de vernis."
+  },
+  "variants": [
+    {
+      "duration": "naturalFinish",
+      "price": "CHF 70.-"
+    },
+    {
+      "duration": "nailPolish",
+      "price": "CHF 100.-"
+    }
+  ]
+}
