@@ -14,9 +14,9 @@ import type { ImageMetadata } from 'astro';
 
 import relaxLounge from '../../assets/images/spa/spa-relax-lounge-chairs.jpg';
 import goldLeafFacial from '../../assets/images/spa/spa-gold-leaf-facial-treatment.jpg';
-import nightSpaIlluminated from '../../assets/images/spa/night-spa-illuminated-pool.jpg';
-import nightSpaCandlelit from '../../assets/images/spa/night-spa-candlelit-pool.jpg';
-import nightSpaBlueLight from '../../assets/images/spa/night-spa-blue-light-pool.jpg';
+import nightSpaPool from '../../assets/images/spa/night-spa-pool-violet-light.jpg';
+import nightSpaLounger from '../../assets/images/spa/night-spa-candlelit-lounger.jpg';
+import nightSpaCascade from '../../assets/images/spa/night-spa-cascade-jet.jpg';
 
 // Carousel photography, 3:4 crops. Keys match `gallery.items[].key` in the
 // spa-experience entry, which carries the localised titles and alt text.
@@ -102,23 +102,23 @@ const alts: Record<string, Record<Locale, string>> = {
     it: "Foglia d'oro a 24 carati applicata durante un trattamento viso",
     fr: "Feuille d'or 24 carats appliquée pendant un soin du visage",
   },
-  nightSpaIlluminated: {
-    en: 'The pool under violet and blue Night Spa lighting',
-    de: 'Der Pool unter violetter und blauer Night-Spa-Beleuchtung',
-    it: 'La piscina sotto le luci viola e blu del Night Spa',
-    fr: "La piscine sous l'éclairage violet et bleu du Night Spa",
+  nightSpaPool: {
+    en: 'The indoor pool after dark, the sculpted ceiling and the water lit violet',
+    de: 'Der Innenpool nach Einbruch der Dunkelheit, die geschwungene Decke und das Wasser violett beleuchtet',
+    it: 'La piscina interna dopo il tramonto, il soffitto scolpito e l’acqua illuminati di viola',
+    fr: 'La piscine intérieure à la nuit tombée, le plafond sculpté et l’eau éclairés de violet',
   },
-  nightSpaCandlelit: {
-    en: 'Candlelit loungers beside the pool at night',
-    de: 'Kerzenbeleuchtete Liegen am Pool bei Nacht',
-    it: 'Lettini illuminati da candele accanto alla piscina di notte',
-    fr: "Chaises longues à la bougie près de la piscine, la nuit",
+  nightSpaLounger: {
+    en: 'A lounger dressed with candles and rose petals at the water’s edge during Night Spa',
+    de: 'Eine Liege mit Kerzen und Rosenblättern am Wasserrand während des Night Spa',
+    it: 'Un lettino con candele e petali di rosa a bordo vasca durante il Night Spa',
+    fr: 'Un transat garni de bougies et de pétales de rose au bord de l’eau pendant le Night Spa',
   },
-  nightSpaBlueLight: {
-    en: 'The pool ceiling lit in deep blue after dark',
-    de: 'Die Poolabdeckung in tiefem Blau beleuchtet nach Einbruch der Dunkelheit',
-    it: 'Il soffitto della piscina illuminato di blu intenso dopo il tramonto',
-    fr: "Le plafond de la piscine éclairé en bleu profond à la nuit tombée",
+  nightSpaCascade: {
+    en: 'The cascade jet falling into the pool under violet light',
+    de: 'Die Schwalldusche fällt unter violettem Licht in den Pool',
+    it: 'Il getto a cascata che cade nella piscina sotto la luce viola',
+    fr: 'Le jet en cascade tombant dans la piscine sous une lumière violette',
   },
 };
 
@@ -195,10 +195,11 @@ const contactUrl = p(lang, 'contact');
       )}
 
       <div class="spa-categories">
-        {spaExp.treatments.categories.map((cat, i) => {
+        {spaExp.treatments.categories.map((cat) => {
           const catTreatments = treatments.filter((t) => t.category === cat.id);
           return (
-            <details class="spa-category fade-up" open={i === 0}>
+            // All categories start closed; the guest chooses what to open.
+            <details class="spa-category fade-up">
               <summary class="spa-category__summary">
                 <span>{cat.title[lang]}</span>
                 <span class="spa-category__count">{catTreatments.length}</span>
@@ -256,11 +257,11 @@ const contactUrl = p(lang, 'contact');
       <p class="spa-night__access fade-up">{spaExp.nightSpa.accessNote[lang]}</p>
       <div class="spa-night__grid fade-up">
         <div class="spa-night__main">
-          <Pic src={nightSpaIlluminated} alt={alts.nightSpaIlluminated[lang]} width={2000} height={1500} sizes="(max-width: 900px) 100vw, 62vw" />
+          <Pic src={nightSpaPool} alt={alts.nightSpaPool[lang]} width={1800} height={1200} sizes="(max-width: 720px) 100vw, 62vw" />
         </div>
         <div class="spa-night__side">
-          <Pic src={nightSpaCandlelit} alt={alts.nightSpaCandlelit[lang]} width={2000} height={1500} sizes="(max-width: 900px) 50vw, 30vw" />
-          <Pic src={nightSpaBlueLight} alt={alts.nightSpaBlueLight[lang]} width={2000} height={1500} sizes="(max-width: 900px) 50vw, 30vw" />
+          <Pic src={nightSpaLounger} alt={alts.nightSpaLounger[lang]} width={1200} height={900} sizes="(max-width: 720px) 50vw, 30vw" />
+          <Pic src={nightSpaCascade} alt={alts.nightSpaCascade[lang]} width={1200} height={1600} sizes="(max-width: 720px) 50vw, 30vw" />
         </div>
       </div>
       <a class="btn btn--light" href={contactUrl}>{spaExp.nightSpa.ctaLabel[lang]}</a>

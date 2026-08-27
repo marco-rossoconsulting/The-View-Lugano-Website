@@ -26,7 +26,13 @@ interface Props {
   initialIndex?: number;
   /** Degrees each card turns per step away from the focused one */
   rotation?: number;
-  /** Scale applied to every unfocused card */
+  /**
+   * Ceiling on that turn. Without it the second card out lands on exactly 90°,
+   * where it is edge-on and occupies no width at all — leaving a hole in the
+   * strip. Held under 90° every card keeps a visible face.
+   */
+  maxRotation?: number;
+  /** Scale applied to the first unfocused card on either side */
   inactiveScale?: number;
   perspective?: number;
 }
@@ -39,6 +45,7 @@ const {
   goToLabel,
   initialIndex = 0,
   rotation = 45,
+  maxRotation = 58,
   inactiveScale = 0.86,
   perspective = 900,
 } = Astro.props;
@@ -51,6 +58,7 @@ const start = Math.min(Math.max(initialIndex, 0), items.length - 1);
   data-skew
   data-start={start}
   data-rotation={rotation}
+  data-max-rotation={maxRotation}
   data-scale={inactiveScale}
   role="group"
   aria-roledescription="carousel"
@@ -357,6 +365,7 @@ const start = Math.min(Math.max(initialIndex, 0), items.length - 1);
     if (!strip || cells.length === 0) return;
 
     const rotation = Number(root.dataset.rotation ?? 45);
+    const maxRotation = Number(root.dataset.maxRotation ?? 58);
     const inactiveScale = Number(root.dataset.scale ?? 0.86);
     const count = cells.length;
 
@@ -372,8 +381,13 @@ const start = Math.min(Math.max(initialIndex, 0), items.length - 1);
         const offset = i - index;
         const card = cell.querySelector<HTMLElement>('[data-skew-card]');
         if (card) {
-          card.style.setProperty('--r', `${offset * -rotation}deg`);
-          card.style.setProperty('--s', `${i === index ? 1 : inactiveScale}`);
+          const depth = Math.abs(offset);
+          // Capped so a card never turns fully edge-on and vanishes, and
+          // shrunk a little further with each step so depth still reads.
+          const turn = Math.sign(offset) * Math.min(depth * rotation, maxRotation);
+          const scale = depth === 0 ? 1 : Math.max(inactiveScale - (depth - 1) * 0.04, 0.7);
+          card.style.setProperty('--r', `${-turn}deg`);
+          card.style.setProperty('--s', `${scale}`);
         }
         cell.toggleAttribute('data-focused', i === index);
       });
