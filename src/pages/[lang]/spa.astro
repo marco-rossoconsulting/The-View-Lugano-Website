@@ -12,6 +12,7 @@ import { getCollection } from 'astro:content';
 import type { ImageMetadata } from 'astro';
 
 import goldLeafFacial from '../../assets/images/spa/spa-gold-leaf-facial-treatment.jpg';
+import spaIntroPool from '../../assets/images/spa/spa-intro-indoor-pool.jpg';
 import nightSpaPool from '../../assets/images/spa/night-spa-pool-violet-light.jpg';
 import nightSpaLounger from '../../assets/images/spa/night-spa-candlelit-lounger.jpg';
 import nightSpaCascade from '../../assets/images/spa/night-spa-cascade-jet.jpg';
@@ -88,6 +89,12 @@ const galleryItems = spaExp.gallery.items.map((item) => {
 });
 
 const alts: Record<string, Record<Locale, string>> = {
+  spaIntroPool: {
+    en: 'The indoor pool at THE VIEW SPA, reflected beneath the sculpted ceiling',
+    de: 'Der Innenpool im THE VIEW SPA, unter der skulpturalen Decke gespiegelt',
+    it: 'La piscina interna di THE VIEW SPA, riflessa sotto il soffitto scolpito',
+    fr: 'La piscine intérieure du THE VIEW SPA, reflétée sous le plafond sculpté',
+  },
   goldLeafFacial: {
     en: '24-karat gold leaf applied during a facial treatment',
     de: '24-karätiges Blattgold während einer Gesichtsbehandlung',
@@ -141,22 +148,34 @@ const contactUrl = p(lang, 'contact');
   <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section spa-intro">
-    <div class="container container--narrow">
-      <p class="page-intro fade-up">{page.intro[lang]}</p>
-      <p class="page-note fade-up">{spaExp.philosophy[lang]}</p>
-      <div class="spa-cta-row fade-up">
-        <a class="btn btn--solid" href={spaBookingUrl} target="_blank" rel="noopener noreferrer">
-          {spaExp.booking.bookLabel[lang]}
-        </a>
-        <a class="btn" href={spaGiftUrl} target="_blank" rel="noopener noreferrer">
-          {spaExp.booking.giftLabel[lang]}
-        </a>
+    <div class="container spa-intro__layout">
+      <div class="spa-intro__copy">
+        <p class="page-intro fade-up">{page.intro[lang]}</p>
+        <p class="page-note fade-up">{spaExp.philosophy[lang]}</p>
+        <div class="spa-cta-row fade-up">
+          <a class="btn btn--solid" href={spaBookingUrl} target="_blank" rel="noopener noreferrer">
+            {spaExp.booking.bookLabel[lang]}
+          </a>
+          <a class="btn" href={spaGiftUrl} target="_blank" rel="noopener noreferrer">
+            {spaExp.booking.giftLabel[lang]}
+          </a>
+        </div>
+        <p class="spa-hours fade-up">
+          <span>{spaExp.hours.openLabel[lang]} {SITE.spa.hours}</span>
+          <span aria-hidden="true">·</span>
+          <span>{spaExp.hours.treatmentsLabel[lang]} {SITE.spa.treatmentHours}</span>
+        </p>
       </div>
-      <p class="spa-hours fade-up">
-        <span>{spaExp.hours.openLabel[lang]} {SITE.spa.hours}</span>
-        <span aria-hidden="true">·</span>
-        <span>{spaExp.hours.treatmentsLabel[lang]} {SITE.spa.treatmentHours}</span>
-      </p>
+      <div class="spa-intro__media fade-up">
+        <Pic
+          src={spaIntroPool}
+          alt={alts.spaIntroPool[lang]}
+          width={2400}
+          height={1601}
+          widths={[480, 720, 960, 1200, 1600]}
+          sizes="(max-width: 720px) 100vw, 34vw"
+        />
+      </div>
     </div>
   </section>
 
@@ -301,6 +320,28 @@ const contactUrl = p(lang, 'contact');
   .spa-intro {
     padding-bottom: var(--space-4);
   }
+  .spa-intro__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(17rem, 0.8fr);
+    align-items: start;
+    gap: clamp(2rem, 6vw, 5.75rem);
+  }
+  .spa-intro__copy {
+    min-width: 0;
+  }
+  .spa-intro__media {
+    overflow: hidden;
+  }
+  .spa-intro__media :global(picture),
+  .spa-intro__media :global(img) {
+    display: block;
+  }
+  .spa-intro__media :global(img) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
   .page-intro {
     font-size: clamp(1.05rem, 1.6vw, 1.3rem);
     line-height: 1.7;
@@ -340,6 +381,12 @@ const contactUrl = p(lang, 'contact');
     .spa-hours {
       flex-direction: column;
       gap: 0.3rem;
+    }
+  }
+  @media (max-width: 720px) {
+    .spa-intro__layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
     }
   }
 
