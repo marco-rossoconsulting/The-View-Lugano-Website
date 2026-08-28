@@ -209,12 +209,13 @@ const diningCards = [
   }
   .venue-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.16fr) repeat(2, minmax(0, 0.92fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: clamp(1rem, 2.2vw, 2rem);
-    align-items: start;
+    align-items: stretch;
   }
   .venue-card {
     display: flex;
+    height: 100%;
     min-width: 0;
     flex-direction: column;
     border: 1px solid var(--tortora-densa);
@@ -224,9 +225,6 @@ const diningCards = [
     overflow: hidden;
     aspect-ratio: 4 / 3;
     background: var(--grigio);
-  }
-  .venue-card--fine-dining .venue-card__media {
-    aspect-ratio: 16 / 10;
   }
   .venue-card__media :global(picture),
   .venue-card__media :global(img) {
@@ -310,12 +308,6 @@ const diningCards = [
     .venue-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .venue-card--fine-dining {
-      grid-column: 1 / -1;
-    }
-    .venue-card--fine-dining .venue-card__media {
-      aspect-ratio: 2 / 1;
-    }
   }
   @media (max-width: 720px) {
     .venues-header,
@@ -324,12 +316,6 @@ const diningCards = [
     }
     .venues-header {
       gap: var(--space-2);
-    }
-    .venue-card--fine-dining {
-      grid-column: auto;
-    }
-    .venue-card--fine-dining .venue-card__media {
-      aspect-ratio: 4 / 3;
     }
   }
 </style>
