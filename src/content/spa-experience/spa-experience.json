@@ -272,17 +272,93 @@
       "fr": "Night Spa"
     },
     "body": {
-      "en": "Once the sun is down, the pool changes register: the lights shift through blue and violet, the water stays warm, and the lake becomes a dark mirror behind the glass. Night Spa is open to house guests and to outside guests alike, by reservation.",
-      "de": "Sobald die Sonne untergeht, wechselt der Pool die Stimmung: Das Licht changiert zwischen Blau und Violett, das Wasser bleibt warm, und der See wird hinter dem Glas zu einem dunklen Spiegel. Der Night Spa steht Hausgästen wie externen Gästen gleichermassen offen, nach Reservierung.",
-      "it": "Al calare del sole la piscina cambia registro: le luci virano tra il blu e il viola, l'acqua resta calda e il lago diventa uno specchio scuro oltre il vetro. Il Night Spa è aperto sia agli ospiti della casa sia agli ospiti esterni, su prenotazione.",
-      "fr": "Une fois le soleil couché, la piscine change de registre : les lumières passent du bleu au violet, l'eau reste chaude et le lac devient un miroir sombre derrière le verre. Le Night Spa est ouvert aux hôtes de la maison comme aux visiteurs extérieurs, sur réservation."
+      "en": "After the house has gone quiet, the entire spa becomes yours. Warm water, blue-violet light and the lake's dark reflection make a private evening for two.",
+      "de": "Wenn es im Haus ruhig geworden ist, gehört das gesamte Spa Ihnen. Warmes Wasser, blau-violettes Licht und die dunkle Spiegelung des Sees machen daraus einen privaten Abend zu zweit.",
+      "it": "Quando l'hotel si fa silenzioso, l'intera spa diventa vostra. Acqua calda, luce blu-viola e il riflesso scuro del lago creano una serata privata per due.",
+      "fr": "Lorsque l'hôtel s'apaise, le SPA entier devient le vôtre. L'eau chaude, la lumière bleu-violet et le reflet sombre du lac composent une soirée privée à deux."
     },
     "accessNote": {
-      "en": "Open to house guests and visitors alike; we recommend booking ahead, as the evening is kept intentionally intimate.",
-      "de": "Offen für Hausgäste und Besucher gleichermassen; eine frühzeitige Reservierung empfiehlt sich, da der Abend bewusst intim gehalten wird.",
-      "it": "Aperto agli ospiti della casa e ai visitatori; consigliamo di prenotare in anticipo, perché la serata resta volutamente intima.",
-      "fr": "Ouvert aux hôtes de la maison comme aux visiteurs ; nous recommandons de réserver, la soirée étant volontairement intime."
+      "en": "Available by reservation for house guests and visitors. Add guests or Champagne when you enquire.",
+      "de": "Nach Reservierung für Hausgäste und Besucher verfügbar. Weitere Gäste oder Champagner können bei der Anfrage ergänzt werden.",
+      "it": "Disponibile su prenotazione per gli ospiti dell'hotel e per i visitatori. Al momento della richiesta è possibile aggiungere ospiti o Champagne.",
+      "fr": "Disponible sur réservation pour les hôtes de l'hôtel comme pour les visiteurs. Vous pouvez ajouter des invités ou du Champagne lors de votre demande."
     },
+    "privateAccess": {
+      "label": {
+        "en": "Your private spa",
+        "de": "Ihr privates Spa",
+        "it": "La vostra spa privata",
+        "fr": "Votre SPA privé"
+      },
+      "time": {
+        "en": "21:30–00:30",
+        "de": "21:30–00:30 Uhr",
+        "it": "21:30–00:30",
+        "fr": "21h30–00h30"
+      },
+      "body": {
+        "en": "The entire spa, exclusively yours for three unhurried hours.",
+        "de": "Das gesamte Spa gehört drei ungestörte Stunden lang ganz Ihnen.",
+        "it": "L'intera spa in esclusiva per voi, per tre ore senza fretta.",
+        "fr": "Le SPA entier, rien que pour vous, pendant trois heures sans hâte."
+      }
+    },
+    "pricingTitle": {
+      "en": "Night Spa pricing",
+      "de": "Preise für das Night Spa",
+      "it": "Tariffe Night Spa",
+      "fr": "Tarifs Night Spa"
+    },
+    "prices": [
+      {
+        "label": {
+          "en": "Two guests",
+          "de": "Zwei Gäste",
+          "it": "Due persone",
+          "fr": "Deux personnes"
+        },
+        "price": {
+          "en": "CHF 320.–",
+          "de": "CHF 320.–",
+          "it": "CHF 320.–",
+          "fr": "CHF 320.–"
+        },
+        "note": {
+          "en": "Without Champagne",
+          "de": "Ohne Champagner",
+          "it": "Senza Champagne",
+          "fr": "Sans Champagne"
+        }
+      },
+      {
+        "label": {
+          "en": "Each additional guest",
+          "de": "Jede weitere Person",
+          "it": "Ogni persona aggiuntiva",
+          "fr": "Chaque personne supplémentaire"
+        },
+        "price": {
+          "en": "+ CHF 100.–",
+          "de": "+ CHF 100.–",
+          "it": "+ CHF 100.–",
+          "fr": "+ CHF 100.–"
+        }
+      },
+      {
+        "label": {
+          "en": "Bottle of Champagne",
+          "de": "Flasche Champagner",
+          "it": "Bottiglia di Champagne",
+          "fr": "Bouteille de Champagne"
+        },
+        "price": {
+          "en": "+ CHF 159.–",
+          "de": "+ CHF 159.–",
+          "it": "+ CHF 159.–",
+          "fr": "+ CHF 159.–"
+        }
+      }
+    ],
     "ctaLabel": {
       "en": "Enquire about Night Spa",
       "de": "Night Spa anfragen",
@@ -292,38 +368,68 @@
   },
   "salesCategories": {
     "title": {
-      "en": "Access & Membership",
-      "de": "Zugang & Mitgliedschaft",
-      "it": "Accesso & Membership",
-      "fr": "Accès & Abonnements"
+      "en": "Day Passes & Memberships",
+      "de": "Tagespässe & Mitgliedschaften",
+      "it": "Pass Giornalieri & Membership",
+      "fr": "Pass Journaliers & Abonnements"
     },
     "intro": {
-      "en": "You do not need to be staying with us. Day entries, memberships and Night Spa evenings are open to visitors and to those who live nearby — we ask only that you book ahead.",
-      "de": "Sie müssen nicht bei uns wohnen. Tageseintritte, Mitgliedschaften und Night-Spa-Abende stehen Besuchern und Menschen aus der Umgebung offen – wir bitten lediglich um eine Reservierung.",
-      "it": "Non è necessario soggiornare da noi. Ingressi giornalieri, membership e serate Night Spa sono aperti ai visitatori e a chi vive nei dintorni: chiediamo soltanto di prenotare in anticipo.",
-      "fr": "Il n'est pas nécessaire de séjourner chez nous. Entrées à la journée, abonnements et soirées Night Spa sont ouverts aux visiteurs comme aux habitants des environs — nous demandons simplement de réserver."
+      "en": "For a full day at the spa or a more regular rhythm by the lake. Available to visitors and local members, by booking.",
+      "de": "Für einen ganzen Tag im Spa oder regelmässige Besuche am See. Für Besucher und lokale Mitglieder, mit Voranmeldung.",
+      "it": "Per un'intera giornata alla spa o per visite più regolari sul lago. Disponibile per visitatori e membri locali, su prenotazione.",
+      "fr": "Pour une journée entière au SPA ou des visites plus régulières au bord du lac. Disponible pour les visiteurs et les membres locaux, sur réservation."
     },
     "ctaLabel": {
-      "en": "Enquire",
-      "de": "Anfragen",
-      "it": "Richiedi Informazioni",
-      "fr": "Se Renseigner"
+      "en": "Enquire about access",
+      "de": "Zugang anfragen",
+      "it": "Richiedi informazioni sull'accesso",
+      "fr": "Se renseigner sur l'accès"
     },
     "items": [
       {
         "id": "day-entry",
         "title": {
-          "en": "Day Entry",
-          "de": "Tageseintritt",
-          "it": "Ingresso Giornaliero",
-          "fr": "Entrée à la Journée"
+          "en": "Day Passes",
+          "de": "Tagespässe",
+          "it": "Pass Giornalieri",
+          "fr": "Pass Journaliers"
         },
         "body": {
-          "en": "A full day with the pool, the wet zones and the relaxation room — open to visitors staying elsewhere and to anyone living nearby.",
-          "de": "Ein ganzer Tag mit Pool, Nasszonen und Ruheraum – offen für Gäste, die anderswo wohnen, und für alle aus der Umgebung.",
-          "it": "Una giornata intera con piscina, zone umide e sala relax — aperta a chi soggiorna altrove e a chi vive nei dintorni.",
-          "fr": "Une journée entière avec la piscine, les zones humides et la salle de repos — ouverte aux visiteurs logés ailleurs comme aux habitants des environs."
-        }
+          "en": "Pool, wet zones and relaxation room for the day.",
+          "de": "Pool, Nasszonen und Ruheraum für den ganzen Tag.",
+          "it": "Piscina, zone umide e sala relax per l'intera giornata.",
+          "fr": "Piscine, zones humides et salle de repos pour la journée."
+        },
+        "prices": [
+          {
+            "label": {
+              "en": "Monday–Thursday",
+              "de": "Montag–Donnerstag",
+              "it": "Lunedì–Giovedì",
+              "fr": "Lundi–Jeudi"
+            },
+            "price": {
+              "en": "CHF 60.–",
+              "de": "CHF 60.–",
+              "it": "CHF 60.–",
+              "fr": "CHF 60.–"
+            }
+          },
+          {
+            "label": {
+              "en": "Friday–Sunday",
+              "de": "Freitag–Sonntag",
+              "it": "Venerdì–Domenica",
+              "fr": "Vendredi–Dimanche"
+            },
+            "price": {
+              "en": "CHF 75.–",
+              "de": "CHF 75.–",
+              "it": "CHF 75.–",
+              "fr": "CHF 75.–"
+            }
+          }
+        ]
       },
       {
         "id": "membership",
@@ -334,28 +440,69 @@
           "fr": "Abonnements"
         },
         "body": {
-          "en": "Monthly and annual memberships, and entry packages for occasional use — for anyone who returns to the lake often, resident or visitor.",
-          "de": "Monats- und Jahresmitgliedschaften sowie Eintrittspakete für gelegentliche Nutzung – für alle, die oft an den See zurückkehren, ob aus der Region oder auf Reisen.",
-          "it": "Membership mensili e annuali e pacchetti di ingressi per un uso occasionale — per chi torna spesso sul lago, che viva qui o sia di passaggio.",
-          "fr": "Abonnements mensuels et annuels et forfaits d'entrées pour un usage occasionnel — pour celles et ceux qui reviennent souvent au bord du lac, résidents ou visiteurs."
-        }
-      },
-      {
-        "id": "night-spa-access",
-        "title": {
-          "en": "Night Spa Access",
-          "de": "Night-Spa-Zugang",
-          "it": "Accesso Night Spa",
-          "fr": "Accès Night Spa"
+          "en": "For guests who visit more often.",
+          "de": "Für Gäste, die regelmässig wiederkommen.",
+          "it": "Per chi desidera tornare più spesso.",
+          "fr": "Pour celles et ceux qui reviennent plus souvent."
         },
-        "body": {
-          "en": "Evening access to the pool under its after-dark lighting, open to visitors and sold separately from daytime entry.",
-          "de": "Abendlicher Zugang zum Pool unter der nächtlichen Beleuchtung, offen für Besucher und separat vom Tageseintritt erhältlich.",
-          "it": "Accesso serale alla piscina con l'illuminazione notturna, aperto ai visitatori e venduto separatamente dall'ingresso diurno.",
-          "fr": "Accès en soirée à la piscine sous son éclairage nocturne, ouvert aux visiteurs et vendu séparément de l'entrée de jour."
-        }
+        "prices": [
+          {
+            "label": {
+              "en": "10-Pass Booklet",
+              "de": "10er-Karte",
+              "it": "Carnet da 10 ingressi",
+              "fr": "Carnet de 10 entrées"
+            },
+            "price": {
+              "en": "CHF 550.–",
+              "de": "CHF 550.–",
+              "it": "CHF 550.–",
+              "fr": "CHF 550.–"
+            },
+            "note": {
+              "en": "Valid for one year",
+              "de": "1 Jahr gültig",
+              "it": "Valido per 1 anno",
+              "fr": "Valable 1 an"
+            }
+          },
+          {
+            "label": {
+              "en": "THE VIEW Annual Membership",
+              "de": "THE VIEW Jahresmitgliedschaft",
+              "it": "Membership Annuale THE VIEW",
+              "fr": "Abonnement Annuel THE VIEW"
+            },
+            "price": {
+              "en": "CHF 3,500.–",
+              "de": "CHF 3,500.–",
+              "it": "CHF 3,500.–",
+              "fr": "CHF 3,500.–"
+            }
+          }
+        ]
       }
     ]
+  },
+  "navigation": {
+    "label": {
+      "en": "Spa page sections",
+      "de": "Bereiche der Spa-Seite",
+      "it": "Sezioni della pagina spa",
+      "fr": "Sections de la page spa"
+    },
+    "nightSpa": {
+      "en": "Night Spa & pricing",
+      "de": "Night Spa & Preise",
+      "it": "Night Spa & tariffe",
+      "fr": "Night Spa & tarifs"
+    },
+    "access": {
+      "en": "Day passes & memberships",
+      "de": "Tagespässe & Mitgliedschaften",
+      "it": "Pass giornalieri & membership",
+      "fr": "Pass journaliers & abonnements"
+    }
   },
   "hours": {
     "openLabel": {

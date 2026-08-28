@@ -165,6 +165,10 @@ const contactUrl = p(lang, 'contact');
           <span aria-hidden="true">·</span>
           <span>{spaExp.hours.treatmentsLabel[lang]} {SITE.spa.treatmentHours}</span>
         </p>
+        <nav class="spa-jump-links fade-up" aria-label={spaExp.navigation.label[lang]}>
+          <a href="#night-spa">{spaExp.navigation.nightSpa[lang]}</a>
+          <a href="#spa-access">{spaExp.navigation.access[lang]}</a>
+        </nav>
       </div>
       <div class="spa-intro__media fade-up">
         <Pic
@@ -265,26 +269,45 @@ const contactUrl = p(lang, 'contact');
     </div>
   </section>
 
-  <section class="section section--ink spa-night">
+  <section id="night-spa" class="section section--ink spa-night">
     <div class="container">
       <p class="eyebrow fade-up">{spaExp.nightSpa.eyebrow[lang]}</p>
       <h2 class="fade-up">{spaExp.nightSpa.title[lang]}</h2>
       <p class="spa-night__body fade-up">{spaExp.nightSpa.body[lang]}</p>
       <p class="spa-night__access fade-up">{spaExp.nightSpa.accessNote[lang]}</p>
-      <div class="spa-night__grid fade-up">
-        <div class="spa-night__main">
-          <Pic src={nightSpaPool} alt={alts.nightSpaPool[lang]} width={1800} height={1200} sizes="(max-width: 720px) 100vw, 62vw" />
-        </div>
-        <div class="spa-night__side">
-          <Pic src={nightSpaLounger} alt={alts.nightSpaLounger[lang]} width={1200} height={900} sizes="(max-width: 720px) 50vw, 30vw" />
-          <Pic src={nightSpaCascade} alt={alts.nightSpaCascade[lang]} width={1200} height={1600} sizes="(max-width: 720px) 50vw, 30vw" />
-        </div>
+      <div class="spa-night__private fade-up">
+        <span>{spaExp.nightSpa.privateAccess.label[lang]}</span>
+        <strong>{spaExp.nightSpa.privateAccess.time[lang]}</strong>
+        <p>{spaExp.nightSpa.privateAccess.body[lang]}</p>
       </div>
-      <a class="btn btn--light" href={contactUrl}>{spaExp.nightSpa.ctaLabel[lang]}</a>
+      <div class="spa-night__experience">
+        <div class="spa-night__grid fade-up">
+          <div class="spa-night__main">
+            <Pic src={nightSpaPool} alt={alts.nightSpaPool[lang]} width={1800} height={1200} sizes="(max-width: 720px) 100vw, 62vw" />
+          </div>
+          <div class="spa-night__side">
+            <Pic src={nightSpaLounger} alt={alts.nightSpaLounger[lang]} width={1200} height={900} sizes="(max-width: 720px) 50vw, 30vw" />
+            <Pic src={nightSpaCascade} alt={alts.nightSpaCascade[lang]} width={1200} height={1600} sizes="(max-width: 720px) 50vw, 30vw" />
+          </div>
+        </div>
+        <aside class="spa-night__pricing fade-up" aria-labelledby="night-spa-pricing">
+          <h3 id="night-spa-pricing">{spaExp.nightSpa.pricingTitle[lang]}</h3>
+          <dl class="spa-price-list">
+            {spaExp.nightSpa.prices.map((item) => (
+              <div>
+                <dt>{item.label[lang]}</dt>
+                <dd>{item.price[lang]}</dd>
+                {item.note && <p>{item.note[lang]}</p>}
+              </div>
+            ))}
+          </dl>
+          <a class="btn btn--light" href={contactUrl}>{spaExp.nightSpa.ctaLabel[lang]}</a>
+        </aside>
+      </div>
     </div>
   </section>
 
-  <section class="section spa-access">
+  <section id="spa-access" class="section spa-access">
     <div class="container container--narrow">
       <h2 class="section-title fade-up">{spaExp.salesCategories.title[lang]}</h2>
       <p class="spa-access__intro fade-up">{spaExp.salesCategories.intro[lang]}</p>
@@ -293,6 +316,15 @@ const contactUrl = p(lang, 'contact');
           <article class="spa-access__card fade-up">
             <h3>{item.title[lang]}</h3>
             <p>{item.body[lang]}</p>
+            <dl class="spa-price-list spa-price-list--light">
+              {item.prices.map((price) => (
+                <div>
+                  <dt>{price.label[lang]}</dt>
+                  <dd>{price.price[lang]}</dd>
+                  {price.note && <p>{price.note[lang]}</p>}
+                </div>
+              ))}
+            </dl>
           </article>
         ))}
       </div>
@@ -373,6 +405,26 @@ const contactUrl = p(lang, 'contact');
   }
   .spa-hours span[aria-hidden] {
     opacity: 0.55;
+  }
+  .spa-jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.4rem;
+    margin-top: var(--space-2);
+  }
+  .spa-jump-links a {
+    border-bottom: 1px solid var(--clay);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: border-color 220ms ease, color 220ms ease;
+  }
+  .spa-jump-links a:hover,
+  .spa-jump-links a:focus-visible {
+    border-color: var(--ink);
+    color: var(--clay);
   }
   @media (max-width: 460px) {
     .spa-hours span[aria-hidden] {
@@ -580,6 +632,9 @@ const contactUrl = p(lang, 'contact');
   }
 
   /* Night spa */
+  .spa-night {
+    scroll-margin-top: 7rem;
+  }
   .spa-night__body {
     max-width: 62ch;
     color: var(--tortora);
@@ -590,6 +645,46 @@ const contactUrl = p(lang, 'contact');
     font-size: 0.92rem;
     margin-bottom: var(--space-3);
   }
+  .spa-night__private {
+    display: grid;
+    grid-template-columns: max-content minmax(13rem, max-content) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0.65rem clamp(1.25rem, 3vw, 3rem);
+    margin: 0 0 var(--space-3);
+    padding: var(--space-2) 0;
+    border-block: 1px solid color-mix(in srgb, var(--grigio) 42%, transparent);
+  }
+  .spa-night__private span,
+  .spa-night__private p {
+    color: var(--grigio);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .spa-night__private p {
+    max-width: 38ch;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.87rem;
+    letter-spacing: 0;
+    line-height: 1.5;
+    text-transform: none;
+  }
+  .spa-night__private strong {
+    color: var(--tortora);
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.6vw, 2rem);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .spa-night__experience {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.65fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: stretch;
+  }
   /* The grid's own aspect ratio makes the row height definite, so the tall
      image and the stacked pair resolve against it and stay flush. Without
      it the row would be sized by content and the columns would mismatch. */
@@ -599,7 +694,7 @@ const contactUrl = p(lang, 'contact');
     grid-auto-rows: 1fr;
     aspect-ratio: 16 / 7;
     gap: clamp(0.5rem, 1.2vw, 0.9rem);
-    margin-bottom: var(--space-3);
+    margin: 0;
   }
   .spa-night__side {
     display: grid;
@@ -625,7 +720,63 @@ const contactUrl = p(lang, 'contact');
     height: 100%;
     object-fit: cover;
   }
+  .spa-night__pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 0;
+    padding-top: var(--space-2);
+  }
+  .spa-night__pricing h3 {
+    color: var(--tortora);
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: var(--space-2);
+  }
+  .spa-price-list {
+    display: grid;
+    gap: 0;
+    margin: 0 0 var(--space-3);
+  }
+  .spa-price-list > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content;
+    gap: 0.25rem 1rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid color-mix(in srgb, var(--grigio) 42%, transparent);
+  }
+  .spa-price-list > div:last-child {
+    border-bottom: 1px solid color-mix(in srgb, var(--grigio) 42%, transparent);
+  }
+  .spa-price-list dt,
+  .spa-price-list dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+  }
+  .spa-price-list dt,
+  .spa-price-list dd {
+    color: var(--tortora);
+  }
+  .spa-price-list dd {
+    white-space: nowrap;
+  }
+  .spa-price-list p {
+    grid-column: 1 / -1;
+    color: var(--grigio);
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin: 0;
+  }
   @media (max-width: 720px) {
+    .spa-night__private,
+    .spa-night__experience {
+      grid-template-columns: 1fr;
+    }
+    .spa-night__private {
+      gap: 0.4rem;
+    }
     .spa-night__grid {
       grid-template-columns: 1fr;
       aspect-ratio: auto;
@@ -646,14 +797,17 @@ const contactUrl = p(lang, 'contact');
   }
 
   /* Access & membership */
+  .spa-access {
+    scroll-margin-top: 7rem;
+  }
   .spa-access__intro {
     max-width: 58ch;
     margin-bottom: var(--space-3);
   }
   .spa-access__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-3);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2rem, 7vw, 6rem);
     margin-bottom: var(--space-3);
   }
   .spa-access__card {
@@ -667,8 +821,21 @@ const contactUrl = p(lang, 'contact');
     margin-bottom: 0.5rem;
   }
   .spa-access__card p {
-    margin: 0;
+    margin: 0 0 var(--space-2);
     font-size: 0.95rem;
+  }
+  .spa-price-list--light > div {
+    border-color: var(--tortora-densa);
+  }
+  .spa-price-list--light > div:last-child {
+    border-bottom-color: var(--tortora-densa);
+  }
+  .spa-price-list--light dt,
+  .spa-price-list--light dd {
+    color: var(--ink);
+  }
+  .spa-price-list--light p {
+    color: var(--clay);
   }
   @media (max-width: 720px) {
     .spa-access__grid {
