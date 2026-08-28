@@ -384,6 +384,17 @@ const spaExperience = defineCollection({
       title: localized,
       body: localized,
       accessNote: localized,
+      privateAccess: z.object({
+        label: localized,
+        time: localized,
+        body: localized,
+      }),
+      pricingTitle: localized,
+      prices: z.array(z.object({
+        label: localized,
+        price: localized,
+        note: localized.optional(),
+      })).min(1),
       ctaLabel: localized,
     }),
     salesCategories: z.object({
@@ -394,7 +405,17 @@ const spaExperience = defineCollection({
         id: z.string(),
         title: localized,
         body: localized,
+        prices: z.array(z.object({
+          label: localized,
+          price: localized,
+          note: localized.optional(),
+        })).min(1),
       })).min(1),
+    }),
+    navigation: z.object({
+      label: localized,
+      nightSpa: localized,
+      access: localized,
     }),
     // Rendered as one line beside the booking buttons; the times themselves
     // come from SITE.spa so they stay single-source.
