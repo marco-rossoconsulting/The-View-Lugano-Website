@@ -1,5 +1,5 @@
 {
-  "order": 1,
+  "order": 5,
   "name": { "en": "THE VIEW Residence", "de": "THE VIEW Residence", "it": "THE VIEW Residence", "fr": "THE VIEW Residence" },
   "sizeLabel": { "en": "50 or 80 m²", "de": "50 oder 80 m²", "it": "50 o 80 m²", "fr": "50 ou 80 m²" },
   "minSleeps": 2,
