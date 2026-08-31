@@ -1,11 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
-import EditorialSplit from '../../components/EditorialSplit.astro';
+import Pic from '../../components/Pic.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import TheForkWidget from '../../components/TheForkWidget.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
+import { SITE } from '../../lib/site';
 import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
@@ -26,69 +26,153 @@ const restaurant = venues.find((v) => v.data.kind === 'restaurant')!;
 const terrace = venues.find((v) => v.data.kind === 'terrace')!;
 const bar = venues.find((v) => v.data.kind === 'bar')!;
 if (!page) throw new Error('Missing dining-index CMS content');
+
+const copy = {
+  en: {
+    eyebrow: 'Dining at THE VIEW',
+    explore: 'Three ways to take a seat',
+    fineLabel: 'Michelin-starred restaurant',
+    bistrotLabel: 'Relaxed, all-day dining',
+    barLabel: 'Aperitivo into evening',
+    bistrotName: 'THE VIEW Bistrot',
+    reserve: 'Reserve a table',
+    menu: 'View menu',
+    menuAria: 'View the menu for',
+  },
+  de: {
+    eyebrow: 'Gastronomie im THE VIEW',
+    explore: 'Drei Arten, Platz zu nehmen',
+    fineLabel: 'Restaurant mit Michelin-Stern',
+    bistrotLabel: 'Entspannte Küche den ganzen Tag',
+    barLabel: 'Aperitivo bis in den Abend',
+    bistrotName: 'THE VIEW Bistrot',
+    reserve: 'Tisch reservieren',
+    menu: 'Speisekarte ansehen',
+    menuAria: 'Speisekarte ansehen für',
+  },
+  it: {
+    eyebrow: 'La ristorazione al THE VIEW',
+    explore: 'Tre modi per accomodarsi',
+    fineLabel: 'Ristorante stellato Michelin',
+    bistrotLabel: 'Cucina informale, tutto il giorno',
+    barLabel: 'Dall’aperitivo alla sera',
+    bistrotName: 'THE VIEW Bistrot',
+    reserve: 'Prenota un tavolo',
+    menu: 'Guarda il menu',
+    menuAria: 'Guarda il menu di',
+  },
+  fr: {
+    eyebrow: 'La table au THE VIEW',
+    explore: 'Trois façons de prendre place',
+    fineLabel: 'Restaurant étoilé Michelin',
+    bistrotLabel: 'Cuisine décontractée, toute la journée',
+    barLabel: 'De l’apéritif à la soirée',
+    bistrotName: 'THE VIEW Bistrot',
+    reserve: 'Réserver une table',
+    menu: 'Voir la carte',
+    menuAria: 'Voir la carte de',
+  },
+} as const;
+
+const labels = copy[lang];
+const diningCards = [
+  {
+    id: 'fine-dining',
+    venue: restaurant,
+    label: labels.fineLabel,
+    title: restaurant.data.name,
+    facts: restaurant.data.facts.slice(0, 3),
+    reserveHref: SITE.integrations.theForkFineDining,
+    menuHref: SITE.integrations.fineDiningMenu,
+  },
+  {
+    id: 'bistrot',
+    venue: terrace,
+    label: labels.bistrotLabel,
+    title: labels.bistrotName,
+    detail: terrace.data.name,
+    facts: terrace.data.facts,
+    reserveHref: SITE.integrations.theForkBistrot,
+    menuHref: SITE.integrations.bistrotMenu,
+  },
+  {
+    id: 'lounge-bar',
+    venue: bar,
+    label: labels.barLabel,
+    title: bar.data.name,
+    facts: bar.data.facts,
+    // TheFork offers one shared THE VIEW landing page for the bar; its two
+    // bookable options are Fine Dining and the Bistrot.
+    reserveHref: SITE.integrations.theForkWidget,
+    menuHref: SITE.integrations.loungeBarMenu,
+  },
+];
 ---
 
-<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="dining" ogImage={restaurant.data.photos[0].src}>
+<Base
+  {lang}
+  title={page.metaTitle[lang]}
+  description={page.metaDesc[lang]}
+  route="dining"
+  ogImage={restaurant.data.photos[0].src}
+  preloadImage={restaurant.data.photos[0].src}
+>
   <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
-  <section class="section">
+  <section class="section dining-intro">
     <div class="container container--narrow">
+      <p class="eyebrow">{labels.eyebrow}</p>
       <h1 class="page-title">{page.h1[lang]}</h1>
-      <p class="page-intro">{page.intro[lang]}</p>
+      <p class="page-intro lede">{page.intro[lang]}</p>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
+  <section class="dining-venues section--tortora" aria-labelledby="dining-venues-title">
     <div class="container">
-      <EditorialSplit
-        src={restaurant.data.photos[0].src}
-        alt={restaurant.data.photos[0].alt[lang]}
-        title={page.restaurantTitle?.[lang]}
-      >
-        {page.restaurantBody?.[lang]?.map((par: string) => <p>{par}</p>)}
-        <ul class="facts facts--inline">
-          {restaurant.data.facts.map((f) => <li>{f[lang]}</li>)}
-        </ul>
-      </EditorialSplit>
-    </div>
-  </section>
+      <header class="venues-header fade-up">
+        <h2 id="dining-venues-title">{labels.explore}</h2>
+        <p>{page.menuNote?.[lang]}</p>
+      </header>
 
-  <section class="section section--tortora">
-    <div class="container">
-      <EditorialSplit
-        src={terrace.data.photos[0].src}
-        alt={terrace.data.photos[0].alt[lang]}
-        title={page.terraceTitle?.[lang]}
-        flip
-      >
-        <p>{page.terraceBody?.[lang]}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <EditorialSplit
-        src={bar.data.photos[0].src}
-        alt={bar.data.photos[0].alt[lang]}
-        title={page.barTitle?.[lang]}
-      >
-        <p>{page.barBody?.[lang]}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section section--tortora">
-    <div class="container container--narrow">
-      <h2 class="section-title">{page.breakfastTitle?.[lang]}</h2>
-      <p style="max-width: 62ch;">{page.breakfastBody?.[lang]}</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container container--narrow">
-      <h2 class="section-title">{page.reserveTable?.[lang]}</h2>
-      <TheForkWidget {lang} />
+      <div class="venue-grid">
+        {diningCards.map((card) => (
+          <article class:list={['venue-card', `venue-card--${card.id}`, 'fade-up']}>
+            <div class="venue-card__media">
+              <Pic
+                src={card.venue.data.photos[0].src}
+                alt={card.venue.data.photos[0].alt[lang]}
+                width={1600}
+                height={1067}
+                widths={[560, 760, 1100]}
+                sizes="(max-width: 720px) 100vw, (max-width: 1060px) 50vw, 34vw"
+              />
+            </div>
+            <div class="venue-card__body">
+              <p class="eyebrow venue-card__label">{card.label}</p>
+              <h3>{card.title}</h3>
+              {card.detail && <p class="venue-card__detail">{card.detail}</p>}
+              <p class="venue-card__summary">{card.venue.data.summary[lang]}</p>
+              <ul class="venue-card__facts">
+                {card.facts.map((fact) => <li>{fact[lang]}</li>)}
+              </ul>
+              <div class="venue-card__actions">
+                <a class="btn btn--solid" href={card.reserveHref} target="_blank" rel="noopener noreferrer">
+                  {labels.reserve}
+                </a>
+                <a
+                  class="venue-card__menu-link"
+                  href={card.menuHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${labels.menuAria} ${card.title}`}
+                >
+                  {labels.menu}<span aria-hidden="true"> ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -101,11 +185,137 @@ if (!page) throw new Error('Missing dining-index CMS content');
 </Base>
 
 <style>
-  .facts--inline { margin-top: var(--space-2); }
-  .section-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+  .dining-intro {
+    padding-bottom: clamp(3.5rem, 7vw, 6rem);
+  }
+  .dining-venues {
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  }
+  .venues-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.68fr);
+    gap: var(--space-3);
+    align-items: end;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+  .venues-header h2 {
+    margin: 0;
+  }
+  .venues-header p {
+    margin: 0;
+    color: var(--clay);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+  .venue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2.2vw, 2rem);
+    align-items: stretch;
+  }
+  .venue-card {
+    display: flex;
+    height: 100%;
+    min-width: 0;
+    flex-direction: column;
+    border: 1px solid var(--tortora-densa);
+    background: var(--ground);
+  }
+  .venue-card__media {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--grigio);
+  }
+  .venue-card__media :global(picture),
+  .venue-card__media :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .venue-card__media :global(img) {
+    object-fit: cover;
+    transition: transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .venue-card:hover .venue-card__media :global(img) {
+    transform: scale(1.035);
+  }
+  .venue-card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(1.5rem, 2.8vw, 2.4rem);
+  }
+  .venue-card__label {
+    margin-bottom: 0.7rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+  }
+  .venue-card h3 {
+    margin-bottom: 0.55rem;
+    font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+  }
+  .venue-card__detail {
     margin-bottom: var(--space-2);
+    color: var(--clay);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+  }
+  .venue-card__summary {
+    margin-bottom: var(--space-2);
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+  .venue-card__facts {
+    width: 100%;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    list-style: none;
+  }
+  .venue-card__facts li {
+    padding-block: 0.62rem;
+    border-top: 1px solid var(--tortora-densa);
+    font-size: 0.79rem;
+    line-height: 1.45;
+  }
+  .venue-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem 1.25rem;
+    margin-top: auto;
+  }
+  .venue-card__actions .btn {
+    padding: 0.88rem 1.25rem;
+    font-size: 0.71rem;
+    letter-spacing: 0.2em;
+  }
+  .venue-card__menu-link {
+    border-bottom: 1px solid var(--clay);
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+  .venue-card__menu-link:hover,
+  .venue-card__menu-link:focus-visible {
+    border-color: var(--ink);
+    color: var(--clay);
+  }
+  @media (max-width: 1060px) {
+    .venue-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    .venues-header,
+    .venue-grid {
+      grid-template-columns: 1fr;
+    }
+    .venues-header {
+      gap: var(--space-2);
+    }
   }
 </style>

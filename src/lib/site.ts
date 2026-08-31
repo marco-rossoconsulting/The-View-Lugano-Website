@@ -69,6 +69,12 @@ export const SITE = {
       'https://widget.thefork.com/en/8383ce3c-0a38-4964-919a-981fe0c93cb4?utm_source=6a8ea2ad4d9378da9f244bbc--theview-lugano.netlify.app&step=date',
     theForkBistrot:
       'https://widget.thefork.com/en/c3d07f7d-74f8-4ebf-84ab-704cd3e887f9/homepage/cca06037-40b6-4c31-a8ad-46adaf42b31b?utm_source=6a8ea2ad4d9378da9f244bbc--theview-lugano.netlify.app',
+    fineDiningMenu:
+      'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/04192924/MENU-UFFICIALE-MARZO-26-pdf-2.pdf',
+    bistrotMenu:
+      'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/10132226/MENU-BISTROT-FOOD-settembre-25-1-copia.pdf',
+    loungeBarMenu:
+      'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/14112151/TVL_LOUNGE-BAR-PDF_p.pdf',
     egumaVouchers: 'https://shop.e-guma.ch/theviewlugano/{lang}/gift-vouchers',
     egumaEvents: 'https://shop.e-guma.ch/theviewlugano/{lang}/events',
     egumaSpaVouchers: 'https://shop.e-guma.ch/theviewlugano/{lang}/gift-vouchers/c/the-view-spa-2219114',
