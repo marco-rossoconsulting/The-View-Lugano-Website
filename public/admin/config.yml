@@ -93,3 +93,75 @@ collections:
               - { name: gdsNote, label: GDS Note, widget: object, fields: *loc }
               - { name: backTo, label: Back To, widget: object, fields: *loc }
               - { name: photoCredit, label: Photo Credit, widget: object, fields: *loc }
+          - name: footer
+            label: Footer
+            widget: object
+            fields:
+              - { name: factLine, label: Fact Line, widget: object, fields: *loctext }
+              - { name: partOf, label: Part Of, widget: object, fields: *loctext }
+              - { name: credentials, label: Credentials, widget: object, fields: *loc }
+          - name: consent
+            label: Cookie Consent
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Body, widget: object, fields: *loctext }
+              - { name: acceptAll, label: Accept All, widget: object, fields: *loc }
+              - { name: necessaryOnly, label: Necessary Only, widget: object, fields: *loc }
+              - { name: settings, label: Settings, widget: object, fields: *loc }
+              - { name: save, label: Save, widget: object, fields: *loc }
+              - { name: catNecessary, label: Category Necessary, widget: object, fields: *loc }
+              - { name: catNecessaryDesc, label: Necessary Desc, widget: object, fields: *loctext }
+              - { name: catPreferences, label: Category Preferences, widget: object, fields: *loc }
+              - { name: catPreferencesDesc, label: Preferences Desc, widget: object, fields: *loctext }
+              - { name: catStatistics, label: Category Statistics, widget: object, fields: *loc }
+              - { name: catStatisticsDesc, label: Statistics Desc, widget: object, fields: *loctext }
+              - { name: catMarketing, label: Category Marketing, widget: object, fields: *loc }
+              - { name: catMarketingDesc, label: Marketing Desc, widget: object, fields: *loctext }
+          - name: notFound
+            label: 404 Page
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Body, widget: object, fields: *loctext }
+              - { name: cta, label: CTA, widget: object, fields: *loc }
+
+  # ── 2. HOMEPAGE ──
+  - name: homepage
+    label: 🏠 Homepage
+    files:
+      - name: homepage
+        label: Homepage Content
+        file: src/content/homepage/homepage.json
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: line, label: Line, widget: object, fields: *loctext }
+              - { name: tagline, label: Tagline, widget: object, fields: *loc }
+              - { name: image, label: Image Key, widget: string, hint: 'Reference key from photos library' }
+          - name: sections
+            label: Sections
+            widget: list
+            fields:
+              - { name: id, label: Section ID, widget: string }
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc, required: false }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Body Paragraphs, widget: object, fields: *locpars }
+              - { name: image, label: Image Key, widget: string }
+              - { name: ctaHref, label: CTA Link, widget: string }
+              - { name: ctaLabel, label: CTA Label, widget: object, fields: *loc }
+              - { name: flip, label: Flip Layout, widget: boolean, default: false }
+          - name: trust
+            label: Trust Section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - name: items
+                label: Items
+                widget: list
+                fields:
+                  - { name: id, label: ID, widget: string }
+                  - { name: text, label: Text, widget: object, fields: *loctext }
