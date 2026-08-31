@@ -5,7 +5,8 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Press pages currently live as ?page_id= on WP. Must precede / → /en/.
+# `/` language 301 omitted until Marco confirms. Rank rec: `/` → `/it/`; x-default stays `/en/`.
+# Query-string press pages from WP. from="/" with query= is NOT a language 301.
 [[redirects]]
   from = "/"
   query = {page_id = "92"}
@@ -14,17 +15,9 @@
   force = true
 
 [[redirects]]
-  from = "/en/"
+  from = "/"
   query = {page_id = "3241"}
   to = "/en/press/"
-  status = 301
-  force = true
-
-# ── Redirects: canonical paths ──
-# (force = true ensures Netlify edge rules override Astro’s generated static files)
-[[redirects]]
-  from = "/"
-  to = "/en/"
   status = 301
   force = true
 
@@ -49,9 +42,179 @@
   to = "/fr/"
   status = 301
 
+# Rank extra live slugs (before WP splats)
+[[redirects]]
+  from = "/en/suites-da-sogno/rooms/"
+  to = "/en/suites/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/restaurant/dining-with-the-stars/"
+  to = "/en/dining/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/restaurant/dining-with-the-stars"
+  to = "/en/dining/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fr/evenements/"
+  to = "/fr/events/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fr/evenements"
+  to = "/fr/events/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/offerte-esperienze/"
+  to = "/it/experiences/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/offerte-esperienze"
+  to = "/it/experiences/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/offers-and-experiences/"
+  to = "/en/experiences/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/offers-and-experiences"
+  to = "/en/experiences/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/de/angebote-und-erfahrungen/"
+  to = "/de/experiences/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/de/angebote-und-erfahrungen"
+  to = "/de/experiences/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ristorante/"
+  to = "/it/dining/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/careers/"
+  to = "/it/contact/"
+  status = 301
+  force = true
+
+# WP reservation CPT — 410 Gone, not 301 to SimpleBooking or home
+[[redirects]]
+  from = "/wprm-reservation"
+  to = "/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wprm-reservation/"
+  to = "/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wprm-reservation/*"
+  to = "/wprm-reservation/:splat"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/en/wprm-reservation"
+  to = "/en/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/en/wprm-reservation/"
+  to = "/en/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/en/wprm-reservation/*"
+  to = "/en/wprm-reservation/:splat"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/de/wprm-reservation"
+  to = "/de/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/de/wprm-reservation/"
+  to = "/de/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/de/wprm-reservation/*"
+  to = "/de/wprm-reservation/:splat"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/fr/wprm-reservation"
+  to = "/fr/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/fr/wprm-reservation/"
+  to = "/fr/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/fr/wprm-reservation/*"
+  to = "/fr/wprm-reservation/:splat"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/it/wprm-reservation"
+  to = "/it/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/it/wprm-reservation/"
+  to = "/it/wprm-reservation"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/it/wprm-reservation/*"
+  to = "/it/wprm-reservation/:splat"
+  status = 410
+  force = true
+
 # ── Pre-cutover: WordPress path 301s ──
 # Map live 200 WP URLs (REST + Rank-named) to the closest Astro locale route.
-# Do not change the / → /en/ rule above; homepage language is pending Marco.
+# Homepage language 301 omitted until Marco confirms.
 # More-specific rules before splats. Skip junk (blog posts, taxonomies, ?p=).
 
 # Dining
@@ -378,7 +541,7 @@
   to = "/fr/events/"
   status = 301
 
-# Premium services → experiences
+# Premium services → nearest section
 [[redirects]]
   from = "/servizi-premium"
   to = "/it/experiences/"
@@ -758,47 +921,6 @@
 [[redirects]]
   from = "/fr/sitemap"
   to = "/sitemap.xml"
-  status = 301
-
-# WP reservation CPT → SimpleBooking IBE 10185 HTTPS
-[[redirects]]
-  from = "/wprm-reservation"
-  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=IT&cur=CHF"
-  status = 301
-
-[[redirects]]
-  from = "/wprm-reservation/*"
-  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=IT&cur=CHF"
-  status = 301
-
-[[redirects]]
-  from = "/en/wprm-reservation"
-  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=EN&cur=CHF"
-  status = 301
-
-[[redirects]]
-  from = "/en/wprm-reservation/*"
-  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=EN&cur=CHF"
-  status = 301
-
-[[redirects]]
-  from = "/de/wprm-reservation"
-  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=DE&cur=CHF"
-  status = 301
-
-[[redirects]]
-  from = "/de/wprm-reservation/*"
-  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=DE&cur=CHF"
-  status = 301
-
-[[redirects]]
-  from = "/fr/wprm-reservation"
-  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=FR&cur=CHF"
-  status = 301
-
-[[redirects]]
-  from = "/fr/wprm-reservation/*"
-  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=FR&cur=CHF"
   status = 301
 
 # WP XML sitemaps → Astro /sitemap.xml
