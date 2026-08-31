@@ -82,7 +82,6 @@ const pages = defineCollection({
     intro: localized,
     // Flexible optional fields for different page types
     honesty: localized.optional(),
-    residenceNote: localized.optional(),
     restaurantTitle: localized.optional(),
     restaurantBody: localizedArray.optional(),
     terraceTitle: localized.optional(),
