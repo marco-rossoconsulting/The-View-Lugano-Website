@@ -12,6 +12,7 @@ interface Props {
   photos: Photo[];
   lang: Locale;
   galleryId: string;
+  variant?: 'listing' | 'detail';
   label: string;
   previousLabel: string;
   nextLabel: string;
@@ -23,6 +24,7 @@ const {
   photos,
   lang,
   galleryId,
+  variant = 'listing',
   label,
   previousLabel,
   nextLabel,
@@ -40,20 +42,24 @@ const images = photos.map((photo) => {
 ---
 
 <section
-  class="room-gallery"
+  class:list={['room-gallery', { 'room-gallery--detail': variant === 'detail' }]}
   data-room-gallery
   data-count={images.length}
   aria-label={label}
   role="region"
 >
-  <input id={toggleId} class="room-gallery__modal-toggle" data-room-gallery-toggle type="checkbox" aria-label={label} />
+  <input id={toggleId} class="room-gallery__modal-toggle" data-room-gallery-toggle type="checkbox" tabindex="-1" aria-hidden="true" />
   <div class="room-gallery__viewport">
     <div class="room-gallery__track" data-room-gallery-track>
       {images.map((image, index) => (
         <div class="room-gallery__slide">
-          <label
+          <button
+            type="button"
             class="room-gallery__open"
-            for={toggleId}
+            data-room-gallery-open
+            tabindex={index === 0 ? '0' : '-1'}
+            aria-haspopup="dialog"
+            aria-expanded="false"
             aria-label={image.alt[lang]}
           >
             <Pic
@@ -67,23 +73,24 @@ const images = photos.map((photo) => {
               fetchpriority={eager && index === 0 ? 'high' : 'auto'}
               class="room-gallery__image"
             />
-          </label>
+          </button>
         </div>
       ))}
     </div>
+
+    {images.length > 1 && (
+      <div class="room-gallery__controls" aria-label={label}>
+        <button type="button" class="room-gallery__arrow" data-room-gallery-prev aria-label={previousLabel}>‹</button>
+        <button type="button" class="room-gallery__arrow" data-room-gallery-next aria-label={nextLabel}>›</button>
+      </div>
+    )}
   </div>
 
-  {images.length > 1 && (
-    <div class="room-gallery__controls" aria-label={label}>
-      <button type="button" class="room-gallery__arrow" data-room-gallery-prev aria-label={previousLabel}>←</button>
-      <output class="room-gallery__count" data-room-gallery-count aria-live="polite">1 / {images.length}</output>
-      <button type="button" class="room-gallery__arrow" data-room-gallery-next aria-label={nextLabel}>→</button>
-    </div>
-  )}
+  {images.length > 1 && <output class="room-gallery__count" data-room-gallery-count aria-live="polite">1 / {images.length}</output>}
 
   <div class="room-gallery__dialog" data-room-gallery-dialog role="dialog" aria-modal="true" aria-label={label}>
-    <label class="room-gallery__close" data-room-gallery-close for={toggleId} role="button" tabindex="0" aria-label={closeLabel}>×</label>
-    <button type="button" class="room-gallery__dialog-arrow room-gallery__dialog-arrow--prev" data-room-gallery-dialog-prev aria-label={previousLabel}>←</button>
+    <button type="button" class="room-gallery__close" data-room-gallery-close aria-label={closeLabel}>×</button>
+    <button type="button" class="room-gallery__dialog-arrow room-gallery__dialog-arrow--prev" data-room-gallery-dialog-prev aria-label={previousLabel}>‹</button>
 
     <div class="room-gallery__dialog-stage">
       {images.map((image, index) => (
@@ -102,7 +109,7 @@ const images = photos.map((photo) => {
       ))}
     </div>
 
-    <button type="button" class="room-gallery__dialog-arrow room-gallery__dialog-arrow--next" data-room-gallery-dialog-next aria-label={nextLabel}>→</button>
+    <button type="button" class="room-gallery__dialog-arrow room-gallery__dialog-arrow--next" data-room-gallery-dialog-next aria-label={nextLabel}>›</button>
     <output class="room-gallery__dialog-count" data-room-gallery-dialog-count aria-live="polite">1 / {images.length}</output>
   </div>
 </section>
@@ -123,10 +130,12 @@ const images = photos.map((photo) => {
     const dialogClose = gallery.querySelector<HTMLElement>('[data-room-gallery-close]');
     const dialogCount = gallery.querySelector<HTMLOutputElement>('[data-room-gallery-dialog-count]');
     const dialogSlides = Array.from(gallery.querySelectorAll<HTMLElement>('[data-room-gallery-dialog-slide]'));
+    const openButtons = Array.from(gallery.querySelectorAll<HTMLElement>('[data-room-gallery-open]'));
 
     if (!track || !dialog || !toggle || count < 1) return;
 
     let activeIndex = 0;
+    let lastTrigger: HTMLElement | null = null;
     gallery.classList.add('is-ready');
 
     const normalize = (index: number) => (index + count) % count;
@@ -141,13 +150,18 @@ const images = photos.map((photo) => {
       dialogSlides.forEach((slide, slideIndex) => {
         slide.hidden = slideIndex !== activeIndex;
       });
+      openButtons.forEach((button, buttonIndex) => {
+        button.tabIndex = buttonIndex === activeIndex ? 0 : -1;
+      });
       updateCount();
     };
     const move = (direction: number) => update(activeIndex + direction);
     const setDialogState = (open: boolean) => {
       toggle.checked = open;
+      openButtons.forEach((button) => button.setAttribute('aria-expanded', String(open)));
       document.documentElement.style.overflow = open ? 'hidden' : '';
       if (open) dialogClose?.focus();
+      else lastTrigger?.focus();
     };
 
     update(0);
@@ -155,7 +169,13 @@ const images = photos.map((photo) => {
     controlsNext?.addEventListener('click', () => move(1));
     dialogPrev?.addEventListener('click', () => move(-1));
     dialogNext?.addEventListener('click', () => move(1));
-    toggle.addEventListener('change', () => setDialogState(toggle.checked));
+    openButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        lastTrigger = button;
+        setDialogState(true);
+      });
+    });
+    dialogClose?.addEventListener('click', () => setDialogState(false));
 
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog) setDialogState(false);
@@ -168,10 +188,6 @@ const images = photos.map((photo) => {
       }
       if (event.key === 'ArrowLeft') move(-1);
       if (event.key === 'ArrowRight') move(1);
-      if ((event.key === 'Enter' || event.key === ' ') && document.activeElement === dialogClose) {
-        event.preventDefault();
-        setDialogState(false);
-      }
       if (event.key === 'Tab') {
         const focusable = Array.from(dialog.querySelectorAll<HTMLElement>('[data-room-gallery-close], button:not([disabled])'));
         if (!focusable.length) return;
@@ -204,8 +220,19 @@ const images = photos.map((photo) => {
     white-space: nowrap;
   }
   .room-gallery__viewport {
+    position: relative;
     overflow: hidden;
     background: var(--tortora);
+  }
+  .room-gallery__viewport::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 34%;
+    content: '';
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0.3));
   }
   .room-gallery__track {
     display: flex;
@@ -214,28 +241,39 @@ const images = photos.map((photo) => {
   .room-gallery__slide {
     flex: 0 0 100%;
     min-width: 0;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
   }
+  .room-gallery--detail .room-gallery__slide { aspect-ratio: 3 / 2; }
   .room-gallery__open {
     display: block;
     width: 100%;
+    height: 100%;
     padding: 0;
     border: 0;
     background: transparent;
     cursor: zoom-in;
   }
-  .room-gallery :global(.room-gallery__image) {
+  .room-gallery__slide :global(picture) {
+    display: block;
     width: 100%;
-    aspect-ratio: 3 / 2;
+    height: 100%;
+  }
+  .room-gallery :global(.room-gallery__image) {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
   .room-gallery__controls {
+    position: absolute;
+    z-index: 1;
+    bottom: clamp(0.8rem, 2vw, 1.6rem);
+    left: 50%;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.75rem;
-    margin-top: 0.7rem;
+    gap: 1rem;
+    transform: translateX(-50%);
   }
-  .room-gallery__arrow,
   .room-gallery__dialog-arrow,
   .room-gallery__close {
     display: grid;
@@ -250,11 +288,31 @@ const images = photos.map((photo) => {
     line-height: 1;
     cursor: pointer;
   }
+  .room-gallery__arrow {
+    display: grid;
+    width: 2.4rem;
+    height: 2.8rem;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ground);
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+    text-shadow: 0 1px 8px rgb(0 0 0 / 0.42);
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
   .room-gallery__arrow:hover,
   .room-gallery__arrow:focus-visible {
-    border-color: var(--ink);
-    background: var(--ink);
-    color: var(--ground);
+    outline: 0;
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  .room-gallery__arrow:focus-visible {
+    outline: 1px solid var(--ground);
+    outline-offset: 5px;
   }
   .room-gallery__count,
   .room-gallery__dialog-count {
@@ -264,6 +322,11 @@ const images = photos.map((photo) => {
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     text-align: center;
+  }
+  .room-gallery__count {
+    display: block;
+    width: fit-content;
+    margin: 0.7rem auto 0;
   }
   .room-gallery__dialog {
     position: fixed;
