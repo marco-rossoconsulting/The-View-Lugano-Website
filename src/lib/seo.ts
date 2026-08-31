@@ -18,7 +18,18 @@ export function hotelJsonLd(lang: Locale) {
     slogan: SITE.tagline[lang],
     telephone: SITE.phone,
     email: SITE.email,
-    priceRange: 'CHF CHF CHF CHF',
+    priceRange: '$$$$',
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: simpleBookingUrl(lang),
+        actionPlatform: [
+          'https://schema.org/DesktopWebPlatform',
+          'https://schema.org/MobileWebPlatform',
+        ],
+      },
+    },
     numberOfRooms: SITE.suites.total,
     checkinTime: '15:00',
     checkoutTime: '11:00',
@@ -44,12 +55,6 @@ export function hotelJsonLd(lang: Locale) {
       { '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
     ],
     award: SITE.awards.map((a) => a.name),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '380',
-      bestRating: '5',
-    },
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' },
     ],
@@ -68,149 +73,6 @@ export function hotelJsonLd(lang: Locale) {
         addressCountry: SITE.address.country,
       },
     },
-    // Direct book only: SimpleBooking hotel 10185, HTTPS. Never booking.com.
-    potentialAction: {
-      '@type': 'ReserveAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: simpleBookingUrl(lang),
-        actionPlatform: [
-          'https://schema.org/DesktopWebPlatform',
-          'https://schema.org/MobileWebPlatform',
-        ],
-      },
-      result: { '@type': 'LodgingReservation' },
-    },
     sameAs: [SITE.facebook, 'https://slh.com/hotels/the-view-lugano', 'https://www.forbestravelguide.com/hotels/lugano-switzerland/the-view-lugano'],
-  };
-}
-
-export function localBusinessJsonLd(lang: Locale) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'LodgingBusiness',
-    '@id': `${SITE.url}/#localBusiness`,
-    name: SITE.name,
-    url: `${SITE.url}/${lang}/`,
-    telephone: SITE.phone,
-    email: SITE.email,
-    priceRange: 'CHF CHF CHF CHF',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: SITE.address.street,
-      postalCode: SITE.address.postalCode,
-      addressLocality: SITE.address.locality,
-      addressRegion: SITE.address.region,
-      addressCountry: SITE.address.country,
-    },
-    geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
-    openingHoursSpecification: [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' },
-    ],
-    image: 'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135345/hotel_012.jpg',
-  };
-}
-
-export function howToArriveJsonLd(lang: Locale) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: lang === 'en' ? 'How to arrive at THE VIEW Lugano' : lang === 'de' ? 'Anreise zum THE VIEW Lugano' : lang === 'it' ? 'Come arrivare al THE VIEW Lugano' : 'Comment arriver au THE VIEW Lugano',
-    step: [
-      {
-        '@type': 'HowToStep',
-        name: lang === 'en' ? 'By car' : 'Mit dem Auto',
-        text: 'Leave the A2 at Lugano Sud, follow Paradiso, then Via Guidino to number 29. Parking is available at the house.',
-      },
-      {
-        '@type': 'HowToStep',
-        name: lang === 'en' ? 'By train' : 'Mit dem Zug',
-        text: 'Lugano station is ten minutes away; Paradiso station closer still. Collection can be arranged with your Ambassador.',
-      },
-      {
-        '@type': 'HowToStep',
-        name: lang === 'en' ? 'By air' : 'Mit dem Flugzeug',
-        text: 'Lugano Airport is around 25 minutes, Milan Malpensa around an hour, Zurich around two and a half by road or rail.',
-      },
-    ],
-  };
-}
-
-export function spaJsonLd(lang: Locale, image: string) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'DaySpa',
-    '@id': `${SITE.url}/#spa`,
-    name: `${SITE.name} Spa`,
-    url: `${SITE.url}/${lang}/spa/`,
-    inLanguage: LD_LANG[lang],
-    telephone: SITE.phone,
-    email: SITE.email,
-    priceRange: 'CHF CHF CHF',
-    image,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: SITE.address.street,
-      postalCode: SITE.address.postalCode,
-      addressLocality: SITE.address.locality,
-      addressRegion: SITE.address.region,
-      addressCountry: SITE.address.country,
-    },
-    geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
-    containedInPlace: { '@id': `${SITE.url}/#hotel` },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: SITE.spa.opens,
-        closes: SITE.spa.closes,
-      },
-    ],
-    amenityFeature: [
-      { '@type': 'LocationFeatureSpecification', name: 'Indoor pool', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Night Spa', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Sauna & steam bath', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Himalayan salt relaxation room', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Fitness studio', value: true },
-    ],
-  };
-}
-
-export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((it, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: it.name,
-      item: `${SITE.url}${it.url}`,
-    })),
-  };
-}
-
-export function faqJsonLd(items: { q: string; a: string }[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: items.map((it) => ({
-      '@type': 'Question',
-      name: it.q,
-      acceptedAnswer: { '@type': 'Answer', text: it.a },
-    })),
-  };
-}
-
-export function imageJsonLd(images: { url: string; caption: string }[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    itemListElement: images.map((im, i) => ({
-      '@type': 'ImageObject',
-      position: i + 1,
-      contentUrl: im.url,
-      caption: im.caption,
-      creditText: 'THE VIEW Lugano',
-    })),
   };
 }
