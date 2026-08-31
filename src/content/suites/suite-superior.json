@@ -1,72 +1,74 @@
 {
-  "order": 2,
+  "order": 4,
   "name": { "en": "Suite Superior", "de": "Suite Superior", "it": "Suite Superior", "fr": "Suite Superior" },
   "sqm": 105,
-  "sleeps": 3,
+  "sleeps": 4,
+  "babyCot": true,
+  "occupancyLabel": { "en": "Max. 4 guests + baby cot", "de": "Max. 4 Personen + Babybett", "it": "Massimo 4 persone + lettino per bambini", "fr": "Jusqu'à 4 personnes + lit bébé" },
   "count": 2,
   "lakeView": true,
   "terrace": true,
   "photos": [
     {
-      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12140659/room_051.jpg",
+      "src": "/images/suites/the-view-lugano-suite-superior-bedroom-01.jpg",
       "alt": {
-        "en": "Suite Superior across its full width",
-        "de": "Suite Superior in ganzer Breite",
-        "it": "Suite Superior in tutta la sua larghezza",
-        "fr": "Suite Superior sur toute sa largeur"
+        "en": "Suite Superior bedroom with freestanding tub",
+        "de": "Schlafbereich einer Suite Superior mit freistehender Badewanne",
+        "it": "Camera da letto di una Suite Superior con vasca freestanding",
+        "fr": "Chambre d'une Suite Superior avec baignoire îlot"
       }
     },
     {
-      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12140644/room_021.jpg",
+      "src": "/images/suites/the-view-lugano-suite-superior-lake-view-lounge-02.jpg",
       "alt": {
-        "en": "Living area of the Suite Superior opening onto the terrace",
-        "de": "Wohnbereich der Suite Superior mit Übergang zur Terrasse",
-        "it": "Zona giorno della Suite Superior aperta sulla terrazza",
-        "fr": "Séjour de la Suite Superior ouvrant sur la terrasse"
+        "en": "Suite Superior lounge with Lake Lugano view",
+        "de": "Wohnbereich einer Suite Superior mit Blick auf den Luganersee",
+        "it": "Salotto di una Suite Superior con vista sul Lago di Lugano",
+        "fr": "Salon d'une Suite Superior avec vue sur le lac de Lugano"
       }
     },
     {
-      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12140654/room_041.jpg",
+      "src": "/images/suites/the-view-lugano-suite-superior-bathroom-03.jpg",
       "alt": {
-        "en": "Bathroom of the Suite Superior with freestanding tub",
-        "de": "Bad der Suite Superior mit freistehender Wanne",
-        "it": "Bagno della Suite Superior con vasca freestanding",
-        "fr": "Salle de bains de la Suite Superior avec baignoire îlot"
+        "en": "Suite Superior bathroom with freestanding tub and rain shower",
+        "de": "Bad einer Suite Superior mit freistehender Wanne und Regendusche",
+        "it": "Bagno di una Suite Superior con vasca freestanding e doccia a pioggia",
+        "fr": "Salle de bains d'une Suite Superior avec baignoire îlot et douche pluie"
       }
     }
   ],
   "summary": {
-    "en": "One hundred and five square metres with a separate living room and a terrace long enough to lose an afternoon on. There are two, and they are the same suite — neither is the compromise.",
-    "de": "Hundertfünf Quadratmeter mit separatem Wohnzimmer und einer Terrasse, lang genug für einen ganzen Nachmittag. Es gibt zwei, und sie sind dieselbe Suite — keine ist der Kompromiss.",
-    "it": "Centocinque metri quadrati con salotto separato e una terrazza lunga abbastanza da perderci un pomeriggio. Sono due, e sono la stessa suite — nessuna è il compromesso.",
-    "fr": "Cent cinq mètres carrés avec salon séparé et une terrasse assez longue pour y perdre un après-midi. Il y en a deux, et ce sont la même suite — aucune n'est le compromis."
+    "en": "One hundred and five square metres with a separate living room and a long private terrace. There are two, and each offers the full experience.",
+    "de": "Hundertfünf Quadratmeter mit separatem Wohnzimmer und einer langen privaten Terrasse. Es gibt zwei, beide bieten das volle Erlebnis.",
+    "it": "Centocinque metri quadrati con salotto separato e una lunga terrazza privata. Sono due, e entrambe offrono un'esperienza completa.",
+    "fr": "Cent cinq mètres carrés avec salon séparé et longue terrasse privée. Elles sont deux, et chacune offre l'expérience complète."
   },
   "body": {
     "en": [
-      "The two Suite Superior more than double the Junior Suite: a separate living room, a dining corner, a dressing area, and the same rule as everywhere in the building — the lake in every window.",
-      "They suit longer stays, families of three, or two people who simply want a house rather than a room. When the whole property is taken privately, these are the suites the hosts keep."
+      "The two Suite Superior offer a separate living room, dining corner and dressing area, with the lake in every window.",
+      "They suit longer stays, families of up to four guests with a baby cot, or two people who simply want a house rather than a room."
     ],
     "de": [
-      "Die zwei Suiten Superior verdoppeln die Junior Suite mehr als: separates Wohnzimmer, Essecke, Ankleide — und dieselbe Regel wie überall im Haus: der See in jedem Fenster.",
-      "Sie passen zu längeren Aufenthalten, zu Familien zu dritt oder zu zwei Menschen, die schlicht ein Haus statt eines Zimmers wollen. Wird das ganze Haus privat genommen, sind dies die Suiten der Gastgeber."
+      "Die zwei Suiten Superior bieten ein separates Wohnzimmer, eine Essecke und einen Ankleidebereich, mit dem See in jedem Fenster.",
+      "Sie passen zu längeren Aufenthalten, zu Familien mit bis zu vier Personen und Babybett oder zu zwei Menschen, die lieber ein Haus als ein Zimmer möchten."
     ],
     "it": [
-      "Le due Suite Superior più che raddoppiano la Junior Suite: salotto separato, angolo pranzo, cabina armadio — e la stessa regola di tutto l'edificio: il lago in ogni finestra.",
-      "Sono adatte a soggiorni più lunghi, a famiglie di tre, o a due persone che vogliono semplicemente una casa e non una stanza. Quando l'intera proprietà è presa privatamente, queste sono le suite dei padroni di casa."
+      "Le due Suite Superior offrono salotto separato, angolo pranzo e cabina armadio, con il lago in ogni finestra.",
+      "Sono adatte a soggiorni più lunghi, a famiglie fino a quattro persone con lettino per bambini o a due persone che desiderano una casa invece di una stanza."
     ],
     "fr": [
-      "Les deux Suites Superior font plus que doubler la Junior Suite : salon séparé, coin repas, dressing — et la même règle que partout dans le bâtiment : le lac à chaque fenêtre.",
-      "Elles conviennent aux séjours plus longs, aux familles de trois, ou à deux personnes qui veulent simplement une maison plutôt qu'une chambre. Lorsque la propriété entière est prise en privé, ce sont les suites des hôtes."
+      "Les deux Suites Superior offrent un salon séparé, un coin repas et un dressing, avec le lac à chaque fenêtre.",
+      "Elles conviennent aux séjours plus longs, aux familles jusqu'à quatre personnes avec un lit bébé ou à deux personnes qui souhaitent une maison plutôt qu'une chambre."
     ]
   },
   "amenities": [
-    { "en": "105 m², sleeps up to 3", "de": "105 m², für bis zu 3 Personen", "it": "105 m², fino a 3 persone", "fr": "105 m², jusqu'à 3 personnes" },
+    { "en": "105 m², maximum occupancy 4 guests + baby cot", "de": "105 m², maximale Belegung 4 Personen + Babybett", "it": "105 m², capienza massima 4 persone + lettino per bambini", "fr": "105 m², capacité maximale 4 personnes + lit bébé" },
     { "en": "Separate living room and dining corner", "de": "Separates Wohnzimmer und Essecke", "it": "Salotto separato e angolo pranzo", "fr": "Salon séparé et coin repas" },
     { "en": "Lake-facing, extended private terrace", "de": "Seeseitig, erweiterte private Terrasse", "it": "Fronte lago, terrazza privata estesa", "fr": "Face au lac, terrasse privée étendue" },
     { "en": "Bathroom with freestanding tub and rain shower", "de": "Bad mit freistehender Wanne und Regendusche", "it": "Bagno con vasca freestanding e doccia a pioggia", "fr": "Salle de bains avec baignoire îlot et douche pluie" },
     { "en": "Dressing area, in-suite safe, minibar", "de": "Ankleide, Suitensafe, Minibar", "it": "Cabina armadio, cassaforte in suite, minibar", "fr": "Dressing, coffre-fort en suite, minibar" },
     { "en": "Air conditioning, complimentary Wi-Fi", "de": "Klimaanlage, kostenfreies WLAN", "it": "Aria condizionata, Wi-Fi incluso", "fr": "Climatisation, Wi-Fi compris" },
     { "en": "Electric Smart cars and e-bikes included with the stay", "de": "Elektrische Smarts und E-Bikes im Aufenthalt inbegriffen", "it": "Smart elettriche ed e-bike incluse nel soggiorno", "fr": "Smart électriques et vélos électriques compris dans le séjour" },
-    { "en": "Ambassador service from before arrival to after departure", "de": "Ambassador-Service von vor der Anreise bis nach der Abreise", "it": "Servizio Ambassador da prima dell'arrivo a dopo la partenza", "fr": "Service Ambassador d'avant l'arrivée à après le départ" }
+    { "en": "Ambassador service from before arrival to after departure", "de": "Ambassador-Service von vor der Anreise bis nach der Abreise", "it": "Servizio Ambassador da prima dell'arrivo fino alla partenza", "fr": "Service Ambassador d'avant l'arrivée à après le départ" }
   ]
 }

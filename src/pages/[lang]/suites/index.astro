@@ -1,8 +1,8 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import Pic from '../../../components/Pic.astro';
+import RoomGallery from '../../../components/RoomGallery.astro';
 import JsonLd from '../../../components/JsonLd.astro';
-import { localePaths, p, isLocale, type Locale } from '../../../lib/i18n';
+import { localePaths, p, isLocale, dict, type Locale } from '../../../lib/i18n';
 import { breadcrumbJsonLd } from '../../../lib/seo';
 import { getCollection } from 'astro:content';
 
@@ -21,6 +21,7 @@ const [pageEntries, suiteEntries] = await Promise.all([
 const page = pageEntries.find((e) => e.data.slug === 'suites-index')?.data;
 const suites = suiteEntries.sort((a, b) => a.data.order - b.data.order);
 if (!page) throw new Error('Missing suites-index CMS content');
+const t = dict(lang);
 ---
 
 <Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="suites">
@@ -34,28 +35,36 @@ if (!page) throw new Error('Missing suites-index CMS content');
 
   <section class="section" style="padding-top:0;">
     <div class="container suites-list">
-      {suites.map((s, i) => (
+      {suites.map((s, i) => {
+        const dimensions = s.data.sizeLabel?.[lang] ?? (s.data.sqm ? `${s.data.sqm} m²` : '');
+        const details = [
+          s.data.count && dimensions ? `${s.data.count} × ${dimensions}` : dimensions,
+          s.data.occupancyLabel?.[lang] ?? (s.data.sleeps ? `${t.suites.sleeps} ${s.data.sleeps}` : ''),
+        ].filter(Boolean);
+
+        return (
         <article class={`editorial fade-up${i % 2 ? ' editorial--flip' : ''}`}>
-          <a class="editorial__photo" href={p(lang, 'suites', s.id)}>
-            <Pic
-              src={s.data.photos[0].src}
-              alt={s.data.photos[0].alt[lang]}
-              width={1600}
-              height={1067}
-              sizes="(max-width: 900px) 100vw, 58vw"
+          <div class="editorial__photo">
+            <RoomGallery
+              photos={s.data.photos}
+              {lang}
+              galleryId={s.id}
+              label={s.data.name[lang]}
+              previousLabel={t.gallery.lightboxPrev}
+              nextLabel={t.gallery.lightboxNext}
+              closeLabel={t.gallery.lightboxClose}
+              eager={i === 0}
             />
-          </a>
+          </div>
           <div class="editorial__text">
-            <p class="eyebrow">
-              {s.data.count} × {s.data.sqm} m² · Sleeps {s.data.sleeps}
-            </p>
+            {details.length > 0 && <p class="eyebrow">{details.join(' / ')}</p>}
             <h2 class="suite-name">{s.data.name[lang]}</h2>
             <p>{s.data.summary[lang]}</p>
-            <a class="btn" href={p(lang, 'suites', s.id)}>Discover</a>
+            <a class="btn" href={p(lang, 'suites', s.id)}>{t.common.discover}</a>
           </div>
         </article>
-      ))}
-      <p class="page-note">{page.residenceNote?.[lang]}</p>
+        );
+      })}
     </div>
   </section>
 
@@ -78,7 +87,6 @@ if (!page) throw new Error('Missing suites-index CMS content');
   .editorial--flip { grid-template-columns: 4fr 7fr; }
   .editorial--flip .editorial__photo { order: 2; }
   .editorial--flip .editorial__text { order: 1; }
-  .editorial__photo :global(img) { width: 100%; height: auto; display: block; }
   .suite-name {
     font-family: var(--font-display);
     font-weight: 300;

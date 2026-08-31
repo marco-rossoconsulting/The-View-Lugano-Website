@@ -1,70 +1,104 @@
 {
-  "order": 3,
+  "order": 1,
   "name": { "en": "THE VIEW Residence", "de": "THE VIEW Residence", "it": "THE VIEW Residence", "fr": "THE VIEW Residence" },
-  "sqm": 80,
+  "sizeLabel": { "en": "50 or 80 m²", "de": "50 oder 80 m²", "it": "50 o 80 m²", "fr": "50 ou 80 m²" },
+  "minSleeps": 2,
   "sleeps": 4,
-  "count": 4,
-  "lakeView": true,
-  "terrace": true,
+  "occupancyLabel": { "en": "2 to 4 guests, depending on studio", "de": "2 bis 4 Personen, je nach Studio", "it": "Da 2 a 4 persone, a seconda del monolocale", "fr": "De 2 à 4 personnes selon le studio" },
+  "count": 5,
+  "lakeView": false,
+  "terrace": false,
   "photos": [
     {
-      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/19140247/web-Outside.jpg",
+      "src": "/images/suites/the-view-lugano-residence-living-space-01.jpg",
       "alt": {
-        "en": "THE VIEW Residence terrace above the lake",
-        "de": "Terrasse der THE VIEW Residence über dem See",
-        "it": "Terrazza della THE VIEW Residence sopra il lago",
-        "fr": "Terrasse de THE VIEW Residence au-dessus du lac"
+        "en": "THE VIEW Residence living area with kitchen",
+        "de": "Wohnbereich der THE VIEW Residence mit Küche",
+        "it": "Zona giorno della THE VIEW Residence con cucina",
+        "fr": "Séjour de THE VIEW Residence avec cuisine"
       }
     },
     {
-      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/19140251/web-202-1.jpg",
+      "src": "/images/suites/the-view-lugano-residence-dining-area-02.jpg",
       "alt": {
-        "en": "Living space of a Residence apartment",
-        "de": "Wohnraum eines Residence-Apartments",
-        "it": "Zona giorno di un appartamento Residence",
-        "fr": "Séjour d'un appartement Residence"
+        "en": "THE VIEW Residence dining area",
+        "de": "Essbereich der THE VIEW Residence",
+        "it": "Zona pranzo della THE VIEW Residence",
+        "fr": "Salle à manger de THE VIEW Residence"
       }
     },
     {
-      "src": "https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/19140240/web-202-16.jpg",
+      "src": "/images/suites/the-view-lugano-residence-bedroom-03.jpg",
       "alt": {
-        "en": "Residence apartment interior with kitchen",
-        "de": "Interieur eines Residence-Apartments mit Küche",
-        "it": "Interno di un appartamento Residence con cucina",
-        "fr": "Intérieur d'un appartement Residence avec cuisine"
+        "en": "THE VIEW Residence bedroom",
+        "de": "Schlafzimmer der THE VIEW Residence",
+        "it": "Camera da letto della THE VIEW Residence",
+        "fr": "Chambre de THE VIEW Residence"
+      }
+    },
+    {
+      "src": "/images/suites/the-view-lugano-residence-sitting-area-04.jpg",
+      "alt": {
+        "en": "THE VIEW Residence sitting area",
+        "de": "Sitzbereich der THE VIEW Residence",
+        "it": "Zona soggiorno della THE VIEW Residence",
+        "fr": "Coin salon de THE VIEW Residence"
+      }
+    },
+    {
+      "src": "/images/suites/the-view-lugano-residence-kitchen-dining-05.jpg",
+      "alt": {
+        "en": "THE VIEW Residence kitchen and dining area",
+        "de": "Küche und Essbereich der THE VIEW Residence",
+        "it": "Cucina e zona pranzo della THE VIEW Residence",
+        "fr": "Cuisine et salle à manger de THE VIEW Residence"
+      }
+    },
+    {
+      "src": "/images/suites/the-view-lugano-residence-living-room-06.jpg",
+      "alt": {
+        "en": "THE VIEW Residence living room",
+        "de": "Wohnzimmer der THE VIEW Residence",
+        "it": "Soggiorno della THE VIEW Residence",
+        "fr": "Salon de THE VIEW Residence"
       }
     }
   ],
   "summary": {
-    "en": "Apartments in the same building, with a kitchen, more room to live in, and the hotel one floor away when you want it — the same lake in the window when you don't.",
-    "de": "Apartments im selben Gebäude, mit Küche, mehr Raum zum Leben und dem Hotel eine Etage entfernt, wenn Sie es wollen — und demselben See im Fenster, wenn nicht.",
-    "it": "Appartamenti nello stesso edificio, con cucina, più spazio da vivere e l'hotel a un piano di distanza quando lo volete — lo stesso lago nella finestra quando no.",
-    "fr": "Des appartements dans le même bâtiment, avec cuisine, plus d'espace à vivre et l'hôtel à un étage quand vous le voulez — le même lac à la fenêtre sinon."
+    "en": "Five two-room studios for extended stays, each with a kitchen and access to the house when you want it.",
+    "de": "Fünf Zwei-Zimmer-Studios für längere Aufenthalte, jeweils mit Küche und Zugang zum Haus, wann immer Sie ihn wünschen.",
+    "it": "Cinque bilocali per soggiorni più lunghi, ognuno con cucina e accesso ai servizi della casa quando lo desiderate.",
+    "fr": "Cinq studios de deux pièces pour les séjours prolongés, chacun avec cuisine et accès à la maison quand vous le souhaitez."
   },
   "body": {
     "en": [
-      "The Residence is for stays that behave like living: a kitchen of your own, space to work and to spread out, and the house's services — the restaurant, the spa, the Ambassador, the fleet — available the moment you want them.",
-      "Layouts and availability vary by apartment; write to us with your dates and how you live, and we will propose the one that fits."
+      "THE VIEW Residence comprises five two-room studios: one 80 m² Garden Studio, for up to four guests, with a private garden and partial lake view; three 50 m² Balcony Studios, each for up to four guests; and one 50 m² Standard Studio for up to two guests.",
+      "No studio has a full lake view. The Garden Studio has a partial lake view, with a building in the foreground.",
+      "Layouts, occupancy from two to four guests and availability vary by apartment. Write to us with your dates and how you plan to stay, and we will propose the right one."
     ],
     "de": [
-      "Die Residence ist für Aufenthalte, die sich wie Wohnen verhalten: eine eigene Küche, Platz zum Arbeiten und Ausbreiten — und die Dienste des Hauses, Restaurant, Spa, Ambassador, Flotte, in dem Moment verfügbar, in dem Sie sie wollen.",
-      "Grundrisse und Verfügbarkeit variieren je Apartment; schreiben Sie uns Ihre Daten und wie Sie wohnen, und wir schlagen das passende vor."
+      "Die THE VIEW Residence umfasst fünf Zwei-Zimmer-Studios: ein 80 m² grosses Garden Studio für bis zu vier Personen mit privatem Garten und teilweisem Seeblick, drei 50 m² grosse Balcony Studios für jeweils bis zu vier Personen sowie ein 50 m² grosses Standard Studio für bis zu zwei Personen.",
+      "Kein Studio bietet einen vollständigen Seeblick. Das Garden Studio hat teilweisen Seeblick, mit einem Gebäude im Vordergrund.",
+      "Grundrisse, Belegung von zwei bis vier Personen und Verfügbarkeit variieren je Apartment. Schreiben Sie uns Ihre Daten und wie Sie wohnen möchten, und wir schlagen das passende vor."
     ],
     "it": [
-      "La Residence è per soggiorni che somigliano all'abitare: una cucina propria, spazio per lavorare e distendersi — e i servizi della casa, ristorante, spa, Ambassador, flotta, disponibili nel momento in cui li volete.",
-      "Le planimetrie e la disponibilità variano da appartamento ad appartamento; scriveteci le vostre date e come vivete, e vi proporremo quello adatto."
+      "La THE VIEW Residence comprende cinque bilocali: un Garden Studio di 80 m² per un massimo di quattro persone, con giardino privato e vista parziale sul lago; tre Balcony Studio di 50 m², ciascuno per un massimo di quattro persone; e uno Standard Studio di 50 m² per un massimo di due persone.",
+      "Nessuno studio offre una vista completa sul lago. Il Garden Studio ha una vista parziale sul lago, con un edificio in primo piano.",
+      "Le planimetrie, l'occupazione da due a quattro persone e la disponibilità variano da appartamento ad appartamento. Scriveteci le vostre date e il tipo di soggiorno desiderato, e vi proporremo quello più adatto."
     ],
     "fr": [
-      "La Residence est faite pour des séjours qui ressemblent à la vie : une cuisine à soi, de l'espace pour travailler et s'étendre — et les services de la maison, restaurant, spa, Ambassador, flotte, disponibles à l'instant où vous les voulez.",
-      "Les plans et disponibilités varient selon les appartements ; écrivez-nous vos dates et votre manière de vivre, et nous proposerons celui qui convient."
+      "THE VIEW Residence comprend cinq studios de deux pièces : un Garden Studio de 80 m², pour un maximum de quatre personnes, avec jardin privé et vue partielle sur le lac ; trois Balcony Studios de 50 m², chacun pour un maximum de quatre personnes ; et un Standard Studio de 50 m² pour un maximum de deux personnes.",
+      "Aucun studio ne bénéficie d'une vue complète sur le lac. Le Garden Studio offre une vue partielle sur le lac, avec un bâtiment au premier plan.",
+      "Les plans, la capacité de deux à quatre personnes et les disponibilités varient selon les appartements. Écrivez-nous vos dates et le type de séjour souhaité, et nous vous proposerons celui qui convient."
     ]
   },
   "amenities": [
-    { "en": "Apartments with full kitchen", "de": "Apartments mit voller Küche", "it": "Appartamenti con cucina completa", "fr": "Appartements avec cuisine complète" },
-    { "en": "Lake-facing, private terrace", "de": "Seeseitig, private Terrasse", "it": "Fronte lago, terrazza privata", "fr": "Face au lac, terrasse privée" },
-    { "en": "Access to spa, pools and restaurant of the house", "de": "Zugang zu Spa, Pools und Restaurant des Hauses", "it": "Accesso a spa, piscine e ristorante della casa", "fr": "Accès au spa, aux piscines et au restaurant de la maison" },
-    { "en": "Housekeeping and Ambassador service on request", "de": "Housekeeping und Ambassador-Service auf Wunsch", "it": "Housekeeping e servizio Ambassador su richiesta", "fr": "Ménage et service Ambassador sur demande" },
-    { "en": "Air conditioning, complimentary Wi-Fi", "de": "Klimaanlage, kostenfreies WLAN", "it": "Aria condizionata, Wi-Fi incluso", "fr": "Climatisation, Wi-Fi compris" },
-    { "en": "Longer-stay rates on request", "de": "Langzeitraten auf Anfrage", "it": "Tariffe per soggiorni lunghi su richiesta", "fr": "Tarifs longue durée sur demande" }
+    { "en": "Five two-room studios", "de": "Fünf Zwei-Zimmer-Studios", "it": "Cinque bilocali", "fr": "Cinq studios de deux pièces" },
+    { "en": "Garden Studio: 80 m², private garden, partial lake view, maximum 4 guests", "de": "Garden Studio: 80 m², privater Garten, teilweiser Seeblick, maximal 4 Personen", "it": "Garden Studio: 80 m², giardino privato, vista parziale sul lago, massimo 4 persone", "fr": "Garden Studio : 80 m², jardin privé, vue partielle sur le lac, maximum 4 personnes" },
+    { "en": "Three Balcony Studios: 50 m², maximum 4 guests each", "de": "Drei Balcony Studios: 50 m², jeweils maximal 4 Personen", "it": "Tre Balcony Studio: 50 m², massimo 4 persone ciascuno", "fr": "Trois Balcony Studios : 50 m², maximum 4 personnes chacun" },
+    { "en": "Standard Studio: 50 m², maximum 2 guests", "de": "Standard Studio: 50 m², maximal 2 Personen", "it": "Standard Studio: 50 m², massimo 2 persone", "fr": "Standard Studio : 50 m², maximum 2 personnes" },
+    { "en": "Kitchen and living area", "de": "Küche und Wohnbereich", "it": "Cucina e zona giorno", "fr": "Cuisine et espace de vie" },
+    { "en": "Access to the spa, pools and restaurant", "de": "Zugang zu Spa, Pools und Restaurant", "it": "Accesso alla spa, alle piscine e al ristorante", "fr": "Accès au spa, aux piscines et au restaurant" },
+    { "en": "Housekeeping and Ambassador service on request", "de": "Housekeeping und Ambassador-Service auf Wunsch", "it": "Housekeeping e servizio Ambassador su richiesta", "fr": "Ménage et service Ambassador sur demande" }
   ]
 }
