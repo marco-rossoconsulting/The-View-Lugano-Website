@@ -1,4 +1,4 @@
-import { SITE } from './site';
+import { SITE, simpleBookingUrl } from './site';
 import type { Locale } from './i18n';
 
 const LD_LANG: Record<Locale, string> = { en: 'en', de: 'de', it: 'it', fr: 'fr' };
@@ -67,6 +67,19 @@ export function hotelJsonLd(lang: Locale) {
         addressLocality: SITE.address.locality,
         addressCountry: SITE.address.country,
       },
+    },
+    // Direct book only: SimpleBooking hotel 10185, HTTPS. Never booking.com.
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: simpleBookingUrl(lang),
+        actionPlatform: [
+          'https://schema.org/DesktopWebPlatform',
+          'https://schema.org/MobileWebPlatform',
+        ],
+      },
+      result: { '@type': 'LodgingReservation' },
     },
     sameAs: [SITE.facebook, 'https://slh.com/hotels/the-view-lugano', 'https://www.forbestravelguide.com/hotels/lugano-switzerland/the-view-lugano'],
   };
