@@ -5,6 +5,21 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Press pages currently live as ?page_id= on WP. Must precede / → /en/.
+[[redirects]]
+  from = "/"
+  query = {page_id = "92"}
+  to = "/it/press/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/"
+  query = {page_id = "3241"}
+  to = "/en/press/"
+  status = 301
+  force = true
+
 # ── Redirects: canonical paths ──
 # (force = true ensures Netlify edge rules override Astro’s generated static files)
 [[redirects]]
@@ -32,6 +47,859 @@
 [[redirects]]
   from = "/fr"
   to = "/fr/"
+  status = 301
+
+# ── Pre-cutover: WordPress path 301s ──
+# Map live 200 WP URLs (REST + Rank-named) to the closest Astro locale route.
+# Do not change the / → /en/ rule above; homepage language is pending Marco.
+# More-specific rules before splats. Skip junk (blog posts, taxonomies, ?p=).
+
+# Dining
+[[redirects]]
+  from = "/ristorante"
+  to = "/it/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/ristorante/*"
+  to = "/it/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/en/restaurant"
+  to = "/en/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/en/restaurant/*"
+  to = "/en/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/de/restaurant"
+  to = "/de/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/de/restaurant/*"
+  to = "/de/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/restaurant"
+  to = "/fr/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/restaurant/*"
+  to = "/fr/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/lounge-bar"
+  to = "/fr/dining/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/lounge-bar/*"
+  to = "/fr/dining/"
+  status = 301
+
+# Suites / residence
+[[redirects]]
+  from = "/suites-da-sogno/junior-suite"
+  to = "/it/suites/junior-suite/"
+  status = 301
+
+[[redirects]]
+  from = "/suites-da-sogno/junior-suite/*"
+  to = "/it/suites/junior-suite/"
+  status = 301
+
+[[redirects]]
+  from = "/suites-da-sogno/suites"
+  to = "/it/suites/suite-superior/"
+  status = 301
+
+[[redirects]]
+  from = "/suites-da-sogno/suites/*"
+  to = "/it/suites/suite-superior/"
+  status = 301
+
+[[redirects]]
+  from = "/suites-da-sogno/rooms"
+  to = "/it/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/suites-da-sogno/rooms/*"
+  to = "/it/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/suites-da-sogno"
+  to = "/it/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/suites-da-sogno/*"
+  to = "/it/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/the-view-residence"
+  to = "/it/suites/residence/"
+  status = 301
+
+[[redirects]]
+  from = "/the-view-residence/*"
+  to = "/it/suites/residence/"
+  status = 301
+
+[[redirects]]
+  from = "/en/dream-suites/junior-suite"
+  to = "/en/suites/junior-suite/"
+  status = 301
+
+[[redirects]]
+  from = "/en/dream-suites/junior-suite/*"
+  to = "/en/suites/junior-suite/"
+  status = 301
+
+[[redirects]]
+  from = "/en/dream-suites/suites"
+  to = "/en/suites/suite-superior/"
+  status = 301
+
+[[redirects]]
+  from = "/en/dream-suites/suites/*"
+  to = "/en/suites/suite-superior/"
+  status = 301
+
+[[redirects]]
+  from = "/en/dream-suites/rooms"
+  to = "/en/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/en/suites-da-sogno/rooms"
+  to = "/en/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/en/dream-suites"
+  to = "/en/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/en/dream-suites/*"
+  to = "/en/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/en/suites-da-sogno"
+  to = "/en/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/en/suites-da-sogno/*"
+  to = "/en/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/en/the-view-residence"
+  to = "/en/suites/residence/"
+  status = 301
+
+[[redirects]]
+  from = "/en/the-view-residence/*"
+  to = "/en/suites/residence/"
+  status = 301
+
+[[redirects]]
+  from = "/de/traumhafte-suiten/junior-suite"
+  to = "/de/suites/junior-suite/"
+  status = 301
+
+[[redirects]]
+  from = "/de/traumhafte-suiten/junior-suite/*"
+  to = "/de/suites/junior-suite/"
+  status = 301
+
+[[redirects]]
+  from = "/de/traumhafte-suiten/suites"
+  to = "/de/suites/suite-superior/"
+  status = 301
+
+[[redirects]]
+  from = "/de/traumhafte-suiten/suites/*"
+  to = "/de/suites/suite-superior/"
+  status = 301
+
+[[redirects]]
+  from = "/de/traumhafte-suiten"
+  to = "/de/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/de/traumhafte-suiten/*"
+  to = "/de/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/de/the-view-residence"
+  to = "/de/suites/residence/"
+  status = 301
+
+[[redirects]]
+  from = "/de/the-view-residence/*"
+  to = "/de/suites/residence/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/suites-de-reve/junior-suite"
+  to = "/fr/suites/junior-suite/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/suites-de-reve/junior-suite/*"
+  to = "/fr/suites/junior-suite/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/suites-de-reve/suites"
+  to = "/fr/suites/suite-superior/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/suites-de-reve/suites/*"
+  to = "/fr/suites/suite-superior/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/suites-de-reve"
+  to = "/fr/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/suites-de-reve/*"
+  to = "/fr/suites/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/the-view-residence"
+  to = "/fr/suites/residence/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/the-view-residence/*"
+  to = "/fr/suites/residence/"
+  status = 301
+
+# Spa
+[[redirects]]
+  from = "/the-view-spa"
+  to = "/it/spa/"
+  status = 301
+
+[[redirects]]
+  from = "/the-view-spa/*"
+  to = "/it/spa/"
+  status = 301
+
+[[redirects]]
+  from = "/en/the-view-spa"
+  to = "/en/spa/"
+  status = 301
+
+[[redirects]]
+  from = "/en/the-view-spa/*"
+  to = "/en/spa/"
+  status = 301
+
+[[redirects]]
+  from = "/de/spa-the-view"
+  to = "/de/spa/"
+  status = 301
+
+[[redirects]]
+  from = "/de/spa-the-view/*"
+  to = "/de/spa/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/the-view-spa"
+  to = "/fr/spa/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/the-view-spa/*"
+  to = "/fr/spa/"
+  status = 301
+
+# Events
+[[redirects]]
+  from = "/eventi-meeting"
+  to = "/it/events/"
+  status = 301
+
+[[redirects]]
+  from = "/eventi-meeting/*"
+  to = "/it/events/"
+  status = 301
+
+[[redirects]]
+  from = "/en/events-meeting"
+  to = "/en/events/"
+  status = 301
+
+[[redirects]]
+  from = "/en/events-meeting/*"
+  to = "/en/events/"
+  status = 301
+
+[[redirects]]
+  from = "/de/veranstaltungen"
+  to = "/de/events/"
+  status = 301
+
+[[redirects]]
+  from = "/de/veranstaltungen/*"
+  to = "/de/events/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/evenements-reunions"
+  to = "/fr/events/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/evenements-reunions/*"
+  to = "/fr/events/"
+  status = 301
+
+# Premium services → experiences
+[[redirects]]
+  from = "/servizi-premium"
+  to = "/it/experiences/"
+  status = 301
+
+[[redirects]]
+  from = "/servizi-premium/*"
+  to = "/it/experiences/"
+  status = 301
+
+[[redirects]]
+  from = "/en/premium-services"
+  to = "/en/experiences/"
+  status = 301
+
+[[redirects]]
+  from = "/en/premium-services/*"
+  to = "/en/experiences/"
+  status = 301
+
+[[redirects]]
+  from = "/de/premium-dienste"
+  to = "/de/experiences/"
+  status = 301
+
+[[redirects]]
+  from = "/de/premium-dienste/*"
+  to = "/de/experiences/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/services-premium"
+  to = "/fr/experiences/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/services-premium/*"
+  to = "/fr/experiences/"
+  status = 301
+
+# Location
+[[redirects]]
+  from = "/come-raggiungerci"
+  to = "/it/location/"
+  status = 301
+
+[[redirects]]
+  from = "/come-raggiungerci/*"
+  to = "/it/location/"
+  status = 301
+
+[[redirects]]
+  from = "/en/how-to-reach-us"
+  to = "/en/location/"
+  status = 301
+
+[[redirects]]
+  from = "/en/how-to-reach-us/*"
+  to = "/en/location/"
+  status = 301
+
+[[redirects]]
+  from = "/de/anfahrtsbeschreibungen"
+  to = "/de/location/"
+  status = 301
+
+[[redirects]]
+  from = "/de/anfahrtsbeschreibungen/*"
+  to = "/de/location/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/comment-nous-rejoindre"
+  to = "/fr/location/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/comment-nous-rejoindre/*"
+  to = "/fr/location/"
+  status = 301
+
+# Gallery, journal, press, sustainability
+[[redirects]]
+  from = "/photogallery"
+  to = "/it/gallery/"
+  status = 301
+
+[[redirects]]
+  from = "/en/photogallery"
+  to = "/en/gallery/"
+  status = 301
+
+[[redirects]]
+  from = "/de/fotogallerie"
+  to = "/de/gallery/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/galerie-de-photos"
+  to = "/fr/gallery/"
+  status = 301
+
+[[redirects]]
+  from = "/viewlife-blog"
+  to = "/it/journal/"
+  status = 301
+
+[[redirects]]
+  from = "/en/viewlife-blog"
+  to = "/en/journal/"
+  status = 301
+
+[[redirects]]
+  from = "/de/viewlife-blog"
+  to = "/de/journal/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/viewlife-blog"
+  to = "/fr/journal/"
+  status = 301
+
+[[redirects]]
+  from = "/media-relations"
+  to = "/it/press/"
+  status = 301
+
+[[redirects]]
+  from = "/en/media-relations"
+  to = "/en/press/"
+  status = 301
+
+[[redirects]]
+  from = "/de/medien-verbindung"
+  to = "/de/press/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/medias"
+  to = "/fr/press/"
+  status = 301
+
+[[redirects]]
+  from = "/sostenibilita"
+  to = "/it/sustainability/"
+  status = 301
+
+[[redirects]]
+  from = "/de/nachhaltigkeit"
+  to = "/de/sustainability/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/durabilite"
+  to = "/fr/sustainability/"
+  status = 301
+
+# Contact, careers, directory
+[[redirects]]
+  from = "/contatti"
+  to = "/it/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/careers"
+  to = "/it/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/directory"
+  to = "/it/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/en/contacts"
+  to = "/en/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/en/careers"
+  to = "/en/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/en/directory"
+  to = "/en/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/de/kontakt"
+  to = "/de/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/de/karriere"
+  to = "/de/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/de/gaesteinformation"
+  to = "/de/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/contactez"
+  to = "/fr/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/carrieres"
+  to = "/fr/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/guide-des-clients"
+  to = "/fr/contact/"
+  status = 301
+
+# Legal
+[[redirects]]
+  from = "/privacy"
+  to = "/it/legal/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/impressum"
+  to = "/it/legal/impressum/"
+  status = 301
+
+[[redirects]]
+  from = "/cookie-policy"
+  to = "/it/legal/cookies/"
+  status = 301
+
+[[redirects]]
+  from = "/termini-e-condizioni"
+  to = "/it/legal/terms/"
+  status = 301
+
+[[redirects]]
+  from = "/en/privacy"
+  to = "/en/legal/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/en/impressum"
+  to = "/en/legal/impressum/"
+  status = 301
+
+[[redirects]]
+  from = "/en/cookie-policy"
+  to = "/en/legal/cookies/"
+  status = 301
+
+[[redirects]]
+  from = "/en/terms-and-conditions"
+  to = "/en/legal/terms/"
+  status = 301
+
+[[redirects]]
+  from = "/de/privacy"
+  to = "/de/legal/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/de/impressum"
+  to = "/de/legal/impressum/"
+  status = 301
+
+[[redirects]]
+  from = "/de/cookie-policy"
+  to = "/de/legal/cookies/"
+  status = 301
+
+[[redirects]]
+  from = "/de/terms-conditions"
+  to = "/de/legal/terms/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/privacy"
+  to = "/fr/legal/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/impressum"
+  to = "/fr/legal/impressum/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/cookie-policy"
+  to = "/fr/legal/cookies/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/terms-conditions"
+  to = "/fr/legal/terms/"
+  status = 301
+
+# About + reviews → locale home
+[[redirects]]
+  from = "/about-us"
+  to = "/it/"
+  status = 301
+
+[[redirects]]
+  from = "/about-us/*"
+  to = "/it/"
+  status = 301
+
+[[redirects]]
+  from = "/recensioni"
+  to = "/it/"
+  status = 301
+
+[[redirects]]
+  from = "/en/about-us"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/en/about-us/*"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/en/reviews"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/de/wer-sind-wir"
+  to = "/de/"
+  status = 301
+
+[[redirects]]
+  from = "/de/wer-sind-wir/*"
+  to = "/de/"
+  status = 301
+
+[[redirects]]
+  from = "/de/gaestebewertungen"
+  to = "/de/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/a-propos-de-nous"
+  to = "/fr/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/a-propos-de-nous/*"
+  to = "/fr/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/commentaires-des-clients"
+  to = "/fr/"
+  status = 301
+
+# WP HTML sitemap pages
+[[redirects]]
+  from = "/sitemap"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/en/sitemap"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/de/sitemap"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/fr/sitemap"
+  to = "/sitemap.xml"
+  status = 301
+
+# WP reservation CPT → SimpleBooking IBE 10185 HTTPS
+[[redirects]]
+  from = "/wprm-reservation"
+  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=IT&cur=CHF"
+  status = 301
+
+[[redirects]]
+  from = "/wprm-reservation/*"
+  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=IT&cur=CHF"
+  status = 301
+
+[[redirects]]
+  from = "/en/wprm-reservation"
+  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=EN&cur=CHF"
+  status = 301
+
+[[redirects]]
+  from = "/en/wprm-reservation/*"
+  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=EN&cur=CHF"
+  status = 301
+
+[[redirects]]
+  from = "/de/wprm-reservation"
+  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=DE&cur=CHF"
+  status = 301
+
+[[redirects]]
+  from = "/de/wprm-reservation/*"
+  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=DE&cur=CHF"
+  status = 301
+
+[[redirects]]
+  from = "/fr/wprm-reservation"
+  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=FR&cur=CHF"
+  status = 301
+
+[[redirects]]
+  from = "/fr/wprm-reservation/*"
+  to = "https://www.simplebooking.it/ibe2/hotel/10185?lang=FR&cur=CHF"
+  status = 301
+
+# WP XML sitemaps → Astro /sitemap.xml
+[[redirects]]
+  from = "/sitemapindex.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/sitemap_index.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/wp-sitemap.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/page.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/site.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/post.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/post_lugano_event.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/post_offer.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/post_customization.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/post_wprm_menu.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/post_wprm_reservations.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/post_hotel_event.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/post_hotel_place.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/taxonomy_category.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/taxonomy_lugano_event_category.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/taxonomy_menu_category.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/taxonomy_menu_tag.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/taxonomy_hotel_event_category.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/taxonomy_hotel_place_category.xml"
+  to = "/sitemap.xml"
+  status = 301
+
+[[redirects]]
+  from = "/taxonomy_media_tag.xml"
+  to = "/sitemap.xml"
   status = 301
 
 # Apex → www (www is canonical per astro.config.mjs)
