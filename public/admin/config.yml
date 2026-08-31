@@ -247,3 +247,313 @@ collections:
                 fields:
                   - { name: title, label: Title, widget: object, fields: *loc }
                   - { name: body, label: Text, widget: object, fields: *loctext }
+
+  # ── 5. PRESS & AWARDS ──
+  - name: press
+    label: 🏆 Press & Awards Page
+    files:
+      - name: press
+        label: Press & Awards Content
+        file: src/content/press/press.json
+        fields:
+          - name: hero
+            label: Hero Image
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: image, label: Image Key, widget: string, hint: 'Reference key from the photos library, for example hotel_041' }
+              - { name: alt, label: Accessible Image Description, widget: object, fields: *loc }
+              - { name: caption, label: Image Caption, widget: object, fields: *loc }
+          - name: awards
+            label: Recognition Gallery
+            widget: object
+            fields:
+              - { name: title, label: Section Title, widget: object, fields: *loc }
+              - { name: intro, label: Introductory Text, widget: object, fields: *loctext }
+              - name: items
+                label: Award Logos
+                widget: list
+                fields:
+                  - { name: id, label: ID, widget: string, hint: 'Keep the existing lowercase identifier for layout consistency.' }
+                  - { name: src, label: Image Path, widget: string, hint: 'Public image path, for example /images/awards/michelin-star.webp' }
+                  - { name: width, label: Intrinsic Width, widget: number, hint: 'Use the original image width in pixels.' }
+                  - { name: height, label: Intrinsic Height, widget: number, hint: 'Use the original image height in pixels.' }
+                  - { name: alt, label: Accessible Image Description, widget: object, fields: *loc }
+          - name: media
+            label: Media Contact
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: cta, label: Button Label, widget: object, fields: *loc }
+          - name: facts
+            label: Fact Sheet
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+
+  # ── 6. CONTACT ──
+  - name: contact
+    label: ✉️ Contact Page
+    files:
+      - name: contact
+        label: Contact Page Content
+        file: src/content/contact/contact.json
+        fields:
+          - name: reach
+            label: Direct Contact
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: addressLabel, label: Address Label, widget: object, fields: *loc }
+              - { name: phoneLabel, label: Phone Label, widget: object, fields: *loc }
+              - { name: whatsappLabel, label: WhatsApp Label, widget: object, fields: *loc }
+              - { name: emailLabel, label: Email Label, widget: object, fields: *loc }
+              - { name: salesEmailLabel, label: Sales Email Label, widget: object, fields: *loc }
+              - { name: salesEmail, label: Sales Email Address, widget: string, hint: 'Shown in the direct contact panel and for travel trade.' }
+              - { name: whatsappMessage, label: WhatsApp Prefilled Message, widget: object, fields: *loctext }
+          - name: form
+            label: Enquiry Form
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Introductory Text, widget: object, fields: *loctext }
+              - { name: nameLabel, label: Name Label, widget: object, fields: *loc }
+              - { name: emailLabel, label: Email Label, widget: object, fields: *loc }
+              - { name: topicLabel, label: Topic Label, widget: object, fields: *loc }
+              - { name: topicPlaceholder, label: Topic Placeholder, widget: object, fields: *loc }
+              - { name: messageLabel, label: Message Label, widget: object, fields: *loc }
+              - { name: submit, label: Submit Button, widget: object, fields: *loc }
+              - { name: privacy, label: Privacy Note, widget: object, fields: *loctext }
+              - { name: success, label: Success Message, widget: object, fields: *loctext }
+              - { name: error, label: Error Message, widget: object, fields: *loctext }
+              - name: topics
+                label: Enquiry Topics
+                widget: list
+                fields:
+                  - { name: value, label: Submission Value, widget: string, hint: 'Keep lowercase and stable, for example stay.' }
+                  - { name: label, label: Visible Label, widget: object, fields: *loc }
+          - name: map
+            label: Location Map
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: directions, label: Directions Link Label, widget: object, fields: *loc }
+          - name: trade
+            label: Travel Trade
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: gdsNote, label: GDS Note, widget: object, fields: *loctext }
+          - name: careers
+            label: Careers
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: email, label: Careers Email Address, widget: string, hint: 'Shown beneath the careers details.' }
+
+  # ── 7. SUITES ──
+  - name: suites
+    label: 🛏️ Suites & Residence
+    folder: src/content/suites
+    extension: json
+    format: json
+    create: true
+    identifier_field: order
+    summary: '{{fields.name.en}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - name: name
+        label: Name
+        widget: object
+        fields: *loc
+      - { name: sqm, label: Size (m²), widget: number }
+      - { name: sleeps, label: Sleeps, widget: number }
+      - { name: count, label: Number of units, widget: number }
+      - { name: lakeView, label: Lake view, widget: hidden, default: true }
+      - { name: terrace, label: Private terrace, widget: hidden, default: true }
+      - name: photos
+        label: Photos
+        widget: list
+        fields:
+          - { name: src, label: Image URL, widget: string, hint: 'Full URL or /src/assets/photos/... path' }
+          - name: alt
+            label: 'Alt text (all languages)'
+            widget: object
+            fields: *loc
+      - name: summary
+        label: Summary
+        widget: object
+        fields: *loctext
+      - name: body
+        label: Body paragraphs
+        widget: object
+        fields: *locpars
+      - name: amenities
+        label: Amenities
+        widget: list
+        fields: *loc
+
+  # ── 8. DINING ──
+  - name: dining
+    label: 🍽️ Dining venues
+    folder: src/content/dining
+    extension: json
+    format: json
+    create: true
+    identifier_field: name
+    summary: '{{fields.name}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - { name: name, label: Venue name, widget: string }
+      - { name: kind, label: Kind, widget: select, options: [restaurant, terrace, bar] }
+      - name: photos
+        label: Photos
+        widget: list
+        fields:
+          - { name: src, label: Image URL, widget: string }
+          - name: alt
+            label: 'Alt text (all languages)'
+            widget: object
+            fields: *loc
+      - name: summary
+        label: Summary
+        widget: object
+        fields: *loctext
+      - name: facts
+        label: Facts
+        widget: list
+        fields: *loc
+
+  # ── 9. SPA ──
+  - name: spa
+    label: 💆 Spa treatments
+    folder: src/content/spa
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.name.en}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - name: name
+        label: Treatment name
+        widget: object
+        fields: *loc
+      - { name: duration, label: Duration, widget: string, hint: 'e.g. 50 min' }
+      - name: summary
+        label: Description
+        widget: object
+        fields: *loctext
+
+  # ── 10. OFFERS ──
+  - name: offers
+    label: 🎁 Experiences & Offers
+    folder: src/content/offers
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.name.en}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - name: name
+        label: Name
+        widget: object
+        fields: *loc
+      - name: summary
+        label: Summary
+        widget: object
+        fields: *loctext
+      - name: body
+        label: Body paragraphs
+        widget: object
+        fields: *locpars
+      - name: includes
+        label: What it includes
+        widget: list
+        fields: *loc
+      - name: photo
+        label: Photo
+        widget: object
+        fields:
+          - { name: src, label: Image URL, widget: string }
+          - name: alt
+            label: 'Alt text (all languages)'
+            widget: object
+            fields: *loc
+
+  # ── 11. JOURNAL ──
+  - name: journal
+    label: 📝 Journal
+    folder: src/content/journal
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.title.en}}'
+    fields:
+      - { name: date, label: Date, widget: string, hint: 'YYYY-MM-DD' }
+      - name: title
+        label: Title
+        widget: object
+        fields: *loc
+      - name: excerpt
+        label: Excerpt
+        widget: object
+        fields: *loctext
+      - name: body
+        label: Body paragraphs
+        widget: object
+        fields: *locpars
+      - name: photo
+        label: Photo
+        widget: object
+        fields:
+          - { name: src, label: Image URL, widget: string }
+          - name: alt
+            label: 'Alt text (all languages)'
+            widget: object
+            fields: *loc
+
+  # ── 12. FAQ ──
+  - name: faq
+    label: ❓ FAQ
+    folder: src/content/faq
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.question.en}}'
+    fields:
+      - { name: order, label: Order, widget: number }
+      - name: question
+        label: Question
+        widget: object
+        fields: *loctext
+      - name: answer
+        label: Answer
+        widget: object
+        fields: *loctext
+
+  # ── 13. LEGAL ──
+  - name: legal
+    label: ⚖️ Legal Pages
+    folder: src/content/legal
+    extension: json
+    format: json
+    create: true
+    summary: '{{fields.slug}}'
+    identifier_field: slug
+    fields:
+      - { name: slug, label: Slug, widget: string, hint: 'impressum, privacy, terms, cookies' }
+      - name: title
+        label: Title
+        widget: object
+        fields: *loc
+      - name: body
+        label: Body Paragraphs
+        widget: object
+        fields: *locpars
