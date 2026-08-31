@@ -12,7 +12,7 @@ import Faq from '../../components/Faq.astro';
 import AwardsLogoLoop from '../../components/AwardsLogoLoop.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import juniorSuiteImage from '../../assets/images/home/the-view-lugano-junior-suite.jpg';
-import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
+import { localePaths, p, isLocale, dict, type Locale } from '../../lib/i18n';
 import { hotelJsonLd } from '../../lib/seo';
 import { find } from '../../lib/photos';
 import { getCollection } from 'astro:content';
@@ -23,6 +23,7 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Locale;
 if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+const t = dict(lang);
 
 const [homeEntries, settingsEntries] = await Promise.all([
   getCollection('homepage'),
@@ -143,8 +144,8 @@ const awardsLabel: Record<Locale, string> = {
 
 <Base
   {lang}
-  title={home.hero.line[lang]}
-  description={home.hero.tagline[lang]}
+  title={t.home.metaTitle}
+  description={t.home.metaDesc}
   route=""
   preloadImage={heroVideoPoster}
   overlayHeader

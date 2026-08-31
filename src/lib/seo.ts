@@ -1,4 +1,4 @@
-import { SITE } from './site';
+import { SITE, simpleBookingUrl } from './site';
 import type { Locale } from './i18n';
 
 const LD_LANG: Record<Locale, string> = { en: 'en', de: 'de', it: 'it', fr: 'fr' };
@@ -18,7 +18,18 @@ export function hotelJsonLd(lang: Locale) {
     slogan: SITE.tagline[lang],
     telephone: SITE.phone,
     email: SITE.email,
-    priceRange: 'CHF CHF CHF CHF',
+    priceRange: '$$$$',
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: simpleBookingUrl(lang),
+        actionPlatform: [
+          'https://schema.org/DesktopWebPlatform',
+          'https://schema.org/MobileWebPlatform',
+        ],
+      },
+    },
     numberOfRooms: SITE.suites.total,
     checkinTime: '15:00',
     checkoutTime: '11:00',
@@ -44,12 +55,6 @@ export function hotelJsonLd(lang: Locale) {
       { '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
     ],
     award: SITE.awards.map((a) => a.name),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '380',
-      bestRating: '5',
-    },
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' },
     ],
@@ -81,7 +86,7 @@ export function localBusinessJsonLd(lang: Locale) {
     url: `${SITE.url}/${lang}/`,
     telephone: SITE.phone,
     email: SITE.email,
-    priceRange: 'CHF CHF CHF CHF',
+    priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
       streetAddress: SITE.address.street,
@@ -133,7 +138,7 @@ export function spaJsonLd(lang: Locale, image: string) {
     inLanguage: LD_LANG[lang],
     telephone: SITE.phone,
     email: SITE.email,
-    priceRange: 'CHF CHF CHF',
+    priceRange: '$$$$',
     image,
     address: {
       '@type': 'PostalAddress',

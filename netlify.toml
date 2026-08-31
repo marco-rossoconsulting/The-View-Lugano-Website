@@ -5,13 +5,9 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# ── Redirects: canonical paths ──
-# (force = true ensures Netlify edge rules override Astro’s generated static files)
-[[redirects]]
-  from = "/"
-  to = "/en/"
-  status = 301
-  force = true
+# `/` is intentionally NOT redirected. Rank recommends 301 `/` → `/it/` with
+# hreflang x-default `/en/` only; pending Marco. See DECISIONS.md §17.
+# WP slug 301s and reservation 410s live in public/_redirects.
 
 # Language roots without trailing slash → with trailing slash
 [[redirects]]
