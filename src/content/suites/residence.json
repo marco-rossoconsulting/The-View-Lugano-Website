@@ -1,7 +1,10 @@
 {
-  "order": 4,
+  "order": 1,
   "name": { "en": "THE VIEW Residence", "de": "THE VIEW Residence", "it": "THE VIEW Residence", "fr": "THE VIEW Residence" },
   "sizeLabel": { "en": "50 or 80 m²", "de": "50 oder 80 m²", "it": "50 o 80 m²", "fr": "50 ou 80 m²" },
+  "minSleeps": 2,
+  "sleeps": 4,
+  "occupancyLabel": { "en": "2 to 4 guests, depending on studio", "de": "2 bis 4 Personen, je nach Studio", "it": "Da 2 a 4 persone, a seconda del monolocale", "fr": "De 2 à 4 personnes selon le studio" },
   "count": 5,
   "lakeView": false,
   "terrace": false,
@@ -71,26 +74,27 @@
     "en": [
       "THE VIEW Residence comprises five two-room studios. Four measure 50 m². One measures 80 m² and has a private garden.",
       "None has a full lake view. The garden studio looks toward the lake, with a building in the foreground.",
-      "Layouts and availability vary by apartment. Write to us with your dates and how you plan to stay, and we will propose the right one."
+      "Layouts, occupancy from two to four guests and availability vary by apartment. Write to us with your dates and how you plan to stay, and we will propose the right one."
     ],
     "de": [
       "Die THE VIEW Residence umfasst fünf Zwei-Zimmer-Studios. Vier sind 50 m² gross. Eines ist 80 m² gross und verfügt über einen privaten Garten.",
       "Keines bietet einen vollständigen Seeblick. Das Gartenstudio blickt Richtung See, mit einem Gebäude im Vordergrund.",
-      "Grundrisse und Verfügbarkeit variieren je Apartment. Schreiben Sie uns Ihre Daten und wie Sie wohnen möchten, und wir schlagen das passende vor."
+      "Grundrisse, Belegung von zwei bis vier Personen und Verfügbarkeit variieren je Apartment. Schreiben Sie uns Ihre Daten und wie Sie wohnen möchten, und wir schlagen das passende vor."
     ],
     "it": [
       "La THE VIEW Residence comprende cinque bilocali. Quattro misurano 50 m². Uno misura 80 m² e dispone di un giardino privato.",
       "Nessuno offre una vista completa sul lago. Il bilocale con giardino guarda verso il lago, con un edificio in primo piano.",
-      "Le planimetrie e la disponibilità variano da appartamento ad appartamento. Scriveteci le vostre date e il tipo di soggiorno desiderato, e vi proporremo quello più adatto."
+      "Le planimetrie, l'occupazione da due a quattro persone e la disponibilità variano da appartamento ad appartamento. Scriveteci le vostre date e il tipo di soggiorno desiderato, e vi proporremo quello più adatto."
     ],
     "fr": [
       "THE VIEW Residence comprend cinq studios de deux pièces. Quatre font 50 m². Le seul studio de 80 m² dispose d'un jardin privé.",
       "Aucun ne bénéficie d'une vue complète sur le lac. Le studio avec jardin est orienté vers le lac, avec un bâtiment au premier plan.",
-      "Les plans et disponibilités varient selon les appartements. Écrivez-nous vos dates et le type de séjour souhaité, et nous vous proposerons celui qui convient."
+      "Les plans, la capacité de deux à quatre personnes et les disponibilités varient selon les appartements. Écrivez-nous vos dates et le type de séjour souhaité, et nous vous proposerons celui qui convient."
     ]
   },
   "amenities": [
     { "en": "Five two-room studios", "de": "Fünf Zwei-Zimmer-Studios", "it": "Cinque bilocali", "fr": "Cinq studios de deux pièces" },
+    { "en": "2 to 4 guests, depending on studio", "de": "2 bis 4 Personen, je nach Studio", "it": "Da 2 a 4 persone, a seconda del monolocale", "fr": "De 2 à 4 personnes selon le studio" },
     { "en": "Four 50 m² studios and one 80 m² garden studio", "de": "Vier Studios mit 50 m² und ein Gartenstudio mit 80 m²", "it": "Quattro bilocali da 50 m² e uno con giardino da 80 m²", "fr": "Quatre studios de 50 m² et un studio avec jardin de 80 m²" },
     { "en": "Kitchen and living area", "de": "Küche und Wohnbereich", "it": "Cucina e zona giorno", "fr": "Cuisine et espace de vie" },
     { "en": "Garden studio looks toward the lake, no studio has a full lake view", "de": "Das Gartenstudio blickt Richtung See, kein Studio hat vollständigen Seeblick", "it": "Il bilocale con giardino guarda verso il lago, nessuno ha una vista completa sul lago", "fr": "Le studio avec jardin est orienté vers le lac, aucun studio n'a une vue complète sur le lac" },

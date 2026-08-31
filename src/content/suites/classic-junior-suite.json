@@ -1,6 +1,8 @@
 {
   "order": 2,
   "name": { "en": "Classic Junior Suite", "de": "Classic Junior Suite", "it": "Classic Junior Suite", "fr": "Classic Junior Suite" },
+  "sleeps": 4,
+  "occupancyLabel": { "en": "Max. 4 guests", "de": "Max. 4 Personen", "it": "Massimo 4 persone", "fr": "Jusqu'à 4 personnes" },
   "lakeView": true,
   "terrace": true,
   "photos": [
@@ -40,23 +42,24 @@
   },
   "body": {
     "en": [
-      "The Classic Junior Suite is the category shown in the booking engine. It brings together a sleeping area, living space and private terrace in the same lake-facing plan.",
+      "The Classic Junior Suite is the category shown in the booking engine. It brings together a sleeping area, living space and private terrace in the same lake-facing plan, for up to four guests.",
       "The photography on this page shows this category. Your Ambassador can help you choose the right stay."
     ],
     "de": [
-      "Die Classic Junior Suite ist die Kategorie, die in der Buchungsmaschine angezeigt wird. Sie vereint Schlafbereich, Wohnraum und private Terrasse in einem seeseitigen Grundriss.",
+      "Die Classic Junior Suite ist die Kategorie, die in der Buchungsmaschine angezeigt wird. Sie vereint Schlafbereich, Wohnraum und private Terrasse in einem seeseitigen Grundriss für bis zu vier Personen.",
       "Die Fotografien auf dieser Seite zeigen diese Kategorie. Ihr Ambassador hilft Ihnen gern bei der Wahl des passenden Aufenthalts."
     ],
     "it": [
-      "La Classic Junior Suite è la categoria mostrata nel motore di prenotazione. Riunisce zona notte, spazio living e terrazza privata in una configurazione fronte lago.",
+      "La Classic Junior Suite è la categoria mostrata nel motore di prenotazione. Riunisce zona notte, spazio living e terrazza privata in una configurazione fronte lago, per un massimo di quattro persone.",
       "Le fotografie di questa pagina mostrano questa categoria. Il vostro Ambassador vi aiuterà a scegliere il soggiorno più adatto."
     ],
     "fr": [
-      "La Classic Junior Suite est la catégorie affichée dans le moteur de réservation. Elle réunit espace nuit, espace de vie et terrasse privée dans une configuration face au lac.",
+      "La Classic Junior Suite est la catégorie affichée dans le moteur de réservation. Elle réunit espace nuit, espace de vie et terrasse privée dans une configuration face au lac, pour un maximum de quatre personnes.",
       "Les photographies de cette page montrent cette catégorie. Votre Ambassador peut vous aider à choisir le séjour qui vous convient."
     ]
   },
   "amenities": [
+    { "en": "Maximum occupancy: 4 guests", "de": "Maximale Belegung: 4 Personen", "it": "Capienza massima: 4 persone", "fr": "Capacité maximale : 4 personnes" },
     { "en": "Lake-facing suite with private terrace", "de": "Seeseitige Suite mit privater Terrasse", "it": "Suite fronte lago con terrazza privata", "fr": "Suite face au lac avec terrasse privée" },
     { "en": "Open-plan bedroom and living space", "de": "Offener Schlaf- und Wohnbereich", "it": "Zona notte e living open space", "fr": "Espace nuit et séjour ouvert" },
     { "en": "Bathroom with walk-in rain shower", "de": "Bad mit ebenerdiger Regendusche", "it": "Bagno con doccia a pioggia a filo pavimento", "fr": "Salle de bains avec douche pluie à l'italienne" },

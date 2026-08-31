@@ -1,8 +1,9 @@
 {
-  "order": 1,
+  "order": 3,
   "name": { "en": "Junior Suite", "de": "Junior Suite", "it": "Junior Suite", "fr": "Junior Suite" },
   "sqm": 50,
-  "sleeps": 2,
+  "sleeps": 3,
+  "occupancyLabel": { "en": "Max. 3 guests", "de": "Max. 3 Personen", "it": "Massimo 3 persone", "fr": "Jusqu'à 3 personnes" },
   "count": 16,
   "lakeView": true,
   "terrace": true,
@@ -43,24 +44,24 @@
   },
   "body": {
     "en": [
-      "Sixteen of the eighteen suites are Junior Suites. Each has fifty square metres, a lake view and a private terrace off the living area.",
+      "Sixteen of the eighteen suites are Junior Suites. Each has fifty square metres, a lake view and a private terrace off the living area, for up to three guests.",
       "The room divides softly into sleeping and living spaces, with a bathroom in stone and glass. The photographs show this category exactly."
     ],
     "de": [
-      "Sechzehn der achtzehn Suiten sind Junior Suiten. Jede bietet fünfzig Quadratmeter, Seeblick und eine private Terrasse am Wohnbereich.",
+      "Sechzehn der achtzehn Suiten sind Junior Suiten. Jede bietet fünfzig Quadratmeter, Seeblick und eine private Terrasse am Wohnbereich für bis zu drei Personen.",
       "Der Raum gliedert sich sanft in Schlafen und Wohnen, mit einem Bad in Stein und Glas. Die Fotografien zeigen exakt diese Kategorie."
     ],
     "it": [
-      "Sedici delle diciotto suite sono Junior Suite. Ognuna offre cinquanta metri quadrati, vista lago e una terrazza privata collegata alla zona giorno.",
+      "Sedici delle diciotto suite sono Junior Suite. Ognuna offre cinquanta metri quadrati, vista lago e una terrazza privata collegata alla zona giorno, per un massimo di tre persone.",
       "La stanza si divide dolcemente tra notte e giorno, con un bagno in pietra e vetro. Le fotografie mostrano esattamente questa categoria."
     ],
     "fr": [
-      "Seize des dix-huit suites sont des Junior Suites. Chacune offre cinquante mètres carrés, une vue sur le lac et une terrasse privée attenante au séjour.",
+      "Seize des dix-huit suites sont des Junior Suites. Chacune offre cinquante mètres carrés, une vue sur le lac et une terrasse privée attenante au séjour, pour un maximum de trois personnes.",
       "La suite sépare doucement l'espace nuit et le séjour, avec une salle de bains de pierre et de verre. Les photographies montrent exactement cette catégorie."
     ]
   },
   "amenities": [
-    { "en": "50 m², sleeps 2", "de": "50 m², für 2 Personen", "it": "50 m², per 2 persone", "fr": "50 m², pour 2 personnes" },
+    { "en": "50 m², maximum occupancy 3 guests", "de": "50 m², maximale Belegung 3 Personen", "it": "50 m², capienza massima 3 persone", "fr": "50 m², capacité maximale 3 personnes" },
     { "en": "Lake-facing, private furnished terrace", "de": "Seeseitig, private möblierte Terrasse", "it": "Fronte lago, terrazza privata arredata", "fr": "Face au lac, terrasse privée meublée" },
     { "en": "King bed set toward the water", "de": "Kingsize-Bett zum Wasser ausgerichtet", "it": "Letto king rivolto verso l'acqua", "fr": "Lit king orienté vers l'eau" },
     { "en": "Bathroom in stone and glass, rain shower", "de": "Bad in Stein und Glas, Regendusche", "it": "Bagno in pietra e vetro, doccia a pioggia", "fr": "Salle de bains de pierre et de verre, douche pluie" },

@@ -89,7 +89,13 @@ const roomFeatures = [
       '@type': 'HotelRoom',
       name: d.name[lang],
       description: d.summary[lang],
-      ...(d.sleeps ? { occupancy: { '@type': 'QuantitativeValue', maxValue: d.sleeps } } : {}),
+      ...(d.sleeps ? {
+        occupancy: {
+          '@type': 'QuantitativeValue',
+          ...(d.minSleeps ? { minValue: d.minSleeps } : {}),
+          maxValue: d.sleeps,
+        },
+      } : {}),
       ...(d.sqm ? { floorSize: { '@type': 'QuantitativeValue', value: d.sqm, unitCode: 'MTK' } } : {}),
       ...(roomFeatures.length ? { amenityFeature: roomFeatures } : {}),
       image: d.photos.map((ph) => roomPhotoUrl(ph.src)),

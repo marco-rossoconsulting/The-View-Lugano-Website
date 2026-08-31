@@ -39,7 +39,7 @@ const t = dict(lang);
         const dimensions = s.data.sizeLabel?.[lang] ?? (s.data.sqm ? `${s.data.sqm} m²` : '');
         const details = [
           s.data.count && dimensions ? `${s.data.count} × ${dimensions}` : dimensions,
-          s.data.sleeps ? `${t.suites.sleeps} ${s.data.sleeps}` : '',
+          s.data.occupancyLabel?.[lang] ?? (s.data.sleeps ? `${t.suites.sleeps} ${s.data.sleeps}` : ''),
         ].filter(Boolean);
 
         return (

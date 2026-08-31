@@ -1,8 +1,10 @@
 {
-  "order": 3,
+  "order": 4,
   "name": { "en": "Suite Superior", "de": "Suite Superior", "it": "Suite Superior", "fr": "Suite Superior" },
   "sqm": 105,
-  "sleeps": 3,
+  "sleeps": 4,
+  "babyCot": true,
+  "occupancyLabel": { "en": "Max. 4 guests + baby cot", "de": "Max. 4 Personen + Babybett", "it": "Massimo 4 persone + lettino per bambini", "fr": "Jusqu'à 4 personnes + lit bébé" },
   "count": 2,
   "lakeView": true,
   "terrace": true,
@@ -44,23 +46,23 @@
   "body": {
     "en": [
       "The two Suite Superior offer a separate living room, dining corner and dressing area, with the lake in every window.",
-      "They suit longer stays, families of three, or two people who simply want a house rather than a room."
+      "They suit longer stays, families of up to four guests with a baby cot, or two people who simply want a house rather than a room."
     ],
     "de": [
       "Die zwei Suiten Superior bieten ein separates Wohnzimmer, eine Essecke und einen Ankleidebereich, mit dem See in jedem Fenster.",
-      "Sie passen zu längeren Aufenthalten, zu Familien zu dritt oder zu zwei Menschen, die lieber ein Haus als ein Zimmer möchten."
+      "Sie passen zu längeren Aufenthalten, zu Familien mit bis zu vier Personen und Babybett oder zu zwei Menschen, die lieber ein Haus als ein Zimmer möchten."
     ],
     "it": [
       "Le due Suite Superior offrono salotto separato, angolo pranzo e cabina armadio, con il lago in ogni finestra.",
-      "Sono adatte a soggiorni più lunghi, a famiglie di tre persone o a due persone che desiderano una casa invece di una stanza."
+      "Sono adatte a soggiorni più lunghi, a famiglie fino a quattro persone con lettino per bambini o a due persone che desiderano una casa invece di una stanza."
     ],
     "fr": [
       "Les deux Suites Superior offrent un salon séparé, un coin repas et un dressing, avec le lac à chaque fenêtre.",
-      "Elles conviennent aux séjours plus longs, aux familles de trois personnes ou à deux personnes qui souhaitent une maison plutôt qu'une chambre."
+      "Elles conviennent aux séjours plus longs, aux familles jusqu'à quatre personnes avec un lit bébé ou à deux personnes qui souhaitent une maison plutôt qu'une chambre."
     ]
   },
   "amenities": [
-    { "en": "105 m², sleeps up to 3", "de": "105 m², für bis zu 3 Personen", "it": "105 m², fino a 3 persone", "fr": "105 m², jusqu'à 3 personnes" },
+    { "en": "105 m², maximum occupancy 4 guests + baby cot", "de": "105 m², maximale Belegung 4 Personen + Babybett", "it": "105 m², capienza massima 4 persone + lettino per bambini", "fr": "105 m², capacité maximale 4 personnes + lit bébé" },
     { "en": "Separate living room and dining corner", "de": "Separates Wohnzimmer und Essecke", "it": "Salotto separato e angolo pranzo", "fr": "Salon séparé et coin repas" },
     { "en": "Lake-facing, extended private terrace", "de": "Seeseitig, erweiterte private Terrasse", "it": "Fronte lago, terrazza privata estesa", "fr": "Face au lac, terrasse privée étendue" },
     { "en": "Bathroom with freestanding tub and rain shower", "de": "Bad mit freistehender Wanne und Regendusche", "it": "Bagno con vasca freestanding e doccia a pioggia", "fr": "Salle de bains avec baignoire îlot et douche pluie" },

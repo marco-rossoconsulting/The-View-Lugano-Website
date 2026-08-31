@@ -320,7 +320,12 @@ const suites = defineCollection({
     name: localized,
     sqm: z.number().optional(),
     sizeLabel: localized.optional(),
+    // `sleeps` is the maximum guest occupancy. Residences can additionally
+    // provide a minimum, while a dedicated label carries nuances such as a cot.
     sleeps: z.number().positive().optional(),
+    minSleeps: z.number().positive().optional(),
+    babyCot: z.boolean().optional(),
+    occupancyLabel: localized.optional(),
     count: z.number().positive().optional(), // how many of this category exist
     lakeView: z.boolean(),
     terrace: z.boolean(),
