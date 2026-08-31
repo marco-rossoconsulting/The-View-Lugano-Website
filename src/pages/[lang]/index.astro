@@ -64,6 +64,7 @@ const theHouseImage = {
   } satisfies Record<Locale, string>,
 };
 
+// Localised guest testimonials.
 const guestQuotes: Record<Locale, string[]> = {
   en: [
     "The hotel's intimate size created an ambiance of exclusivity, making us feel like cherished guests rather than just visitors.",
@@ -151,6 +152,7 @@ const awardsLabel: Record<Locale, string> = {
 >
   <Hero src={hero.src} video="/hero-video.mp4" poster={heroVideoPoster} alt={hero.alt[lang]} line={home.hero.line[lang]} tagline={home.hero.tagline[lang]} h1 />
 
+  {/* The House */}
   <section class="section">
     <div class="container">
       <EditorialSplit
@@ -193,6 +195,7 @@ const awardsLabel: Record<Locale, string> = {
     </div>
   </section>
 
+  {/* The Ambassador */}
   <AmbassadorTeam
     {lang}
     eyebrow={ambassador.eyebrow?.[lang]}
