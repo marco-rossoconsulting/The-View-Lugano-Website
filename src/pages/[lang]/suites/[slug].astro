@@ -1,10 +1,11 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import Pic from '../../../components/Pic.astro';
+import RoomGallery from '../../../components/RoomGallery.astro';
 import BookingBar from '../../../components/BookingBar.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import { LOCALES, dict, p, type Locale } from '../../../lib/i18n';
 import { breadcrumbJsonLd } from '../../../lib/seo';
+import { roomPhotoUrl } from '../../../lib/room-photos';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -18,15 +19,18 @@ const lang = Astro.params.lang as Locale;
 const { suite } = Astro.props;
 const t = dict(lang);
 const d = suite.data;
+const roomFeatures = [
+  ...(d.lakeView ? [{ '@type': 'LocationFeatureSpecification', name: 'Lake view', value: true }] : []),
+  ...(d.terrace ? [{ '@type': 'LocationFeatureSpecification', name: 'Private terrace', value: true }] : []),
+];
 ---
 
 <Base
   {lang}
-  title={`${d.name[lang]} — THE VIEW Lugano`}
+  title={`${d.name[lang]} - THE VIEW Lugano`}
   description={d.summary[lang]}
   route={`suites/${suite.id}`}
-  ogImage={d.photos[0].src}
-  preloadImage={d.photos[0].src}
+  ogImage={roomPhotoUrl(d.photos[0].src)}
 >
   <section class="section">
     <div class="container container--narrow">
@@ -37,19 +41,17 @@ const d = suite.data;
   </section>
 
   <section class="section" style="padding-top:0;">
-    <div class="container suite-photos">
-      {d.photos.map((ph, i) => (
-        <div class={i === 0 ? 'suite-photos__lead' : 'suite-photos__sub'}>
-          <Pic
-            src={ph.src}
-            alt={ph.alt[lang]}
-            width={1600}
-            height={1067}
-            sizes={i === 0 ? '(max-width: 900px) 100vw, 90vw' : '(max-width: 900px) 100vw, 44vw'}
-            loading={i === 0 ? 'eager' : 'lazy'}
-          />
-        </div>
-      ))}
+    <div class="container">
+      <RoomGallery
+        photos={d.photos}
+        {lang}
+        galleryId={suite.id}
+        label={d.name[lang]}
+        previousLabel={t.gallery.lightboxPrev}
+        nextLabel={t.gallery.lightboxNext}
+        closeLabel={t.gallery.lightboxClose}
+        eager
+      />
     </div>
   </section>
 
@@ -86,26 +88,16 @@ const d = suite.data;
       '@type': 'HotelRoom',
       name: d.name[lang],
       description: d.summary[lang],
-      occupancy: { '@type': 'QuantitativeValue', maxValue: d.sleeps },
-      floorSize: { '@type': 'QuantitativeValue', value: d.sqm, unitCode: 'MTK' },
-      amenityFeature: [
-        { '@type': 'LocationFeatureSpecification', name: 'Lake view', value: true },
-        { '@type': 'LocationFeatureSpecification', name: 'Private terrace', value: true },
-      ],
-      image: d.photos.map((ph) => ph.src),
+      ...(d.sleeps ? { occupancy: { '@type': 'QuantitativeValue', maxValue: d.sleeps } } : {}),
+      ...(d.sqm ? { floorSize: { '@type': 'QuantitativeValue', value: d.sqm, unitCode: 'MTK' } } : {}),
+      ...(roomFeatures.length ? { amenityFeature: roomFeatures } : {}),
+      image: d.photos.map((ph) => roomPhotoUrl(ph.src)),
       containedInPlace: { '@id': 'https://www.theviewlugano.com/#hotel' },
     }}
   />
 </Base>
 
 <style>
-  .suite-photos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(0.75rem, 2vw, 1.5rem);
-  }
-  .suite-photos__lead { grid-column: 1 / -1; }
-  .suite-photos :global(img) { width: 100%; height: auto; display: block; }
   .suite-detail {
     display: grid;
     grid-template-columns: 7fr 4fr;
@@ -118,8 +110,5 @@ const d = suite.data;
     border: 1px solid var(--tortora-densa);
     padding: clamp(1.25rem, 3vw, 2rem);
   }
-  @media (max-width: 900px) {
-    .suite-photos { grid-template-columns: 1fr; }
-    .suite-detail { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 900px) { .suite-detail { grid-template-columns: 1fr; } }
 </style>

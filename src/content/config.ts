@@ -27,7 +27,9 @@ const localizedUrl = z.object({
 });
 
 const photoRef = z.object({
-  src: z.string().url(),
+  // A source may be an external URL or a stable local asset key resolved at
+  // build time. Local keys retain readable, SEO-friendly names in content.
+  src: z.string().min(1),
   alt: localized, // required per-locale alt text
 });
 
@@ -316,11 +318,12 @@ const suites = defineCollection({
   schema: z.object({
     order: z.number(),
     name: localized,
-    sqm: z.number(),
-    sleeps: z.number(),
-    count: z.number(), // how many of this category exist
-    lakeView: z.literal(true), // structurally guaranteed — cannot be false
-    terrace: z.literal(true),
+    sqm: z.number().optional(),
+    sizeLabel: localized.optional(),
+    sleeps: z.number().positive().optional(),
+    count: z.number().positive().optional(), // how many of this category exist
+    lakeView: z.boolean(),
+    terrace: z.boolean(),
     photos: z.array(photoRef).min(1),
     summary: localized,
     body: z.object({ en: z.array(z.string()), de: z.array(z.string()), it: z.array(z.string()), fr: z.array(z.string()) }),
