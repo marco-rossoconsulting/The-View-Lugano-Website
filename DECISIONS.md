@@ -71,6 +71,12 @@ Base URL, `?lang=` and `&cur=CHF` are taken from the live integration
 account manager. If unsupported, the link still lands correctly on the
 property's IBE with language and currency set — nothing breaks.
 
+Live WordPress still runs two engines at once: the header Book CTA is
+SimpleBooking hotel 10185, while the on-page booking form still posts to
+VerticalBooking (`reservations.verticalbooking.com`, hid 15896 / dc 8698).
+Astro `src/lib/site.ts` is SimpleBooking only — this cutover PR does not
+switch the Book CTA. Marco will confirm the engine before DNS cutover.
+
 ## 8. Parking, pets, breakfast, minibar
 FAQ answers on parking (available at the house), pets (on request), children
 (welcome) and the amenity line "minibar" reflect the guest-review analysis
@@ -127,9 +133,14 @@ genuinely vary by apartment and the page says so.
 **[VERIFY]** Replace with actual apartment specs.
 
 ## 17. Root URL behaviour
-`/` serves a static meta-refresh + links to `/en/` (x-default). In
-production, prefer an edge-level `Accept-Language` redirect at the host
-(config example in README) — the static fallback remains for crawlers.
+**Pending Marco.** Rank's production recommendation is a Google 301 `/` →
+`/it/`, with hreflang `x-default` remaining `/en/` on locale pages (already
+emitted by `BaseHead.astro`). Do not use `Accept-Language` as the Google 301.
+
+Until Marco confirms, `/` is not redirected: `netlify.toml` has no `/` rule,
+and `src/pages/index.astro` is a language index (noindex, follow) without a
+meta-refresh to `/en/` or `/it/`. A static language-link fallback can stay;
+it is not the production 301.
 
 ## 18. Sandbox build note
 The verification build in this workspace ran with
