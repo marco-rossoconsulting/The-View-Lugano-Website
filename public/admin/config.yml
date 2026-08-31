@@ -9,8 +9,8 @@ backend:
 media_folder: src/assets/photos
 public_folder: /src/assets/photos
 
-site_url: https://theview-lugano.netlify.app
-display_url: https://theview-lugano.netlify.app
+site_url: https://www.theviewlugano.com
+display_url: https://www.theviewlugano.com
 locale: en
 
 # ── Reusable field templates ──
