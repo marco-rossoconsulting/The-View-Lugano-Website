@@ -1,16 +1,21 @@
 ---
-// Root: language negotiation happens at the edge/hosting layer in production;
-// this static fallback sends everyone to the x-default (English) tree.
+// Root URL: no locale 301 until Marco confirms Rank's `/` → `/it/` recommendation.
+// hreflang x-default remains `/en/` on locale pages (BaseHead). This page is a
+// language index only — no meta-refresh and no Accept-Language 301.
 ---
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=/en/" />
-    <link rel="canonical" href="https://www.theviewlugano.com/en/" />
+    <meta name="robots" content="noindex, follow" />
     <title>THE VIEW Lugano</title>
   </head>
   <body>
-    <p><a href="/en/">THE VIEW Lugano — English</a> · <a href="/de/">Deutsch</a> · <a href="/it/">Italiano</a> · <a href="/fr/">Français</a></p>
+    <p>
+      <a href="/it/">THE VIEW Lugano — Italiano</a>
+      · <a href="/en/">English</a>
+      · <a href="/de/">Deutsch</a>
+      · <a href="/fr/">Français</a>
+    </p>
   </body>
 </html>
