@@ -72,32 +72,32 @@
   },
   "body": {
     "en": [
-      "THE VIEW Residence comprises five two-room studios. Four measure 50 m². One measures 80 m² and has a private garden.",
-      "None has a full lake view. The garden studio looks toward the lake, with a building in the foreground.",
+      "THE VIEW Residence comprises five two-room studios: one 80 m² Garden Studio, for up to four guests, with a private garden and partial lake view; three 50 m² Balcony Studios, each for up to four guests; and one 50 m² Standard Studio for up to two guests.",
+      "No studio has a full lake view. The Garden Studio has a partial lake view, with a building in the foreground.",
       "Layouts, occupancy from two to four guests and availability vary by apartment. Write to us with your dates and how you plan to stay, and we will propose the right one."
     ],
     "de": [
-      "Die THE VIEW Residence umfasst fünf Zwei-Zimmer-Studios. Vier sind 50 m² gross. Eines ist 80 m² gross und verfügt über einen privaten Garten.",
-      "Keines bietet einen vollständigen Seeblick. Das Gartenstudio blickt Richtung See, mit einem Gebäude im Vordergrund.",
+      "Die THE VIEW Residence umfasst fünf Zwei-Zimmer-Studios: ein 80 m² grosses Garden Studio für bis zu vier Personen mit privatem Garten und teilweisem Seeblick, drei 50 m² grosse Balcony Studios für jeweils bis zu vier Personen sowie ein 50 m² grosses Standard Studio für bis zu zwei Personen.",
+      "Kein Studio bietet einen vollständigen Seeblick. Das Garden Studio hat teilweisen Seeblick, mit einem Gebäude im Vordergrund.",
       "Grundrisse, Belegung von zwei bis vier Personen und Verfügbarkeit variieren je Apartment. Schreiben Sie uns Ihre Daten und wie Sie wohnen möchten, und wir schlagen das passende vor."
     ],
     "it": [
-      "La THE VIEW Residence comprende cinque bilocali. Quattro misurano 50 m². Uno misura 80 m² e dispone di un giardino privato.",
-      "Nessuno offre una vista completa sul lago. Il bilocale con giardino guarda verso il lago, con un edificio in primo piano.",
+      "La THE VIEW Residence comprende cinque bilocali: un Garden Studio di 80 m² per un massimo di quattro persone, con giardino privato e vista parziale sul lago; tre Balcony Studio di 50 m², ciascuno per un massimo di quattro persone; e uno Standard Studio di 50 m² per un massimo di due persone.",
+      "Nessuno studio offre una vista completa sul lago. Il Garden Studio ha una vista parziale sul lago, con un edificio in primo piano.",
       "Le planimetrie, l'occupazione da due a quattro persone e la disponibilità variano da appartamento ad appartamento. Scriveteci le vostre date e il tipo di soggiorno desiderato, e vi proporremo quello più adatto."
     ],
     "fr": [
-      "THE VIEW Residence comprend cinq studios de deux pièces. Quatre font 50 m². Le seul studio de 80 m² dispose d'un jardin privé.",
-      "Aucun ne bénéficie d'une vue complète sur le lac. Le studio avec jardin est orienté vers le lac, avec un bâtiment au premier plan.",
+      "THE VIEW Residence comprend cinq studios de deux pièces : un Garden Studio de 80 m², pour un maximum de quatre personnes, avec jardin privé et vue partielle sur le lac ; trois Balcony Studios de 50 m², chacun pour un maximum de quatre personnes ; et un Standard Studio de 50 m² pour un maximum de deux personnes.",
+      "Aucun studio ne bénéficie d'une vue complète sur le lac. Le Garden Studio offre une vue partielle sur le lac, avec un bâtiment au premier plan.",
       "Les plans, la capacité de deux à quatre personnes et les disponibilités varient selon les appartements. Écrivez-nous vos dates et le type de séjour souhaité, et nous vous proposerons celui qui convient."
     ]
   },
   "amenities": [
     { "en": "Five two-room studios", "de": "Fünf Zwei-Zimmer-Studios", "it": "Cinque bilocali", "fr": "Cinq studios de deux pièces" },
-    { "en": "2 to 4 guests, depending on studio", "de": "2 bis 4 Personen, je nach Studio", "it": "Da 2 a 4 persone, a seconda del monolocale", "fr": "De 2 à 4 personnes selon le studio" },
-    { "en": "Four 50 m² studios and one 80 m² garden studio", "de": "Vier Studios mit 50 m² und ein Gartenstudio mit 80 m²", "it": "Quattro bilocali da 50 m² e uno con giardino da 80 m²", "fr": "Quatre studios de 50 m² et un studio avec jardin de 80 m²" },
+    { "en": "Garden Studio: 80 m², private garden, partial lake view, maximum 4 guests", "de": "Garden Studio: 80 m², privater Garten, teilweiser Seeblick, maximal 4 Personen", "it": "Garden Studio: 80 m², giardino privato, vista parziale sul lago, massimo 4 persone", "fr": "Garden Studio : 80 m², jardin privé, vue partielle sur le lac, maximum 4 personnes" },
+    { "en": "Three Balcony Studios: 50 m², maximum 4 guests each", "de": "Drei Balcony Studios: 50 m², jeweils maximal 4 Personen", "it": "Tre Balcony Studio: 50 m², massimo 4 persone ciascuno", "fr": "Trois Balcony Studios : 50 m², maximum 4 personnes chacun" },
+    { "en": "Standard Studio: 50 m², maximum 2 guests", "de": "Standard Studio: 50 m², maximal 2 Personen", "it": "Standard Studio: 50 m², massimo 2 persone", "fr": "Standard Studio : 50 m², maximum 2 personnes" },
     { "en": "Kitchen and living area", "de": "Küche und Wohnbereich", "it": "Cucina e zona giorno", "fr": "Cuisine et espace de vie" },
-    { "en": "Garden studio looks toward the lake, no studio has a full lake view", "de": "Das Gartenstudio blickt Richtung See, kein Studio hat vollständigen Seeblick", "it": "Il bilocale con giardino guarda verso il lago, nessuno ha una vista completa sul lago", "fr": "Le studio avec jardin est orienté vers le lac, aucun studio n'a une vue complète sur le lac" },
     { "en": "Access to the spa, pools and restaurant", "de": "Zugang zu Spa, Pools und Restaurant", "it": "Accesso alla spa, alle piscine e al ristorante", "fr": "Accès au spa, aux piscines et au restaurant" },
     { "en": "Housekeeping and Ambassador service on request", "de": "Housekeeping und Ambassador-Service auf Wunsch", "it": "Housekeeping e servizio Ambassador su richiesta", "fr": "Ménage et service Ambassador sur demande" }
   ]
