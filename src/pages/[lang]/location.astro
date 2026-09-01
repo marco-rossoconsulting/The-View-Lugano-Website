@@ -1,8 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
-import EditorialSplit from '../../components/EditorialSplit.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
+import StatBand from '../../components/StatBand.astro';
+import Pic from '../../components/Pic.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd, localBusinessJsonLd, howToArriveJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
@@ -19,31 +20,68 @@ if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
 const pageEntries = await getCollection('pages');
 const page = pageEntries.find((e) => e.data.slug === 'location')?.data;
 if (!page) throw new Error('Missing location CMS content');
+if (!page.arrivalStats?.length) throw new Error('Missing location arrivalStats');
 
-const hero = find('hotel_041');
+// Used only as the social-share (OG) image below, not rendered on the page.
+// NOTE: photos.ts mislabels several entries in the hotel_0XX sequence (their
+// captions don't match the actual file at that CDN path — confirmed against
+// the source images directly, not a caching issue). hotel_061 is genuinely
+// the terrace/lake view; its manifest caption ("The entrance drive at dusk")
+// is one of the wrong ones. Flagged for a separate manifest cleanup — out of
+// scope for this page.
+const ogImage = find('hotel_061');
 const fleet = byCategory('fleet');
+const smartCar = fleet.find((f) => f.src.includes('smart')) ?? fleet[0];
+const ebike = fleet.find((f) => f.src.includes('bici')) ?? fleet[1] ?? fleet[0];
+
+const statItems = page.arrivalStats.map((s) => ({
+  value: s.value,
+  unit: s.unit[lang],
+  label: s.label[lang],
+  detail: s.detail[lang],
+}));
+
+const fleetCaptions: Record<Locale, { car: string; bike: string }> = {
+  en: { car: 'Electric Smart car', bike: 'E-bike' },
+  de: { car: 'Elektrischer Smart', bike: 'E-Bike' },
+  it: { car: 'Smart elettrica', bike: 'E-bike' },
+  fr: { car: 'Smart électrique', bike: 'Vélo électrique' },
+};
+
+const mapCoordinates = `${SITE.geo.lat},${SITE.geo.lng}`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapCoordinates)}`;
+// Keyless embed (no Maps API key needed), same pattern as the contact page.
+const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapCoordinates)}&z=15&output=embed`;
 ---
 
-<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="location">
+<Base
+  {lang}
+  title={page.metaTitle[lang]}
+  description={page.metaDesc[lang]}
+  route="location"
+  ogImage={ogImage.src}
+>
   <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
-  <section class="section">
-    <div class="container container--narrow">
-      <h1 class="page-title">{page.h1[lang]}</h1>
-      <p class="page-intro">{page.intro[lang]}</p>
-      <p class="page-note">
-        {SITE.name} · {SITE.address.street}, {SITE.address.postalCode} {SITE.address.locality}, {SITE.address.countryName}
-      </p>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="map-embed">
+  <section class="section location-intro">
+    <div class="container location-intro__grid">
+      <div class="location-intro__copy fade-up">
+        <h1 class="page-title">{page.h1[lang]}</h1>
+        <p class="page-intro">{page.intro[lang]}</p>
+        <address>
+          {SITE.address.street}<br />
+          {SITE.address.postalCode} {SITE.address.locality}<br />
+          {SITE.address.countryName}
+        </address>
+        <a class="btn" href={directionsUrl} target="_blank" rel="noopener noreferrer">
+          {page.directionsLabel?.[lang]}
+        </a>
+      </div>
+      <div class="location-intro__map fade-up">
         <iframe
-          src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2771.0!2d${SITE.geo.lng}!3d${SITE.geo.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDU5JzA5LjEiTiA4wrA1NiczOS43IkU!5e0!3m2!1sen!2s${lang}!4v1`}
+          src={mapEmbedUrl}
           width="100%"
-          height="450"
+          height="100%"
           style="border:0;"
           allowfullscreen=""
           loading="lazy"
@@ -54,33 +92,42 @@ const fleet = byCategory('fleet');
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--tortora location-stats">
     <div class="container">
-      <EditorialSplit src={hero.src} alt={hero.alt[lang]} title={page.arrivingTitle?.[lang]}>
-        <p>{page.byCar?.[lang]}</p>
-        <p>{page.byTrain?.[lang]}</p>
-        <p>{page.byAir?.[lang]}</p>
-      </EditorialSplit>
+      <h2 class="section-title fade-up">{page.arrivingTitle?.[lang]}</h2>
+      <StatBand items={statItems} />
+      {page.arrivalNote?.[lang] && <p class="location-stats__note fade-up">{page.arrivalNote[lang]}</p>}
     </div>
   </section>
 
-  <section class="section section--tortora">
-    <div class="container">
-      <EditorialSplit
-        src={fleet[1] ? fleet[1].src : fleet[0].src}
-        alt={fleet[1] ? fleet[1].alt[lang] : fleet[0].alt[lang]}
-        title={page.aroundTitle?.[lang]}
-        flip
-      >
+  <section class="section location-fleet">
+    <div class="container location-fleet__grid">
+      <div class="location-fleet__photos fade-up">
+        <figure class="location-fleet__photo location-fleet__photo--car">
+          <Pic
+            src={smartCar.src}
+            alt={smartCar.alt[lang]}
+            width={smartCar.width}
+            height={smartCar.height}
+            sizes="(max-width: 720px) 62vw, 24vw"
+          />
+          <figcaption>{fleetCaptions[lang].car}</figcaption>
+        </figure>
+        <figure class="location-fleet__photo location-fleet__photo--bike">
+          <Pic
+            src={ebike.src}
+            alt={ebike.alt[lang]}
+            width={ebike.width}
+            height={ebike.height}
+            sizes="(max-width: 720px) 62vw, 24vw"
+          />
+          <figcaption>{fleetCaptions[lang].bike}</figcaption>
+        </figure>
+      </div>
+      <div class="location-fleet__copy fade-up">
+        <h2>{page.aroundTitle?.[lang]}</h2>
         <p>{page.aroundBody?.[lang]}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container container--narrow">
-      <h2 class="section-title">{page.luganoTitle?.[lang]}</h2>
-      <p style="max-width: 62ch;">{page.luganoBody?.[lang]}</p>
+      </div>
     </div>
   </section>
 
@@ -99,17 +146,125 @@ const fleet = byCategory('fleet');
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    margin-bottom: var(--space-3);
+  }
+
+  /* Intro + map: the functional facts (address, directions) sit beside the
+     map itself so a reader lands on "where" immediately, rather than
+     scrolling past a photograph to find it. */
+  .location-intro__grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: stretch;
+  }
+  .location-intro__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .location-intro__copy .page-title {
+    /* Smaller than the default h1 scale: this column is narrower than a
+       full-width hero would allow, and the page reads as functional
+       (address, directions, arrival facts) rather than as a headline. */
+    font-size: clamp(1.9rem, 3.2vw, 2.9rem);
     margin-bottom: var(--space-2);
   }
-  .map-embed {
+  .location-intro__copy .page-intro {
+    margin-bottom: var(--space-3);
+  }
+  .location-intro__copy address {
+    font-style: normal;
+    color: var(--clay);
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+  }
+  .location-intro__copy .btn {
+    align-self: flex-start;
+  }
+  .location-intro__map {
+    min-height: 26rem;
     border: 1px solid var(--tortora-densa);
     overflow: hidden;
     background: var(--tortora);
   }
-  .map-embed iframe {
+  .location-intro__map iframe {
     display: block;
     width: 100%;
-    height: 450px;
+    height: 100%;
+    min-height: 26rem;
     filter: saturate(0.85) contrast(1.02);
+  }
+  @media (max-width: 820px) {
+    .location-intro__grid {
+      grid-template-columns: 1fr;
+    }
+    .location-intro__map,
+    .location-intro__map iframe {
+      min-height: min(90vw, 22rem);
+    }
+  }
+
+  /* Stats */
+  .location-stats__note {
+    max-width: 62ch;
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--tortora-densa);
+    color: var(--clay);
+    font-size: 0.95rem;
+  }
+
+  /* Moving around: two real photographs (car + e-bike) instead of the
+     single image the rest of the site's editorial split uses, so both get
+     equal weight rather than one standing in for the pair. */
+  .location-fleet__grid {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .location-fleet__photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(0.6rem, 1.4vw, 1.1rem);
+  }
+  .location-fleet__photo {
+    margin: 0;
+  }
+  .location-fleet__photo :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+  .location-fleet__photo--bike {
+    margin-top: clamp(1.5rem, 4vw, 3rem);
+  }
+  .location-fleet__photo figcaption {
+    margin-top: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
+  .location-fleet__copy h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+    margin-bottom: var(--space-2);
+  }
+  @media (max-width: 900px) {
+    .location-fleet__grid {
+      grid-template-columns: 1fr;
+    }
+    .location-fleet__copy {
+      order: -1;
+    }
+    .location-fleet__photo--bike {
+      margin-top: clamp(2rem, 10vw, 3rem);
+    }
   }
 </style>

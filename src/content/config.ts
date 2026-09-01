@@ -131,6 +131,17 @@ const pages = defineCollection({
     aroundBody: localized.optional(),
     luganoTitle: localized.optional(),
     luganoBody: localized.optional(),
+    // Location page: the "getting here" ledger. `value`/`unit` render as one
+    // figure (e.g. 25 + MIN); unit is localized since abbreviations differ
+    // (MIN/HR vs. MIN/STD). `detail` is one short supporting line, not prose.
+    arrivalStats: z.array(z.object({
+      value: z.string(),
+      unit: localized,
+      label: localized,
+      detail: localized,
+    })).optional(),
+    arrivalNote: localized.optional(),
+    directionsLabel: localized.optional(),
     body: localizedArray.optional(),
     mediaTitle: localized.optional(),
     mediaBody: localized.optional(),

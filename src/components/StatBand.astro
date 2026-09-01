@@ -1,16 +1,29 @@
 ---
-// Key facts as large type, hairline-divided. No icons, no cards.
+// A quiet ledger of measured facts: figure, unit, label, one supporting
+// line. No cards, no icons, no delta arrows — those belong in a quarterly
+// report, not a hotel's arrival page. The figure counts up on entry as a
+// small signal that these are real, measured numbers, not decoration.
+interface Item {
+  value: string;
+  unit: string;
+  label: string;
+  detail?: string;
+}
 interface Props {
-  items: { value: string; label: string }[];
+  items: Item[];
 }
 const { items } = Astro.props;
 ---
 
-<div class="stat-band fade-up">
+<div class="stat-band fade-up" data-stat-band>
   {items.map((item) => (
     <div class="stat-band__item">
-      <p class="stat-band__value">{item.value}</p>
+      <p class="stat-band__figure">
+        <span class="stat-band__value" data-stat-value={item.value}>0</span>
+        <span class="stat-band__unit">{item.unit}</span>
+      </p>
       <p class="stat-band__label">{item.label}</p>
+      {item.detail && <p class="stat-band__detail">{item.detail}</p>}
     </div>
   ))}
 </div>
@@ -18,8 +31,8 @@ const { items } = Astro.props;
 <style>
   .stat-band {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-    gap: var(--space-3) var(--space-4);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3) var(--space-3);
   }
   .stat-band__item {
     padding-left: var(--space-3);
@@ -29,23 +42,43 @@ const { items } = Astro.props;
     padding-left: 0;
     border-left: 0;
   }
+  .stat-band__figure {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin: 0 0 0.7rem;
+  }
   .stat-band__value {
     font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
     line-height: 1;
     color: var(--ink);
-    margin: 0 0 0.6rem;
-    text-wrap: balance;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-band__unit {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--clay);
   }
   .stat-band__label {
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin: 0 0 0.4rem;
+    max-width: 20ch;
+  }
+  .stat-band__detail {
+    font-size: 0.86rem;
+    line-height: 1.55;
     color: var(--clay);
-    max-width: 22ch;
+    max-width: 24ch;
     margin: 0;
   }
-  @media (max-width: 640px) {
+  @media (max-width: 720px) {
     .stat-band {
       grid-template-columns: 1fr 1fr;
     }
@@ -53,11 +86,69 @@ const { items } = Astro.props;
       border-left: 0;
       padding-left: 0;
       border-top: 1px solid var(--tortora-densa);
-      padding-top: 1rem;
+      padding-top: 1.1rem;
     }
     .stat-band__item:nth-child(-n + 2) {
       border-top: 0;
       padding-top: 0;
     }
   }
+  @media (max-width: 460px) {
+    .stat-band {
+      grid-template-columns: 1fr;
+    }
+    .stat-band__item {
+      border-top: 1px solid var(--tortora-densa);
+      padding-top: 1.1rem;
+    }
+    .stat-band__item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
 </style>
+
+<script>
+  // Counts each figure up from 0 once its band scrolls into view. Values are
+  // parsed from the server-rendered text (data-stat-value), so the real
+  // number is always present without JavaScript; this only animates toward
+  // it. Skipped entirely under prefers-reduced-motion.
+  const bands = document.querySelectorAll<HTMLElement>('[data-stat-band]');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const runCountUp = (band: HTMLElement) => {
+    const nodes = band.querySelectorAll<HTMLElement>('[data-stat-value]');
+    nodes.forEach((node) => {
+      const target = parseFloat(node.dataset.statValue ?? '0');
+      const decimals = (node.dataset.statValue ?? '').includes('.') ? 1 : 0;
+      if (reduce || Number.isNaN(target)) {
+        node.textContent = target.toFixed(decimals);
+        return;
+      }
+      const duration = 900;
+      const start = performance.now();
+      const step = (now: number) => {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        node.textContent = (target * eased).toFixed(decimals);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  };
+
+  if (bands.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            runCountUp(entry.target as HTMLElement);
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.3 },
+    );
+    bands.forEach((band) => io.observe(band));
+  }
+</script>
