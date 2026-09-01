@@ -18,12 +18,6 @@
     "it": "Sopra la città, sulla collina di Paradiso",
     "fr": "Au-dessus de la ville, sur la colline de Paradiso"
   },
-  "heroTagline": {
-    "en": "Ten minutes above Lugano",
-    "de": "Zehn Minuten über Lugano",
-    "it": "Dieci minuti sopra Lugano",
-    "fr": "Dix minutes au-dessus de Lugano"
-  },
   "intro": {
     "en": "The View stands above Lugano on the slope of Monte San Salvatore. The city is ten minutes down the hill, the lakefront a few more, and the lake itself is in the window the whole time.",
     "de": "The View steht über Lugano an der Flanke des Monte San Salvatore. Die Stadt liegt zehn Minuten den Hügel hinunter, das Seeufer wenig weiter — und der See selbst ist die ganze Zeit im Fenster.",
@@ -125,17 +119,5 @@
     "de": "Elektrische Smarts und E-Bikes sind im Aufenthalt inbegriffen — und sie verändern, was der Hang bedeutet: Die Lage gibt Ihnen das Panorama, die Schlüssel geben Ihnen die Stadt. Reservieren Sie vor der Anreise über Ihren Ambassador.",
     "it": "Smart elettriche ed e-bike sono incluse nel soggiorno, e cambiano il senso della collina: la posizione vi dà il panorama, le chiavi vi danno la città. Riservatene una con il vostro Ambassador prima dell'arrivo.",
     "fr": "Les Smart électriques et les vélos électriques sont compris dans le séjour, et ils changent le sens de la colline : la position vous donne le panorama, les clés vous donnent la ville. Réservez avec votre Ambassador avant l'arrivée."
-  },
-  "luganoTitle": {
-    "en": "Lugano & Ticino",
-    "de": "Lugano & Tessin",
-    "it": "Lugano & Ticino",
-    "fr": "Lugano & le Tessin"
-  },
-  "luganoBody": {
-    "en": "Italian Switzerland is a particular arrangement of things: Swiss timetables, Italian evenings. The lake, Monte Brè and San Salvatore, Gandria along the shore, Morcote at the tip of the peninsula, Como and Milan an easy day away.",
-    "de": "Die italienische Schweiz ist eine besondere Anordnung der Dinge: Schweizer Fahrpläne, italienische Abende. Der See, Monte Brè und San Salvatore, Gandria am Ufer, Morcote an der Spitze der Halbinsel, Como und Mailand einen leichten Tagesausflug entfernt.",
-    "it": "La Svizzera italiana è una disposizione particolare delle cose: orari svizzeri, sere italiane. Il lago, il Monte Brè e il San Salvatore, Gandria lungo la riva, Morcote in punta alla penisola, Como e Milano a una gita di distanza.",
-    "fr": "La Suisse italienne est un arrangement particulier des choses : horaires suisses, soirées italiennes. Le lac, le Monte Brè et le San Salvatore, Gandria le long de la rive, Morcote à la pointe de la péninsule, Côme et Milan à une journée facile."
   }
 }

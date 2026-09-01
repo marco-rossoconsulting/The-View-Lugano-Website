@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import Hero from '../../components/Hero.astro';
 import StatBand from '../../components/StatBand.astro';
 import Pic from '../../components/Pic.astro';
 import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
@@ -23,20 +22,14 @@ const page = pageEntries.find((e) => e.data.slug === 'location')?.data;
 if (!page) throw new Error('Missing location CMS content');
 if (!page.arrivalStats?.length) throw new Error('Missing location arrivalStats');
 
+// Used only as the social-share (OG) image below, not rendered on the page.
 // NOTE: photos.ts mislabels several entries in the hotel_0XX sequence (their
 // captions don't match the actual file at that CDN path — confirmed against
 // the source images directly, not a caching issue). hotel_061 is genuinely
-// the terrace/lake view this hero needs; its manifest caption ("The entrance
-// drive at dusk") is one of the wrong ones, so the alt text is overridden
-// here rather than trusted from the manifest. Flagged for a separate
-// manifest cleanup — out of scope for this page.
-const hero = find('hotel_061');
-const heroAlt: Record<Locale, string> = {
-  en: 'The terrace at THE VIEW, looking down toward Lugano and the lake',
-  de: 'Die Terrasse im THE VIEW mit Blick auf Lugano und den See',
-  it: 'La terrazza del THE VIEW, con vista su Lugano e il lago',
-  fr: 'La terrasse du THE VIEW, avec vue sur Lugano et le lac',
-};
+// the terrace/lake view; its manifest caption ("The entrance drive at dusk")
+// is one of the wrong ones. Flagged for a separate manifest cleanup — out of
+// scope for this page.
+const ogImage = find('hotel_061');
 const fleet = byCategory('fleet');
 const smartCar = fleet.find((f) => f.src.includes('smart')) ?? fleet[0];
 const ebike = fleet.find((f) => f.src.includes('bici')) ?? fleet[1] ?? fleet[0];
@@ -66,26 +59,36 @@ const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapCoord
   title={page.metaTitle[lang]}
   description={page.metaDesc[lang]}
   route="location"
-  overlayHeader
-  ogImage={hero.src}
-  preloadImage={hero.src}
+  ogImage={ogImage.src}
 >
-  <Hero
-    src={hero.src}
-    alt={heroAlt[lang]}
-    line={page.h1[lang]}
-    tagline={page.heroTagline?.[lang]}
-    h1
-  />
-
   <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
   <section class="section location-intro">
-    <div class="container container--narrow">
-      <p class="page-intro fade-up">{page.intro[lang]}</p>
-      <p class="page-note fade-up">
-        {SITE.name} · {SITE.address.street}, {SITE.address.postalCode} {SITE.address.locality}, {SITE.address.countryName}
-      </p>
+    <div class="container location-intro__grid">
+      <div class="location-intro__copy fade-up">
+        <h1 class="page-title">{page.h1[lang]}</h1>
+        <p class="page-intro">{page.intro[lang]}</p>
+        <address>
+          {SITE.address.street}<br />
+          {SITE.address.postalCode} {SITE.address.locality}<br />
+          {SITE.address.countryName}
+        </address>
+        <a class="btn" href={directionsUrl} target="_blank" rel="noopener noreferrer">
+          {page.directionsLabel?.[lang]}
+        </a>
+      </div>
+      <div class="location-intro__map fade-up">
+        <iframe
+          src={mapEmbedUrl}
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={`${SITE.name} — ${SITE.address.locality}`}
+        ></iframe>
+      </div>
     </div>
   </section>
 
@@ -94,36 +97,6 @@ const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapCoord
       <h2 class="section-title fade-up">{page.arrivingTitle?.[lang]}</h2>
       <StatBand items={statItems} />
       {page.arrivalNote?.[lang] && <p class="location-stats__note fade-up">{page.arrivalNote[lang]}</p>}
-    </div>
-  </section>
-
-  <section class="section location-map">
-    <div class="container">
-      <div class="location-map__grid fade-up">
-        <div class="location-map__copy">
-          <h2>{SITE.address.locality}</h2>
-          <address>
-            {SITE.address.street}<br />
-            {SITE.address.postalCode} {SITE.address.locality}<br />
-            {SITE.address.countryName}
-          </address>
-          <a class="btn" href={directionsUrl} target="_blank" rel="noopener noreferrer">
-            {page.directionsLabel?.[lang]}
-          </a>
-        </div>
-        <div class="location-map__frame">
-          <iframe
-            src={mapEmbedUrl}
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title={`${SITE.name} — ${SITE.address.locality}`}
-          ></iframe>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -158,13 +131,6 @@ const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapCoord
     </div>
   </section>
 
-  <section class="section location-around">
-    <div class="container container--narrow">
-      <h2 class="section-title fade-up">{page.luganoTitle?.[lang]}</h2>
-      <p class="fade-up" style="max-width: 62ch;">{page.luganoBody?.[lang]}</p>
-    </div>
-  </section>
-
   <JsonLd
     data={breadcrumbJsonLd([
       { name: 'Home', url: p(lang) },
@@ -183,8 +149,60 @@ const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapCoord
     margin-bottom: var(--space-3);
   }
 
-  .location-intro .page-note {
+  /* Intro + map: the functional facts (address, directions) sit beside the
+     map itself so a reader lands on "where" immediately, rather than
+     scrolling past a photograph to find it. */
+  .location-intro__grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: stretch;
+  }
+  .location-intro__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .location-intro__copy .page-title {
+    /* Smaller than the default h1 scale: this column is narrower than a
+       full-width hero would allow, and the page reads as functional
+       (address, directions, arrival facts) rather than as a headline. */
+    font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+    margin-bottom: var(--space-2);
+  }
+  .location-intro__copy .page-intro {
+    margin-bottom: var(--space-3);
+  }
+  .location-intro__copy address {
+    font-style: normal;
     color: var(--clay);
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+  }
+  .location-intro__copy .btn {
+    align-self: flex-start;
+  }
+  .location-intro__map {
+    min-height: 26rem;
+    border: 1px solid var(--tortora-densa);
+    overflow: hidden;
+    background: var(--tortora);
+  }
+  .location-intro__map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 26rem;
+    filter: saturate(0.85) contrast(1.02);
+  }
+  @media (max-width: 820px) {
+    .location-intro__grid {
+      grid-template-columns: 1fr;
+    }
+    .location-intro__map,
+    .location-intro__map iframe {
+      min-height: min(90vw, 22rem);
+    }
   }
 
   /* Stats */
@@ -195,57 +213,6 @@ const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapCoord
     border-top: 1px solid var(--tortora-densa);
     color: var(--clay);
     font-size: 0.95rem;
-  }
-
-  /* Map: address + hairline-framed embed, asymmetric like the rest of the
-     page's editorial grid, but with no photograph competing for attention. */
-  .location-map__grid {
-    display: grid;
-    grid-template-columns: 4fr 8fr;
-    gap: clamp(1.5rem, 5vw, 4rem);
-    align-items: stretch;
-  }
-  .location-map__copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .location-map__copy h2 {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(1.6rem, 2.8vw, 2.3rem);
-    margin-bottom: var(--space-2);
-  }
-  .location-map__copy address {
-    font-style: normal;
-    color: var(--clay);
-    line-height: 1.7;
-    margin-bottom: var(--space-3);
-  }
-  .location-map__copy .btn {
-    align-self: flex-start;
-  }
-  .location-map__frame {
-    min-height: 24rem;
-    border: 1px solid var(--tortora-densa);
-    overflow: hidden;
-    background: var(--tortora);
-  }
-  .location-map__frame iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 24rem;
-    filter: saturate(0.85) contrast(1.02);
-  }
-  @media (max-width: 820px) {
-    .location-map__grid {
-      grid-template-columns: 1fr;
-    }
-    .location-map__frame,
-    .location-map__frame iframe {
-      min-height: min(90vw, 22rem);
-    }
   }
 
   /* Moving around: two real photographs (car + e-bike) instead of the

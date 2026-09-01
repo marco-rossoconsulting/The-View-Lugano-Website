@@ -131,8 +131,6 @@ const pages = defineCollection({
     aroundBody: localized.optional(),
     luganoTitle: localized.optional(),
     luganoBody: localized.optional(),
-    // Location page: photographic hero (see Hero.astro's non-video branch).
-    heroTagline: localized.optional(),
     // Location page: the "getting here" ledger. `value`/`unit` render as one
     // figure (e.g. 25 + MIN); unit is localized since abbreviations differ
     // (MIN/HR vs. MIN/STD). `detail` is one short supporting line, not prose.
