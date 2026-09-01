@@ -18,6 +18,12 @@
     "it": "Sopra la città, sulla collina di Paradiso",
     "fr": "Au-dessus de la ville, sur la colline de Paradiso"
   },
+  "heroTagline": {
+    "en": "Ten minutes above Lugano",
+    "de": "Zehn Minuten über Lugano",
+    "it": "Dieci minuti sopra Lugano",
+    "fr": "Dix minutes au-dessus de Lugano"
+  },
   "intro": {
     "en": "The View stands above Lugano on the slope of Monte San Salvatore. The city is ten minutes down the hill, the lakefront a few more, and the lake itself is in the window the whole time.",
     "de": "The View steht über Lugano an der Flanke des Monte San Salvatore. Die Stadt liegt zehn Minuten den Hügel hinunter, das Seeufer wenig weiter — und der See selbst ist die ganze Zeit im Fenster.",
@@ -25,28 +31,88 @@
     "fr": "The View domine Lugano au flanc du Monte San Salvatore. La ville est à dix minutes en bas de la colline, les quais un peu plus loin — et le lac reste à la fenêtre tout du long."
   },
   "arrivingTitle": {
-    "en": "Arriving",
+    "en": "Getting here",
     "de": "Anreise",
-    "it": "Arrivare",
+    "it": "Come arrivare",
     "fr": "Arriver"
   },
-  "byCar": {
-    "en": "By car: leave the A2 at Lugano Sud, follow Paradiso, then Via Guidino to number 29. Parking is available at the house — tell your Ambassador when you expect to arrive and it will be waiting.",
-    "de": "Mit dem Auto: Autobahn A2, Ausfahrt Lugano Sud, Richtung Paradiso, dann die Via Guidino bis Nummer 29. Parkplätze stehen am Haus bereit — nennen Sie Ihrem Ambassador Ihre Ankunftszeit, und ein Platz wartet.",
-    "it": "In auto: uscite dalla A2 a Lugano Sud, seguite Paradiso, poi Via Guidino fino al numero 29. Il parcheggio è disponibile in casa — dite al vostro Ambassador a che ora contate di arrivare e un posto sarà pronto.",
-    "fr": "En voiture : quittez l'A2 à Lugano Sud, suivez Paradiso, puis la Via Guidino jusqu'au numéro 29. Le parking est disponible à la maison — indiquez votre heure d'arrivée à votre Ambassador et une place vous attendra."
+  "arrivalStats": [
+    {
+      "value": "10",
+      "unit": { "en": "MIN", "de": "MIN", "it": "MIN", "fr": "MIN" },
+      "label": {
+        "en": "Lugano centre & station",
+        "de": "Luganos Zentrum & Bahnhof",
+        "it": "Centro e stazione di Lugano",
+        "fr": "Centre et gare de Lugano"
+      },
+      "detail": {
+        "en": "Down the hill and on the lakefront; the train station closer still.",
+        "de": "Den Hügel hinunter und am Seeufer; der Bahnhof liegt noch näher.",
+        "it": "Giù per la collina e sul lungolago; la stazione ancora più vicina.",
+        "fr": "En bas de la colline et sur les quais ; la gare, plus proche encore."
+      }
+    },
+    {
+      "value": "25",
+      "unit": { "en": "MIN", "de": "MIN", "it": "MIN", "fr": "MIN" },
+      "label": {
+        "en": "Lugano Airport",
+        "de": "Flughafen Lugano",
+        "it": "Aeroporto di Lugano",
+        "fr": "Aéroport de Lugano"
+      },
+      "detail": {
+        "en": "A private transfer arranged through your Ambassador.",
+        "de": "Ein privater Transfer, organisiert von Ihrem Ambassador.",
+        "it": "Un transfer privato organizzato dal vostro Ambassador.",
+        "fr": "Un transfert privé organisé par votre Ambassador."
+      }
+    },
+    {
+      "value": "1",
+      "unit": { "en": "HR", "de": "STD", "it": "ORA", "fr": "H" },
+      "label": {
+        "en": "Milan Malpensa",
+        "de": "Mailand Malpensa",
+        "it": "Milano Malpensa",
+        "fr": "Milan Malpensa"
+      },
+      "detail": {
+        "en": "The most used arrival point for international guests.",
+        "de": "Der meistgenutzte Ankunftsort für internationale Gäste.",
+        "it": "Il punto d'arrivo più utilizzato dagli ospiti internazionali.",
+        "fr": "Le point d'arrivée le plus utilisé par les hôtes internationaux."
+      }
+    },
+    {
+      "value": "2.5",
+      "unit": { "en": "HRS", "de": "STD", "it": "ORE", "fr": "H" },
+      "label": {
+        "en": "Zurich",
+        "de": "Zürich",
+        "it": "Zurigo",
+        "fr": "Zurich"
+      },
+      "detail": {
+        "en": "By road or by rail, whichever suits your journey.",
+        "de": "Per Strasse oder Bahn, je nachdem, was zu Ihrer Reise passt.",
+        "it": "Su strada o in treno, a seconda del vostro viaggio.",
+        "fr": "Par la route ou par le rail, selon votre itinéraire."
+      }
+    }
+  ],
+  "arrivalNote": {
+    "en": "Leave the A2 at Lugano Sud toward Paradiso. Tell your Ambassador when to expect you, and parking, pickup or a private transfer will be ready.",
+    "de": "Verlassen Sie die A2 bei Lugano Sud Richtung Paradiso. Teilen Sie Ihrem Ambassador Ihre Ankunftszeit mit — Parkplatz, Abholung oder privater Transfer stehen bereit.",
+    "it": "Uscite dalla A2 a Lugano Sud in direzione Paradiso. Comunicate al vostro Ambassador l'orario d'arrivo: parcheggio, ritiro o transfer privato saranno pronti.",
+    "fr": "Quittez l'A2 à Lugano Sud en direction de Paradiso. Indiquez votre heure d'arrivée à votre Ambassador : place de parking, prise en charge ou transfert privé seront prêts."
   },
-  "byTrain": {
-    "en": "By train: Lugano station is ten minutes away; Paradiso station closer still. We will collect you — arrange it with your Ambassador before travelling.",
-    "de": "Mit dem Zug: Der Bahnhof Lugano liegt zehn Minuten entfernt, der Bahnhof Paradiso noch näher. Wir holen Sie ab — vereinbaren Sie es vor der Reise mit Ihrem Ambassador.",
-    "it": "In treno: la stazione di Lugano è a dieci minuti; quella di Paradiso ancora più vicina. Veniamo a prendervi — accordatevi con il vostro Ambassador prima di partire.",
-    "fr": "En train : la gare de Lugano est à dix minutes ; celle de Paradiso encore plus proche. Nous venons vous chercher — convenez-en avec votre Ambassador avant le voyage."
-  },
-  "byAir": {
-    "en": "By air: Lugano Airport is around 25 minutes, Milan Malpensa around an hour, Zurich around two and a half by road or rail. Private transfers can be arranged for any of them.",
-    "de": "Mit dem Flugzeug: Flughafen Lugano rund 25 Minuten, Mailand Malpensa rund eine Stunde, Zürich rund zweieinhalb per Strasse oder Bahn. Private Transfers organisieren wir für jede Verbindung.",
-    "it": "In aereo: l'aeroporto di Lugano è a circa 25 minuti, Milano Malpensa a circa un'ora, Zurigo a circa due ore e mezza su strada o rotaia. Per ciascuno organizziamo transfer privati.",
-    "fr": "En avion : l'aéroport de Lugano est à environ 25 minutes, Milan Malpensa à environ une heure, Zurich à environ deux heures et demie par la route ou le rail. Nous organisons des transferts privés pour chacun."
+  "directionsLabel": {
+    "en": "Get directions",
+    "de": "Route planen",
+    "it": "Ottieni indicazioni",
+    "fr": "Itinéraire"
   },
   "aroundTitle": {
     "en": "Moving around",
@@ -55,10 +121,10 @@
     "fr": "Se déplacer"
   },
   "aroundBody": {
-    "en": "Electric Smart cars and e-bikes are included with the stay, and they change what the hillside means: the position gives you the panorama, the keys give you the city. Reserve one with your Ambassador before arrival — the fleet is small on purpose.",
-    "de": "Elektrische Smarts und E-Bikes sind im Aufenthalt inbegriffen — und sie verändern, was der Hang bedeutet: Die Lage gibt Ihnen das Panorama, die Schlüssel geben Ihnen die Stadt. Reservieren Sie vor der Anreise über Ihren Ambassador — die Flotte ist mit Absicht klein.",
-    "it": "Smart elettriche ed e-bike sono incluse nel soggiorno, e cambiano il senso della collina: la posizione vi dà il panorama, le chiavi vi danno la città. Riservatene una con il vostro Ambassador prima dell'arrivo — la flotta è piccola di proposito.",
-    "fr": "Les Smart électriques et les vélos électriques sont compris dans le séjour, et ils changent le sens de la colline : la position vous donne le panorama, les clés vous donnent la ville. Réservez avec votre Ambassador avant l'arrivée — la flotte est petite à dessein."
+    "en": "Electric Smart cars and e-bikes are included with the stay, and they change what the hillside means: the position gives you the panorama, the keys give you the city. Reserve one with your Ambassador before arrival.",
+    "de": "Elektrische Smarts und E-Bikes sind im Aufenthalt inbegriffen — und sie verändern, was der Hang bedeutet: Die Lage gibt Ihnen das Panorama, die Schlüssel geben Ihnen die Stadt. Reservieren Sie vor der Anreise über Ihren Ambassador.",
+    "it": "Smart elettriche ed e-bike sono incluse nel soggiorno, e cambiano il senso della collina: la posizione vi dà il panorama, le chiavi vi danno la città. Riservatene una con il vostro Ambassador prima dell'arrivo.",
+    "fr": "Les Smart électriques et les vélos électriques sont compris dans le séjour, et ils changent le sens de la colline : la position vous donne le panorama, les clés vous donnent la ville. Réservez avec votre Ambassador avant l'arrivée."
   },
   "luganoTitle": {
     "en": "Lugano & Ticino",
