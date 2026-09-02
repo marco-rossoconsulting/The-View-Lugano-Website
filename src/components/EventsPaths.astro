@@ -1,0 +1,223 @@
+---
+// Features-11, ported to Astro: split headline + three indexed cards,
+// staggered fade-up, footer link with arrow. Photo-led in the dining
+// venue-card register rather than icon tiles — no React, no lucide.
+import Pic from './Pic.astro';
+import type { ImageMetadata } from 'astro';
+
+export interface EventPathCard {
+  id: string;
+  index: string;
+  title: string;
+  body: string;
+  src: string | ImageMetadata;
+  alt: string;
+  href: string;
+  cta: string;
+}
+
+interface Props {
+  title: string;
+  note: string;
+  cards: EventPathCard[];
+}
+
+const { title, note, cards } = Astro.props;
+---
+
+<section class="events-paths section--tortora" aria-labelledby="events-paths-title">
+  <div class="container">
+    <header class="events-paths__header fade-up">
+      <h2 id="events-paths-title">{title}</h2>
+      <p>{note}</p>
+    </header>
+
+    <div class="events-paths__grid">
+      {cards.map((card, i) => (
+        <article
+          class="path-card fade-up"
+          id={card.id}
+          style={`--path-delay: ${i * 110}ms`}
+        >
+          <div class="path-card__media">
+            <Pic
+              src={card.src}
+              alt={card.alt}
+              width={1600}
+              height={1067}
+              widths={[560, 760, 1100]}
+              sizes="(max-width: 900px) 100vw, 33vw"
+            />
+          </div>
+          <div class="path-card__body">
+            <p class="eyebrow path-card__index" aria-hidden="true">{card.index}</p>
+            <h3>{card.title}</h3>
+            <p class="path-card__copy">{card.body}</p>
+            <a class="path-card__link" href={card.href}>
+              {card.cta}
+              <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="square"
+                  stroke-linejoin="miter"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .events-paths {
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  }
+  .events-paths__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.68fr);
+    gap: var(--space-3);
+    align-items: end;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+  .events-paths__header h2 {
+    margin: 0;
+  }
+  .events-paths__header p {
+    margin: 0;
+    color: var(--clay);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+  .events-paths__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2.2vw, 2rem);
+    align-items: stretch;
+  }
+  .path-card {
+    display: flex;
+    height: 100%;
+    min-width: 0;
+    flex-direction: column;
+    scroll-margin-top: 7rem;
+    border: 1px solid var(--tortora-densa);
+    background: var(--ground);
+    transition: border-color 400ms ease;
+  }
+  .path-card.fade-up {
+    transition:
+      opacity var(--transition-slow),
+      transform var(--transition-slow),
+      border-color 400ms ease;
+    transition-delay: var(--path-delay, 0ms);
+  }
+  .path-card:hover,
+  .path-card:focus-within {
+    border-color: var(--clay);
+  }
+  .path-card:target {
+    border-color: var(--ink);
+  }
+  .path-card__media {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--grigio);
+  }
+  .path-card__index {
+    margin-bottom: 0.7rem;
+    font-size: 0.68rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.22em;
+  }
+  .path-card__media :global(picture),
+  .path-card__media :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .path-card__media :global(img) {
+    object-fit: cover;
+    transition: transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .path-card:hover .path-card__media :global(img),
+  .path-card:focus-within .path-card__media :global(img) {
+    transform: scale(1.035);
+  }
+  .path-card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(1.5rem, 2.8vw, 2.4rem);
+  }
+  .path-card h3 {
+    margin-bottom: 0.7rem;
+    font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+    font-weight: 300;
+  }
+  .path-card__copy {
+    margin-bottom: var(--space-3);
+    max-width: none;
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+  .path-card__link {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: auto;
+    border-bottom: 1px solid var(--clay);
+    padding-block: 0.2rem;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+  .path-card__link svg {
+    flex-shrink: 0;
+    transition: transform 400ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .path-card__link:hover,
+  .path-card__link:focus-visible {
+    border-color: var(--ink);
+    color: var(--clay);
+  }
+  .path-card__link:hover svg,
+  .path-card__link:focus-visible svg {
+    transform: translateX(0.28rem);
+  }
+  @media (max-width: 900px) {
+    .events-paths__header,
+    .events-paths__grid {
+      grid-template-columns: 1fr;
+    }
+    .events-paths__header {
+      gap: var(--space-2);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .path-card,
+    .path-card.fade-up,
+    .path-card__media :global(img),
+    .path-card__link,
+    .path-card__link svg {
+      transition: none;
+    }
+    .path-card:hover .path-card__media :global(img),
+    .path-card:focus-within .path-card__media :global(img) {
+      transform: none;
+    }
+    .path-card__link:hover svg,
+    .path-card__link:focus-visible svg {
+      transform: none;
+    }
+  }
+</style>
