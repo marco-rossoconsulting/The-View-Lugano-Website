@@ -80,7 +80,6 @@ const paths = [
 
   <section class="section events-intro">
     <div class="container container--narrow">
-      <p class="eyebrow">{t.events.eyebrow}</p>
       <h1 class="page-title">{page.h1[lang]}</h1>
       <p class="page-intro lede">{page.intro[lang]}</p>
     </div>
@@ -95,7 +94,6 @@ const paths = [
   <section class="section events-enquire" id="enquire" aria-labelledby="events-enquire-title">
     <div class="container container--narrow">
       <h2 id="events-enquire-title" class="visually-hidden">{page.cta[lang]}</h2>
-      {page.honest?.[lang] && <p class="events-enquire__honest">{page.honest[lang]}</p>}
       <nav class="events-enquire__paths" aria-label={t.events.jumpLabel}>
         {paths.map((path) => (
           <a href={`#${path.id}`}>
@@ -125,12 +123,6 @@ const paths = [
   }
   .events-enquire {
     padding-block: clamp(3.5rem, 7vw, 6.5rem);
-  }
-  .events-enquire__honest {
-    max-width: 62ch;
-    margin-bottom: var(--space-3);
-    font-size: 1.02rem;
-    line-height: 1.8;
   }
   .events-enquire__paths {
     display: flex;
