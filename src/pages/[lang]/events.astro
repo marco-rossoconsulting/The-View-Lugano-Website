@@ -82,6 +82,9 @@ const paths = [
     <div class="container container--narrow">
       <h1 class="page-title">{page.h1[lang]}</h1>
       <p class="page-intro lede">{page.intro[lang]}</p>
+      <a class="btn btn--solid" href={ticketsHref} target="_blank" rel="noopener noreferrer">
+        {t.events.exploreCta}
+      </a>
     </div>
   </section>
 
@@ -90,24 +93,6 @@ const paths = [
     note={t.events.exploreNote}
     cards={paths}
   />
-
-  <section class="section events-enquire" id="enquire" aria-labelledby="events-enquire-title">
-    <div class="container container--narrow">
-      <h2 id="events-enquire-title" class="visually-hidden">{page.cta[lang]}</h2>
-      <nav class="events-enquire__paths" aria-label={t.events.jumpLabel}>
-        {paths.map((path) => (
-          <a href={`#${path.id}`}>
-            <span aria-hidden="true">{path.index}</span>
-            {path.title}
-          </a>
-        ))}
-      </nav>
-      <div class="events-enquire__actions">
-        <a class="btn btn--solid" href={contactHref}>{page.cta[lang]}</a>
-        <a class="btn" href={ticketsHref} rel="noopener">{t.common.eventsShop}</a>
-      </div>
-    </div>
-  </section>
 
   <JsonLd
     data={breadcrumbJsonLd([
@@ -121,45 +106,7 @@ const paths = [
   .events-intro {
     padding-bottom: clamp(3.5rem, 7vw, 6rem);
   }
-  .events-enquire {
-    padding-block: clamp(3.5rem, 7vw, 6.5rem);
-  }
-  .events-enquire__paths {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.75rem;
-    margin-bottom: var(--space-3);
-  }
-  .events-enquire__paths a {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.55rem;
-    border-bottom: 1px solid transparent;
-    padding-block: 0.25rem;
-    font-family: var(--font-display);
-    font-size: 0.82rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    transition: border-color 200ms ease, color 200ms ease;
-  }
-  .events-enquire__paths a span {
-    color: var(--clay);
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0.18em;
-  }
-  .events-enquire__paths a:hover,
-  .events-enquire__paths a:focus-visible {
-    border-bottom-color: var(--ink);
-    color: var(--clay);
-  }
-  .events-enquire__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .events-enquire__paths a {
-      transition: none;
-    }
+  .events-intro .btn {
+    margin-top: var(--space-3);
   }
 </style>
