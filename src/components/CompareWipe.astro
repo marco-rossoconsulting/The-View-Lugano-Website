@@ -175,9 +175,13 @@ const restPos = Math.min(Math.max(rest, 0), 100);
   .cw.is-ready .cw__stage {
     cursor: ew-resize;
   }
+  /* Opaque, because the panes are stacked: while the overlay's photograph is
+     still decoding a transparent pane shows the base photograph through it,
+     and for that moment the wipe looks like one image with two captions. */
   .cw__pane {
     position: absolute;
     inset: 0;
+    background: var(--ink);
   }
   /* The clip is the whole mechanism: the overlay keeps only the strip from
      the left edge to the divider. Everything else — divider, handle — simply
