@@ -37,6 +37,24 @@ export function alternates(pathAfterLang: string) {
   }));
 }
 
+/** Swiss regional locales. de-CH and it-CH write decimals with a point,
+ *  fr-CH with a comma — so a figure like 1.6 km is not the same string in
+ *  every language on the site. */
+const NUMBER_LOCALE: Record<Locale, string> = {
+  en: 'en-GB',
+  de: 'de-CH',
+  it: 'it-CH',
+  fr: 'fr-CH',
+};
+
+/** Format a figure for display. Accepts the raw strings that come out of the
+ *  CMS: anything that is not a plain number is passed through untouched. */
+export function formatFigure(value: string | number, lang: Locale): string {
+  const n = typeof value === 'number' ? value : Number(String(value).trim());
+  if (!Number.isFinite(n) || String(value).trim() === '') return String(value);
+  return new Intl.NumberFormat(NUMBER_LOCALE[lang], { maximumFractionDigits: 2 }).format(n);
+}
+
 export const OG_LOCALE: Record<Locale, string> = {
   en: 'en_GB',
   de: 'de_CH',

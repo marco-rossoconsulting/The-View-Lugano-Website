@@ -24,6 +24,12 @@
       "it": "Spa",
       "fr": "Spa"
     },
+    "move": {
+      "en": "Move",
+      "de": "Bewegung",
+      "it": "Movimento",
+      "fr": "Mouvement"
+    },
     "experiences": {
       "en": "Experiences & Offers",
       "de": "Erlebnisse & Arrangements",

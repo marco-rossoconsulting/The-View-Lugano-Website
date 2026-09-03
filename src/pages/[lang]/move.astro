@@ -1,0 +1,587 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import Hero from '../../components/Hero.astro';
+import Pic from '../../components/Pic.astro';
+import { localePaths, p, isLocale, formatFigure, type Locale } from '../../lib/i18n';
+import { breadcrumbJsonLd, gymJsonLd } from '../../lib/seo';
+import { SITE } from '../../lib/site';
+import { getCollection } from 'astro:content';
+
+import hillside from '../../assets/images/move/the-view-lugano-hillside-meadow-san-salvatore.jpg';
+import fitnessRoom from '../../assets/images/move/the-view-lugano-fitness-room-lake-view.jpg';
+import fitnessDetail from '../../assets/images/move/the-view-lugano-fitness-room-technogym.jpg';
+import trailRunning from '../../assets/images/move/the-view-lugano-trail-running-monte-san-salvatore.jpg';
+import outdoorTraining from '../../assets/images/move/the-view-lugano-outdoor-personal-training.jpg';
+
+export function getStaticPaths() {
+  return localePaths();
+}
+
+const lang = Astro.params.lang as Locale;
+if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+
+const [pageEntries, moveEntries] = await Promise.all([
+  getCollection('pages'),
+  getCollection('move'),
+]);
+
+const page = pageEntries.find((e) => e.data.slug === 'move')?.data;
+const move = moveEntries[0]?.data;
+if (!page) throw new Error('Missing move CMS content');
+if (!move) throw new Error('Missing move experience CMS content');
+
+// The hero image, as an absolute URL, for the social card. Same photograph,
+// served from the property's media CDN since OG needs a resolvable address.
+const ogImage =
+  'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135350/hotel_022.jpg';
+
+const trailFigure = `${formatFigure(SITE.fitness.trailKm, lang)} km`;
+const contactUrl = p(lang, 'contact');
+---
+
+<Base
+  {lang}
+  title={page.metaTitle[lang]}
+  description={page.metaDesc[lang]}
+  route="move"
+  overlayHeader
+  {ogImage}
+>
+  <Hero
+    src={hillside}
+    alt={move.hero.alt[lang]}
+    line={page.h1[lang]}
+    tagline={move.hero.tagline[lang]}
+    h1
+  />
+
+  <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
+
+  {/* Intro. The practical facts sit in their own column beside the copy, so
+      someone checking whether the gym is open at 07:00 never has to read
+      the prose to find out. */}
+  <section class="section move-intro">
+    <div class="container move-intro__layout">
+      <div class="move-intro__copy">
+        <p class="page-intro fade-up">{page.intro[lang]}</p>
+        <p class="page-note fade-up">{move.philosophy[lang]}</p>
+        <nav class="move-jump-links fade-up" aria-label={move.navigation.label[lang]}>
+          <a href="#training">{move.navigation.training[lang]}</a>
+          <a href="#trails">{move.navigation.trails[lang]}</a>
+        </nav>
+      </div>
+      <aside class="move-glance fade-up" aria-labelledby="move-glance-title">
+        <h2 id="move-glance-title" class="move-glance__title">{move.glance.title[lang]}</h2>
+        <dl class="move-glance__list">
+          <div>
+            <dt>{move.glance.openLabel[lang]}</dt>
+            <dd>{SITE.fitness.hours}</dd>
+          </div>
+          <div>
+            <dt>{move.glance.accessLabel[lang]}</dt>
+            <dd>{move.glance.accessValue[lang]}</dd>
+          </div>
+          <div>
+            <dt>{move.glance.equipmentLabel[lang]}</dt>
+            <dd>{move.glance.equipmentValue[lang]}</dd>
+          </div>
+          <div>
+            <dt>{move.glance.trailLabel[lang]}</dt>
+            <dd>{trailFigure} · {SITE.fitness.trailStations} {move.glance.stationsLabel[lang]}</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  {/* The room. One wide photograph, then the copy and the equipment beneath
+      it in two columns — the photograph is the argument, the list is the
+      answer to "what is actually in there". */}
+  <section class="section section--tortora move-gym">
+    <div class="container">
+      <div class="move-gym__photo fade-up">
+        <Pic
+          src={fitnessRoom}
+          alt={move.gym.altWide[lang]}
+          width={1417}
+          height={883}
+          widths={[640, 960, 1280, 1417]}
+          sizes="(max-width: 720px) 100vw, 88vw"
+        />
+      </div>
+      <div class="move-gym__layout">
+        <div class="move-gym__copy fade-up">
+          <p class="eyebrow">{move.gym.eyebrow[lang]}</p>
+          <h2 class="section-title">{move.gym.title[lang]}</h2>
+          {move.gym.body[lang].map((par: string) => <p>{par}</p>)}
+        </div>
+        <div class="move-gym__aside fade-up">
+          <figure class="move-gym__detail">
+            <Pic
+              src={fitnessDetail}
+              alt={move.gym.altDetail[lang]}
+              width={1000}
+              height={1000}
+              widths={[320, 480, 720, 1000]}
+              sizes="(max-width: 900px) 60vw, 24vw"
+            />
+            <figcaption>{move.gym.detailCaption[lang]}</figcaption>
+          </figure>
+          <ul class="facts move-gym__facts">
+            {move.gym.facts.map((fact) => <li>{fact[lang]}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* A photographic breath between the room and the hillside. */}
+  <section class="move-interlude fade-up">
+    <Pic
+      src={trailRunning}
+      alt={move.interlude.alt[lang]}
+      width={1417}
+      height={945}
+      widths={[640, 960, 1280, 1417]}
+      sizes="100vw"
+      class="move-interlude__img"
+    />
+    <div class="move-interlude__scrim" aria-hidden="true"></div>
+    <p class="move-interlude__caption">{move.interlude.caption[lang]}</p>
+  </section>
+
+  {/* Personal training. Dark, like the Night Spa block on the spa page —
+      the two bookable-with-a-price sections of the house read as a pair. */}
+  <section id="training" class="section section--ink move-training">
+    <div class="container move-training__layout">
+      <div class="move-training__photo fade-up">
+        <Pic
+          src={outdoorTraining}
+          alt={move.training.alt[lang]}
+          width={1417}
+          height={910}
+          widths={[640, 960, 1280, 1417]}
+          sizes="(max-width: 900px) 100vw, 52vw"
+        />
+      </div>
+      <div class="move-training__copy fade-up">
+        <p class="eyebrow">{move.training.eyebrow[lang]}</p>
+        <h2>{move.training.title[lang]}</h2>
+        <p class="move-training__body">{move.training.body[lang]}</p>
+        <p class="move-training__note">{move.training.note[lang]}</p>
+        <h3 class="move-training__pricing-title">{move.training.pricingTitle[lang]}</h3>
+        <dl class="move-price-list">
+          {move.training.prices.map((item) => (
+            <div>
+              <dt>{item.label[lang]}</dt>
+              <dd>{item.price[lang]}</dd>
+              {item.note && <p>{item.note[lang]}</p>}
+            </div>
+          ))}
+        </dl>
+        <a class="btn btn--light" href={contactUrl}>{move.training.ctaLabel[lang]}</a>
+      </div>
+    </div>
+  </section>
+
+  {/* Routes. A ledger, not a bulleted list: the figure carries the decision
+      (how long have I got?) and the line underneath explains the walk. */}
+  <section id="trails" class="section move-trails">
+    <div class="container">
+      <h2 class="section-title fade-up">{move.trails.title[lang]}</h2>
+      <p class="move-trails__intro fade-up">{move.trails.intro[lang]}</p>
+      <ol class="move-routes fade-up">
+        {move.trails.items.map((route) => (
+          <li class="move-route">
+            <p class="move-route__figure">
+              <span class="move-route__value">{formatFigure(route.value, lang)}</span>
+              <span class="move-route__unit">{route.unit[lang]}</span>
+            </p>
+            <h3 class="move-route__name">{route.name[lang]}</h3>
+            <p class="move-route__body">{route.body[lang]}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="move-trails__note fade-up">{move.trails.note[lang]}</p>
+    </div>
+  </section>
+
+  <JsonLd
+    data={breadcrumbJsonLd([
+      { name: 'Home', url: p(lang) },
+      { name: page.h1[lang], url: p(lang, 'move') },
+    ])}
+  />
+  <JsonLd data={gymJsonLd(lang, ogImage)} />
+</Base>
+
+<style>
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    margin-bottom: var(--space-2);
+  }
+
+  /* --- Intro + the practical column ------------------------------------ */
+  .move-intro {
+    padding-bottom: var(--space-4);
+  }
+  .move-intro__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 0.75fr);
+    align-items: start;
+    gap: clamp(2rem, 6vw, 5.5rem);
+  }
+  .move-intro__copy {
+    min-width: 0;
+  }
+  .page-intro {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    line-height: 1.7;
+    max-width: 52ch;
+  }
+  .page-note {
+    color: var(--clay);
+    max-width: 56ch;
+  }
+  .move-jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.4rem;
+    margin-top: var(--space-3);
+  }
+  .move-jump-links a {
+    border-bottom: 1px solid var(--clay);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: border-color 220ms ease, color 220ms ease;
+  }
+  .move-jump-links a:hover,
+  .move-jump-links a:focus-visible {
+    border-color: var(--ink);
+    color: var(--clay);
+  }
+  .move-glance__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin: 0 0 var(--space-2);
+  }
+  .move-glance__list {
+    margin: 0;
+    display: grid;
+  }
+  .move-glance__list > div {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.95rem 0;
+    border-top: 1px solid var(--tortora-densa);
+  }
+  .move-glance__list > div:last-child {
+    border-bottom: 1px solid var(--tortora-densa);
+  }
+  .move-glance__list dt {
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
+  .move-glance__list dd {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  @media (max-width: 820px) {
+    .move-intro__layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+  }
+
+  /* --- The room: one wide photograph, then copy and equipment ---------- */
+  .move-gym__photo {
+    margin-bottom: clamp(1.75rem, 4vw, 3.5rem);
+    overflow: hidden;
+  }
+  .move-gym__photo :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+  }
+  .move-gym__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2rem, 6vw, 5.5rem);
+    align-items: start;
+  }
+  .move-gym__copy p:last-of-type {
+    margin-bottom: 0;
+  }
+  .move-gym__aside {
+    display: grid;
+    gap: var(--space-3);
+  }
+  .move-gym__detail {
+    margin: 0;
+    max-width: 20rem;
+  }
+  .move-gym__detail :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  .move-gym__detail figcaption {
+    margin-top: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
+  .move-gym__facts {
+    margin-bottom: 0;
+    grid-template-columns: 1fr;
+  }
+  .move-gym__facts li {
+    border-color: color-mix(in srgb, var(--clay) 30%, transparent);
+  }
+  @media (max-width: 900px) {
+    .move-gym__layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    .move-gym__photo :global(img) {
+      aspect-ratio: 3 / 2;
+    }
+    .move-gym__detail {
+      max-width: none;
+    }
+  }
+
+  /* --- Full-bleed interlude -------------------------------------------- */
+  .move-interlude {
+    position: relative;
+    height: min(62svh, 40rem);
+    min-height: 20rem;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .move-interlude :global(.move-interlude__img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.06);
+    transition: transform 2.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .move-interlude.is-visible :global(.move-interlude__img) {
+    transform: scale(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .move-interlude :global(.move-interlude__img) {
+      transform: none;
+      transition: none;
+    }
+  }
+  .move-interlude__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(51 41 26 / 0.72) 0%, rgb(51 41 26 / 0.34) 26%, rgb(51 41 26 / 0.06) 55%, transparent 75%);
+  }
+  .move-interlude__caption {
+    position: absolute;
+    inset-inline: 0;
+    bottom: clamp(1.5rem, 6vh, 3rem);
+    margin: 0 auto;
+    max-width: 34ch;
+    text-align: center;
+    padding-inline: clamp(1.25rem, 6vw, 5rem);
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+    text-shadow: 0 1px 16px rgb(0 0 0 / 0.4);
+  }
+
+  /* --- Personal training ------------------------------------------------ */
+  .move-training {
+    scroll-margin-top: 7rem;
+  }
+  .move-training__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: clamp(1.75rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .move-training__photo :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .move-training__copy h2 {
+    margin-bottom: var(--space-2);
+  }
+  .move-training__body {
+    max-width: 46ch;
+    color: var(--tortora);
+  }
+  .move-training__note {
+    max-width: 46ch;
+    color: var(--grigio);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-3);
+  }
+  .move-training__pricing-title {
+    color: var(--tortora);
+    font-size: 0.74rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0 0 var(--space-1);
+  }
+  .move-price-list {
+    display: grid;
+    margin: 0 0 var(--space-3);
+  }
+  .move-price-list > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content;
+    gap: 0.25rem 1rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid color-mix(in srgb, var(--grigio) 42%, transparent);
+  }
+  .move-price-list > div:last-child {
+    border-bottom: 1px solid color-mix(in srgb, var(--grigio) 42%, transparent);
+  }
+  .move-price-list dt,
+  .move-price-list dd {
+    margin: 0;
+    color: var(--tortora);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+  }
+  .move-price-list dd {
+    white-space: nowrap;
+  }
+  .move-price-list p {
+    grid-column: 1 / -1;
+    color: var(--grigio);
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .move-training__layout {
+      grid-template-columns: 1fr;
+    }
+    .move-training__copy {
+      order: -1;
+    }
+  }
+
+  /* --- Routes ledger ---------------------------------------------------- */
+  .move-trails {
+    scroll-margin-top: 7rem;
+  }
+  .move-trails__intro {
+    max-width: 56ch;
+    margin-bottom: var(--space-4);
+  }
+  .move-routes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 clamp(2rem, 7vw, 6rem);
+  }
+  .move-route {
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--tortora-densa);
+  }
+  /* Two columns means the first row is the first two items; both need the
+     top rule, and every later row inherits it from its own border. */
+  .move-route:nth-child(-n + 2) {
+    padding-top: var(--space-2);
+  }
+  .move-route__figure {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin: 0 0 0.6rem;
+  }
+  .move-route__value {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .move-route__unit {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--clay);
+  }
+  .move-route__name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.4rem;
+  }
+  .move-route__body {
+    margin: 0;
+    max-width: 42ch;
+    font-size: 0.95rem;
+    color: var(--clay);
+  }
+  .move-trails__note {
+    max-width: 62ch;
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--tortora-densa);
+    color: var(--clay);
+    font-size: 0.95rem;
+  }
+  @media (max-width: 760px) {
+    .move-routes {
+      grid-template-columns: 1fr;
+    }
+    .move-route:nth-child(-n + 2) {
+      padding-top: var(--space-3);
+    }
+    .move-route:first-child {
+      padding-top: var(--space-2);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .move-jump-links a {
+      transition: none;
+    }
+  }
+</style>

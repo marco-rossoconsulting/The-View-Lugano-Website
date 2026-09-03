@@ -49,6 +49,7 @@ collections:
               - { name: suites, label: Suites, widget: object, fields: *loc }
               - { name: dining, label: Dining, widget: object, fields: *loc }
               - { name: spa, label: Spa, widget: object, fields: *loc }
+              - { name: move, label: Move, widget: object, fields: *loc }
               - { name: experiences, label: Experiences, widget: object, fields: *loc }
               - { name: events, label: Events, widget: object, fields: *loc }
               - { name: gallery, label: Gallery, widget: object, fields: *loc }
@@ -451,7 +452,96 @@ collections:
         widget: object
         fields: *loctext
 
-  # ── 10. OFFERS ──
+  # ── 10. MOVE ──
+  - name: move
+    label: 🏃 Move Page
+    files:
+      - name: move
+        label: Fitness, Trails & Training
+        file: src/content/move/move.json
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: tagline, label: Tagline, widget: object, fields: *loc }
+              - { name: alt, label: Accessible Image Description, widget: object, fields: *loctext }
+          - { name: philosophy, label: Second Intro Paragraph, widget: object, fields: *loctext }
+          - name: glance
+            label: At a Glance Panel
+            widget: object
+            hint: 'Opening hours, trail length and number of stations come from src/lib/site.ts, not from here.'
+            fields:
+              - { name: title, label: Panel Title, widget: object, fields: *loc }
+              - { name: openLabel, label: Hours Label, widget: object, fields: *loc }
+              - { name: accessLabel, label: Access Label, widget: object, fields: *loc }
+              - { name: accessValue, label: Access Value, widget: object, fields: *loc }
+              - { name: equipmentLabel, label: Equipment Label, widget: object, fields: *loc }
+              - { name: equipmentValue, label: Equipment Value, widget: object, fields: *loc }
+              - { name: trailLabel, label: Trail Label, widget: object, fields: *loc }
+              - { name: stationsLabel, label: Word for "stations", widget: object, fields: *loc }
+          - name: navigation
+            label: In-page Links
+            widget: object
+            fields:
+              - { name: label, label: Accessible Label, widget: object, fields: *loc }
+              - { name: trails, label: Link to Routes, widget: object, fields: *loc }
+              - { name: training, label: Link to Personal Training, widget: object, fields: *loc }
+          - name: gym
+            label: The Fitness Room
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Paragraphs, widget: object, fields: *locpars }
+              - name: facts
+                label: Equipment List
+                widget: list
+                fields: *loc
+              - { name: altWide, label: Wide Photo Description, widget: object, fields: *loctext }
+              - { name: altDetail, label: Detail Photo Description, widget: object, fields: *loctext }
+              - { name: detailCaption, label: Detail Photo Caption, widget: object, fields: *loc }
+          - name: interlude
+            label: Full-width Trail Photograph
+            widget: object
+            fields:
+              - { name: caption, label: Caption, widget: object, fields: *loc }
+              - { name: alt, label: Accessible Image Description, widget: object, fields: *loctext }
+          - name: training
+            label: Personal Training
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: object, fields: *loc }
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: body, label: Text, widget: object, fields: *loctext }
+              - { name: note, label: Booking Note, widget: object, fields: *loctext }
+              - { name: alt, label: Accessible Image Description, widget: object, fields: *loctext }
+              - { name: pricingTitle, label: Rates Heading, widget: object, fields: *loc }
+              - name: prices
+                label: Rates
+                widget: list
+                fields:
+                  - { name: label, label: What It Is, widget: object, fields: *loc }
+                  - { name: price, label: Price, widget: object, fields: *loc }
+                  - { name: note, label: Note, widget: object, fields: *loctext, required: false }
+              - { name: ctaLabel, label: Button Label, widget: object, fields: *loc }
+          - name: trails
+            label: Routes From The Door
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: object, fields: *loc }
+              - { name: intro, label: Introductory Text, widget: object, fields: *loctext }
+              - name: items
+                label: Routes
+                widget: list
+                fields:
+                  - { name: value, label: Figure, widget: string, hint: 'Number only, for example 1.6 or 925' }
+                  - { name: unit, label: Unit, widget: object, fields: *loc, hint: 'Abbreviation differs by language, for example HRS / STD / ORE / H' }
+                  - { name: name, label: Route Name, widget: object, fields: *loc }
+                  - { name: body, label: One Supporting Line, widget: object, fields: *loctext }
+              - { name: note, label: Closing Note, widget: object, fields: *loctext }
+
+  # ── 11. OFFERS ──
   - name: offers
     label: 🎁 Experiences & Offers
     folder: src/content/offers
@@ -487,7 +577,7 @@ collections:
             widget: object
             fields: *loc
 
-  # ── 11. JOURNAL ──
+  # ── 12. JOURNAL ──
   - name: journal
     label: 📝 Journal
     folder: src/content/journal
@@ -519,7 +609,7 @@ collections:
             widget: object
             fields: *loc
 
-  # ── 12. FAQ ──
+  # ── 13. FAQ ──
   - name: faq
     label: ❓ FAQ
     folder: src/content/faq
@@ -538,7 +628,7 @@ collections:
         widget: object
         fields: *loctext
 
-  # ── 13. LEGAL ──
+  # ── 14. LEGAL ──
   - name: legal
     label: ⚖️ Legal Pages
     folder: src/content/legal

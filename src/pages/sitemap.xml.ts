@@ -8,6 +8,7 @@ const STATIC_ROUTES = [
   'suites',
   'dining',
   'spa',
+  'move',
   'experiences',
   'events',
   'gallery',
