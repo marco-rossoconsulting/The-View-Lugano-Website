@@ -154,16 +154,18 @@
   },
   "events": {
     "metaTitle": "Événements & Réunions — THE VIEW Lugano",
-    "metaDesc": "Événements privés de 10 à 20 hôtes, conseils avec le lac derrière la vitre, célébrations jusqu'à 30 avec la maison pour vous seuls. Pas de salles de banquet, à dessein.",
+    "metaDesc": "Événements privés, conseils avec le lac derrière la vitre, célébrations avec la maison pour vous seuls. Pas de salles de banquet, à dessein.",
     "h1": "Événements & Réunions",
     "intro": "La maison reçoit les événements comme elle reçoit les hôtes : peu à la fois, suivis par leur nom.",
+    "explore": "Trois façons de se réunir",
+    "exploreNote": "Une occasion privée, une réunion, ou la maison entière.",
+    "exploreCta": "Découvrir les événements",
     "privateTitle": "Occasions privées",
-    "privateBody": "Dîners et célébrations de dix à vingt hôtes, préparés par une cuisine étoilée et non par une carte de banquet. Les petits mariages — jusqu'à trente — sont bienvenus lorsque la maison est à vous seuls.",
+    "privateBody": "Dîners et célébrations, préparés par une cuisine étoilée et non par une carte de banquet. Les petits mariages sont bienvenus lorsque la maison est à vous seuls.",
     "meetingTitle": "Réunions",
-    "meetingBody": "Une salle de réunion, la lumière du jour et le lac derrière la vitre. Conçue pour un conseil, pas pour un congrès : une table de travail, une technique précise et le restaurant deux étages plus bas pour le soir.",
+    "meetingBody": "Une salle de réunion, la lumière du jour et le lac derrière la vitre. Conçue pour un conseil, pas pour un congrès : une table de travail, une technique précise.",
     "buyoutTitle": "La maison entière",
     "buyoutBody": "Dix-huit suites : la propriété entière peut être à vous — chaque suite, les deux piscines, le spa, le restaurant et la terrasse, pour les jours qu'il vous faut.",
-    "honest": "Ce que nous ne faisons pas : les groupes de plus de vingt, les congrès, les mariages en grand format. Les maisons qui les réussissent sont construites autrement — et nous préférons vous en indiquer une plutôt que de mal vous servir.",
     "cta": "Parlons d'une date"
   },
   "gallery": {

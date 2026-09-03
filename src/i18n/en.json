@@ -154,16 +154,18 @@
   },
   "events": {
     "metaTitle": "Events & Meetings — THE VIEW Lugano",
-    "metaDesc": "Private events for 10 to 20 guests, board meetings with the lake beyond the glass, celebrations up to 30 with the house to yourselves. No banqueting halls, deliberately.",
+    "metaDesc": "Private events, board meetings with the lake beyond the glass, celebrations with the house to yourselves. No banqueting halls, deliberately.",
     "h1": "Events & Meetings",
     "intro": "The house takes events the way it takes guests: few at a time, looked after by name.",
+    "explore": "Three ways to gather",
+    "exploreNote": "A private occasion, a meeting, or the whole house.",
+    "exploreCta": "Explore Events",
     "privateTitle": "Private occasions",
-    "privateBody": "Dinners and celebrations for ten to twenty guests, cooked by a Michelin kitchen rather than a banqueting menu. Small weddings — up to thirty — are welcome when the house is yours alone.",
+    "privateBody": "Dinners and celebrations, cooked by a Michelin kitchen rather than a banqueting menu. Small weddings are welcome when the house is yours alone.",
     "meetingTitle": "Meetings",
-    "meetingBody": "One meeting room, daylight, and the lake beyond the glass. Built for a board, not a congress: a working table, exact technology, and the restaurant two floors down for the evening.",
+    "meetingBody": "One meeting room, daylight, and the lake beyond the glass. Built for a board, not a congress: a working table and exact technology.",
     "buyoutTitle": "The whole house",
     "buyoutBody": "Eighteen suites means the entire property can be yours — every suite, both pools, the spa, the restaurant and the terrace, for the days you need them.",
-    "honest": "What we do not do: groups above twenty, congresses, large-format weddings. The properties that do them well are built differently — and we would rather send you to one than serve you badly.",
     "cta": "Speak to us about a date"
   },
   "gallery": {

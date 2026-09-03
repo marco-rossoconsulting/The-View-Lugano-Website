@@ -1,9 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
-import EditorialSplit from '../../components/EditorialSplit.astro';
+import EventsPaths from '../../components/EventsPaths.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { localePaths, p, isLocale, type Locale } from '../../lib/i18n';
+import Pic from '../../components/Pic.astro';
+import { dict, localePaths, p, isLocale, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd } from '../../lib/seo';
 import { egumaUrl } from '../../lib/site';
 import { byCategory } from '../../lib/photos';
@@ -15,72 +16,108 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Locale;
 if (!isLocale(lang)) throw new Error(`Unknown locale ${lang}`);
+const t = dict(lang);
 
 const pageEntries = await getCollection('pages');
 const page = pageEntries.find((e) => e.data.slug === 'events')?.data;
 if (!page) throw new Error('Missing events CMS content');
+if (!page.privateTitle || !page.privateBody) throw new Error('Missing events private CMS fields');
+if (!page.meetingTitle || !page.meetingBody) throw new Error('Missing events meeting CMS fields');
+if (!page.buyoutTitle || !page.buyoutBody) throw new Error('Missing events buyout CMS fields');
+if (!page.cta) throw new Error('Missing events CTA CMS field');
 
-const eventsPhoto = byCategory('events')[0];
+const eventsPhotos = byCategory('events');
+const eventsPhoto = eventsPhotos[0];
+const introPhoto = eventsPhotos[1];
 const meetingPhoto = byCategory('meeting')[0];
 const terracePhoto = byCategory('terrace')[0];
+if (!eventsPhoto || !introPhoto || !meetingPhoto || !terracePhoto) {
+  throw new Error('Missing events / meeting / terrace photography');
+}
+if (
+  introPhoto.src === eventsPhoto.src ||
+  introPhoto.src === meetingPhoto.src ||
+  introPhoto.src === terracePhoto.src
+) {
+  throw new Error('Events intro photo must not duplicate a path-card image');
+}
+
+const contactHref = p(lang, 'contact');
+const ticketsHref = egumaUrl('events', lang);
+
+const paths = [
+  {
+    id: 'private',
+    index: '01',
+    title: page.privateTitle[lang],
+    body: page.privateBody[lang],
+    src: eventsPhoto.src,
+    alt: eventsPhoto.alt[lang],
+    href: contactHref,
+    cta: page.cta[lang],
+  },
+  {
+    id: 'meetings',
+    index: '02',
+    title: page.meetingTitle[lang],
+    body: page.meetingBody[lang],
+    src: meetingPhoto.src,
+    alt: meetingPhoto.alt[lang],
+    href: contactHref,
+    cta: page.cta[lang],
+  },
+  {
+    id: 'buyout',
+    index: '03',
+    title: page.buyoutTitle[lang],
+    body: page.buyoutBody[lang],
+    src: terracePhoto.src,
+    alt: terracePhoto.alt[lang],
+    href: contactHref,
+    cta: page.cta[lang],
+  },
+];
 ---
 
-<Base {lang} title={page.metaTitle[lang]} description={page.metaDesc[lang]} route="events">
+<Base
+  {lang}
+  title={page.metaTitle[lang]}
+  description={page.metaDesc[lang]}
+  route="events"
+  ogImage={introPhoto.src}
+  preloadImage={introPhoto.src}
+>
   <Breadcrumbs {lang} crumbs={[{ label: page.h1[lang] }]} />
 
-  <section class="section">
-    <div class="container container--narrow">
-      <h1 class="page-title">{page.h1[lang]}</h1>
-      <p class="page-intro">{page.intro[lang]}</p>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <EditorialSplit
-        src={eventsPhoto.src}
-        alt={eventsPhoto.alt[lang]}
-        title={page.privateTitle?.[lang]}
-      >
-        <p>{page.privateBody?.[lang]}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section section--tortora">
-    <div class="container">
-      <EditorialSplit
-        src={meetingPhoto.src}
-        alt={meetingPhoto.alt[lang]}
-        title={page.meetingTitle?.[lang]}
-        flip
-      >
-        <p>{page.meetingBody?.[lang]}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <EditorialSplit
-        src={terracePhoto.src}
-        alt={terracePhoto.alt[lang]}
-        title={page.buyoutTitle?.[lang]}
-      >
-        <p>{page.buyoutBody?.[lang]}</p>
-      </EditorialSplit>
-    </div>
-  </section>
-
-  <section class="section section--tortora">
-    <div class="container container--narrow">
-      <p style="max-width: 62ch;">{page.honest?.[lang]}</p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top: var(--space-3);">
-        <a class="btn btn--solid" href={p(lang, 'contact')}>{page.cta?.[lang]}</a>
-        <a class="btn" href={egumaUrl('events', lang)} rel="noopener">Tickets & events</a>
+  <section class="section events-intro">
+    <div class="container events-intro__grid">
+      <div class="events-intro__copy fade-up">
+        <h1 class="page-title">{page.h1[lang]}</h1>
+        <p class="page-intro lede">{page.intro[lang]}</p>
+        <a class="btn btn--solid" href={ticketsHref} target="_blank" rel="noopener noreferrer">
+          {t.events.exploreCta}
+        </a>
       </div>
+      <figure class="events-intro__media fade-up">
+        <Pic
+          src={introPhoto.src}
+          alt={introPhoto.alt[lang]}
+          width={1600}
+          height={1067}
+          widths={[720, 1100, 1600]}
+          sizes="(max-width: 900px) 100vw, 50vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
     </div>
   </section>
+
+  <EventsPaths
+    title={t.events.explore}
+    note={t.events.exploreNote}
+    cards={paths}
+  />
 
   <JsonLd
     data={breadcrumbJsonLd([
@@ -89,3 +126,50 @@ const terracePhoto = byCategory('terrace')[0];
     ])}
   />
 </Base>
+
+<style>
+  .events-intro {
+    padding-bottom: clamp(3.5rem, 7vw, 6rem);
+  }
+  .events-intro__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .events-intro__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .events-intro__copy .page-title {
+    font-size: clamp(2.1rem, 4.2vw, 3.6rem);
+    margin-bottom: var(--space-2);
+  }
+  .events-intro__copy .page-intro {
+    margin-bottom: 0;
+  }
+  .events-intro__copy .btn {
+    margin-top: var(--space-3);
+  }
+  .events-intro__media {
+    margin: 0;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--grigio);
+  }
+  .events-intro__media :global(picture),
+  .events-intro__media :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .events-intro__media :global(img) {
+    object-fit: cover;
+  }
+  @media (max-width: 900px) {
+    .events-intro__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+  }
+</style>

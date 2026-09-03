@@ -154,16 +154,18 @@
   },
   "events": {
     "metaTitle": "Events & Meetings — THE VIEW Lugano",
-    "metaDesc": "Private Anlässe für 10 bis 20 Gäste, Board-Meetings mit dem See hinter dem Glas, Feste bis 30 mit dem Haus für Sie allein. Keine Bankettsäle — mit Absicht.",
+    "metaDesc": "Private Anlässe, Board-Meetings mit dem See hinter dem Glas, Feste mit dem Haus für Sie allein. Keine Bankettsäle — mit Absicht.",
     "h1": "Events & Meetings",
     "intro": "Das Haus nimmt Anlässe wie Gäste an: wenige aufs Mal, betreut beim Namen.",
+    "explore": "Drei Arten, zusammenzukommen",
+    "exploreNote": "Ein privater Anlass, ein Meeting, oder das ganze Haus.",
+    "exploreCta": "Events entdecken",
     "privateTitle": "Private Anlässe",
-    "privateBody": "Dinner und Feste für zehn bis zwanzig Gäste, gekocht von einer Michelin-Küche statt von einer Bankettkarte. Kleine Hochzeiten — bis dreissig — sind willkommen, wenn das Haus Ihnen allein gehört.",
+    "privateBody": "Dinner und Feste, gekocht von einer Michelin-Küche statt von einer Bankettkarte. Kleine Hochzeiten sind willkommen, wenn das Haus Ihnen allein gehört.",
     "meetingTitle": "Meetings",
-    "meetingBody": "Ein Sitzungsraum, Tageslicht und der See hinter dem Glas. Gebaut für ein Board, nicht für einen Kongress: ein Arbeitstisch, präzise Technik und das Restaurant zwei Etagen tiefer für den Abend.",
+    "meetingBody": "Ein Sitzungsraum, Tageslicht und der See hinter dem Glas. Gebaut für ein Board, nicht für einen Kongress: ein Arbeitstisch und präzise Technik.",
     "buyoutTitle": "Das ganze Haus",
     "buyoutBody": "Achtzehn Suiten heisst: Das gesamte Haus kann Ihnen gehören — jede Suite, beide Pools, das Spa, das Restaurant und die Terrasse, für die Tage, die Sie brauchen.",
-    "honest": "Was wir nicht tun: Gruppen über zwanzig, Kongresse, grosse Hochzeiten. Häuser, die das gut können, sind anders gebaut — und wir schicken Sie lieber dorthin, als Sie schlecht zu bedienen.",
     "cta": "Sprechen Sie mit uns über einen Termin"
   },
   "gallery": {
