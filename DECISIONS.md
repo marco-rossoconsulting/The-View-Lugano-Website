@@ -172,9 +172,8 @@ Five photographs were pulled from the property's media library into
 `src/assets/images/move/` as local originals (the direction DECISIONS §2 sets
 for the whole site): the hillside meadow behind the house, the fitness room,
 a Technogym detail, the wooded trail, and an outdoor training session on the
-parcours. The closing pair (outdoor pool, e-bikes) is referenced from the
-shared CDN manifest in `photos.ts`, since those images belong to the spa and
-the fleet rather than to this page.
+parcours. The page references nothing from the CDN manifest, so it is already
+where §2 wants the rest of the site to end up.
 **[VERIFY]** The fitness-room and outdoor-training photographs are from the
 2018 shoot and show dated sportswear. If a newer shoot exists, replacing the
 files in place is the only change needed — the filenames carry the meaning.

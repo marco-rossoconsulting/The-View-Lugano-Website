@@ -7,7 +7,6 @@ import Pic from '../../components/Pic.astro';
 import { localePaths, p, isLocale, formatFigure, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd, gymJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
-import { find } from '../../lib/photos';
 import { getCollection } from 'astro:content';
 
 import hillside from '../../assets/images/move/the-view-lugano-hillside-meadow-san-salvatore.jpg';
@@ -15,7 +14,6 @@ import fitnessRoom from '../../assets/images/move/the-view-lugano-fitness-room-l
 import fitnessDetail from '../../assets/images/move/the-view-lugano-fitness-room-technogym.jpg';
 import trailRunning from '../../assets/images/move/the-view-lugano-trail-running-monte-san-salvatore.jpg';
 import outdoorTraining from '../../assets/images/move/the-view-lugano-outdoor-personal-training.jpg';
-import lakeViewPool from '../../assets/images/move/the-view-lugano-pool-lake-view.jpg';
 
 export function getStaticPaths() {
   return localePaths();
@@ -34,22 +32,12 @@ const move = moveEntries[0]?.data;
 if (!page) throw new Error('Missing move CMS content');
 if (!move) throw new Error('Missing move experience CMS content');
 
-// The e-bike in the closing pair comes from the shared manifest: it belongs
-// to the fleet, and this page is only pointing at it. The pool photograph is
-// a local original — photos.ts has no correct entry for either pool
-// (`hotel_051` is captioned "outdoor pool" but is actually the lobby; the
-// mislabelling in that sequence is already flagged on the Location page).
-
-const ebike = find('bici-1');
-
 // The hero image, as an absolute URL, for the social card. Same photograph,
 // served from the property's media CDN since OG needs a resolvable address.
 const ogImage =
   'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/456/2018/07/12135350/hotel_022.jpg';
 
 const trailFigure = `${formatFigure(SITE.fitness.trailKm, lang)} km`;
-const spaUrl = p(lang, 'spa');
-const locationUrl = p(lang, 'location');
 const contactUrl = p(lang, 'contact');
 ---
 
@@ -217,44 +205,6 @@ const contactUrl = p(lang, 'contact');
         ))}
       </ol>
       <p class="move-trails__note fade-up">{move.trails.note[lang]}</p>
-    </div>
-  </section>
-
-  {/* Closing: the two ways to move that belong to other pages, handed over
-      rather than repeated here. */}
-  <section class="section section--tortora move-water">
-    <div class="container move-water__layout">
-      <div class="move-water__photos fade-up">
-        <figure class="move-water__photo">
-          <Pic
-            src={lakeViewPool}
-            alt={move.water.poolAlt[lang]}
-            width={1628}
-            height={1800}
-            widths={[320, 480, 720, 1080]}
-            sizes="(max-width: 900px) 46vw, 26vw"
-          />
-          <figcaption>{move.water.poolCaption[lang]}</figcaption>
-        </figure>
-        <figure class="move-water__photo move-water__photo--offset">
-          <Pic
-            src={ebike.src}
-            alt={ebike.alt[lang]}
-            width={ebike.width}
-            height={ebike.height}
-            sizes="(max-width: 900px) 46vw, 26vw"
-          />
-          <figcaption>{move.water.bikeCaption[lang]}</figcaption>
-        </figure>
-      </div>
-      <div class="move-water__copy fade-up">
-        <h2 class="section-title">{move.water.title[lang]}</h2>
-        <p>{move.water.body[lang]}</p>
-        <div class="move-water__links">
-          <a class="text-link" href={spaUrl}>{move.water.spaCtaLabel[lang]}</a>
-          <a class="text-link" href={locationUrl}>{move.water.locationCtaLabel[lang]}</a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -629,74 +579,9 @@ const contactUrl = p(lang, 'contact');
     }
   }
 
-  /* --- Closing: swim, or ride ------------------------------------------ */
-  .move-water__layout {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: clamp(1.5rem, 5vw, 4.5rem);
-    align-items: center;
-  }
-  .move-water__photos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(0.6rem, 1.4vw, 1.1rem);
-  }
-  .move-water__photo {
-    margin: 0;
-  }
-  .move-water__photo :global(img) {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-  }
-  .move-water__photo--offset {
-    margin-top: clamp(1.5rem, 4vw, 3rem);
-  }
-  .move-water__photo figcaption {
-    margin-top: 0.6rem;
-    font-family: var(--font-display);
-    font-size: 0.76rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--clay);
-  }
-  .move-water__links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem 1.8rem;
-    margin-top: var(--space-3);
-  }
-  .text-link {
-    display: inline-block;
-    border-bottom: 1px solid var(--clay);
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    transition: border-color 220ms ease, color 220ms ease;
-  }
-  .text-link:hover,
-  .text-link:focus-visible {
-    border-color: var(--ink);
-    color: var(--clay);
-  }
   @media (prefers-reduced-motion: reduce) {
-    .text-link,
     .move-jump-links a {
       transition: none;
-    }
-  }
-  @media (max-width: 900px) {
-    .move-water__layout {
-      grid-template-columns: 1fr;
-    }
-    .move-water__copy {
-      order: -1;
-    }
-    .move-water__photo--offset {
-      margin-top: clamp(2rem, 10vw, 3rem);
     }
   }
 </style>

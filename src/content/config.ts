@@ -555,18 +555,6 @@ const move = defineCollection({
         body: localized,
       })).min(3),
     }),
-    // Closing cross-links. The e-bike photograph comes from the shared
-    // manifest (photos.ts) and carries its own alt text; the pool is a local
-    // original belonging to this page, so its description lives here.
-    water: z.object({
-      title: localized,
-      body: localized,
-      poolAlt: localized,
-      poolCaption: localized,
-      bikeCaption: localized,
-      spaCtaLabel: localized,
-      locationCtaLabel: localized,
-    }),
   }),
 });
 

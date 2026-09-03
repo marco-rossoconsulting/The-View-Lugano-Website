@@ -540,17 +540,6 @@ collections:
                   - { name: name, label: Route Name, widget: object, fields: *loc }
                   - { name: body, label: One Supporting Line, widget: object, fields: *loctext }
               - { name: note, label: Closing Note, widget: object, fields: *loctext }
-          - name: water
-            label: Swim or Ride
-            widget: object
-            fields:
-              - { name: title, label: Title, widget: object, fields: *loc }
-              - { name: body, label: Text, widget: object, fields: *loctext }
-              - { name: poolAlt, label: Pool Photo Description, widget: object, fields: *loctext }
-              - { name: poolCaption, label: Pool Photo Caption, widget: object, fields: *loc }
-              - { name: bikeCaption, label: E-bike Photo Caption, widget: object, fields: *loc }
-              - { name: spaCtaLabel, label: Link to Spa, widget: object, fields: *loc }
-              - { name: locationCtaLabel, label: Link to Location, widget: object, fields: *loc }
 
   # ── 11. OFFERS ──
   - name: offers

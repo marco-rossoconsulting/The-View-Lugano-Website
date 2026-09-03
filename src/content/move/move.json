@@ -368,49 +368,5 @@
       "it": "Il vostro Ambassador custodisce le mappe, sa quali sentieri sono asciutti e fa preparare una colazione da portare se partite prima della cucina.",
       "fr": "Votre Ambassador garde les cartes, sait quels sentiers sont secs et fait préparer un petit-déjeuner à emporter si vous partez avant la cuisine."
     }
-  },
-  "water": {
-    "title": {
-      "en": "Swim, or ride",
-      "de": "Schwimmen oder fahren",
-      "it": "Nuotare, o pedalare",
-      "fr": "Nager, ou rouler"
-    },
-    "body": {
-      "en": "The outdoor pool sits on the edge of the hillside and the indoor pool is one floor below the bedrooms, both open the length of the spa's day. E-bikes are included with the stay, and the hill they climb is the same one.",
-      "de": "Der Aussenpool liegt am Rand des Hangs, der Innenpool eine Etage unter den Zimmern; beide sind über den ganzen Spa-Tag geöffnet. E-Bikes sind im Aufenthalt inbegriffen, und der Hügel, den sie erklimmen, ist derselbe.",
-      "it": "La piscina esterna sta sul bordo della collina e quella interna è un piano sotto le camere: entrambe aperte per tutta la giornata della spa. Le e-bike sono incluse nel soggiorno, e la collina che salgono è la stessa.",
-      "fr": "La piscine extérieure occupe le bord de la colline et la piscine intérieure se trouve un étage sous les chambres, toutes deux ouvertes pendant toute la journée du spa. Les vélos électriques sont compris dans le séjour, et la colline qu'ils gravissent est la même."
-    },
-    "poolAlt": {
-      "en": "A swimmer at the edge of the pool, Lugano and the lake filling the window",
-      "de": "Eine Schwimmerin am Beckenrand, Lugano und der See füllen das Fenster",
-      "it": "Una nuotatrice a bordo vasca, Lugano e il lago riempiono la finestra",
-      "fr": "Une nageuse au bord du bassin, Lugano et le lac remplissant la fenêtre"
-    },
-    "poolCaption": {
-      "en": "The indoor pool",
-      "de": "Der Innenpool",
-      "it": "La piscina interna",
-      "fr": "La piscine intérieure"
-    },
-    "bikeCaption": {
-      "en": "E-bikes, included",
-      "de": "E-Bikes, inbegriffen",
-      "it": "E-bike, incluse",
-      "fr": "Vélos électriques, compris"
-    },
-    "spaCtaLabel": {
-      "en": "THE VIEW SPA",
-      "de": "THE VIEW SPA",
-      "it": "THE VIEW SPA",
-      "fr": "THE VIEW SPA"
-    },
-    "locationCtaLabel": {
-      "en": "Moving around",
-      "de": "Unterwegs",
-      "it": "Muoversi",
-      "fr": "Se déplacer"
-    }
   }
 }
