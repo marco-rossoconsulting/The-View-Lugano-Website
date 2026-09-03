@@ -46,6 +46,17 @@ export const SITE = {
     treatmentOpens: '10:00',
     treatmentCloses: '19:00',
   },
+  // The fitness room and the Vita Parcours circuit that starts on the
+  // property's own street. Trail figures are the Città di Lugano's published
+  // specification for the Paradiso parcours (see DECISIONS.md §19).
+  fitness: {
+    hours: '06:30–22:00',
+    opens: '06:30',
+    closes: '22:00',
+    trailKm: 1.6,
+    trailStations: 15,
+    summitAltitude: 912,
+  },
   restaurant: {
     name: 'THE VIEW Fine Dining',
     chef: 'Diego Della Schiava',

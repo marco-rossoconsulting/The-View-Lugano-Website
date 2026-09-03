@@ -1,9 +1,11 @@
 ---
 import Pic from './Pic.astro';
 import Waterline from './Waterline.astro';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
-  src: string;
+  /** A CDN path or a local asset imported through astro:assets. */
+  src: string | ImageMetadata;
   alt: string;
   line: string;
   tagline?: string;

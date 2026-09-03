@@ -483,6 +483,93 @@ const spaExperience = defineCollection({
   }),
 });
 
+// The Move page (fitness room, the Vita Parcours circuit on Via Guidino,
+// personal training, walking and running routes around the hillside) is its
+// own singleton for the same reason spa-experience is: a page-specific model
+// that would otherwise bloat the shared pages bag. SEO essentials
+// (metaTitle, metaDesc, h1, intro) stay on the pages/move entry.
+const move = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/move' }),
+  schema: z.object({
+    hero: z.object({
+      tagline: localized,
+      alt: localized,
+    }),
+    philosophy: localized,
+    // The practical column beside the intro: label/value pairs, no prose.
+    // Values that are property facts (hours, trail length) render from
+    // SITE.fitness, so only the labels and the free-text values live here.
+    glance: z.object({
+      title: localized,
+      openLabel: localized,
+      accessLabel: localized,
+      accessValue: localized,
+      equipmentLabel: localized,
+      equipmentValue: localized,
+      trailLabel: localized,
+      stationsLabel: localized,
+    }),
+    navigation: z.object({
+      label: localized,
+      trails: localized,
+      training: localized,
+    }),
+    gym: z.object({
+      eyebrow: localized,
+      title: localized,
+      body: localizedArray,
+      facts: z.array(localized).min(3),
+      altWide: localized,
+      altDetail: localized,
+      detailCaption: localized,
+    }),
+    interlude: z.object({
+      caption: localized,
+      alt: localized,
+    }),
+    training: z.object({
+      eyebrow: localized,
+      title: localized,
+      body: localized,
+      note: localized,
+      alt: localized,
+      pricingTitle: localized,
+      prices: z.array(z.object({
+        label: localized,
+        price: localized,
+        note: localized.optional(),
+      })).min(1),
+      ctaLabel: localized,
+    }),
+    // Walking and running routes from the door. `value`/`unit` render as one
+    // figure the way the Location page's arrival ledger does; `body` is one
+    // supporting line, not prose.
+    trails: z.object({
+      title: localized,
+      intro: localized,
+      note: localized,
+      items: z.array(z.object({
+        value: z.string(),
+        unit: localized,
+        name: localized,
+        body: localized,
+      })).min(3),
+    }),
+    // Closing cross-links. The e-bike photograph comes from the shared
+    // manifest (photos.ts) and carries its own alt text; the pool is a local
+    // original belonging to this page, so its description lives here.
+    water: z.object({
+      title: localized,
+      body: localized,
+      poolAlt: localized,
+      poolCaption: localized,
+      bikeCaption: localized,
+      spaCtaLabel: localized,
+      locationCtaLabel: localized,
+    }),
+  }),
+});
+
 const offers = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/offers' }),
   schema: z.object({
@@ -507,4 +594,4 @@ const journal = defineCollection({
   }),
 });
 
-export const collections = { homepage, pages, sustainability, press, contact, faq, legal, settings, suites, dining, spa, spaExperience, offers, journal };
+export const collections = { homepage, pages, sustainability, press, contact, faq, legal, settings, suites, dining, spa, spaExperience, move, offers, journal };

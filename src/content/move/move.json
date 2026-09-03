@@ -1,0 +1,416 @@
+{
+  "hero": {
+    "tagline": {
+      "en": "Indoors, outdoors, above Lake Lugano",
+      "de": "Drinnen, draussen, über dem Luganersee",
+      "it": "Dentro, fuori, sopra il Lago di Lugano",
+      "fr": "Dedans, dehors, au-dessus du lac de Lugano"
+    },
+    "alt": {
+      "en": "The house on the slope of Monte San Salvatore, meadow and woods rising behind it",
+      "de": "Das Haus am Hang des Monte San Salvatore, dahinter steigen Wiese und Wald an",
+      "it": "La casa sul fianco del Monte San Salvatore, con prato e bosco che salgono alle spalle",
+      "fr": "La maison au flanc du Monte San Salvatore, prairie et bois s'élevant derrière elle"
+    }
+  },
+  "philosophy": {
+    "en": "There is no class timetable here. The room opens before breakfast and closes after dinner, the trail keeps no hours at all, and a trainer will meet you at either.",
+    "de": "Es gibt hier keinen Kursplan. Der Raum öffnet vor dem Frühstück und schliesst nach dem Abendessen, der Weg kennt überhaupt keine Zeiten, und ein Trainer trifft Sie an beiden.",
+    "it": "Qui non c'è un calendario di corsi. La sala apre prima della colazione e chiude dopo cena, il sentiero non ha orari, e un trainer vi raggiunge in entrambi.",
+    "fr": "Ici, pas de planning de cours. La salle ouvre avant le petit-déjeuner et ferme après le dîner, le sentier n'a aucun horaire, et un entraîneur vous rejoint à l'un comme à l'autre."
+  },
+  "glance": {
+    "title": {
+      "en": "At a glance",
+      "de": "Auf einen Blick",
+      "it": "In breve",
+      "fr": "En bref"
+    },
+    "openLabel": {
+      "en": "Fitness room",
+      "de": "Fitnessraum",
+      "it": "Sala fitness",
+      "fr": "Salle de fitness"
+    },
+    "accessLabel": {
+      "en": "Access",
+      "de": "Zugang",
+      "it": "Accesso",
+      "fr": "Accès"
+    },
+    "accessValue": {
+      "en": "House guests and THE VIEW card holders",
+      "de": "Hausgäste und Inhaber der THE VIEW Card",
+      "it": "Ospiti della casa e titolari della THE VIEW Card",
+      "fr": "Hôtes de la maison et titulaires de la THE VIEW Card"
+    },
+    "equipmentLabel": {
+      "en": "Equipment",
+      "de": "Ausstattung",
+      "it": "Attrezzature",
+      "fr": "Équipement"
+    },
+    "equipmentValue": {
+      "en": "Technogym cardio, free weights, functional floor",
+      "de": "Technogym-Cardio, freie Gewichte, Funktionsfläche",
+      "it": "Cardio Technogym, pesi liberi, area funzionale",
+      "fr": "Cardio Technogym, poids libres, espace fonctionnel"
+    },
+    "trailLabel": {
+      "en": "Vita Parcours",
+      "de": "Vita Parcours",
+      "it": "Vita Parcours",
+      "fr": "Vita Parcours"
+    },
+    "stationsLabel": {
+      "en": "stations",
+      "de": "Stationen",
+      "it": "postazioni",
+      "fr": "postes"
+    }
+  },
+  "navigation": {
+    "label": {
+      "en": "On this page",
+      "de": "Auf dieser Seite",
+      "it": "In questa pagina",
+      "fr": "Sur cette page"
+    },
+    "trails": {
+      "en": "Routes from the door",
+      "de": "Wege ab der Haustür",
+      "it": "Percorsi dalla porta",
+      "fr": "Itinéraires depuis la porte"
+    },
+    "training": {
+      "en": "Personal training",
+      "de": "Personal Training",
+      "it": "Personal training",
+      "fr": "Personal training"
+    }
+  },
+  "gym": {
+    "eyebrow": {
+      "en": "Inside",
+      "de": "Drinnen",
+      "it": "Dentro",
+      "fr": "Dedans"
+    },
+    "title": {
+      "en": "A room with the lake on one wall",
+      "de": "Ein Raum mit dem See an einer Wand",
+      "it": "Una sala con il lago su una parete",
+      "fr": "Une salle avec le lac sur un mur"
+    },
+    "body": {
+      "en": [
+        "The fitness room sits on the terrace level, glazed along its full length. The cardio machines face out, so the treadmill looks across the Ceresio to the mountains instead of at a screen on a wall.",
+        "Behind them, free weights, a functional floor and a mirrored wall. It is a small room for a house of eighteen suites, which is the point: most mornings you share it with one other person, and never with a queue.",
+        "The cardio consoles carry Technogym's interactive sessions, which adapt to the rhythm you hold. Scan the console with the Technogym app and the session stays with you after you leave."
+      ],
+      "de": [
+        "Der Fitnessraum liegt auf Terrassenebene und ist über die volle Länge verglast. Die Cardiogeräte sind nach aussen gerichtet: Das Laufband blickt über den Ceresio zu den Bergen statt auf einen Bildschirm an der Wand.",
+        "Dahinter freie Gewichte, eine Funktionsfläche und eine Spiegelwand. Für ein Haus mit achtzehn Suiten ist der Raum klein, und genau das ist die Absicht: Meist teilen Sie ihn mit einer einzigen Person und nie mit einer Warteschlange.",
+        "Die Cardio-Konsolen führen die interaktiven Technogym-Einheiten, die sich Ihrem Rhythmus anpassen. Scannen Sie die Konsole mit der Technogym-App, und die Einheit bleibt Ihnen auch nach der Abreise erhalten."
+      ],
+      "it": [
+        "La sala fitness si trova al livello della terrazza, vetrata per tutta la sua lunghezza. Le macchine cardio sono rivolte verso l'esterno: il tapis roulant guarda il Ceresio e le montagne, non uno schermo appeso al muro.",
+        "Dietro, pesi liberi, un'area funzionale e una parete a specchio. Per una casa di diciotto suite è una sala piccola, ed è voluto: quasi ogni mattina la si condivide con una sola persona, mai con una fila.",
+        "Le console cardio propongono le sessioni interattive Technogym, che si adattano al ritmo che tenete. Scansionate la console con l'app Technogym e la sessione vi resta anche dopo la partenza."
+      ],
+      "fr": [
+        "La salle de fitness occupe le niveau de la terrasse, vitrée sur toute sa longueur. Les appareils de cardio sont tournés vers l'extérieur : le tapis de course regarde le Ceresio et les montagnes, pas un écran accroché au mur.",
+        "Derrière, des poids libres, un espace fonctionnel et un mur de miroirs. Pour une maison de dix-huit suites, la salle est petite, et c'est voulu : la plupart des matins, vous la partagez avec une seule personne, jamais avec une file d'attente.",
+        "Les consoles cardio proposent les séances interactives Technogym, qui s'adaptent au rythme que vous tenez. Scannez la console avec l'application Technogym et la séance vous suit après le départ."
+      ]
+    },
+    "facts": [
+      {
+        "en": "Technogym treadmills, cross-trainers and bikes",
+        "de": "Technogym-Laufbänder, Crosstrainer und Bikes",
+        "it": "Tapis roulant, ellittiche e bike Technogym",
+        "fr": "Tapis de course, elliptiques et vélos Technogym"
+      },
+      {
+        "en": "Free weights and a functional training floor",
+        "de": "Freie Gewichte und eine Fläche für funktionelles Training",
+        "it": "Pesi liberi e area per il training funzionale",
+        "fr": "Poids libres et espace de training fonctionnel"
+      },
+      {
+        "en": "Towels, still water and changing rooms on the spa level",
+        "de": "Handtücher, stilles Wasser und Umkleiden auf der Spa-Ebene",
+        "it": "Teli, acqua naturale e spogliatoi al livello della spa",
+        "fr": "Serviettes, eau plate et vestiaires au niveau du spa"
+      },
+      {
+        "en": "Straight through to the pool, sauna and salt room",
+        "de": "Direkter Übergang zu Pool, Sauna und Salzraum",
+        "it": "Passaggio diretto a piscina, sauna e sala del sale",
+        "fr": "Accès direct à la piscine, au sauna et à la salle de sel"
+      }
+    ],
+    "altWide": {
+      "en": "The fitness room at THE VIEW, Technogym machines along the glass wall above the lake",
+      "de": "Der Fitnessraum im THE VIEW, Technogym-Geräte entlang der Glasfront über dem See",
+      "it": "La sala fitness del THE VIEW, macchinari Technogym lungo la vetrata sopra il lago",
+      "fr": "La salle de fitness du THE VIEW, appareils Technogym le long de la baie vitrée au-dessus du lac"
+    },
+    "altDetail": {
+      "en": "Technogym treadmills on the wooden floor, dumbbells racked alongside",
+      "de": "Technogym-Laufbänder auf dem Holzboden, daneben die Hantelablage",
+      "it": "Tapis roulant Technogym sul pavimento in legno, manubri in rastrelliera accanto",
+      "fr": "Tapis de course Technogym sur le parquet, haltères rangés à côté"
+    },
+    "detailCaption": {
+      "en": "Technogym, facing out",
+      "de": "Technogym, nach aussen gerichtet",
+      "it": "Technogym, rivolto all'esterno",
+      "fr": "Technogym, tourné vers l'extérieur"
+    }
+  },
+  "interlude": {
+    "caption": {
+      "en": "The path leaves Via Guidino, and the woods take over.",
+      "de": "Der Weg verlässt die Via Guidino, und der Wald übernimmt.",
+      "it": "Il sentiero lascia Via Guidino, e il bosco prende il sopravvento.",
+      "fr": "Le sentier quitte la Via Guidino, et la forêt prend le relais."
+    },
+    "alt": {
+      "en": "A runner on the wooded path on the slope of Monte San Salvatore",
+      "de": "Eine Person läuft auf dem Waldweg am Hang des Monte San Salvatore",
+      "it": "Una persona corre sul sentiero nel bosco sul fianco del Monte San Salvatore",
+      "fr": "Une personne courant sur le sentier boisé au flanc du Monte San Salvatore"
+    }
+  },
+  "training": {
+    "eyebrow": {
+      "en": "With a trainer",
+      "de": "Mit Trainer",
+      "it": "Con un trainer",
+      "fr": "Avec un entraîneur"
+    },
+    "title": {
+      "en": "Personal training",
+      "de": "Personal Training",
+      "it": "Personal training",
+      "fr": "Personal training"
+    },
+    "body": {
+      "en": "One hour, on the machines indoors or on the circuit outside, with a trainer who knows which station suits which morning. Sessions are arranged through your Ambassador at the hour that suits you, not at a fixed class time.",
+      "de": "Eine Stunde, drinnen an den Geräten oder draussen auf dem Parcours, mit einem Trainer, der weiss, welche Station zu welchem Morgen passt. Die Einheiten vereinbart Ihr Ambassador zu Ihrer Wunschzeit, nicht zu einer festen Kurszeit.",
+      "it": "Un'ora, dentro sui macchinari o fuori sul percorso, con un trainer che sa quale postazione si addice a quale mattina. Le sessioni si organizzano tramite il vostro Ambassador all'ora che preferite, non a un orario fisso di corso.",
+      "fr": "Une heure, à l'intérieur sur les appareils ou dehors sur le parcours, avec un entraîneur qui sait quel poste convient à quelle matinée. Les séances s'organisent avec votre Ambassador à l'heure qui vous convient, pas à un horaire de cours fixe."
+    },
+    "note": {
+      "en": "Ask a day ahead so a trainer is held for you. An outdoor session moves indoors if the weather turns.",
+      "de": "Bitten Sie einen Tag im Voraus darum, damit ein Trainer für Sie reserviert ist. Bei Wetterumschwung wird aus der Einheit im Freien eine im Raum.",
+      "it": "Richiedetela con un giorno di anticipo, così un trainer resta a vostra disposizione. Se il tempo cambia, la sessione all'aperto si sposta all'interno.",
+      "fr": "Demandez-la un jour à l'avance pour qu'un entraîneur vous soit réservé. Si le temps tourne, la séance en plein air se poursuit à l'intérieur."
+    },
+    "alt": {
+      "en": "A trainer supporting a guest on the rings at the outdoor fitness circuit, Lugano below",
+      "de": "Ein Trainer unterstützt einen Gast an den Ringen des Outdoor-Parcours, darunter Lugano",
+      "it": "Un trainer sostiene un ospite agli anelli del percorso all'aperto, Lugano sotto",
+      "fr": "Un entraîneur accompagne un hôte aux anneaux du parcours en plein air, Lugano en contrebas"
+    },
+    "pricingTitle": {
+      "en": "Rates",
+      "de": "Preise",
+      "it": "Tariffe",
+      "fr": "Tarifs"
+    },
+    "prices": [
+      {
+        "label": {
+          "en": "Single session, 60 minutes",
+          "de": "Einzeleinheit, 60 Minuten",
+          "it": "Sessione singola, 60 minuti",
+          "fr": "Séance individuelle, 60 minutes"
+        },
+        "price": {
+          "en": "CHF 80.–",
+          "de": "CHF 80.–",
+          "it": "CHF 80.–",
+          "fr": "CHF 80.–"
+        }
+      },
+      {
+        "label": {
+          "en": "Ten sessions",
+          "de": "Zehn Einheiten",
+          "it": "Dieci sessioni",
+          "fr": "Dix séances"
+        },
+        "price": {
+          "en": "CHF 650.–",
+          "de": "CHF 650.–",
+          "it": "CHF 650.–",
+          "fr": "CHF 650.–"
+        },
+        "note": {
+          "en": "Used in the room or on the circuit, in any combination.",
+          "de": "Im Raum oder auf dem Parcours einlösbar, in jeder Kombination.",
+          "it": "Utilizzabili in sala o sul percorso, in qualsiasi combinazione.",
+          "fr": "Utilisables en salle ou sur le parcours, dans n'importe quelle combinaison."
+        }
+      }
+    ],
+    "ctaLabel": {
+      "en": "Arrange a session",
+      "de": "Einheit vereinbaren",
+      "it": "Organizza una sessione",
+      "fr": "Organiser une séance"
+    }
+  },
+  "trails": {
+    "title": {
+      "en": "Routes from the door",
+      "de": "Wege ab der Haustür",
+      "it": "Percorsi dalla porta",
+      "fr": "Itinéraires depuis la porte"
+    },
+    "intro": {
+      "en": "Four walks and runs that start without a car. The first one starts on the property's own street.",
+      "de": "Vier Wege zum Gehen und Laufen, die ohne Auto beginnen. Der erste beginnt an der Strasse des Hauses selbst.",
+      "it": "Quattro percorsi da camminare o correre che iniziano senza auto. Il primo comincia nella via stessa della casa.",
+      "fr": "Quatre marches et courses qui commencent sans voiture. La première commence dans la rue même de la maison."
+    },
+    "items": [
+      {
+        "value": "1.6",
+        "unit": {
+          "en": "KM",
+          "de": "KM",
+          "it": "KM",
+          "fr": "KM"
+        },
+        "name": {
+          "en": "Vita Parcours, Via Guidino",
+          "de": "Vita Parcours, Via Guidino",
+          "it": "Vita Parcours, Via Guidino",
+          "fr": "Vita Parcours, Via Guidino"
+        },
+        "body": {
+          "en": "Fifteen timber training stations laid out along the slope by the city, open to anyone, a few paces from the entrance.",
+          "de": "Fünfzehn hölzerne Trainingsstationen, von der Stadt am Hang angelegt, für alle offen, wenige Schritte vom Eingang.",
+          "it": "Quindici postazioni di legno disposte lungo il pendio dalla Città, aperte a tutti, a pochi passi dall'ingresso.",
+          "fr": "Quinze postes en bois installés sur la pente par la Ville, ouverts à tous, à quelques pas de l'entrée."
+        }
+      },
+      {
+        "value": "2",
+        "unit": {
+          "en": "HRS",
+          "de": "STD",
+          "it": "ORE",
+          "fr": "H"
+        },
+        "name": {
+          "en": "Monte San Salvatore",
+          "de": "Monte San Salvatore",
+          "it": "Monte San Salvatore",
+          "fr": "Monte San Salvatore"
+        },
+        "body": {
+          "en": "Up through Pazzallo and the woods to 912 metres, viewpoints on the way. The funicular from Paradiso brings you back down in twelve minutes.",
+          "de": "Hinauf durch Pazzallo und den Wald auf 912 Meter, mit Aussichtspunkten unterwegs. Die Standseilbahn ab Paradiso bringt Sie in zwölf Minuten zurück.",
+          "it": "Su per Pazzallo e il bosco fino a 912 metri, con punti panoramici lungo la salita. La funicolare da Paradiso riporta giù in dodici minuti.",
+          "fr": "En montant par Pazzallo et les bois jusqu'à 912 mètres, avec des points de vue en chemin. Le funiculaire de Paradiso vous ramène en douze minutes."
+        }
+      },
+      {
+        "value": "1",
+        "unit": {
+          "en": "HR",
+          "de": "STD",
+          "it": "ORA",
+          "fr": "H"
+        },
+        "name": {
+          "en": "Sentiero degli Ulivi",
+          "de": "Sentiero degli Ulivi",
+          "it": "Sentiero degli Ulivi",
+          "fr": "Sentiero degli Ulivi"
+        },
+        "body": {
+          "en": "Just over three kilometres of olive terraces along the shore, Castagnola to Gandria, level the whole way.",
+          "de": "Gut drei Kilometer Oliventerrassen am Ufer, von Castagnola nach Gandria, durchgehend eben.",
+          "it": "Poco più di tre chilometri di terrazze di ulivi lungo la riva, da Castagnola a Gandria, sempre in piano.",
+          "fr": "Un peu plus de trois kilomètres de terrasses d'oliviers au bord de l'eau, de Castagnola à Gandria, plat du début à la fin."
+        }
+      },
+      {
+        "value": "925",
+        "unit": {
+          "en": "M",
+          "de": "M",
+          "it": "M",
+          "fr": "M"
+        },
+        "name": {
+          "en": "Monte Brè",
+          "de": "Monte Brè",
+          "it": "Monte Brè",
+          "fr": "Monte Brè"
+        },
+        "body": {
+          "en": "The mountain across the bay, reached by the funicular at Cassarate and walked down to Gandria, where the olive trail begins.",
+          "de": "Der Berg auf der anderen Seite der Bucht, erreichbar mit der Standseilbahn in Cassarate und zu Fuss hinunter nach Gandria, wo der Olivenweg beginnt.",
+          "it": "La montagna dall'altra parte della baia, raggiungibile con la funicolare di Cassarate e percorsa a piedi in discesa fino a Gandria, dove comincia il sentiero degli ulivi.",
+          "fr": "La montagne de l'autre côté de la baie, atteinte par le funiculaire de Cassarate et descendue à pied jusqu'à Gandria, où commence le sentier des oliviers."
+        }
+      }
+    ],
+    "note": {
+      "en": "Your Ambassador keeps the maps, knows which paths are dry, and will have breakfast packed if you leave before the kitchen opens.",
+      "de": "Ihr Ambassador verwahrt die Karten, weiss, welche Wege trocken sind, und lässt ein Frühstück einpacken, wenn Sie vor der Küche aufbrechen.",
+      "it": "Il vostro Ambassador custodisce le mappe, sa quali sentieri sono asciutti e fa preparare una colazione da portare se partite prima della cucina.",
+      "fr": "Votre Ambassador garde les cartes, sait quels sentiers sont secs et fait préparer un petit-déjeuner à emporter si vous partez avant la cuisine."
+    }
+  },
+  "water": {
+    "title": {
+      "en": "Swim, or ride",
+      "de": "Schwimmen oder fahren",
+      "it": "Nuotare, o pedalare",
+      "fr": "Nager, ou rouler"
+    },
+    "body": {
+      "en": "The outdoor pool sits on the edge of the hillside and the indoor pool is one floor below the bedrooms, both open the length of the spa's day. E-bikes are included with the stay, and the hill they climb is the same one.",
+      "de": "Der Aussenpool liegt am Rand des Hangs, der Innenpool eine Etage unter den Zimmern; beide sind über den ganzen Spa-Tag geöffnet. E-Bikes sind im Aufenthalt inbegriffen, und der Hügel, den sie erklimmen, ist derselbe.",
+      "it": "La piscina esterna sta sul bordo della collina e quella interna è un piano sotto le camere: entrambe aperte per tutta la giornata della spa. Le e-bike sono incluse nel soggiorno, e la collina che salgono è la stessa.",
+      "fr": "La piscine extérieure occupe le bord de la colline et la piscine intérieure se trouve un étage sous les chambres, toutes deux ouvertes pendant toute la journée du spa. Les vélos électriques sont compris dans le séjour, et la colline qu'ils gravissent est la même."
+    },
+    "poolAlt": {
+      "en": "A swimmer at the edge of the pool, Lugano and the lake filling the window",
+      "de": "Eine Schwimmerin am Beckenrand, Lugano und der See füllen das Fenster",
+      "it": "Una nuotatrice a bordo vasca, Lugano e il lago riempiono la finestra",
+      "fr": "Une nageuse au bord du bassin, Lugano et le lac remplissant la fenêtre"
+    },
+    "poolCaption": {
+      "en": "The indoor pool",
+      "de": "Der Innenpool",
+      "it": "La piscina interna",
+      "fr": "La piscine intérieure"
+    },
+    "bikeCaption": {
+      "en": "E-bikes, included",
+      "de": "E-Bikes, inbegriffen",
+      "it": "E-bike, incluse",
+      "fr": "Vélos électriques, compris"
+    },
+    "spaCtaLabel": {
+      "en": "THE VIEW SPA",
+      "de": "THE VIEW SPA",
+      "it": "THE VIEW SPA",
+      "fr": "THE VIEW SPA"
+    },
+    "locationCtaLabel": {
+      "en": "Moving around",
+      "de": "Unterwegs",
+      "it": "Muoversi",
+      "fr": "Se déplacer"
+    }
+  }
+}

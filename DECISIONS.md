@@ -137,3 +137,44 @@ The verification build in this workspace ran with
 build sandbox cannot reach the media CDN. The shipped `astro.config.mjs` is
 the production one: sharp service, `image.domains` authorizing the CDN, so a
 normal CI/host build generates the full AVIF/WebP responsive set.
+
+## 19. Move page: source of the fitness and trail facts
+The Move page (`/[lang]/move/`) is new. Its facts come from three places, and
+each has a different confidence level:
+
+- **Fitness room hours (06:30–22:00), access (house guests and THE VIEW card
+  holders) and the Technogym equipment** are taken from the live site's
+  "Fitness & Relax" page. **[VERIFY]** Confirm the hours and the card-holder
+  access rule with the spa desk; they predate the 2023 inclusions revision.
+- **Personal training rates (CHF 80.– for a 60-minute session, CHF 650.– for
+  ten)** are the live site's published prices. **[VERIFY]** These are the
+  single most likely figure on the page to have moved. They live in
+  `src/content/move/move.json` and are editable in Sveltia without a code
+  change.
+- **The Vita Parcours figures (1.6 km, 15 stations, on Via Guidino)** are the
+  Città di Lugano's published specification for the Paradiso parcours, which
+  the property's own page already cites. Trail times and altitudes (San
+  Salvatore 912 m and about two hours on foot, Sentiero degli Ulivi just over
+  three kilometres and about an hour, Monte Brè 925 m) are the Lugano Region
+  and Switzerland Tourism figures, deliberately rounded and hedged ("about",
+  "just over") rather than stated as measurements of our own.
+
+## 20. Move page: naming
+The page is "Move" in English, "Bewegung" / "Movimento" / "Mouvement"
+elsewhere. The homepage's five-day grid already carried a "Move" card
+(`homepage.json` → `days.items[move]`), which until now pointed at the spa
+page for want of anywhere better; it now points here. "Fitness" was rejected
+as the section name: it describes the room and excludes the hillside, which is
+the larger half of what the page is about.
+
+## 21. Move page photography
+Five photographs were pulled from the property's media library into
+`src/assets/images/move/` as local originals (the direction DECISIONS §2 sets
+for the whole site): the hillside meadow behind the house, the fitness room,
+a Technogym detail, the wooded trail, and an outdoor training session on the
+parcours. The closing pair (outdoor pool, e-bikes) is referenced from the
+shared CDN manifest in `photos.ts`, since those images belong to the spa and
+the fleet rather than to this page.
+**[VERIFY]** The fitness-room and outdoor-training photographs are from the
+2018 shoot and show dated sportswear. If a newer shoot exists, replacing the
+files in place is the only change needed — the filenames carry the meaning.

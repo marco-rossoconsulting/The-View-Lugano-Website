@@ -1,0 +1,27 @@
+{
+  "slug": "move",
+  "metaTitle": {
+    "en": "Move at THE VIEW — Fitness Room, Trails & Personal Training in Lugano",
+    "de": "Move im THE VIEW — Fitnessraum, Trails & Personal Training in Lugano",
+    "it": "Move al THE VIEW — Sala fitness, sentieri e personal training a Lugano",
+    "fr": "Move au THE VIEW — Salle de fitness, sentiers et personal training à Lugano"
+  },
+  "metaDesc": {
+    "en": "A lake-facing Technogym room open 06:30–22:00, a 1.6 km Vita Parcours circuit with 15 stations from the door, personal training indoors and out, and Monte San Salvatore behind the house.",
+    "de": "Ein Technogym-Raum mit Seeblick, offen 06:30–22:00, ein 1.6 km langer Vita Parcours mit 15 Stationen ab der Haustür, Personal Training drinnen und draussen und der Monte San Salvatore hinter dem Haus.",
+    "it": "Una sala Technogym affacciata sul lago, aperta 6.30–22.00, un Vita Parcours di 1.6 km con 15 postazioni dalla porta, personal training dentro e fuori e il Monte San Salvatore alle spalle.",
+    "fr": "Une salle Technogym face au lac, ouverte de 6h30 à 22h00, un Vita Parcours de 1,6 km et 15 postes depuis la porte, du personal training dedans et dehors, et le Monte San Salvatore derrière la maison."
+  },
+  "h1": {
+    "en": "The mountain starts at the door",
+    "de": "Der Berg beginnt vor der Tür",
+    "it": "La montagna comincia davanti alla porta",
+    "fr": "La montagne commence devant la porte"
+  },
+  "intro": {
+    "en": "A fitness room that faces the lake rather than a mirror, and a wooded hillside behind it with a marked circuit that begins on Via Guidino. Train inside, outside, or both in the same morning.",
+    "de": "Ein Fitnessraum, der auf den See blickt statt in einen Spiegel, und dahinter ein bewaldeter Hang mit einem markierten Parcours, der an der Via Guidino beginnt. Trainieren Sie drinnen, draussen oder beides an einem Morgen.",
+    "it": "Una sala fitness che guarda il lago invece di uno specchio, e dietro un versante boscoso con un percorso segnalato che comincia in Via Guidino. Ci si allena dentro, fuori, o entrambi nella stessa mattina.",
+    "fr": "Une salle de fitness qui regarde le lac plutôt qu'un miroir, et derrière elle un versant boisé avec un parcours balisé qui commence Via Guidino. On s'entraîne dedans, dehors, ou les deux dans la même matinée."
+  }
+}
