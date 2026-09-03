@@ -480,13 +480,36 @@ collections:
               - { name: equipmentValue, label: Equipment Value, widget: object, fields: *loc }
               - { name: trailLabel, label: Trail Label, widget: object, fields: *loc }
               - { name: stationsLabel, label: Word for "stations", widget: object, fields: *loc }
-          - name: navigation
-            label: In-page Links
+          - name: compare
+            label: The Drag-to-Reveal Panel
             widget: object
             fields:
-              - { name: label, label: Accessible Label, widget: object, fields: *loc }
-              - { name: trails, label: Link to Routes, widget: object, fields: *loc }
-              - { name: training, label: Link to Personal Training, widget: object, fields: *loc }
+              - { name: title, label: Section Title, widget: object, fields: *loc }
+              - { name: intro, label: Introductory Text, widget: object, fields: *loctext }
+              - { name: hint, label: Drag Hint, widget: object, fields: *loc }
+              - { name: ariaLabel, label: Slider Accessible Label, widget: object, fields: *loc }
+              - name: indoor
+                label: Left Pane (Indoors)
+                widget: object
+                fields:
+                  - { name: label, label: Pane Label, widget: object, fields: *loc }
+                  - { name: figure, label: Figure, widget: string, hint: 'Number only, for example 17' }
+                  - { name: unit, label: Unit, widget: object, fields: *loc }
+                  - { name: title, label: Title, widget: object, fields: *loc }
+                  - { name: body, label: One Supporting Line, widget: object, fields: *loctext }
+                  - { name: alt, label: Photo Description, widget: object, fields: *loctext }
+                  - { name: ctaLabel, label: Link Label, widget: object, fields: *loc }
+              - name: outdoor
+                label: Right Pane (Outdoors)
+                widget: object
+                fields:
+                  - { name: label, label: Pane Label, widget: object, fields: *loc }
+                  - { name: figure, label: Figure, widget: string, hint: 'Number only, for example 1516' }
+                  - { name: unit, label: Unit, widget: object, fields: *loc }
+                  - { name: title, label: Title, widget: object, fields: *loc }
+                  - { name: body, label: One Supporting Line, widget: object, fields: *loctext }
+                  - { name: alt, label: Photo Description, widget: object, fields: *loctext }
+                  - { name: ctaLabel, label: Link Label, widget: object, fields: *loc }
           - name: gym
             label: The Fitness Room
             widget: object
@@ -501,12 +524,6 @@ collections:
               - { name: altWide, label: Wide Photo Description, widget: object, fields: *loctext }
               - { name: altDetail, label: Detail Photo Description, widget: object, fields: *loctext }
               - { name: detailCaption, label: Detail Photo Caption, widget: object, fields: *loc }
-          - name: interlude
-            label: Full-width Trail Photograph
-            widget: object
-            fields:
-              - { name: caption, label: Caption, widget: object, fields: *loc }
-              - { name: alt, label: Accessible Image Description, widget: object, fields: *loctext }
           - name: training
             label: Personal Training
             widget: object
@@ -538,6 +555,8 @@ collections:
                   - { name: value, label: Figure, widget: string, hint: 'Number only, for example 1.6 or 925' }
                   - { name: unit, label: Unit, widget: object, fields: *loc, hint: 'Abbreviation differs by language, for example HRS / STD / ORE / H' }
                   - { name: name, label: Route Name, widget: object, fields: *loc }
+                  - { name: duration, label: Walking Time, widget: object, fields: *loc, hint: 'For example "2 h 15 up" — say whether it is one way or return' }
+                  - { name: access, label: Getting There, widget: object, fields: *loc, hint: 'For example "From the door" or "Funicular from Paradiso"' }
                   - { name: body, label: One Supporting Line, widget: object, fields: *loctext }
               - { name: note, label: Closing Note, widget: object, fields: *loctext }
 

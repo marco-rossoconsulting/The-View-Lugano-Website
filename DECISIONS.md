@@ -168,12 +168,81 @@ as the section name: it describes the room and excludes the hillside, which is
 the larger half of what the page is about.
 
 ## 21. Move page photography
-Five photographs were pulled from the property's media library into
+Six photographs were pulled from the property's media library into
 `src/assets/images/move/` as local originals (the direction DECISIONS §2 sets
 for the whole site): the hillside meadow behind the house, the fitness room,
 a Technogym detail, the wooded trail, and an outdoor training session on the
-parcours. The page references nothing from the CDN manifest, so it is already
-where §2 wants the rest of the site to end up.
+parcours, and the lake-view pool. The page references nothing from the CDN
+manifest, so it is already where §2 wants the rest of the site to end up.
 **[VERIFY]** The fitness-room and outdoor-training photographs are from the
 2018 shoot and show dated sportswear. If a newer shoot exists, replacing the
 files in place is the only change needed — the filenames carry the meaning.
+
+## 22. Move page: the drag-to-reveal panel
+The centre of the page is a comparison wipe — one photograph of the pool, one
+of the trail, a hairline divider the guest drags between them. It is adapted
+from the React Bits Pro "Comparison 7" block, the same way `SkewedCarousel`
+adapts that library's carousel: the interaction is taken, the implementation
+is not. Installing the block as published would have added React, Tailwind,
+Motion and lucide-react to a site whose central performance decision is that
+it ships no framework at all (§14). `CompareWipe.astro` is plain CSS and about
+eighty lines of vanilla script on the site's own tokens.
+
+Three deliberate departures from the reference:
+- it is not before/after. Neither side is the improved one, so the divider
+  rests at 50% and both panes are styled identically.
+- the copy is anchored to the outer edges (indoors bottom-left, outdoors
+  top-right) rather than centred in each pane, so a label is never wiped away
+  until its side genuinely is, and the offset reads as the site's asymmetry.
+- the handle carries the gallery lightbox's chevrons rather than an icon from
+  a library, since nothing else on this site is iconographic.
+
+The divider's position is a single registered custom property (`@property
+--cw-pos`, a `<percentage>`). Registration is what lets it ease: unregistered,
+a transition over `calc(100% - var(--cw-pos))` inside `clip-path` has no
+reliable interpolation. Where `@property` is unsupported the divider still
+moves, it just steps instead of gliding. Without JavaScript at all the panel
+renders at rest with both halves readable; only the handle and the drag hint
+are withheld.
+
+## 23. Move page: the 17-metre pool
+**[VERIFY]** The pool length is as stated by the property. It is attributed
+here to the indoor pool, which is the one shown in the photograph and the one
+the spa page already describes as having the lake behind the glass. Confirm
+that the 17 m refers to the indoor pool and not the outdoor one before launch;
+it appears in the wipe as a display figure, in the meta description, and in
+the Indoors copy.
+
+## 24. Move page: route figures and their sources
+The six routes carry published figures, each checked against a tourist-board
+or operator source rather than a blog:
+- **Vita Parcours** 1.6 km, 15 stations — Città di Lugano, as §19.
+- **Monte San Salvatore** 912 m; about 2 h up via Pazzallo, 1 h 15 and 632 m
+  down on the Lugano Region descent route; funicular 10 min from Paradiso.
+- **Sentiero dell'Olivo** 1 h 10, "Easy", 121 m of ascent (Lugano Region);
+  olive cultivation documented on this shore from 769 AD, and the eighteen
+  interpretive panels, per Switzerland Tourism and the City of Lugano. The
+  headline figure for this row is the date rather than an altitude, because
+  the walk is level and an altitude would say nothing about it.
+- **Monte Boglia** 1,516 m; the "mountain that dominates" round from Brè,
+  4 h 15, 870 m of ascent, graded difficult (Lugano Region).
+- **Denti della Vecchia** high point 1,478 m; circuit from Villa Luganese
+  13.2 km, 5 h 10, 951 m of ascent, T3.
+- **Monte Generoso** 1,704 m; nevère circuit 4.3 km, 1 h 45, "Easy"; rack
+  railway from 1890, summit building by Mario Botta, eleven drystone nevère;
+  the railway runs mid-March to early November.
+
+**[VERIFY] Denti della Vecchia.** The Outdooractive/Ticino listing for this
+circuit was flagged "currently closed (inaccessible area)" when the figures
+were gathered. The route's line on the page says outright that sections close
+and to ask first, and the closing note has the Ambassador checking what is
+open. Confirm the current status before launch.
+
+Monte Brè was researched and left off deliberately: its summit height is given
+as 915 m, 925 m and 933 m by three sources including two official ones, and a
+disputed number has no business being set at 4.6rem. Distances in km were also
+left off the Olive Trail, both San Salvatore routes and both Boglia routes,
+because the official pages leave that field blank.
+
+Everything above is in `src/content/move/move.json` and editable in Sveltia
+without a code change.

@@ -26,6 +26,17 @@ const localizedUrl = z.object({
   fr: z.string().url(),
 });
 
+// One side of the Move page's comparison wipe.
+const comparePane = z.object({
+  label: localized,
+  figure: z.string(),
+  unit: localized,
+  title: localized,
+  body: localized,
+  alt: localized,
+  ctaLabel: localized,
+});
+
 const photoRef = z.object({
   // A source may be an external URL or a stable local asset key resolved at
   // build time. Local keys retain readable, SEO-friendly names in content.
@@ -509,10 +520,17 @@ const move = defineCollection({
       trailLabel: localized,
       stationsLabel: localized,
     }),
-    navigation: z.object({
-      label: localized,
-      trails: localized,
-      training: localized,
+    // The draggable wipe. Two panes, one per choice, each carrying a figure
+    // and a link into the section that expands it. `figure` is a bare number
+    // (formatted per locale at render); `unit` is localized because the
+    // abbreviation differs (M / M / M / M, KM, HRS / STD / ORE / H).
+    compare: z.object({
+      title: localized,
+      intro: localized,
+      hint: localized,
+      ariaLabel: localized,
+      indoor: comparePane,
+      outdoor: comparePane,
     }),
     gym: z.object({
       eyebrow: localized,
@@ -522,10 +540,6 @@ const move = defineCollection({
       altWide: localized,
       altDetail: localized,
       detailCaption: localized,
-    }),
-    interlude: z.object({
-      caption: localized,
-      alt: localized,
     }),
     training: z.object({
       eyebrow: localized,
@@ -541,9 +555,11 @@ const move = defineCollection({
       })).min(1),
       ctaLabel: localized,
     }),
-    // Walking and running routes from the door. `value`/`unit` render as one
-    // figure the way the Location page's arrival ledger does; `body` is one
-    // supporting line, not prose.
+    // Walking and running routes. `value`/`unit` render as one figure the way
+    // the Location page's arrival ledger does — a summit altitude for the
+    // mountains, a length for the circuit. `duration` and `access` are the
+    // two things a guest decides on before anything else (how long, and can
+    // I start from here); `body` is one supporting line, not prose.
     trails: z.object({
       title: localized,
       intro: localized,
@@ -552,6 +568,8 @@ const move = defineCollection({
         value: z.string(),
         unit: localized,
         name: localized,
+        duration: localized,
+        access: localized,
         body: localized,
       })).min(3),
     }),

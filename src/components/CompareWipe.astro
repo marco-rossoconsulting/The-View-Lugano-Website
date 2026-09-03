@@ -1,0 +1,519 @@
+---
+// A draggable wipe between two photographs, each carrying its own short
+// pitch. Adapted from the React Bits Pro "Comparison 7" block to this
+// project's constraints: no client framework, no Tailwind, no animation
+// library — a CSS custom property drives clip-path, moved by a small
+// progressive-enhancement script, on the site's own tokens.
+//
+// Departures from the reference, all deliberate:
+//   · the two sides are not before/after but two equal choices, so neither
+//     pane is styled as the "correct" one and the divider rests at 50%;
+//   · content is anchored to the outer edges (indoor bottom-left, outdoor
+//     top-right) so the wipe never takes a label with it until that side is
+//     genuinely gone, and the offset reads as the site's asymmetry rather
+//     than a symmetric split;
+//   · the handle carries the gallery lightbox's chevrons instead of an icon
+//     from a library, since nothing else on this site is iconographic.
+//
+// Without JavaScript the divider stays at its rest position and both halves
+// are readable; only the handle and the drag hint are withheld.
+import Pic from './Pic.astro';
+import type { ImageMetadata } from 'astro';
+
+export interface ComparePane {
+  src: ImageMetadata;
+  alt: string;
+  label: string;
+  figure: string;
+  unit: string;
+  title: string;
+  body: string;
+  ctaLabel: string;
+  ctaHref: string;
+  /** object-position for the crop; the panel is wider than either source. */
+  focus?: string;
+}
+
+interface Props {
+  /** Revealed from the left edge; clipped by the divider. */
+  start: ComparePane;
+  /** The base layer, always full-bleed under the clip. */
+  end: ComparePane;
+  /** Accessible name for the slider control. */
+  ariaLabel: string;
+  /** Rendered under the panel once the script has enhanced it. */
+  hint: string;
+  /** Rest position of the divider, as a percentage. */
+  rest?: number;
+  imageWidth: number;
+  imageHeight: number;
+}
+
+const {
+  start,
+  end,
+  ariaLabel,
+  hint,
+  rest = 50,
+  imageWidth,
+  imageHeight,
+} = Astro.props;
+
+const restPos = Math.min(Math.max(rest, 0), 100);
+---
+
+<div class="cw" data-cw data-rest={restPos} style={`--cw-pos:${restPos}%`}>
+  <div
+    class="cw__stage"
+    data-cw-stage
+    style={`--cw-focus-start:${start.focus ?? '50% 50%'};--cw-focus-end:${end.focus ?? '50% 50%'}`}
+  >
+    {/* Base layer: the second choice, uncovered wherever the divider is not. */}
+    <div class="cw__pane cw__pane--end">
+      <Pic
+        src={end.src}
+        alt={end.alt}
+        width={imageWidth}
+        height={imageHeight}
+        widths={[720, 1080, 1440, 1920]}
+        sizes="100vw"
+        class="cw__img"
+      />
+      <div class="cw__scrim cw__scrim--end" aria-hidden="true"></div>
+      <div class="cw__copy cw__copy--end">
+        <p class="cw__label">{end.label}</p>
+        <p class="cw__figure">
+          <span class="cw__value">{end.figure}</span>
+          <span class="cw__unit">{end.unit}</span>
+        </p>
+        <h3 class="cw__title">{end.title}</h3>
+        <p class="cw__body">{end.body}</p>
+        <a class="cw__cta" href={end.ctaHref}>{end.ctaLabel}</a>
+      </div>
+    </div>
+
+    {/* Overlay layer: the first choice, clipped back to the divider. */}
+    <div class="cw__pane cw__pane--start" data-cw-clip>
+      <Pic
+        src={start.src}
+        alt={start.alt}
+        width={imageWidth}
+        height={imageHeight}
+        widths={[720, 1080, 1440, 1920]}
+        sizes="100vw"
+        class="cw__img"
+      />
+      <div class="cw__scrim cw__scrim--start" aria-hidden="true"></div>
+      <div class="cw__copy cw__copy--start">
+        <p class="cw__label">{start.label}</p>
+        <p class="cw__figure">
+          <span class="cw__value">{start.figure}</span>
+          <span class="cw__unit">{start.unit}</span>
+        </p>
+        <h3 class="cw__title">{start.title}</h3>
+        <p class="cw__body">{start.body}</p>
+        <a class="cw__cta" href={start.ctaHref}>{start.ctaLabel}</a>
+      </div>
+    </div>
+
+    <div class="cw__divider" data-cw-divider aria-hidden="true"></div>
+
+    <button
+      class="cw__handle"
+      type="button"
+      role="slider"
+      data-cw-handle
+      aria-label={ariaLabel}
+      aria-orientation="horizontal"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow={restPos}
+      aria-valuetext={`${start.label} ${restPos}%`}
+      hidden
+    >
+      <span aria-hidden="true">‹</span>
+      <span aria-hidden="true">›</span>
+    </button>
+  </div>
+
+  <p class="cw__hint" data-cw-hint hidden>{hint}</p>
+</div>
+
+<style>
+  /* The divider's position lives in one custom property, registered so that
+     it can be animated. Unregistered, it would still apply — but a transition
+     declared on `clip-path: inset(0 calc(100% - var(--cw-pos)) 0 0)` has a
+     calc() over a token the engine treats as a plain substitution, which is
+     not reliably interpolable. Registered as a <percentage>, the property
+     itself eases and clip, divider and handle all follow in one motion from
+     a single declaration. Where @property is unsupported the divider still
+     moves; it steps instead of gliding. */
+  @property --cw-pos {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+  }
+
+  .cw {
+    --cw-pos: 50%;
+    transition: --cw-pos 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  /* During a drag the divider must sit exactly under the pointer; easing here
+     reads as lag. Restored on release, so keyboard steps and the opening
+     sweep glide. */
+  .cw.is-dragging {
+    transition: none;
+  }
+  .cw__stage {
+    position: relative;
+    height: min(78svh, 44rem);
+    min-height: 24rem;
+    overflow: hidden;
+    background: var(--ink);
+    touch-action: pan-y;
+  }
+  .cw.is-ready .cw__stage {
+    cursor: ew-resize;
+  }
+  .cw__pane {
+    position: absolute;
+    inset: 0;
+  }
+  /* The clip is the whole mechanism: the overlay keeps only the strip from
+     the left edge to the divider. Everything else — divider, handle — simply
+     reads the same custom property, so they can never drift apart. */
+  .cw__pane--start {
+    clip-path: inset(0 calc(100% - var(--cw-pos)) 0 0);
+  }
+  .cw__pane :global(.cw__img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cw__pane--start :global(.cw__img) {
+    object-position: var(--cw-focus-start, 50% 50%);
+  }
+  .cw__pane--end :global(.cw__img) {
+    object-position: var(--cw-focus-end, 50% 50%);
+  }
+  .cw__scrim {
+    position: absolute;
+    inset: 0;
+  }
+  /* Each scrim darkens only the corner its own copy sits in, so the middle of
+     both photographs stays clean where the divider crosses it. */
+  .cw__scrim--start {
+    background: linear-gradient(
+      to top right,
+      rgb(51 41 26 / 0.86) 0%,
+      rgb(51 41 26 / 0.58) 22%,
+      rgb(51 41 26 / 0.22) 48%,
+      transparent 74%
+    );
+  }
+  .cw__scrim--end {
+    background: linear-gradient(
+      to bottom left,
+      rgb(51 41 26 / 0.88) 0%,
+      rgb(51 41 26 / 0.62) 22%,
+      rgb(51 41 26 / 0.24) 48%,
+      transparent 74%
+    );
+  }
+
+  .cw__copy {
+    position: absolute;
+    max-width: min(26rem, 46%);
+    color: #fff;
+    padding: clamp(1.5rem, 4vw, 3.25rem);
+  }
+  .cw__copy--start {
+    left: 0;
+    bottom: 0;
+  }
+  .cw__copy--end {
+    right: 0;
+    top: 0;
+    text-align: right;
+  }
+  .cw__label {
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 0.82);
+    margin: 0 0 0.9rem;
+  }
+  .cw__figure {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin: 0 0 0.5rem;
+  }
+  .cw__copy--end .cw__figure {
+    justify-content: flex-end;
+  }
+  .cw__value {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  .cw__unit {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 0.78);
+  }
+  .cw__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.05rem, 1.9vw, 1.4rem);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+  }
+  .cw__body {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgb(255 255 255 / 0.86);
+    margin: 0 0 1.1rem;
+    max-width: 32ch;
+  }
+  .cw__copy--end .cw__body {
+    margin-left: auto;
+  }
+  .cw__cta {
+    display: inline-block;
+    border-bottom: 1px solid rgb(255 255 255 / 0.55);
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding-bottom: 0.15rem;
+    transition: border-color 220ms ease, color 220ms ease;
+  }
+  .cw__cta:hover,
+  .cw__cta:focus-visible {
+    border-color: #fff;
+    color: rgb(255 255 255 / 0.78);
+  }
+
+  .cw__divider {
+    position: absolute;
+    inset-block: 0;
+    left: var(--cw-pos);
+    width: 1px;
+    margin-left: -0.5px;
+    background: rgb(255 255 255 / 0.9);
+    pointer-events: none;
+  }
+  .cw__handle {
+    position: absolute;
+    top: 50%;
+    left: var(--cw-pos);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    padding: 0;
+    border: 1px solid rgb(255 255 255 / 0.7);
+    border-radius: 50%;
+    background: rgb(51 41 26 / 0.42);
+    backdrop-filter: blur(3px);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: ew-resize;
+    touch-action: none;
+    transition: background-color 260ms ease, border-color 260ms ease;
+  }
+  .cw__handle:hover,
+  .cw__handle:focus-visible {
+    background: rgb(51 41 26 / 0.68);
+    border-color: #fff;
+  }
+  .cw__handle span {
+    display: block;
+    transform: translateY(-0.06em);
+  }
+
+  .cw__hint {
+    margin: var(--space-2) 0 0;
+    max-width: none;
+    text-align: center;
+    color: var(--clay);
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 760px) {
+    .cw__stage {
+      height: min(82svh, 40rem);
+    }
+    .cw__copy {
+      max-width: 62%;
+      padding: clamp(1.1rem, 4vw, 1.75rem);
+    }
+    /* Two full paragraphs will not sit side by side in a 390px panel without
+       one of them wrapping to a column of single words. The figure and the
+       title carry the idea; the supporting line is available in the sections
+       the two links lead to. */
+    .cw__body {
+      display: none;
+    }
+    .cw__label {
+      letter-spacing: 0.24em;
+      margin-bottom: 0.6rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cw,
+    .cw__handle,
+    .cw__cta {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const MIN = 0;
+  const MAX = 100;
+  const STEP = 5;
+
+  const setup = (root: HTMLElement) => {
+    const stage = root.querySelector<HTMLElement>('[data-cw-stage]');
+    const handle = root.querySelector<HTMLButtonElement>('[data-cw-handle]');
+    const hint = root.querySelector<HTMLElement>('[data-cw-hint]');
+    if (!stage || !handle) return;
+
+    const rest = Number(root.dataset.rest ?? 50);
+    const startLabel = root.querySelector<HTMLElement>('.cw__copy--start .cw__label')?.textContent ?? '';
+    let pos = rest;
+    let dragging = false;
+
+    const clamp = (value: number) => Math.min(MAX, Math.max(MIN, value));
+
+    const render = () => {
+      root.style.setProperty('--cw-pos', `${pos}%`);
+      const rounded = Math.round(pos);
+      handle.setAttribute('aria-valuenow', String(rounded));
+      handle.setAttribute('aria-valuetext', `${startLabel} ${rounded}%`);
+    };
+
+    const setFromClientX = (clientX: number) => {
+      const rect = stage.getBoundingClientRect();
+      if (rect.width === 0) return;
+      pos = clamp(((clientX - rect.left) / rect.width) * 100);
+      render();
+    };
+
+    const endDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      root.classList.remove('is-dragging');
+    };
+
+    stage.addEventListener('pointerdown', (event) => {
+      // A touch that lands anywhere but the handle is far more likely to be
+      // the start of a scroll than a drag, so only the handle claims it.
+      // Mouse and pen can grab the panel anywhere, which makes the whole
+      // photograph a target rather than a 52px circle.
+      const onHandle = handle.contains(event.target as Node);
+      if (event.pointerType === 'touch' && !onHandle) return;
+      dragging = true;
+      root.classList.add('is-dragging');
+      stage.setPointerCapture(event.pointerId);
+      setFromClientX(event.clientX);
+      event.preventDefault();
+    });
+    stage.addEventListener('pointermove', (event) => {
+      if (dragging) setFromClientX(event.clientX);
+    });
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', endDrag);
+    stage.addEventListener('lostpointercapture', endDrag);
+
+    handle.addEventListener('keydown', (event) => {
+      let next = pos;
+      switch (event.key) {
+        case 'ArrowLeft':
+        case 'ArrowDown':
+          next = pos - STEP;
+          break;
+        case 'ArrowRight':
+        case 'ArrowUp':
+          next = pos + STEP;
+          break;
+        case 'Home':
+          next = MIN;
+          break;
+        case 'End':
+          next = MAX;
+          break;
+        case 'PageDown':
+          next = pos - STEP * 2;
+          break;
+        case 'PageUp':
+          next = pos + STEP * 2;
+          break;
+        default:
+          return;
+      }
+      event.preventDefault();
+      pos = clamp(next);
+      render();
+    });
+
+    // The links inside the panes are ordinary navigation; a click on one must
+    // not be read as a grab of the divider.
+    root.querySelectorAll<HTMLAnchorElement>('.cw__cta').forEach((link) => {
+      link.addEventListener('pointerdown', (event) => event.stopPropagation());
+    });
+
+    root.classList.add('is-ready');
+    handle.hidden = false;
+    if (hint) hint.hidden = false;
+    render();
+
+    // One slow sweep the first time the panel is seen, so the divider is
+    // understood as something that moves before anyone has to guess. It runs
+    // once, returns to rest, and is skipped entirely under reduced motion.
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          io.disconnect();
+          window.setTimeout(() => {
+            if (dragging) return;
+            pos = clamp(rest + 12);
+            render();
+            window.setTimeout(() => {
+              if (dragging) return;
+              pos = rest;
+              render();
+            }, 900);
+          }, 420);
+        });
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(stage);
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-cw]').forEach(setup);
+</script>

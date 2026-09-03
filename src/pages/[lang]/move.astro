@@ -4,6 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Hero from '../../components/Hero.astro';
 import Pic from '../../components/Pic.astro';
+import CompareWipe from '../../components/CompareWipe.astro';
 import { localePaths, p, isLocale, formatFigure, type Locale } from '../../lib/i18n';
 import { breadcrumbJsonLd, gymJsonLd } from '../../lib/seo';
 import { SITE } from '../../lib/site';
@@ -14,6 +15,7 @@ import fitnessRoom from '../../assets/images/move/the-view-lugano-fitness-room-l
 import fitnessDetail from '../../assets/images/move/the-view-lugano-fitness-room-technogym.jpg';
 import trailRunning from '../../assets/images/move/the-view-lugano-trail-running-monte-san-salvatore.jpg';
 import outdoorTraining from '../../assets/images/move/the-view-lugano-outdoor-personal-training.jpg';
+import indoorPool from '../../assets/images/move/the-view-lugano-indoor-pool-lake-view.jpg';
 
 export function getStaticPaths() {
   return localePaths();
@@ -67,10 +69,6 @@ const contactUrl = p(lang, 'contact');
       <div class="move-intro__copy">
         <p class="page-intro fade-up">{page.intro[lang]}</p>
         <p class="page-note fade-up">{move.philosophy[lang]}</p>
-        <nav class="move-jump-links fade-up" aria-label={move.navigation.label[lang]}>
-          <a href="#training">{move.navigation.training[lang]}</a>
-          <a href="#trails">{move.navigation.trails[lang]}</a>
-        </nav>
       </div>
       <aside class="move-glance fade-up" aria-labelledby="move-glance-title">
         <h2 id="move-glance-title" class="move-glance__title">{move.glance.title[lang]}</h2>
@@ -96,10 +94,54 @@ const contactUrl = p(lang, 'contact');
     </div>
   </section>
 
+  {/* The choice, made physical. Dragging the divider is the page's one piece
+      of play; everything it reveals is answered in full by the two sections
+      the panes link to. */}
+  <section class="section move-compare">
+    <div class="container container--narrow">
+      <h2 class="section-title fade-up">{move.compare.title[lang]}</h2>
+      <p class="move-compare__intro fade-up">{move.compare.intro[lang]}</p>
+    </div>
+    <div class="fade-up">
+      <CompareWipe
+        ariaLabel={move.compare.ariaLabel[lang]}
+        hint={move.compare.hint[lang]}
+        imageWidth={2200}
+        imageHeight={1468}
+        start={{
+          src: indoorPool,
+          alt: move.compare.indoor.alt[lang],
+          label: move.compare.indoor.label[lang],
+          figure: formatFigure(move.compare.indoor.figure, lang),
+          unit: move.compare.indoor.unit[lang],
+          title: move.compare.indoor.title[lang],
+          body: move.compare.indoor.body[lang],
+          ctaLabel: move.compare.indoor.ctaLabel[lang],
+          ctaHref: '#indoors',
+          // The water and the swimmer sit low in the frame; centred, the
+          // panel crops to the window and the pool disappears.
+          focus: '50% 68%',
+        }}
+        end={{
+          src: trailRunning,
+          alt: move.compare.outdoor.alt[lang],
+          label: move.compare.outdoor.label[lang],
+          figure: formatFigure(move.compare.outdoor.figure, lang),
+          unit: move.compare.outdoor.unit[lang],
+          title: move.compare.outdoor.title[lang],
+          body: move.compare.outdoor.body[lang],
+          ctaLabel: move.compare.outdoor.ctaLabel[lang],
+          ctaHref: '#outdoors',
+          focus: '38% 50%',
+        }}
+      />
+    </div>
+  </section>
+
   {/* The room. One wide photograph, then the copy and the equipment beneath
       it in two columns — the photograph is the argument, the list is the
       answer to "what is actually in there". */}
-  <section class="section section--tortora move-gym">
+  <section id="indoors" class="section section--tortora move-gym">
     <div class="container">
       <div class="move-gym__photo fade-up">
         <Pic
@@ -137,19 +179,31 @@ const contactUrl = p(lang, 'contact');
     </div>
   </section>
 
-  {/* A photographic breath between the room and the hillside. */}
-  <section class="move-interlude fade-up">
-    <Pic
-      src={trailRunning}
-      alt={move.interlude.alt[lang]}
-      width={1417}
-      height={945}
-      widths={[640, 960, 1280, 1417]}
-      sizes="100vw"
-      class="move-interlude__img"
-    />
-    <div class="move-interlude__scrim" aria-hidden="true"></div>
-    <p class="move-interlude__caption">{move.interlude.caption[lang]}</p>
+  {/* Routes. A ledger, not a bulleted list: the figure carries the decision
+      (how long have I got?) and the line underneath explains the walk. */}
+  <section id="outdoors" class="section move-trails">
+    <div class="container">
+      <h2 class="section-title fade-up">{move.trails.title[lang]}</h2>
+      <p class="move-trails__intro fade-up">{move.trails.intro[lang]}</p>
+      <ol class="move-routes fade-up">
+        {move.trails.items.map((route) => (
+          <li class="move-route">
+            <p class="move-route__figure">
+              <span class="move-route__value">{formatFigure(route.value, lang)}</span>
+              <span class="move-route__unit">{route.unit[lang]}</span>
+            </p>
+            <h3 class="move-route__name">{route.name[lang]}</h3>
+            <p class="move-route__meta">
+              <span>{route.duration[lang]}</span>
+              <span aria-hidden="true">·</span>
+              <span>{route.access[lang]}</span>
+            </p>
+            <p class="move-route__body">{route.body[lang]}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="move-trails__note fade-up">{move.trails.note[lang]}</p>
+    </div>
   </section>
 
   {/* Personal training. Dark, like the Night Spa block on the spa page —
@@ -183,28 +237,6 @@ const contactUrl = p(lang, 'contact');
         </dl>
         <a class="btn btn--light" href={contactUrl}>{move.training.ctaLabel[lang]}</a>
       </div>
-    </div>
-  </section>
-
-  {/* Routes. A ledger, not a bulleted list: the figure carries the decision
-      (how long have I got?) and the line underneath explains the walk. */}
-  <section id="trails" class="section move-trails">
-    <div class="container">
-      <h2 class="section-title fade-up">{move.trails.title[lang]}</h2>
-      <p class="move-trails__intro fade-up">{move.trails.intro[lang]}</p>
-      <ol class="move-routes fade-up">
-        {move.trails.items.map((route) => (
-          <li class="move-route">
-            <p class="move-route__figure">
-              <span class="move-route__value">{formatFigure(route.value, lang)}</span>
-              <span class="move-route__unit">{route.unit[lang]}</span>
-            </p>
-            <h3 class="move-route__name">{route.name[lang]}</h3>
-            <p class="move-route__body">{route.body[lang]}</p>
-          </li>
-        ))}
-      </ol>
-      <p class="move-trails__note fade-up">{move.trails.note[lang]}</p>
     </div>
   </section>
 
@@ -247,26 +279,6 @@ const contactUrl = p(lang, 'contact');
     color: var(--clay);
     max-width: 56ch;
   }
-  .move-jump-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem 1.4rem;
-    margin-top: var(--space-3);
-  }
-  .move-jump-links a {
-    border-bottom: 1px solid var(--clay);
-    color: var(--ink);
-    font-family: var(--font-display);
-    font-size: 0.76rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    transition: border-color 220ms ease, color 220ms ease;
-  }
-  .move-jump-links a:hover,
-  .move-jump-links a:focus-visible {
-    border-color: var(--ink);
-    color: var(--clay);
-  }
   .move-glance__title {
     font-family: var(--font-display);
     font-weight: 400;
@@ -307,6 +319,14 @@ const contactUrl = p(lang, 'contact');
       grid-template-columns: 1fr;
       gap: var(--space-3);
     }
+  }
+
+  /* --- The wipe ---------------------------------------------------------
+     The panel itself is full-bleed and owns its layout; this section only
+     sets the copy above it. */
+  .move-compare__intro {
+    max-width: 56ch;
+    margin-bottom: var(--space-4);
   }
 
   /* --- The room: one wide photograph, then copy and equipment ---------- */
@@ -371,54 +391,6 @@ const contactUrl = p(lang, 'contact');
     .move-gym__detail {
       max-width: none;
     }
-  }
-
-  /* --- Full-bleed interlude -------------------------------------------- */
-  .move-interlude {
-    position: relative;
-    height: min(62svh, 40rem);
-    min-height: 20rem;
-    overflow: hidden;
-    background: var(--ink);
-  }
-  .move-interlude :global(.move-interlude__img) {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.06);
-    transition: transform 2.4s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-  .move-interlude.is-visible :global(.move-interlude__img) {
-    transform: scale(1);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .move-interlude :global(.move-interlude__img) {
-      transform: none;
-      transition: none;
-    }
-  }
-  .move-interlude__scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgb(51 41 26 / 0.72) 0%, rgb(51 41 26 / 0.34) 26%, rgb(51 41 26 / 0.06) 55%, transparent 75%);
-  }
-  .move-interlude__caption {
-    position: absolute;
-    inset-inline: 0;
-    bottom: clamp(1.5rem, 6vh, 3rem);
-    margin: 0 auto;
-    max-width: 34ch;
-    text-align: center;
-    padding-inline: clamp(1.25rem, 6vw, 5rem);
-    color: #fff;
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(1.05rem, 2.2vw, 1.5rem);
-    letter-spacing: 0.02em;
-    text-wrap: balance;
-    text-shadow: 0 1px 16px rgb(0 0 0 / 0.4);
   }
 
   /* --- Personal training ------------------------------------------------ */
@@ -551,7 +523,24 @@ const contactUrl = p(lang, 'contact');
     font-weight: 400;
     font-size: 1.05rem;
     letter-spacing: 0.02em;
-    margin: 0 0 0.4rem;
+    margin: 0 0 0.35rem;
+  }
+  /* How long, and can I start from here — the two things anyone picks a walk
+     on, set above the description rather than buried inside it. */
+  .move-route__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0.55rem;
+    margin: 0 0 0.5rem;
+    max-width: none;
+    color: var(--clay);
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .move-route__meta span[aria-hidden] {
+    opacity: 0.5;
   }
   .move-route__body {
     margin: 0;
@@ -579,9 +568,4 @@ const contactUrl = p(lang, 'contact');
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .move-jump-links a {
-      transition: none;
-    }
-  }
 </style>

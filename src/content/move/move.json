@@ -69,24 +69,108 @@
       "fr": "postes"
     }
   },
-  "navigation": {
-    "label": {
-      "en": "On this page",
-      "de": "Auf dieser Seite",
-      "it": "In questa pagina",
-      "fr": "Sur cette page"
+  "compare": {
+    "title": {
+      "en": "Two ways to move. Pull the line.",
+      "de": "Zwei Arten, sich zu bewegen. Ziehen Sie die Linie.",
+      "it": "Due modi di muoversi. Trascinate la linea.",
+      "fr": "Deux façons de bouger. Tirez la ligne."
     },
-    "trails": {
-      "en": "Routes from the door",
-      "de": "Wege ab der Haustür",
-      "it": "Percorsi dalla porta",
-      "fr": "Itinéraires depuis la porte"
+    "intro": {
+      "en": "One morning is seventeen metres of warm water and a machine that faces the lake. The other starts at the gate and goes uphill. The line between them is yours to move.",
+      "de": "Der eine Morgen sind siebzehn Meter warmes Wasser und ein Gerät mit Blick auf den See. Der andere beginnt am Tor und führt bergauf. Die Linie dazwischen verschieben Sie selbst.",
+      "it": "Una mattina sono diciassette metri di acqua calda e un attrezzo rivolto al lago. L'altra comincia al cancello e sale. La linea che le separa la spostate voi.",
+      "fr": "Un matin, ce sont dix-sept mètres d'eau chaude et un appareil face au lac. L'autre commence au portail et monte. La ligne entre les deux, c'est vous qui la déplacez."
     },
-    "training": {
-      "en": "Personal training",
-      "de": "Personal Training",
-      "it": "Personal training",
-      "fr": "Personal training"
+    "hint": {
+      "en": "Drag the handle, or use the arrow keys",
+      "de": "Griff ziehen oder die Pfeiltasten benutzen",
+      "it": "Trascinate la maniglia o usate i tasti freccia",
+      "fr": "Faites glisser la poignée ou utilisez les flèches"
+    },
+    "ariaLabel": {
+      "en": "Reveal indoors or outdoors",
+      "de": "Drinnen oder draussen einblenden",
+      "it": "Mostra dentro o fuori",
+      "fr": "Afficher dedans ou dehors"
+    },
+    "indoor": {
+      "label": {
+        "en": "Indoors",
+        "de": "Drinnen",
+        "it": "Dentro",
+        "fr": "Dedans"
+      },
+      "figure": "17",
+      "unit": {
+        "en": "M",
+        "de": "M",
+        "it": "M",
+        "fr": "M"
+      },
+      "title": {
+        "en": "Long enough to swim properly",
+        "de": "Lang genug, um richtig zu schwimmen",
+        "it": "Abbastanza lunga per nuotare davvero",
+        "fr": "Assez longue pour nager vraiment"
+      },
+      "body": {
+        "en": "Seventeen metres of heated water with the lake behind the glass, and the fitness room on the same level.",
+        "de": "Siebzehn Meter beheiztes Wasser, der See hinter dem Glas, und der Fitnessraum auf derselben Ebene.",
+        "it": "Diciassette metri di acqua riscaldata, il lago oltre il vetro, e la sala fitness sullo stesso piano.",
+        "fr": "Dix-sept mètres d'eau chauffée, le lac derrière la vitre, et la salle de fitness au même niveau."
+      },
+      "alt": {
+        "en": "A swimmer at the far end of the indoor pool, Lugano and the lake filling the window",
+        "de": "Eine Person schwimmt am hinteren Ende des Innenpools, Lugano und der See füllen das Fenster",
+        "it": "Una persona nuota in fondo alla piscina interna, Lugano e il lago riempiono la finestra",
+        "fr": "Une personne nage au fond de la piscine intérieure, Lugano et le lac remplissant la fenêtre"
+      },
+      "ctaLabel": {
+        "en": "The room and the pool",
+        "de": "Raum und Pool",
+        "it": "La sala e la piscina",
+        "fr": "La salle et la piscine"
+      }
+    },
+    "outdoor": {
+      "label": {
+        "en": "Outdoors",
+        "de": "Draussen",
+        "it": "Fuori",
+        "fr": "Dehors"
+      },
+      "figure": "912",
+      "unit": {
+        "en": "M",
+        "de": "M",
+        "it": "M",
+        "fr": "M"
+      },
+      "title": {
+        "en": "Uphill, straight from the gate",
+        "de": "Bergauf, direkt ab dem Tor",
+        "it": "In salita, direttamente dal cancello",
+        "fr": "En montée, directement depuis le portail"
+      },
+      "body": {
+        "en": "The summit of San Salvatore is two hours above the house, and the marked circuit that leads there begins on Via Guidino.",
+        "de": "Der Gipfel des San Salvatore liegt zwei Stunden über dem Haus, und der markierte Parcours dorthin beginnt an der Via Guidino.",
+        "it": "La vetta del San Salvatore è due ore sopra la casa, e il percorso segnalato che porta lassù comincia in Via Guidino.",
+        "fr": "Le sommet du San Salvatore est à deux heures au-dessus de la maison, et le parcours balisé qui y mène commence Via Guidino."
+      },
+      "alt": {
+        "en": "A runner on the wooded path on the slope of Monte San Salvatore",
+        "de": "Eine Person läuft auf dem Waldweg am Hang des Monte San Salvatore",
+        "it": "Una persona corre sul sentiero nel bosco sul fianco del Monte San Salvatore",
+        "fr": "Une personne courant sur le sentier boisé au flanc du Monte San Salvatore"
+      },
+      "ctaLabel": {
+        "en": "Routes from the door",
+        "de": "Wege ab der Haustür",
+        "it": "Percorsi dalla porta",
+        "fr": "Itinéraires depuis la porte"
+      }
     }
   },
   "gym": {
@@ -106,22 +190,26 @@
       "en": [
         "The fitness room sits on the terrace level, glazed along its full length. The cardio machines face out, so the treadmill looks across the Ceresio to the mountains instead of at a screen on a wall.",
         "Behind them, free weights, a functional floor and a mirrored wall. It is a small room for a house of eighteen suites, which is the point: most mornings you share it with one other person, and never with a queue.",
-        "The cardio consoles carry Technogym's interactive sessions, which adapt to the rhythm you hold. Scan the console with the Technogym app and the session stays with you after you leave."
+        "The cardio consoles carry Technogym's interactive sessions, which adapt to the rhythm you hold. Scan the console with the Technogym app and the session stays with you after you leave.",
+        "The pool is one level down, seventeen metres of it, heated and lit through the glass. Long enough that lengths are worth counting, and quiet enough that you rarely have to share a lane."
       ],
       "de": [
         "Der Fitnessraum liegt auf Terrassenebene und ist über die volle Länge verglast. Die Cardiogeräte sind nach aussen gerichtet: Das Laufband blickt über den Ceresio zu den Bergen statt auf einen Bildschirm an der Wand.",
         "Dahinter freie Gewichte, eine Funktionsfläche und eine Spiegelwand. Für ein Haus mit achtzehn Suiten ist der Raum klein, und genau das ist die Absicht: Meist teilen Sie ihn mit einer einzigen Person und nie mit einer Warteschlange.",
-        "Die Cardio-Konsolen führen die interaktiven Technogym-Einheiten, die sich Ihrem Rhythmus anpassen. Scannen Sie die Konsole mit der Technogym-App, und die Einheit bleibt Ihnen auch nach der Abreise erhalten."
+        "Die Cardio-Konsolen führen die interaktiven Technogym-Einheiten, die sich Ihrem Rhythmus anpassen. Scannen Sie die Konsole mit der Technogym-App, und die Einheit bleibt Ihnen auch nach der Abreise erhalten.",
+        "Der Pool liegt eine Ebene tiefer, siebzehn Meter lang, beheizt und vom Glas her belichtet. Lang genug, dass sich Bahnen zu zählen lohnt, und ruhig genug, dass man eine Bahn selten teilen muss."
       ],
       "it": [
         "La sala fitness si trova al livello della terrazza, vetrata per tutta la sua lunghezza. Le macchine cardio sono rivolte verso l'esterno: il tapis roulant guarda il Ceresio e le montagne, non uno schermo appeso al muro.",
         "Dietro, pesi liberi, un'area funzionale e una parete a specchio. Per una casa di diciotto suite è una sala piccola, ed è voluto: quasi ogni mattina la si condivide con una sola persona, mai con una fila.",
-        "Le console cardio propongono le sessioni interattive Technogym, che si adattano al ritmo che tenete. Scansionate la console con l'app Technogym e la sessione vi resta anche dopo la partenza."
+        "Le console cardio propongono le sessioni interattive Technogym, che si adattano al ritmo che tenete. Scansionate la console con l'app Technogym e la sessione vi resta anche dopo la partenza.",
+        "La piscina è un livello più sotto, diciassette metri, riscaldata e illuminata dalla vetrata. Abbastanza lunga perché valga la pena contare le vasche, e abbastanza tranquilla da non dover quasi mai dividere una corsia."
       ],
       "fr": [
         "La salle de fitness occupe le niveau de la terrasse, vitrée sur toute sa longueur. Les appareils de cardio sont tournés vers l'extérieur : le tapis de course regarde le Ceresio et les montagnes, pas un écran accroché au mur.",
         "Derrière, des poids libres, un espace fonctionnel et un mur de miroirs. Pour une maison de dix-huit suites, la salle est petite, et c'est voulu : la plupart des matins, vous la partagez avec une seule personne, jamais avec une file d'attente.",
-        "Les consoles cardio proposent les séances interactives Technogym, qui s'adaptent au rythme que vous tenez. Scannez la console avec l'application Technogym et la séance vous suit après le départ."
+        "Les consoles cardio proposent les séances interactives Technogym, qui s'adaptent au rythme que vous tenez. Scannez la console avec l'application Technogym et la séance vous suit après le départ.",
+        "La piscine est un niveau plus bas, dix-sept mètres, chauffée et éclairée par la verrière. Assez longue pour que les longueurs valent la peine d'être comptées, et assez calme pour n'avoir presque jamais à partager une ligne."
       ]
     },
     "facts": [
@@ -148,6 +236,12 @@
         "de": "Direkter Übergang zu Pool, Sauna und Salzraum",
         "it": "Passaggio diretto a piscina, sauna e sala del sale",
         "fr": "Accès direct à la piscine, au sauna et à la salle de sel"
+      },
+      {
+        "en": "A 17-metre heated pool on the spa level",
+        "de": "Ein 17 Meter langer, beheizter Pool auf der Spa-Ebene",
+        "it": "Una piscina riscaldata di 17 metri al livello della spa",
+        "fr": "Une piscine chauffée de 17 mètres au niveau du spa"
       }
     ],
     "altWide": {
@@ -167,20 +261,6 @@
       "de": "Technogym, nach aussen gerichtet",
       "it": "Technogym, rivolto all'esterno",
       "fr": "Technogym, tourné vers l'extérieur"
-    }
-  },
-  "interlude": {
-    "caption": {
-      "en": "The path leaves Via Guidino, and the woods take over.",
-      "de": "Der Weg verlässt die Via Guidino, und der Wald übernimmt.",
-      "it": "Il sentiero lascia Via Guidino, e il bosco prende il sopravvento.",
-      "fr": "Le sentier quitte la Via Guidino, et la forêt prend le relais."
-    },
-    "alt": {
-      "en": "A runner on the wooded path on the slope of Monte San Salvatore",
-      "de": "Eine Person läuft auf dem Waldweg am Hang des Monte San Salvatore",
-      "it": "Una persona corre sul sentiero nel bosco sul fianco del Monte San Salvatore",
-      "fr": "Une personne courant sur le sentier boisé au flanc du Monte San Salvatore"
     }
   },
   "training": {
@@ -265,16 +345,16 @@
   },
   "trails": {
     "title": {
-      "en": "Routes from the door",
-      "de": "Wege ab der Haustür",
-      "it": "Percorsi dalla porta",
-      "fr": "Itinéraires depuis la porte"
+      "en": "Six routes, in order of ambition",
+      "de": "Sechs Wege, nach Ehrgeiz geordnet",
+      "it": "Sei percorsi, in ordine di ambizione",
+      "fr": "Six itinéraires, par ordre d'ambition"
     },
     "intro": {
-      "en": "Four walks and runs that start without a car. The first one starts on the property's own street.",
-      "de": "Vier Wege zum Gehen und Laufen, die ohne Auto beginnen. Der erste beginnt an der Strasse des Hauses selbst.",
-      "it": "Quattro percorsi da camminare o correre che iniziano senza auto. Il primo comincia nella via stessa della casa.",
-      "fr": "Quatre marches et courses qui commencent sans voiture. La première commence dans la rue même de la maison."
+      "en": "The first begins on the property's own street. The last needs a train, a rack railway and most of a day.",
+      "de": "Der erste beginnt an der Strasse des Hauses selbst. Der letzte braucht einen Zug, eine Zahnradbahn und fast einen ganzen Tag.",
+      "it": "Il primo comincia nella via stessa della casa. L'ultimo richiede un treno, una ferrovia a cremagliera e quasi un'intera giornata.",
+      "fr": "Le premier commence dans la rue même de la maison. Le dernier demande un train, un chemin de fer à crémaillère et presque une journée entière."
     },
     "items": [
       {
@@ -291,6 +371,18 @@
           "it": "Vita Parcours, Via Guidino",
           "fr": "Vita Parcours, Via Guidino"
         },
+        "duration": {
+          "en": "About an hour",
+          "de": "Rund eine Stunde",
+          "it": "Circa un'ora",
+          "fr": "Environ une heure"
+        },
+        "access": {
+          "en": "From the door",
+          "de": "Ab der Haustür",
+          "it": "Dalla porta",
+          "fr": "Depuis la porte"
+        },
         "body": {
           "en": "Fifteen timber training stations laid out along the slope by the city, open to anyone, a few paces from the entrance.",
           "de": "Fünfzehn hölzerne Trainingsstationen, von der Stadt am Hang angelegt, für alle offen, wenige Schritte vom Eingang.",
@@ -299,49 +391,7 @@
         }
       },
       {
-        "value": "2",
-        "unit": {
-          "en": "HRS",
-          "de": "STD",
-          "it": "ORE",
-          "fr": "H"
-        },
-        "name": {
-          "en": "Monte San Salvatore",
-          "de": "Monte San Salvatore",
-          "it": "Monte San Salvatore",
-          "fr": "Monte San Salvatore"
-        },
-        "body": {
-          "en": "Up through Pazzallo and the woods to 912 metres, viewpoints on the way. The funicular from Paradiso brings you back down in twelve minutes.",
-          "de": "Hinauf durch Pazzallo und den Wald auf 912 Meter, mit Aussichtspunkten unterwegs. Die Standseilbahn ab Paradiso bringt Sie in zwölf Minuten zurück.",
-          "it": "Su per Pazzallo e il bosco fino a 912 metri, con punti panoramici lungo la salita. La funicolare da Paradiso riporta giù in dodici minuti.",
-          "fr": "En montant par Pazzallo et les bois jusqu'à 912 mètres, avec des points de vue en chemin. Le funiculaire de Paradiso vous ramène en douze minutes."
-        }
-      },
-      {
-        "value": "1",
-        "unit": {
-          "en": "HR",
-          "de": "STD",
-          "it": "ORA",
-          "fr": "H"
-        },
-        "name": {
-          "en": "Sentiero degli Ulivi",
-          "de": "Sentiero degli Ulivi",
-          "it": "Sentiero degli Ulivi",
-          "fr": "Sentiero degli Ulivi"
-        },
-        "body": {
-          "en": "Just over three kilometres of olive terraces along the shore, Castagnola to Gandria, level the whole way.",
-          "de": "Gut drei Kilometer Oliventerrassen am Ufer, von Castagnola nach Gandria, durchgehend eben.",
-          "it": "Poco più di tre chilometri di terrazze di ulivi lungo la riva, da Castagnola a Gandria, sempre in piano.",
-          "fr": "Un peu plus de trois kilomètres de terrasses d'oliviers au bord de l'eau, de Castagnola à Gandria, plat du début à la fin."
-        }
-      },
-      {
-        "value": "925",
+        "value": "912",
         "unit": {
           "en": "M",
           "de": "M",
@@ -349,24 +399,168 @@
           "fr": "M"
         },
         "name": {
-          "en": "Monte Brè",
-          "de": "Monte Brè",
-          "it": "Monte Brè",
-          "fr": "Monte Brè"
+          "en": "Monte San Salvatore",
+          "de": "Monte San Salvatore",
+          "it": "Monte San Salvatore",
+          "fr": "Monte San Salvatore"
+        },
+        "duration": {
+          "en": "2 h up, 1 h 15 down",
+          "de": "2 Std. hinauf, 1 Std. 15 hinunter",
+          "it": "2 ore in salita, 1 ora e 15 in discesa",
+          "fr": "2 h de montée, 1 h 15 de descente"
+        },
+        "access": {
+          "en": "Funicular in Paradiso",
+          "de": "Standseilbahn in Paradiso",
+          "it": "Funicolare a Paradiso",
+          "fr": "Funiculaire à Paradiso"
         },
         "body": {
-          "en": "The mountain across the bay, reached by the funicular at Cassarate and walked down to Gandria, where the olive trail begins.",
-          "de": "Der Berg auf der anderen Seite der Bucht, erreichbar mit der Standseilbahn in Cassarate und zu Fuss hinunter nach Gandria, wo der Olivenweg beginnt.",
-          "it": "La montagna dall'altra parte della baia, raggiungibile con la funicolare di Cassarate e percorsa a piedi in discesa fino a Gandria, dove comincia il sentiero degli ulivi.",
-          "fr": "La montagne de l'autre côté de la baie, atteinte par le funiculaire de Cassarate et descendue à pied jusqu'à Gandria, où commence le sentier des oliviers."
+          "en": "Up through Pazzallo to the chapel on the rock, or ride the funicular and walk the 632 metres back down. Either way it ends at the house.",
+          "de": "Hinauf durch Pazzallo zur Kapelle auf dem Fels — oder mit der Standseilbahn hoch und die 632 Meter zu Fuss hinunter. Beides endet am Haus.",
+          "it": "Su per Pazzallo fino alla cappella sulla roccia, oppure in funicolare e giù a piedi per 632 metri. In entrambi i casi si finisce a casa.",
+          "fr": "En montant par Pazzallo jusqu'à la chapelle sur le rocher, ou en funiculaire puis 632 mètres de descente à pied. Dans les deux cas, cela finit à la maison."
+        }
+      },
+      {
+        "value": "769",
+        "unit": {
+          "en": "AD",
+          "de": "N. CHR.",
+          "it": "D.C.",
+          "fr": "AP. J.-C."
+        },
+        "name": {
+          "en": "Sentiero dell'Olivo",
+          "de": "Sentiero dell'Olivo",
+          "it": "Sentiero dell'Olivo",
+          "fr": "Sentiero dell'Olivo"
+        },
+        "duration": {
+          "en": "1 h 10, easy",
+          "de": "1 Std. 10, leicht",
+          "it": "1 ora e 10, facile",
+          "fr": "1 h 10, facile"
+        },
+        "access": {
+          "en": "Bus or boat to Castagnola",
+          "de": "Bus oder Schiff nach Castagnola",
+          "it": "Bus o battello per Castagnola",
+          "fr": "Bus ou bateau pour Castagnola"
+        },
+        "body": {
+          "en": "Olives have been grown on this shore since the ninth century. Eighteen panels tell it, on a level path to the car-free village of Gandria.",
+          "de": "An diesem Ufer werden seit dem neunten Jahrhundert Oliven angebaut. Achtzehn Tafeln erzählen davon, auf einem ebenen Weg ins autofreie Gandria.",
+          "it": "Su questa riva si coltivano olive dal nono secolo. Lo raccontano diciotto pannelli, lungo un sentiero pianeggiante fino a Gandria, borgo senza auto.",
+          "fr": "On cultive l'olivier sur cette rive depuis le neuvième siècle. Dix-huit panneaux le racontent, sur un chemin plat jusqu'à Gandria, village sans voitures."
+        }
+      },
+      {
+        "value": "1516",
+        "unit": {
+          "en": "M",
+          "de": "M",
+          "it": "M",
+          "fr": "M"
+        },
+        "name": {
+          "en": "Monte Boglia",
+          "de": "Monte Boglia",
+          "it": "Monte Boglia",
+          "fr": "Monte Boglia"
+        },
+        "duration": {
+          "en": "4 h 15 round trip",
+          "de": "4 Std. 15 hin und zurück",
+          "it": "4 ore e 15 andata e ritorno",
+          "fr": "4 h 15 aller-retour"
+        },
+        "access": {
+          "en": "Funicular to Brè, then on foot",
+          "de": "Standseilbahn nach Brè, dann zu Fuss",
+          "it": "Funicolare per Brè, poi a piedi",
+          "fr": "Funiculaire pour Brè, puis à pied"
+        },
+        "body": {
+          "en": "The ridge above Brè: eight hundred and seventy metres of climb through beech forest, and the whole lake laid out at the top. A day, not a morning.",
+          "de": "Der Grat über Brè: achthundertsiebzig Höhenmeter durch Buchenwald, und oben der ganze See. Ein Tag, kein Vormittag.",
+          "it": "La cresta sopra Brè: ottocentosettanta metri di dislivello nel bosco di faggi, e in cima tutto il lago. Una giornata, non una mattina.",
+          "fr": "La crête au-dessus de Brè : huit cent soixante-dix mètres de dénivelé en forêt de hêtres, et tout le lac au sommet. Une journée, pas une matinée."
+        }
+      },
+      {
+        "value": "1478",
+        "unit": {
+          "en": "M",
+          "de": "M",
+          "it": "M",
+          "fr": "M"
+        },
+        "name": {
+          "en": "Denti della Vecchia",
+          "de": "Denti della Vecchia",
+          "it": "Denti della Vecchia",
+          "fr": "Denti della Vecchia"
+        },
+        "duration": {
+          "en": "5 h 10 round trip",
+          "de": "5 Std. 10 hin und zurück",
+          "it": "5 ore e 10 andata e ritorno",
+          "fr": "5 h 10 aller-retour"
+        },
+        "access": {
+          "en": "Bus to Villa Luganese",
+          "de": "Bus nach Villa Luganese",
+          "it": "Bus per Villa Luganese",
+          "fr": "Bus pour Villa Luganese"
+        },
+        "body": {
+          "en": "A row of dolomite towers on the Italian border, unusual this far south, reached through a beech reserve. Ask before you set out: sections close.",
+          "de": "Eine Reihe von Dolomittürmen an der italienischen Grenze, ungewöhnlich für den Süden, erreichbar durch ein Buchenreservat. Fragen Sie vorher nach: Abschnitte werden gesperrt.",
+          "it": "Una fila di torri dolomitiche sul confine italiano, insolite a queste latitudini, raggiunte attraverso una riserva di faggi. Informatevi prima di partire: alcuni tratti chiudono.",
+          "fr": "Une rangée de tours dolomitiques sur la frontière italienne, inhabituelles si au sud, atteintes par une réserve de hêtres. Renseignez-vous avant de partir : des tronçons ferment."
+        }
+      },
+      {
+        "value": "1704",
+        "unit": {
+          "en": "M",
+          "de": "M",
+          "it": "M",
+          "fr": "M"
+        },
+        "name": {
+          "en": "Monte Generoso",
+          "de": "Monte Generoso",
+          "it": "Monte Generoso",
+          "fr": "Monte Generoso"
+        },
+        "duration": {
+          "en": "1 h 45 on the ridge",
+          "de": "1 Std. 45 auf dem Grat",
+          "it": "1 ora e 45 in cresta",
+          "fr": "1 h 45 sur la crête"
+        },
+        "access": {
+          "en": "Train, then the rack railway",
+          "de": "Zug, dann die Zahnradbahn",
+          "it": "Treno, poi la cremagliera",
+          "fr": "Train, puis la crémaillère"
+        },
+        "body": {
+          "en": "The rack railway of 1890 does the climbing, up to Mario Botta's stone flower. The walk from there passes eleven drystone milk cellars. Mid-March to November.",
+          "de": "Die Zahnradbahn von 1890 übernimmt den Aufstieg, hinauf zu Mario Bottas steinerner Blume. Der Weg von dort führt an elf Trockenstein-Milchkellern vorbei. Mitte März bis November.",
+          "it": "La ferrovia a cremagliera del 1890 fa la salita, fino al fiore di pietra di Mario Botta. Il percorso da lì passa accanto a undici nevère in pietra a secco. Da metà marzo a novembre.",
+          "fr": "Le chemin de fer à crémaillère de 1890 fait la montée, jusqu'à la fleur de pierre de Mario Botta. Le sentier passe ensuite onze glacières en pierre sèche. De mi-mars à novembre."
         }
       }
     ],
     "note": {
-      "en": "Your Ambassador keeps the maps, knows which paths are dry, and will have breakfast packed if you leave before the kitchen opens.",
-      "de": "Ihr Ambassador verwahrt die Karten, weiss, welche Wege trocken sind, und lässt ein Frühstück einpacken, wenn Sie vor der Küche aufbrechen.",
-      "it": "Il vostro Ambassador custodisce le mappe, sa quali sentieri sono asciutti e fa preparare una colazione da portare se partite prima della cucina.",
-      "fr": "Votre Ambassador garde les cartes, sait quels sentiers sont secs et fait préparer un petit-déjeuner à emporter si vous partez avant la cuisine."
+      "en": "Your Ambassador keeps the maps, checks what is open and what is dry, and will have breakfast packed if you leave before the kitchen opens.",
+      "de": "Ihr Ambassador verwahrt die Karten, prüft, was offen und was trocken ist, und lässt ein Frühstück einpacken, wenn Sie vor der Küche aufbrechen.",
+      "it": "Il vostro Ambassador custodisce le mappe, verifica cosa è aperto e cosa è asciutto, e fa preparare una colazione da portare se partite prima della cucina.",
+      "fr": "Votre Ambassador garde les cartes, vérifie ce qui est ouvert et ce qui est sec, et fait préparer un petit-déjeuner à emporter si vous partez avant la cuisine."
     }
   }
 }
