@@ -1,0 +1,173 @@
+---
+// The arrival: on a guest's first visit of a session, the logo's three
+// interlocking rectangles draw themselves on marrone, then the panel opens in
+// horizontal slats like the house's wooden louvres to reveal the homepage.
+// About two seconds, skipped by any click, key, scroll or touch, never shown
+// with reduced motion, and it never delays loading: the hero renders
+// underneath. The 'arriving' class is set in Base.astro's <head> so the
+// overlay is in place before first paint.
+import { dict, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = dict(lang);
+const SLATS = 9;
+---
+
+<div class="arrival" data-arrival aria-hidden="true">
+  <div class="arrival__slats">
+    {Array.from({ length: SLATS }, (_, i) => <i style={`--n:${i}`}></i>)}
+  </div>
+  <div class="arrival__mark">
+    <!-- The logo's cross, redrawn from public/logo.png as centreline strokes on its own 398×606 grid -->
+    <svg class="arrival__cross" viewBox="0 0 398 606" fill="none" focusable="false">
+      <path pathLength="1" d="M158 12 H386 V157 H158 Z" />
+      <path pathLength="1" d="M12 157 H158 V302 H12 Z" />
+      <path pathLength="1" d="M158 302 H386 V594 H158 Z" />
+    </svg>
+    <p class="arrival__word"><span>THE VIEW</span><span>LUGANO</span></p>
+  </div>
+  <button type="button" class="arrival__skip" tabindex="-1">{t.common.skipIntro}</button>
+</div>
+
+<script>
+  const root = document.documentElement;
+  const el = document.querySelector<HTMLElement>('[data-arrival]');
+  if (el && root.classList.contains('arriving')) {
+    const finish = () => {
+      root.classList.remove('arriving', 'arrival-open');
+      el.remove();
+    };
+    const open = () => {
+      if (el.classList.contains('is-opening')) return;
+      el.classList.add('is-opening');
+      root.classList.add('arrival-open');
+      window.setTimeout(finish, 1300);
+    };
+    const timer = window.setTimeout(open, 1600);
+    const skip = () => {
+      window.clearTimeout(timer);
+      open();
+    };
+    el.addEventListener('click', skip);
+    window.addEventListener('keydown', skip, { once: true });
+    window.addEventListener('wheel', skip, { once: true, passive: true });
+    window.addEventListener('touchstart', skip, { once: true, passive: true });
+  } else if (el) {
+    el.remove();
+  }
+</script>
+
+<style>
+  .arrival {
+    display: none;
+  }
+  :global(html.arriving) {
+    overflow: hidden;
+  }
+  :global(html.arriving) .arrival {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  /* Hold the hero's own entrance until the louvres start to open. */
+  :global(html.arriving:not(.arrival-open) .hero *) {
+    animation-play-state: paused !important;
+  }
+
+  .arrival__slats {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: repeat(9, 1fr);
+  }
+  .arrival__slats i {
+    display: block;
+    margin-bottom: -1px;
+    background: var(--ink);
+    transform-origin: 50% 0%;
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--n) * 45ms);
+  }
+  .arrival__slats i:nth-child(even) {
+    background: color-mix(in srgb, var(--ink) 96%, var(--clay));
+  }
+  .arrival.is-opening .arrival__slats i {
+    transform: scaleY(0);
+  }
+
+  .arrival__mark {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(0.9rem, 1.6vw, 1.4rem);
+    color: var(--ground);
+    transition: opacity 500ms ease, transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .arrival.is-opening .arrival__mark {
+    opacity: 0;
+    transform: translateY(-1.5rem);
+  }
+  .arrival__cross {
+    flex: none;
+    width: clamp(46px, 5vw, 64px);
+    height: auto;
+    overflow: visible;
+  }
+  .arrival__cross path {
+    stroke: currentColor;
+    stroke-width: 20;
+    stroke-linecap: square;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: arrival-draw 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+  .arrival__cross path:nth-child(2) { animation-delay: 0.18s; }
+  .arrival__cross path:nth-child(3) { animation-delay: 0.36s; }
+  @keyframes arrival-draw {
+    to { stroke-dashoffset: 0; }
+  }
+  .arrival__word {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 -0.2rem;
+    font-family: var(--font-display);
+    line-height: 1.05;
+    opacity: 0;
+    animation: arrival-word 1s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+  }
+  .arrival__word span:first-child {
+    font-weight: 400;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    letter-spacing: 0.02em;
+  }
+  .arrival__word span:last-child {
+    font-weight: 300;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    letter-spacing: 0.04em;
+  }
+  @keyframes arrival-word {
+    from { opacity: 0; transform: translateX(-6px); }
+    to { opacity: 1; transform: none; }
+  }
+  .arrival__skip {
+    position: absolute;
+    right: clamp(1.25rem, 4vw, 3.5rem);
+    bottom: clamp(1.5rem, 4vh, 2.5rem);
+    background: none;
+    border: 0;
+    color: #c4bba8;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 400ms ease;
+  }
+  .arrival.is-opening .arrival__skip {
+    opacity: 0;
+  }
+</style>

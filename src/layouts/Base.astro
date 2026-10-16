@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
 import MobileQuickActions from '../components/MobileQuickActions.astro';
+import Arrival from '../components/Arrival.astro';
 import type { Locale } from '../lib/i18n';
 import '../styles/global.css';
 
@@ -15,16 +16,32 @@ interface Props {
   ogImage?: string;
   preloadImage?: string;
   overlayHeader?: boolean;
+  /** Show the louvre arrival animation (homepage, first visit of a session). */
+  arrival?: boolean;
 }
-const { lang, title, description, route, ogImage, preloadImage, overlayHeader = false } = Astro.props;
+const { lang, title, description, route, ogImage, preloadImage, overlayHeader = false, arrival = false } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
+    {arrival && (
+      <script is:inline>
+        // Before first paint: show the arrival once per session, never with
+        // reduced motion (see Arrival.astro).
+        (function () {
+          var seen = false;
+          try { seen = sessionStorage.getItem('tv_arrival') === '1'; } catch (e) {}
+          if (seen || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+          document.documentElement.classList.add('arriving');
+          try { sessionStorage.setItem('tv_arrival', '1'); } catch (e) {}
+        })();
+      </script>
+    )}
     <BaseHead {lang} {title} {description} {route} {ogImage} {preloadImage} />
   </head>
   <body>
+    {arrival && <Arrival {lang} />}
     <Header {lang} {route} overlay={overlayHeader} />
     <main id="main">
       <slot />
